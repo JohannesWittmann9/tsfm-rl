@@ -1,0 +1,31 @@
+[project]
+name = "tsfm-rl"
+version = "0.1.0"
+description = "Time-Series Foundation Models for Reinforcement Learning"
+readme = "README.md"
+authors = [
+    { name = "Johannes Wittmann", email = "johannes.wittmann1@gmx.de" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "chronos-forecasting>=2.3.1",
+    "citylearn==2.5.0",
+    "torch>=2.13.0",
+]
+
+[tool.uv.build-backend]
+module-name = "tsfmrl"
+
+[build-system]
+requires = ["uv_build>=0.11.32,<0.12.0"]
+build-backend = "uv_build"
+
+[tool.uv]
+override-dependencies = ["openstudio>=3.10.0"]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.6.1",
+    "pytest>=9.1.1",
+    "ruff>=0.16.0",
+]
