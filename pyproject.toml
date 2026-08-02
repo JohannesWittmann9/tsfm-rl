@@ -10,6 +10,9 @@ requires-python = ">=3.10"
 dependencies = [
     "chronos-forecasting>=2.3.1",
     "citylearn==2.5.0",
+    "matplotlib>=3.10.9",
+    "stable-baselines3==2.3.2",
+    "statsmodels>=0.14.6",
     "torch>=2.13.0",
 ]
 
@@ -26,6 +29,9 @@ override-dependencies = ["openstudio>=3.10.0"]
 [dependency-groups]
 dev = [
     "ipykernel>=7.3.0",
+    "ipywidgets>=8.1.8",
+    "nbdime>=4.0.4",
+    "nbstripout>=0.9.1",
     "pre-commit>=4.6.1",
     "pytest>=9.1.1",
     "ruff>=0.16.0",
