@@ -51,21 +51,23 @@ def state_to_obs(state: np.ndarray) -> np.ndarray:
     )
 
 
-def collect_random_dataset(n_episodes: int, seed: int = 0) -> dict:
+def collect_random_dataset(
+    n_episodes: int, seed: int = 0, episode_len: int = EPISODE_LEN
+) -> dict:
     """Roll out Pendulum-v1 with uniform random actions.
 
     Returns states (n_episodes, T+1, 2) from ``env.unwrapped.state`` (theta is
     never wrapped there, so the series are smooth) and actions
-    (n_episodes, T, 1). Deterministic given seed; T = 200.
+    (n_episodes, T, 1). Deterministic given seed; T = episode_len (default 200).
     """
     rng = np.random.default_rng(seed)
-    env = gym.make("Pendulum-v1")
-    states = np.zeros((n_episodes, EPISODE_LEN + 1, 2), dtype=np.float32)
-    actions = np.zeros((n_episodes, EPISODE_LEN, 1), dtype=np.float32)
+    env = gym.make("Pendulum-v1", max_episode_steps=episode_len)
+    states = np.zeros((n_episodes, episode_len + 1, 2), dtype=np.float32)
+    actions = np.zeros((n_episodes, episode_len, 1), dtype=np.float32)
     for ep in range(n_episodes):
         env.reset(seed=int(rng.integers(2**31)))
         states[ep, 0] = env.unwrapped.state
-        for t in range(EPISODE_LEN):
+        for t in range(episode_len):
             a = rng.uniform(-MAX_TORQUE, MAX_TORQUE, size=(1,)).astype(np.float32)
             env.step(a)
             actions[ep, t] = a
