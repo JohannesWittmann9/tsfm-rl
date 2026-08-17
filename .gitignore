@@ -216,3 +216,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# CityLearn experiment: model checkpoints (results/figures/parquet are committed)
+experiments/citylearn_exog_forecast/models/
