@@ -5,15 +5,15 @@ import numpy as np
 import pandas as pd
 import torch
 import gymnasium as gym
-from gymnasium import spaces
 
 import wandb
 from wandb.integration.sb3 import WandbCallback
 
 from chronos import Chronos2Pipeline
 from stable_baselines3 import PPO
+from stable_baselines3.common.utils import set_random_seed
 from citylearn.citylearn import CityLearnEnv
-from citylearn.wrappers import StableBaselines3Wrapper
+from citylearn.wrappers import NormalizedObservationWrapper, StableBaselines3Wrapper
 
 
 class CityLearnTSFMEnv(gym.Env):
@@ -21,8 +21,9 @@ class CityLearnTSFMEnv(gym.Env):
 
     def __init__(
         self,
+        schema="citylearn_challenge_2022_phase_1",
         context_length=16,
-        model_name="amazon/chronos-2",
+        pipeline=None,
         device="cuda",
         max_steps=720,
     ):
@@ -32,20 +33,15 @@ class CityLearnTSFMEnv(gym.Env):
         self.max_steps = max_steps
         self.current_step = 0
 
-        self._real_env = CityLearnEnv(
-            "citylearn_challenge_2023_phase_2_local_evaluation", central_agent=True
-        )
+        self._real_env = CityLearnEnv(schema, central_agent=True)
+        self.total_time_steps = self._real_env.time_steps
 
         self.observation_space = self._real_env.observation_space[0]
         self.action_space = self._real_env.action_space[0]
         self.obs_dim = self.observation_space.shape[0]
         self.act_dim = self.action_space.shape[0]
 
-        print(f"[CityLearnTSFMEnv] Loading TSFM World Model ({model_name}) on {device}...")
-        self.pipeline = Chronos2Pipeline.from_pretrained(
-            model_name,
-            device_map=self.device,
-        )
+        self.pipeline = pipeline
 
         self.obs_history = collections.deque(maxlen=self.context_length)
         self.action_history = collections.deque(maxlen=self.context_length)
@@ -74,9 +70,17 @@ class CityLearnTSFMEnv(gym.Env):
         self.obs_history.clear()
         self.action_history.clear()
 
+        # Reset simulator state
         real_obs_list, _ = self._real_env.reset(seed=seed)
+        
+        # Randomize starting point t_0 to sample all 4 seasons during training
+        max_possible_t0 = max(0, self.total_time_steps - self.max_steps - self.context_length - 10)
+        start_offset = int(np.random.randint(0, max_possible_t0)) if max_possible_t0 > 0 else 0
+        self._real_env.unwrapped.time_step = start_offset
+
         current_real_obs = np.array(real_obs_list[0], dtype=np.float32)
 
+        # Seed the sliding context window with K-1 warm-up steps
         for _ in range(self.context_length - 1):
             self.obs_history.append(current_real_obs.copy())
             action = self.action_space.sample()
@@ -132,7 +136,7 @@ class CityLearnTSFMEnv(gym.Env):
 
         next_obs_pred = prev_obs + raw_pred_delta
 
-        self._real_env.next_time_step()
+        self._real_env.next_time_step() # only advances the clock counter
         terminated = False
         dataset_truncated = self._real_env.time_step >= (self._real_env.time_steps - 1)
         step_truncated = self.current_step >= self.max_steps
@@ -143,9 +147,6 @@ class CityLearnTSFMEnv(gym.Env):
         self.action_history.append(action.copy())
 
         info = {}
-        if truncated:
-            info["kpis"] = self._real_env.evaluate()
-
         return next_obs_pred, reward, terminated, truncated, info
 
     def _compute_reward(self, predicted_obs):
@@ -225,20 +226,149 @@ class CityLearnTSFMEnv(gym.Env):
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Train PPO on CityLearn with Chronos-2 & W&B Tracking")
-    parser.add_argument("--timesteps", type=int, default=100000, help="Total PPO training timesteps")
+    parser = argparse.ArgumentParser(description="End-to-End Multi-Seed Training on TSFM Dream & Annual Deployment")
+    parser.add_argument("--timesteps", type=int, default=100000, help="Timesteps per seed")
     parser.add_argument("--context-length", type=int, default=16, help="TSFM context history window")
-    parser.add_argument("--model-name", type=str, default="amazon/chronos-2", help="Hugging Face repo or path")
-    parser.add_argument("--device", type=str, default="cuda", choices=["cuda", "cpu"], help="Inference device")
-    parser.add_argument("--eval-steps", type=int, default=1000, help="Steps for real env evaluation")
-    parser.add_argument("--output-dir", type=str, default="./results", help="Directory for artifacts")
+    parser.add_argument("--model-name", type=str, default="amazon/chronos-2")
+    parser.add_argument("--device", type=str, default="cuda", choices=["cuda", "cpu"])
+    parser.add_argument("--train-schema", type=str, default="citylearn_challenge_2023_phase_1")
+    parser.add_argument("--eval-schema", type=str, default="citylearn_challenge_2023_phase_1")
+    parser.add_argument(
+        "--seeds",
+        type=lambda s: [int(item.strip()) for item in s.split(",") if item.strip()],
+        default=[42, 123, 456, 789, 2026],
+        help="Comma-separated training/eval seeds (e.g., 42,123,456)",
+    )
+    parser.add_argument("--output-dir", type=str, default="./results")
 
-    # W&B Configuration Arguments
-    parser.add_argument("--wandb-project", type=str, default="CityLearn-TSFM-RL", help="W&B project name")
-    parser.add_argument("--wandb-group", type=str, default="chronos2-experiments", help="W&B group name")
-    parser.add_argument("--wandb-run-name", type=str, default=None, help="Optional specific run name")
+    # W&B Arguments
+    parser.add_argument("--wandb-project", type=str, default="CityLearn-TSFM-RL")
+    parser.add_argument("--wandb-group", type=str, default="e2e-multiseed-annual")
+    parser.add_argument("--wandb-run-name", type=str, default=None)
     return parser.parse_args()
 
+def run_multiseed_training(args, device, group_name):
+    # Preload the shared Chronos pipeline onto GPU once
+    print(f"\n[Chronos Setup] Pre-loading TSFM Pipeline ({args.model_name}) on {device}...")
+    pipeline = Chronos2Pipeline.from_pretrained(
+        args.model_name,
+        device_map=device,
+    )
+
+    seed_tables_dict = {}
+
+    for seed in args.seeds:
+        print(f"\n============================================================")
+        print(f"       STARTING END-TO-END TRAINING RUN: SEED {seed}       ")
+        print(f"============================================================")
+
+        run_name = f"seed_{seed}"
+        if args.wandb_run_name:
+            run_name = f"{args.wandb_run_name}_seed_{seed}"
+
+        run = wandb.init(
+            project=args.wandb_project,
+            group=group_name,
+            name=run_name,
+            config=dict(vars(args), current_seed=seed),
+            sync_tensorboard=True,
+            reinit=True,  # Allows re-initializing in a loop
+        )
+
+        set_random_seed(seed)
+
+        # Instantiate fresh TSFM World Model training environment
+        env_tsfm = CityLearnTSFMEnv(
+            schema=args.train_schema,
+            context_length=args.context_length,
+            pipeline=pipeline,
+            device=device,
+            max_steps=720,
+        )
+
+        # Instantiate and train independent PPO agent
+        tb_log_dir = f"runs/{run.id}_seed_{seed}"
+        ppo_model = PPO(
+            policy="MlpPolicy",
+            env=env_tsfm,
+            device="cpu",
+            seed=seed,
+            verbose=1,
+            tensorboard_log=tb_log_dir,
+        )
+
+        wandb_callback = WandbCallback(
+            gradient_save_freq=0,  # Speed up rollouts
+            verbose=2,
+        )
+
+        print(f"Training PPO policy from scratch for {args.timesteps} steps...")
+        ppo_model.learn(total_timesteps=args.timesteps, callback=wandb_callback,)
+
+        # Save checkpoint
+        checkpoint_path = os.path.join(args.output_dir, f"ppo_tsfm_seed_{seed}.zip")
+        ppo_model.save(checkpoint_path)
+
+        # Deterministic Annual Deployment (8,760 Steps) on Ground-Truth Simulator
+        print(f"\nDeploying Seed {seed} Policy on Full-Horizon Simulator...")
+        eval_env = CityLearnEnv(args.eval_schema, central_agent=True)
+        # eval_env = NormalizedObservationWrapper(eval_env)
+        eval_env = StableBaselines3Wrapper(eval_env)
+
+        observations, _ = eval_env.reset(seed=seed)
+        total_horizon = eval_env.unwrapped.time_steps
+        print(f"  Simulating Horizon: {total_horizon} hours")
+
+        done = False
+        step_count = 0
+
+        while not done:
+            action, _ = ppo_model.predict(observations, deterministic=True)
+            observations, _, terminated, truncated, _ = eval_env.step(action)
+            step_count += 1
+            done = terminated or truncated
+
+        print(f"  Seed {seed} deployment completed in {step_count} steps.")
+
+        # Extract Full Evaluation KPI Table
+        raw_kpis = eval_env.unwrapped.evaluate()
+        if "cost_function" in raw_kpis.columns and "name" in raw_kpis.columns and "value" in raw_kpis.columns:
+            pivoted_kpi = raw_kpis.pivot(index="cost_function", columns="name", values="value").astype(float)
+        else:
+            pivoted_kpi = raw_kpis.copy().astype(float)
+
+        seed_tables_dict[seed] = pivoted_kpi
+
+        # Log individual seed table to W&B
+        wandb.log({f"eval_tables/seed_{seed}_kpis": wandb.Table(dataframe=pivoted_kpi.reset_index())})
+        
+        # Log district metrics into this seed's summary for W&B Group aggregation
+        if "District" in pivoted_kpi.columns:
+            for cost_fn, val in pivoted_kpi["District"].items():
+                wandb.summary[f"eval_district/{cost_fn}"] = val
+        run.finish()
+
+    # =====================================================================
+    # Aggregate Metrics Across Seeds
+    # =====================================================================
+    all_seed_series = [df.stack(dropna=False) for df in seed_tables_dict.values()]
+    stacked_matrix = pd.concat(all_seed_series, axis=1)
+
+    mu_series = stacked_matrix.mean(axis=1)
+    sigma_series = stacked_matrix.std(axis=1, ddof=1).fillna(0.0)
+
+    summary_df = pd.DataFrame({
+        "Mean (μ)": mu_series.round(4),
+        "Std (σ)": sigma_series.round(4),
+        "μ ± σ": [f"{m:.4f} ± {s:.4f}" for m, s in zip(mu_series, sigma_series)]
+    }).reset_index()
+
+    # Robust column normalization across different pandas/pivot versions
+    first_col = summary_df.columns[0]
+    second_col = summary_df.columns[1]
+    summary_df.rename(columns={first_col: "cost_function", second_col: "entity"}, inplace=True)
+
+    return seed_tables_dict, summary_df
 
 def main():
     args = parse_args()
@@ -249,83 +379,41 @@ def main():
         print("[Warning] CUDA unavailable. Falling back to CPU.")
         device = "cpu"
 
-    # Initialize Weights & Biases
-    run = wandb.init(
+    group_name = args.wandb_group or f"e2e-multiseed-{os.getpid()}"
+
+    seed_tables, summary_df = run_multiseed_training(args, device, group_name)
+
+    print("\n============================================================")
+    print("      END-TO-END MULTI-SEED ANNUAL AGGREGATE RESULTS (μ ± σ)")
+    print("============================================================")
+    print(summary_df.to_string(index=False))
+    print("============================================================")
+
+    # Dedicated Summary Run for the entire group
+    summary_run_name = (
+        f"{args.wandb_run_name}_AGGREGATE"
+        if args.wandb_run_name
+        else "multiseed_aggregate_summary"
+    )
+
+    with wandb.init(
         project=args.wandb_project,
-        group=args.wandb_group,
-        name=args.wandb_run_name,
+        group=group_name,
+        name=summary_run_name,
+        job_type="evaluation_summary",
         config=vars(args),
-        sync_tensorboard=True,  # Syncs SB3 internal metrics automatically
-        monitor_gym=True,
-        save_code=True,
-    )
+    ) as agg_run:
+        
+        agg_run.log({"multiseed/aggregate_summary_table": wandb.Table(dataframe=summary_df)})
 
-    # Build TSFM World Model Environment
-    env_tsfm = CityLearnTSFMEnv(
-        context_length=args.context_length,
-        model_name=args.model_name,
-        device=device,
-    )
+        for _, row in summary_df.iterrows():
+            entity = str(row.get("entity", ""))
+            cost_fn = str(row.get("cost_function", ""))
+            if entity.lower() == "district":
+                agg_run.summary[f"district_mean/{cost_fn}"] = row["Mean (μ)"]
+                agg_run.summary[f"district_std/{cost_fn}"] = row["Std (σ)"]
 
-    # Train PPO Agent with WandbCallback
-    ppo_model_tsfm = PPO("MlpPolicy", env_tsfm, device="cpu", verbose=1, tensorboard_log=f"runs/{run.id}")
-    
-    wandb_callback = WandbCallback(
-        gradient_save_freq=1000,
-        model_save_path=os.path.join(args.output_dir, f"models/{run.id}"),
-        verbose=2,
-    )
-
-    print(f"Starting PPO training for {args.timesteps} timesteps...")
-    ppo_model_tsfm.learn(
-        total_timesteps=args.timesteps,
-        callback=wandb_callback,
-        progress_bar=False,
-    )
-    print("\n--- PPO training on CityLearnTSFMEnv complete ---")
-
-    # Save final model
-    final_model_path = os.path.join(args.output_dir, "ppo_citylearn_tsfm_final.zip")
-    ppo_model_tsfm.save(final_model_path)
-    wandb.save(final_model_path)
-
-    # Evaluate Agent in the Real Environment
-    print("\n--- Evaluating PPO agent on real CityLearn environment ---")
-    real_env = CityLearnEnv("citylearn_challenge_2023_phase_2_local_evaluation", central_agent=True)
-    real_env = StableBaselines3Wrapper(real_env)
-
-    observations_real, _ = real_env.reset()
-    done = False
-    step_count = 0
-
-    while not done and step_count < args.eval_steps:
-        actions_tsfm, _ = ppo_model_tsfm.predict(observations_real, deterministic=True)
-        observations_real, _, terminated, truncated, _ = real_env.step(actions_tsfm)
-        step_count += 1
-        done = terminated or truncated
-
-    print(f"Evaluation finished after {step_count} steps.")
-
-    # Extract KPIs and Log as a W&B Table
-    print("\n--- Real Environment KPIs ---")
-    kpis_raw = real_env.unwrapped.evaluate()
-    kpis_ppo = kpis_raw.pivot(index="cost_function", columns="name", values="value").round(3)
-    kpis_ppo = kpis_ppo.dropna(how="all")
-    print(kpis_ppo.to_string())
-
-    # Format table for W&B
-    kpis_reset = kpis_ppo.reset_index()
-    wandb_kpi_table = wandb.Table(dataframe=kpis_reset)
-    
-    # Log the table and individual aggregate metrics to the W&B run dashboard
-    wandb.log({"evaluation/kpis_table": wandb_kpi_table})
-
-    # Log summary aggregate scalars if present
-    if "District" in kpis_ppo.columns:
-        for cost_fn, val in kpis_ppo["District"].items():
-            wandb.summary[f"eval_district/{cost_fn}"] = val
-
-    wandb.finish()
+    print("Aggregate metrics successfully uploaded to Weights & Biases.")
 
 
 if __name__ == "__main__":
