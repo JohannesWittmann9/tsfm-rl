@@ -22,4 +22,18 @@ mkdir -p "$UV_CACHE_DIR" "$HF_HOME"
 
 uv sync
 cd experiments/citylearn_exog_forecast
+
+# CityLearn-Datensatz in ~/.cache/citylearn holen, falls noch nicht vorhanden
+uv run --no-sync python - <<'EOF'
+from pathlib import Path
+
+source_dir = (
+    Path.home() / ".cache/citylearn/v2.5.0/datasets/citylearn_challenge_2022_phase_1"
+)
+if not (source_dir / "Building_1.csv").exists():
+    from citylearn.data import DataSet
+
+    DataSet().get_dataset("citylearn_challenge_2022_phase_1")
+EOF
+
 uv run --no-sync python run_forecasts.py
