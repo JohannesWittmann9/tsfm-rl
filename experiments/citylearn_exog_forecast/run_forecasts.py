@@ -1,7 +1,7 @@
 """Step 1: precompute the Chronos forecast table and document forecast quality.
 
 Writes
-    data/chronos_forecasts.parquet   rolling forecasts, 8760 rows x 48 columns
+    data/chronos_forecasts.parquet   rolling forecasts, 8760 rows x 45 columns
     results/forecast_metrics.csv     MAE/RMSE per series/horizon/model
     figs/forecast_week.png           actual vs forecast, one held-out week
     figs/forecast_error.png          normalized error by horizon and model
@@ -72,7 +72,6 @@ def main():
         "outdoor_dry_bulb_temperature",
         "direct_solar_irradiance",
         "electricity_pricing",
-        "carbon_intensity",
         "Building_1:non_shiftable_load",
         "Building_1:solar_generation",
     ]
