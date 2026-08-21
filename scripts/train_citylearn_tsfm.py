@@ -21,7 +21,7 @@ class CityLearnTSFMEnv(gym.Env):
 
     def __init__(
         self,
-        schema="citylearn_challenge_2022_phase_1",
+        schema="citylearn_challenge_2023_phase_1",
         context_length=16,
         pipeline=None,
         device="cuda",
@@ -70,14 +70,8 @@ class CityLearnTSFMEnv(gym.Env):
         self.obs_history.clear()
         self.action_history.clear()
 
-        # Reset simulator state
+        # Clean standard reset of the base simulator
         real_obs_list, _ = self._real_env.reset(seed=seed)
-        
-        # Randomize starting point t_0 to sample all 4 seasons during training
-        max_possible_t0 = max(0, self.total_time_steps - self.max_steps - self.context_length - 10)
-        start_offset = int(np.random.randint(0, max_possible_t0)) if max_possible_t0 > 0 else 0
-        self._real_env.unwrapped.time_step = start_offset
-
         current_real_obs = np.array(real_obs_list[0], dtype=np.float32)
 
         # Seed the sliding context window with K-1 warm-up steps
@@ -298,18 +292,16 @@ def run_multiseed_training(args, device, group_name):
         )
 
         wandb_callback = WandbCallback(
-            gradient_save_freq=0,  # Speed up rollouts
+            gradient_save_freq=0, 
             verbose=2,
         )
 
         print(f"Training PPO policy from scratch for {args.timesteps} steps...")
         ppo_model.learn(total_timesteps=args.timesteps, callback=wandb_callback,)
 
-        # Save checkpoint
         checkpoint_path = os.path.join(args.output_dir, f"ppo_tsfm_seed_{seed}.zip")
         ppo_model.save(checkpoint_path)
 
-        # Deterministic Annual Deployment (8,760 Steps) on Ground-Truth Simulator
         print(f"\nDeploying Seed {seed} Policy on Full-Horizon Simulator...")
         eval_env = CityLearnEnv(args.eval_schema, central_agent=True)
         # eval_env = NormalizedObservationWrapper(eval_env)
@@ -339,18 +331,14 @@ def run_multiseed_training(args, device, group_name):
 
         seed_tables_dict[seed] = pivoted_kpi
 
-        # Log individual seed table to W&B
         wandb.log({f"eval_tables/seed_{seed}_kpis": wandb.Table(dataframe=pivoted_kpi.reset_index())})
         
-        # Log district metrics into this seed's summary for W&B Group aggregation
         if "District" in pivoted_kpi.columns:
             for cost_fn, val in pivoted_kpi["District"].items():
                 wandb.summary[f"eval_district/{cost_fn}"] = val
         run.finish()
 
-    # =====================================================================
     # Aggregate Metrics Across Seeds
-    # =====================================================================
     all_seed_series = [df.stack(dropna=False) for df in seed_tables_dict.values()]
     stacked_matrix = pd.concat(all_seed_series, axis=1)
 
@@ -363,7 +351,6 @@ def run_multiseed_training(args, device, group_name):
         "μ ± σ": [f"{m:.4f} ± {s:.4f}" for m, s in zip(mu_series, sigma_series)]
     }).reset_index()
 
-    # Robust column normalization across different pandas/pivot versions
     first_col = summary_df.columns[0]
     second_col = summary_df.columns[1]
     summary_df.rename(columns={first_col: "cost_function", second_col: "entity"}, inplace=True)
