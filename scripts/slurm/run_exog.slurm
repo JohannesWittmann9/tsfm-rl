@@ -25,5 +25,5 @@ export HF_HOME="/var/tmp/${USER}_hf_cache"
 mkdir -p "$UV_CACHE_DIR" "$HF_HOME"
 
 echo "=== citylearn_exog_forecast on $(hostname), job ${SLURM_JOB_ID} ==="
-bash experiments/citylearn_exog_forecast/scratch/run_all_parallel.sh
+bash experiments/citylearn_exog_forecast/run_all_parallel.sh
 echo "Job ${SLURM_JOB_ID} finished."
