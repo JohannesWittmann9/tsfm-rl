@@ -1,0 +1,7 @@
+{
+  "model_id": "autogluon/chronos-2-small",
+  "context_length": 512,
+  "prediction_length": 24,
+  "quantile": 0.5,
+  "chronos_version": "2.3.1"
+}

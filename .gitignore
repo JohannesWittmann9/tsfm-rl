@@ -219,3 +219,8 @@ __marimo__/
 
 # CityLearn experiment: model checkpoints (results/figures/parquet are committed)
 experiments/citylearn_exog_forecast/models/
+
+# Slurm logs
+logs/
+*.out
+*.err
