@@ -4,8 +4,8 @@
 #SBATCH --cpus-per-task=2
 #SBATCH --time=06:00:00
 #SBATCH --array=0-20%14
-#SBATCH --output=%x_%A_%a.out
-#SBATCH --error=%x_%A_%a.err
+#SBATCH --output=logs/%x_%A_%a.out
+#SBATCH --error=logs/%x_%A_%a.err
 
 # Step 2: one array task per SAC run (7 arms x 3 seeds = tasks 0-20).
 # Finished runs are skipped via the models/sac_<arm>_s<seed>.pt cache, so

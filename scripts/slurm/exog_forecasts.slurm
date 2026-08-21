@@ -3,8 +3,8 @@
 #SBATCH --partition=NvidiaAll
 #SBATCH --cpus-per-task=4
 #SBATCH --time=02:00:00
-#SBATCH --output=%x_%j.out
-#SBATCH --error=%x_%j.err
+#SBATCH --output=logs/%x_%j.out
+#SBATCH --error=logs/%x_%j.err
 
 # Step 1: precompute the Chronos forecast parquet (skipped if it already
 # exists). Also does the one-time `uv sync` so the training array can run
