@@ -339,21 +339,37 @@ def run_multiseed_training(args, device, group_name):
         run.finish()
 
     # Aggregate Metrics Across Seeds
-    all_seed_series = [df.stack(dropna=False) for df in seed_tables_dict.values()]
-    stacked_matrix = pd.concat(all_seed_series, axis=1)
+    combined_df = pd.concat(
+            seed_tables_dict.values(),
+            keys=seed_tables_dict.keys(),
+            names=["seed", "cost_function"],
+        )
+    
+    grouped = combined_df.groupby("cost_function")
+    mean_df = grouped.mean()
+    std_df = grouped.std(ddof=1).fillna(0.0)
 
-    mu_series = stacked_matrix.mean(axis=1)
-    sigma_series = stacked_matrix.std(axis=1, ddof=1).fillna(0.0)
+    mean_long = mean_df.reset_index().melt(
+        id_vars="cost_function", var_name="entity", value_name="Mean (μ)"
+    )
+    std_long = std_df.reset_index().melt(
+        id_vars="cost_function", var_name="entity", value_name="Std (σ)"
+    )
 
-    summary_df = pd.DataFrame({
-        "Mean (μ)": mu_series.round(4),
-        "Std (σ)": sigma_series.round(4),
-        "μ ± σ": [f"{m:.4f} ± {s:.4f}" for m, s in zip(mu_series, sigma_series)]
-    }).reset_index()
+    summary_df = pd.merge(mean_long, std_long, on=["cost_function", "entity"])
+    summary_df["Mean (μ)"] = summary_df["Mean (μ)"].round(4)
+    summary_df["Std (σ)"] = summary_df["Std (σ)"].round(4)
+    summary_df["μ ± σ"] = summary_df.apply(
+        lambda row: f"{row['Mean (μ)']:.4f} ± {row['Std (σ)']:.4f}"
+        if pd.notnull(row["Mean (μ)"])
+        else "N/A",
+        axis=1,
+    )
 
-    first_col = summary_df.columns[0]
-    second_col = summary_df.columns[1]
-    summary_df.rename(columns={first_col: "cost_function", second_col: "entity"}, inplace=True)
+    summary_df = summary_df[pd.notnull(summary_df["Mean (μ)"])].reset_index(drop=True)
+    summary_csv_path = os.path.join(args.output_dir, "modelfree_multiseed_summary.csv")
+    summary_df.to_csv(summary_csv_path, index=False)
+    print(f"\nSaved aggregate summary table to {summary_csv_path}")
 
     return seed_tables_dict, summary_df
 
