@@ -11,9 +11,15 @@ dependencies = [
     "chronos-forecasting>=2.3.1",
     "citylearn==2.5.0",
     "matplotlib>=3.10.9",
+    "minari>=0.5.3",
+    "pandas>=2.0",
+    "rliable>=1.2.0",
+    "scipy>=1.11",
     "stable-baselines3==2.3.2",
     "statsmodels>=0.14.6",
     "torch>=2.13.0",
+    "tqdm>=4.70.0",
+    "uni2ts>=1.1.1",
 ]
 
 [tool.uv.build-backend]
