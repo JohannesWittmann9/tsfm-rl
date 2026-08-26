@@ -47,7 +47,7 @@ MODELS = {
     "Chronos-2 L-syn": dict(
         kind="chronos",
         model_id="autogluon/chronos-2-synth",  # 119.0M, synthetic
-        color="#4a3aa7",
+        color="#1DA019",
         marker="D",
         cost=3.4,
     ),
@@ -79,9 +79,9 @@ TSFM_MODELS = [m for m, c in MODELS.items() if c["kind"] in TSFM_KINDS]
 # ---- which models appear where ----------------------------------------------
 PROBE_MODELS = list(TSFM_MODELS)  # section 2b (the presentation probe)
 GRID_MODELS = list(MODELS)  # section 5 (the hyperparameter tables)
-GRID_FULL = ["Chronos-2 S", "Moirai"]  # get the full presentation x r grid;
-# the rest get the differenced sweep
-# plus the two `level` reference points
+GRID_FULL = list(TSFM_MODELS)  # get the full presentation x r grid; anything
+# left out gets the differenced sweep plus
+# the two `level` reference points
 PLOT_MODELS = [
     "Chronos-2 S",
     "Chronos-2 S (level)",
@@ -95,16 +95,49 @@ PLOT_MODELS = [
 STRETCH_BUDGET = 256
 """The budget §5's stretch figure is drawn at."""
 
+# ---- how the last two figures are drawn -------------------------------------
+# Everything in this block is read when the figure is drawn, never when a stage
+# computes. Change one, re-run the notebook cell, and the figure changes: none of
+# it costs a recompute. A model left out here is still measured and still in the
+# CSV, it is only absent from the panel.
+SCALING_MODELS = None
+"""§6's models. None follows PLOT_MODELS."""
+
+ROLLOUT_MODELS = None
+"""§7's models. None follows PLOT_MODELS."""
+
+NMSE_YLIM = (1e-4, 2.0)
+"""The log band §6 and §7 are drawn in. Errors span six decades -- a linear axis
+collapses everything interesting and an unclipped log axis is mostly empty -- so
+a curve outside this band is pinned to the edge and flagged with a triangle."""
+
+SCALING_YLIM = None
+"""§6's own band, when it wants one. None follows NMSE_YLIM."""
+
+ROLLOUT_YLIM = None
+"""§7's own band, when it wants one. None follows NMSE_YLIM."""
+
+SCALE_PLOT_BUDGETS = None
+"""Which of the computed SCALE_BUDGETS §6 draws. None draws all of them."""
+
+ROLL_PLOT_H = None
+"""How far along the horizon §7 and §8 draw. None draws the whole computed
+ROLL_H, so raising ROLL_H can stay a compute decision and this stays the
+presentation one."""
+
 # --------------------------------------------------------------------- sweeps
 PRESENTATIONS = ["diff", "level"]
-STRETCH_R = [1, 2, 4, 8, 16]
+STRETCH_R = [1, 2, 4, 6, 8, 12, 16]
 # 1 and 2 are the zero-shot end: no context to speak of for a foundation model,
 # nothing to fit for a trained one. Most of those columns come out blank, and
 # what does not is the point of including them.
-HP_BUDGETS = [1, 2, 16, 64, 256, 1024, 4096]
+HP_BUDGETS = [1, 2, 4, 8, 16, 64, 256, 1024, 4096, 8192]
 SCALE_BUDGETS = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192]
-ROLL_BUDGETS = [64, 512, 4096]
-ROLL_H = 20
+ROLL_BUDGETS = [1, 2, 4, 8, 16, 64, 512, 1024, 2048, 4096]
+ROLL_PLOT_BUDGETS = [64, 512, 2048]
+"""Which of the computed ROLL_BUDGETS §7 draws -- it spends a row per budget and
+gets tall fast, so the sweep is wider than the figure. None draws all of them."""
+ROLL_H = 50
 TRAJ_BUDGET = 4096  # the budget the rollout trajectories (section 8) are drawn at
 TRAJ_WINDOWS = 3  # example windows kept per environment
 
@@ -121,20 +154,20 @@ SELECT_RULE = "mean_rank"
 # -------------------------------------------------------------------- protocol
 SEED = 0
 EPISODE_LEN = 200  # short episodes: figures 1, 1b, 4 and the 2b probe
-N_EPISODES = 30
+N_EPISODES = 50
 L = 64  # context window for the 2b probe, identical per model
 
 PROBE_WINDOWS = 96  # evaluation windows behind the probe
 PROBE_CTX = 96  # contexts the probe is averaged over
-HP_WINDOWS = 24  # evaluation windows for the grid -- the main cost lever
-ROLL_WINDOWS = 24
+HP_WINDOWS = 96  # evaluation windows for the grid -- the main cost lever
+ROLL_WINDOWS = 96  # evaluation windows for the rollout trajectories
 
 HP_EVAL_EPISODES = 48  # long contexts overlap, so one episode per window
 HP_POOL_EPISODES = 4  # only the first is used; the rest are slack
 HP_MARGIN = 32  # headroom between episode length and context
 
 CHRONOS_BATCH = 16  # series per pipeline call (compute only, not a result)
-MOIRAI_SAMPLES = 20  # Moirai is a sampling forecaster; median over N draws
+MOIRAI_SAMPLES = 10  # Moirai is a sampling forecaster; median over N draws
 CHRONOS_CTX = 8192  # Chronos-2 token limit
 MOIRAI_CTX = 5000  # no published limit; kept well inside memory
 

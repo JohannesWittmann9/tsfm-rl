@@ -147,15 +147,31 @@ def _write(df, env_id, stage):
     return df
 
 
-def _existing(env_id, stage, keys, force):
-    """Rows already computed, and the set of key tuples they cover."""
+def _existing(env_id, stage, keys, force, evalset):
+    """Rows already computed, and the set of key tuples they cover.
+
+    ``evalset`` names what the numbers were measured on -- how many evaluation
+    windows, at what context and horizon. Rows carrying a different one were
+    measured against a different set and are recomputed rather than resumed,
+    because otherwise a changed window count leaves two protocols on one axis.
+    """
     path = stage_path(env_id, stage)
     if force or not path.exists():
         return pd.DataFrame(), set()
     done = pd.read_csv(path)
     if not len(done) or not set(keys) <= set(done.columns):
         return pd.DataFrame(), set()
-    return done, set(map(tuple, done[list(keys)].astype(str).values))
+    fresh = (
+        done[done.evalset.astype(str) == evalset]
+        if "evalset" in done.columns
+        else done.iloc[:0]
+    )
+    if len(fresh) < len(done):
+        print(
+            f"{env_id}: {stage} -- {len(done) - len(fresh)} cached rows were "
+            f"measured on a different evaluation set ({evalset} now): recomputing"
+        )
+    return fresh, set(map(tuple, fresh[list(keys)].astype(str).values))
 
 
 def _drop_stale(done, have, best):
@@ -185,7 +201,8 @@ def run_probe(env_id, force=False):
     probe = spec["probe_actions"]
     r_env = config.DEFAULT_R[env_id]
 
-    done, have = _existing(env_id, "probe", ("condition", "model"), force)
+    ek = f"{len(idx)}of{len(ev)}w@{config.L}/{config.N_EPISODES}x{config.EPISODE_LEN}"
+    done, have = _existing(env_id, "probe", ("condition", "model"), force, ek)
     rows = []
     ref_curve, ref_slope = reference_response(ev, idx)
     if ("reference", "environment") not in have:
@@ -198,6 +215,7 @@ def run_probe(env_id, force=False):
                 action=float(a),
                 response=float(v),
                 slope_pct=100.0,
+                evalset=ek,
             )
             for a, v in zip(probe, ref_curve)
         ]
@@ -221,6 +239,7 @@ def run_probe(env_id, force=False):
                     action=float(a),
                     response=float(v),
                     slope_pct=pct,
+                    evalset=ek,
                 )
                 for a, v in zip(probe, curve)
             ]
@@ -272,7 +291,8 @@ def run_grid(env_id, force=False):
     spec, st = spec_of(env_id), study(env_id)
     ev, pool = st["ev"], st["pool"]
     plan = _grid_plan(env_id, st["budgets"])
-    done, have = _existing(env_id, "grid", ("variant", "budget"), force)
+    ek = f"{len(ev)}w@{st['ctx']}"
+    done, have = _existing(env_id, "grid", ("variant", "budget"), force, ek)
     todo = [p for p in plan if (p["variant"], str(p["budget"])) not in have]
     print(
         f"{env_id}: grid {len(plan)} cells, {len(todo)} to run, "
@@ -303,7 +323,7 @@ def run_grid(env_id, force=False):
                     val = score(m, ev, None)
                 except Exception:
                     val = np.nan  # undefined at this budget
-            rows.append({**p, "nmse": val, "seconds": time.time() - t0})
+            rows.append({**p, "nmse": val, "seconds": time.time() - t0, "evalset": ek})
             k += 1
             eta = (time.time() - t0_all) / k * (len(todo) - k)
             print(
@@ -385,7 +405,8 @@ def run_scaling(env_id, force=False):
     spec, st = spec_of(env_id), study(env_id)
     ev, pool = st["ev"], st["pool"]
     best = best_variants(load(env_id, "grid", compute=True), env_id)
-    done, have = _existing(env_id, "scaling", ("model", "budget"), force)
+    ek = f"{len(ev)}w@{st['ctx']}"
+    done, have = _existing(env_id, "scaling", ("model", "budget"), force, ek)
     done, have = _drop_stale(done, have, best)
     print(f"{env_id}: scaling over {st['scale_budgets']}")
 
@@ -416,6 +437,7 @@ def run_scaling(env_id, force=False):
                     budget=n,
                     r=r,
                     nmse=val,
+                    evalset=ek,
                 )
             )
             out.append(f"{name} " + (f"{val:.4f}" if np.isfinite(val) else "n/a"))
@@ -442,7 +464,8 @@ def run_rollout(env_id, force=False):
     budgets = [n for n in config.ROLL_BUDGETS if n <= cap]
     ev = EvalSet(spec, raw["states"], raw["actions"], L=cap, H=H, n=config.ROLL_WINDOWS)
     best = best_variants(load(env_id, "grid", compute=True), env_id)
-    done, have = _existing(env_id, "rollout", ("model", "budget"), force)
+    ek = f"{len(ev)}w@{cap}h{H}"
+    done, have = _existing(env_id, "rollout", ("model", "budget"), force, ek)
     done, have = _drop_stale(done, have, best)
     print(
         f"{env_id}: rollout H={H}, context to {cap}, {len(ev)} windows, "
@@ -484,6 +507,7 @@ def run_rollout(env_id, force=False):
                     r=r,
                     h=h + 1,
                     nmse=v,
+                    evalset=ek,
                 )
                 for h, v in enumerate(curve)
             ]
@@ -502,8 +526,11 @@ def run_traj(env_id, force=False):
     """The states behind section 7: ground truth and each model's prediction over
     the horizon, for a handful of windows at one budget."""
     spec, st = spec_of(env_id), study(env_id)
-    H, n = config.ROLL_H, config.TRAJ_BUDGET
+    H = config.ROLL_H
     cap = st["ctx"] - H
+    # clamped, so a panel labelled N is a panel the environment can actually
+    # deliver: Acrobot terminates early and its context stops short of 4096.
+    n = min(config.TRAJ_BUDGET, cap)
     ev = EvalSet(
         spec,
         st["ev_raw"]["states"],
@@ -515,7 +542,8 @@ def run_traj(env_id, force=False):
     keep = min(config.TRAJ_WINDOWS, len(ev))
     best = best_variants(load(env_id, "grid", compute=True), env_id)
     fit = take_transitions(st["pool"], n)
-    done, have = _existing(env_id, "traj", ("model",), force)
+    ek = f"{keep}w@{cap}h{H}N{n}"
+    done, have = _existing(env_id, "traj", ("model",), force, ek)
     print(f"{env_id}: trajectories at N={n}, {keep} windows, H={H}")
 
     rows = []
@@ -534,6 +562,7 @@ def run_traj(env_id, force=False):
                             channel=c,
                             label=lab,
                             value=float(ev.fs[w, h, c]),
+                            evalset=ek,
                         )
                     )
     for name in config.PLOT_MODELS:
@@ -568,6 +597,7 @@ def run_traj(env_id, force=False):
                             channel=c,
                             label=lab,
                             value=float(p[w, h, c]),
+                            evalset=ek,
                         )
                     )
         print(f"   {name:<20s} {b['variant']}", flush=True)

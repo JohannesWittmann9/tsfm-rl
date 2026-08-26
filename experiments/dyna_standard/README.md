@@ -5,7 +5,8 @@ on Pendulum, MountainCar, Acrobot and CartPole.
 
 Scripts compute and cache to `<env>/results/*.csv`; the notebooks only plot.
 All knobs — models, budgets, sweeps, which models the last two figures draw —
-live in `config.py`.
+live in `config.py`. [README_DEV.md](README_DEV.md) explains the procedure and
+every knob in it.
 
 ## Running it
 
@@ -25,14 +26,6 @@ python experiments/dyna_standard/run_all.py --windows 4 --probe-ctx 4 \
     --budgets 16 64 256 --models "Chronos-2 S" MLP VARX --results-dir results_smoke
 ```
 
-## Looking at the results
-
-Open `all_experiments.ipynb` for all four environments, or
-`<env>/<env>_experiment.ipynb` for one. Same sections either way — §1 the
-environments, §2b the action probe under four presentations, §5 the stretch sweep
-and the hyperparameter table, §6 context/data budget, §7 rollout error, §8 the
-rollout as states — and figures land in that notebook's `figures/` as PDF + PNG.
-To read a different results folder: `DYNA_RESULTS=results_smoke jupyter lab`.
 
 ## Using Chronos-2 with differencing and upsampling elsewhere
 

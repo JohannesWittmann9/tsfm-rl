@@ -67,11 +67,15 @@ STYLE = {
     for name, cfg in config.MODELS.items()
 }
 
-# Errors span six decades (1e-4 to several hundred, the top end produced by badly
-# over-parameterised fits at tiny budgets). A linear axis collapses everything
-# interesting, an unclipped log axis is mostly empty. So: log, clipped to the band
-# that carries the comparison, with anything pinned to an edge flagged.
-YLIM = (1e-4, 2.0)
+
+def ylim(which=None):
+    """The log band an error figure is drawn in, read from config at draw time.
+
+    ``which`` names a per-figure override (``SCALING_YLIM``, ``ROLLOUT_YLIM``);
+    unset, it falls back to the shared ``NMSE_YLIM``.
+    """
+    return (which and getattr(config, which)) or config.NMSE_YLIM
+
 
 # Which excerpt the two illustration figures draw. An environment overrides this
 # with an `illustration` entry in its `<env>/env.py`, because which window shows
@@ -124,8 +128,9 @@ def save(fig, name, outdir, caption=""):
     return fig
 
 
-def clipped_plot(ax, x, y, lo=YLIM[0], hi=YLIM[1], **kw):
+def clipped_plot(ax, x, y, lo=None, hi=None, **kw):
     """Line plot with out-of-range points pinned to the axis and flagged."""
+    lo, hi = (ylim()[0] if lo is None else lo), (ylim()[1] if hi is None else hi)
     x, y = np.asarray(x, float), np.asarray(y, float)
     ok = np.isfinite(y)
     x, y = x[ok], y[ok]
@@ -206,8 +211,11 @@ def _bottom_legend(fig, handles, n_panels):
     )
 
 
-def _plot_models(models_arg):
-    return list(models_arg if models_arg is not None else config.PLOT_MODELS)
+def _plot_models(models_arg, df=None):
+    """The models a figure draws, in config order, minus any the data has none
+    of -- a model that was never run must not claim a legend entry."""
+    names = list(models_arg if models_arg is not None else config.PLOT_MODELS)
+    return [n for n in names if df is None or (df.model == n).any()]
 
 
 # ------------------------------------------------------- 1  the environments
@@ -388,6 +396,18 @@ def fig_model_input(env_id, outdir, **over):
 
 
 # ------------------------------------------------------ 2b  the action probe
+def _centred(d):
+    """A stored probe curve, re-centred on its own mean.
+
+    ``evaluate._centre`` writes it that way and doing it twice changes nothing,
+    but a probe.csv written before that centred on the middle probe action --
+    which for an even grid like CartPole's two is the *last* action, leaving the
+    whole curve hanging below the zero line instead of straddling it.
+    """
+    v = d.response.to_numpy(float)
+    return v - v.mean()
+
+
 def fig_probe(probe, env_ids, outdir):
     """The counterfactual probe under four presentations of the same trajectory.
 
@@ -414,13 +434,13 @@ def fig_probe(probe, env_ids, outdir):
         for c_i, cond in enumerate(conds):
             ax = axes[r_i][c_i]
             ax.axhline(0, color=INK["rule"], lw=0.6)
-            ax.plot(ref.action, ref.response, "k--", lw=1.3, zorder=5)
+            ax.plot(ref.action, _centred(ref), "k--", lw=1.3, zorder=5)
             d_cond = d_env[d_env.condition == cond]
             for j, tag in enumerate(tags):
                 d = d_cond[d_cond.model == tag].sort_values("action")
                 if d.empty:
                     continue
-                ax.plot(d.action, d.response, ms=3.5, **STYLE[tag])
+                ax.plot(d.action, _centred(d), ms=3.5, **STYLE[tag])
                 # the slope, in the panel, in the model's own colour: the number
                 # the curve is making a claim about
                 ax.text(
@@ -734,7 +754,10 @@ def fig_scaling(scaling, env_ids, outdir, plot_models=None):
     the same policy. Read it for **where the curves cross**: that is the number of
     transitions the pretrained model saves you.
     """
-    names = [n for n in _plot_models(plot_models) if (scaling.model == n).any()]
+    names = _plot_models(plot_models or config.SCALING_MODELS, scaling)
+    band = ylim("SCALING_YLIM")
+    if config.SCALE_PLOT_BUDGETS:
+        scaling = scaling[scaling.budget.isin(config.SCALE_PLOT_BUDGETS)]
     fig, axes = plt.subplots(
         1, len(env_ids), figsize=(_width(len(env_ids)), 2.9), sharey=True, squeeze=False
     )
@@ -751,6 +774,8 @@ def fig_scaling(scaling, env_ids, outdir, plot_models=None):
                 d.budget,
                 d.nmse,
                 ms=3,
+                lo=band[0],
+                hi=band[1],
                 **st,
                 markerfacecolor="white" if tsfm else st["color"],
                 ls=(0, (4, 2)) if tsfm else "-",
@@ -776,7 +801,7 @@ def fig_scaling(scaling, env_ids, outdir, plot_models=None):
                 fontsize=6.5,
                 color=INK["muted"],
             )
-        ax.set(xscale="log", yscale="log", ylim=YLIM)
+        ax.set(xscale="log", yscale="log", ylim=band)
         b_all = sorted(s.budget.unique())
         ax.set_xlim(min(b_all) * 0.75, max(b_all) * 1.35)
         logticks(
@@ -818,9 +843,17 @@ def fig_rollout(rollout, env_ids, outdir, plot_models=None, budgets=None):
     every horizon, so where a curve crosses that line the model has stopped being
     useful for planning.
     """
-    names = [n for n in _plot_models(plot_models) if (rollout.model == n).any()]
-    budgets = sorted(rollout.budget.unique()) if budgets is None else list(budgets)
+    names = _plot_models(plot_models or config.ROLLOUT_MODELS, rollout)
+    band = ylim("ROLLOUT_YLIM")
+    have = sorted(rollout.budget.unique())
+    if budgets is None:
+        budgets = config.ROLL_PLOT_BUDGETS or have
+    budgets = [n for n in budgets if n in have] or have
     H = int(rollout.h.max())
+    if config.ROLL_PLOT_H:
+        H = min(H, int(config.ROLL_PLOT_H))
+        rollout = rollout[rollout.h <= H]
+    mark = max(1, round(H / 4))
     fig, axes = plt.subplots(
         len(budgets),
         len(env_ids),
@@ -844,12 +877,14 @@ def fig_rollout(rollout, env_ids, outdir, plot_models=None, budgets=None):
                     d.h,
                     d.nmse,
                     ms=3,
-                    markevery=5,
+                    markevery=mark,
+                    lo=band[0],
+                    hi=band[1],
                     **st,
                     markerfacecolor="white" if tsfm else st["color"],
                     ls=(0, (4, 2)) if tsfm else "-",
                 )
-            ax.set(yscale="log", ylim=YLIM, xlim=(1, H))
+            ax.set(yscale="log", ylim=band, xlim=(1, H))
             ax.xaxis.set_major_locator(MaxNLocator(integer=True))
             ax.tick_params(labelsize=7)
             axgrid(ax)
@@ -908,8 +943,11 @@ def fig_trajectories(traj, env_id, outdir):
     windows from the same evaluation set section 7 scores.
     """
     d_env = traj[traj.env == env_id]
+    if config.ROLL_PLOT_H:
+        d_env = d_env[d_env.h <= config.ROLL_PLOT_H]
     if d_env.empty:
         raise ValueError(f"no trajectory rows for {env_id}")
+    mark = max(1, round(d_env.h.max() / 4))
     windows = sorted(d_env.window.unique())
     channels = sorted(d_env.channel.unique())
     labels = {c: d_env[d_env.channel == c].label.iloc[0] for c in channels}
@@ -937,7 +975,7 @@ def fig_trajectories(traj, env_id, outdir):
                     dm.h,
                     dm.value,
                     ms=2.5,
-                    markevery=5,
+                    markevery=mark,
                     **STYLE[name],
                     ls=(0, (4, 2)),
                     markerfacecolor="white",

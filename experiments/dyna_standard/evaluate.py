@@ -73,11 +73,12 @@ def probe_indices(ev, n_ctx=None, seed=None):
 
 
 def _centre(curves, probe):
-    """Mean response across contexts, centred on the middle probe action, plus the
-    slope of the response in the action."""
-    mid = len(probe) // 2
+    """Mean response across contexts, plus the slope of the response in the
+    action. The curve is only meaningful up to an offset, so it is centred on its
+    own mean -- centring on a middle sample has no middle to pick when the probe
+    grid has an even number of actions, as CartPole's two do."""
     return (
-        (curves - curves[:, mid : mid + 1]).mean(0),
+        (curves - curves.mean(1, keepdims=True)).mean(0),
         float(np.polyfit(probe, curves.T, 1)[0].mean()),
     )
 
