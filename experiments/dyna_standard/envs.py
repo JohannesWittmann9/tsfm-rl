@@ -43,7 +43,7 @@ def _load(folder):
 
 # The environments of the study, in the order every figure and table uses them.
 # Adding one is a folder with an ``env.py`` in it plus a name in this list.
-ENV_LIST = [_load(d) for d in ("pendulum", "mountaincar", "cartpole")]  # "acrobot"
+ENV_LIST = [_load(d) for d in ("pendulum", "mountaincar", "acrobot", "cartpole")]
 
 ENV_CONFIG = {c["env_id"]: c for c in ENV_LIST}
 ENV_IDS = list(ENV_CONFIG)
