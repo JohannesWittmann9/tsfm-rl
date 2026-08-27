@@ -16,6 +16,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import models
 import numpy as np
+import pandas as pd
 import pipeline
 from matplotlib.ticker import (
     FixedLocator,
@@ -112,6 +113,20 @@ def model_label(name, presentation=None, r=None, lag=None):
     if presentation in (None, "-") or r in (None, 0):
         return f"{name} (lag {lag})" if lag not in (None, -1, 0) else name
     return f"{name} ({presentation}, r={int(r)})"
+
+
+def variant_fields(name, env_id, variant):
+    """``presentation``/``r``/``lag`` for a named variant, from the model itself.
+
+    §8's table is stored lean -- it is one row per channel per step per window
+    per variant, so it carries `variant` and nothing derivable from it. The
+    fields come back from ``models.variants`` rather than from parsing that
+    string, so the two can never drift apart.
+    """
+    for v in models.variants(name, env_id):
+        if v["variant"] == variant:
+            return v
+    return {}
 
 
 def label_of(row):
@@ -981,7 +996,7 @@ def fig_stretch(grid, env_ids, outdir, budget=None):
 
 
 # --------------------------------------------- 6  context and data budget
-def fig_scaling(scaling, env_ids, outdir, plot_models=None):
+def fig_scaling(grid, env_ids, outdir, plot_models=None):
     """One-step error against the amount of data each model was given.
 
     N is the whole context for the foundation models and the number of fitted
@@ -989,9 +1004,10 @@ def fig_scaling(scaling, env_ids, outdir, plot_models=None):
     the same policy. Read it for **where the curves cross**: that is the number of
     transitions the pretrained model saves you.
     """
-    names = _plot_models(plot_models or config.SCALING_MODELS, scaling)
+    names = _plot_models(plot_models or config.SCALING_MODELS, grid)
     band = ylim("SCALING_YLIM")
-    chosen, drawn = _chosen(scaling, env_ids), {}
+    chosen, drawn = _chosen(grid, env_ids), {}
+    scaling = grid.dropna(subset=["nmse"])
     if config.SCALE_PLOT_BUDGETS:
         scaling = scaling[scaling.budget.isin(config.SCALE_PLOT_BUDGETS)]
     fig, axes = plt.subplots(
@@ -1019,27 +1035,9 @@ def fig_scaling(scaling, env_ids, outdir, plot_models=None):
                 markerfacecolor="white" if tsfm else st["color"],
                 ls=(0, (4, 2)) if tsfm else "-",
             )
-        # mark where the stretch factor had to fall below the selected one
-        drops = []
-        for name in names:
-            d = s[(s.model == name) & (s.r > 0)]
-            fell = d[d.r < d.r.max()] if len(d) else d
-            if len(fell):
-                drops.append(int(fell.budget.min()))
-        if drops:
-            ax.axvline(min(drops), color=INK["rule"], lw=0.8, ls=(0, (1, 3)))
-            ax.annotate(
-                "$r$ reduced",
-                xy=(min(drops), 1),
-                xycoords=("data", "axes fraction"),
-                xytext=(3, -4),
-                textcoords="offset points",
-                rotation=90,
-                ha="left",
-                va="top",
-                fontsize=6.5,
-                color=INK["muted"],
-            )
+        # No "r reduced" rule any more. The grid *skips* a variant that does
+        # not fit rather than quietly running a smaller r, so a curve labelled
+        # r=12 is r=12 for its whole length and simply stops where it stops.
         ax.set(xscale="log", yscale="log", ylim=band)
         b_all = sorted(s.budget.unique())
         ax.set_xlim(min(b_all) * 0.75, max(b_all) * 1.35)
@@ -1067,7 +1065,10 @@ def fig_scaling(scaling, env_ids, outdir, plot_models=None):
         "fig6_scaling",
         outdir,
         "How much data each model gets, on one axis, each model in the "
-        "configuration named in its legend entry. For the "
+        "configuration named in its legend entry -- chosen off \u00a76a, and "
+        "changed by editing config.PLOT_VARIANTS rather than by re-measuring "
+        "anything. A curve ends where its stretched context stops fitting. "
+        "For the "
         "foundation models $N$ is the whole context; for the others it is "
         "the number of transitions fitted on, drawn from episodes of the "
         "same length under the same policy.",
@@ -1255,7 +1256,7 @@ def fig_rollout_configs(rollout, env_ids, outdir, budget=None, model_names=None)
 
 
 # ------------------------------------------------- 8  the rollout, as states
-def fig_trajectories(traj, env_id, outdir):
+def fig_trajectories(traj, env_id, outdir, budget=None, plot_models=None):
     """Ground truth and each model's prediction over the horizon, on the states
     themselves rather than on an error.
 
@@ -1263,18 +1264,79 @@ def fig_trajectories(traj, env_id, outdir):
     phase lag, a damped amplitude, a drift off the manifold all look identical in
     NMSE and different here. Rows are observation channels, columns are example
     windows from the same evaluation set section 7 scores.
+
+    Two knobs, both read here rather than when anything was measured, because the
+    rollout kept these states for every variant it ran:
+
+    ``budget``            which N, defaulting to ``config.TRAJ_BUDGET``
+    ``PLOT_VARIANTS``     which configuration of each model, as in §6 and §7
+
+    A combination the rollout never measured raises, naming what is available,
+    rather than quietly dropping a model out of the panel.
     """
     d_env = traj[traj.env == env_id]
+    if d_env.empty:
+        raise ValueError(
+            f"no trajectory rows for {env_id}. The rollout stage writes these "
+            f"for the budgets in config.TRAJ_BUDGETS -- run it, or add the "
+            f"budget you want there and re-run it with --force."
+        )
+
+    budget = int(budget or config.TRAJ_BUDGET)
+    have_budgets = sorted(int(b) for b in d_env.budget.unique() if b)
+    if budget not in have_budgets:
+        raise ValueError(
+            f"{env_id}: no trajectory states at N={budget}. Measured budgets are "
+            f"{have_budgets} (config.TRAJ_BUDGETS was {config.TRAJ_BUDGETS} when "
+            f"the rollout ran). Set config.TRAJ_BUDGET to one of them, or add "
+            f"N={budget} to TRAJ_BUDGETS and re-run the rollout with --force."
+        )
+    # truth is stored once, under budget 0, because it does not depend on either
+    d_env = d_env[(d_env.budget == budget) | (d_env.model == "truth")]
+
     if config.ROLL_PLOT_H:
         d_env = d_env[d_env.h <= config.ROLL_PLOT_H]
-    if d_env.empty:
-        raise ValueError(f"no trajectory rows for {env_id}")
+
+    # one variant per model, the same choice §6 and §7 make
+    chosen = _chosen(d_env, [env_id])
+    names, missing = [], []
+    for name in plot_models or config.PLOT_MODELS:
+        d = d_env[d_env.model == name]
+        if d.empty:
+            continue
+        want = (chosen or {}).get((env_id, name))
+        if want is not None and want not in set(d.variant):
+            missing.append((name, want, sorted(d.variant.unique())))
+            continue
+        names.append(name)
+    if missing:
+        detail = "\n".join(
+            f"    {m}: asked for {w!r}, measured at N={budget}: {got}"
+            for m, w, got in missing
+        )
+        raise ValueError(
+            f"{env_id}: config.PLOT_VARIANTS names configurations the rollout "
+            f"did not measure at N={budget}:\n{detail}\n"
+            f"  Stretching eats the context, so a large r may only exist at the "
+            f"smaller budgets -- pick another N, or another variant."
+        )
+    d_env = pd.concat(
+        [d_env[d_env.model == "truth"]]
+        + [_one_variant(d_env[d_env.model == n], env_id, n, chosen) for n in names]
+    )
+
     mark = max(1, round(d_env.h.max() / 4))
     windows = sorted(d_env.window.unique())
     channels = sorted(d_env.channel.unique())
-    labels = {c: d_env[d_env.channel == c].label.iloc[0] for c in channels}
-    names = [n for n in config.PLOT_MODELS if (d_env.model == n).any()]
-    budget = int(d_env.budget.iloc[0])
+    spec = pipeline.spec_of(env_id)
+    labels = {c: spec.labels[c] for c in channels}
+    drawn = {
+        n: {
+            "model": n,
+            **variant_fields(n, env_id, d_env[d_env.model == n].variant.iloc[0]),
+        }
+        for n in names
+    }
 
     fig, axes = plt.subplots(
         len(channels),
@@ -1311,7 +1373,7 @@ def fig_trajectories(traj, env_id, outdir):
             if r_i == len(channels) - 1 and c_i == len(windows) // 2:
                 ax.set_xlabel("horizon $h$", fontsize=8)
     h = [plt.Line2D([], [], color=INK["text"], lw=1.6, label="ground truth")]
-    h += [_model_line(n) for n in names]
+    h += [_line_for(n, drawn) for n in names]
     fig.align_ylabels()
     fig.tight_layout(w_pad=0.8, h_pad=0.4)
     _bottom_legend(fig, h, len(windows))

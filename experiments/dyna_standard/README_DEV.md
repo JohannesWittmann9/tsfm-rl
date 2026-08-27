@@ -59,7 +59,7 @@ produced `ctx_s[:, t]`**, and `fut_a[:, 0]` drives the first predicted step.
 | used by | context length | horizon | windows |
 |---|---|---|---|
 | §2b probe | `L` = 64 | 1 | `PROBE_WINDOWS` = 96, averaged over `PROBE_CTX` = 96 contexts |
-| grid (§5), scaling (§6) | `ctx` | 1 | `HP_WINDOWS` = 96 |
+| grid (§5, §6) | `ctx` | 1 | `HP_WINDOWS` = 96 |
 | rollout (§7), trajectories (§8) | `ctx − ROLL_H` | `ROLL_H` = 50 | `ROLL_WINDOWS` = 32 |
 
 All windows are drawn once, with `SEED` = 0, and every model and every budget sees
@@ -117,12 +117,12 @@ VARX rows, where stretching has no meaning.
 
 Stretching does not count against the budget — N real samples become `(N−1)r + 1`
 tokens, which is a processing choice, not more data — but it does consume context.
-Combinations that would overflow `CHRONOS_CTX` / `MOIRAI_CTX` are **skipped** in
-the grid and in §7, so a row labelled `r=16` is never quietly a different r. §7
-also counts the forecast: stretching multiplies the prediction length too, so
-`fits_context` checks `(N-1)r + 1 + H·r`, not just the context. §6 is the one
-sweep that still falls back to the largest r that fits (`usable_r`), because it
-draws a single curve per model and marks where the fallback happened.
+Combinations that would overflow `CHRONOS_CTX` / `MOIRAI_CTX` are **skipped**,
+never run at a smaller r, so a row labelled `r=16` is never quietly a different
+r and a §6 curve simply ends where its stretched context stops fitting. §7 also
+counts the forecast: stretching multiplies the prediction length too, so
+`fits_context` checks `(N-1)r + 1 + H·r`, not just the context. (`usable_r`
+survives for `traj` only.)
 
 ### Which variant carries into §6, §7 and §8
 
@@ -144,20 +144,26 @@ drawn in, per environment or for all of them, in the same dict shape as
 `MODELS[...]["fixed"]`. A variant the model does not have raises rather than
 falling back. `pipeline.selection(envs)` is the resulting table — it is what §5b
 displays and what §6 and §7 filter on, and each row is tagged `selected` or
-`manual`. Free in §7, because `rollout.csv` holds every variant; §6 needs one
-`--stages scaling` re-run, which resumes and computes only the new cells.
+`manual`. Free in **both** §6 and §7: `grid.csv` and `rollout.csv` each hold every
+variant, so neither figure has a measurement of its own to redo. Pick the
+configuration off §6a and §7a, name it here, re-run the two cells.
 
 ## 4. The stages
+
+> **§6 was its own stage until the grid absorbed it.** `scaling.csv` measured one
+> selected variant on a finer budget axis -- against the same evaluation windows,
+> with the same metric, under the same `evalset` key -- so more than half of it
+> recomputed grid cells verbatim. `HP_BUDGETS = SCALE_BUDGETS` now, the grid
+> covers the whole axis, and §6 is `grid.csv` filtered to one variant per model.
 
 Each writes one CSV per environment into `<env>/results/`. Every stage resumes.
 
 | stage | what it computes | key columns |
 |---|---|---|
 | `probe` | §2b: same contexts, same probe actions, four presentations | `condition, model, r, action, response, slope_pct` |
-| `grid` | §5: every model, every variant, every budget in `HP_BUDGETS` | `variant, presentation, r, lag, budget, nmse, seconds` |
-| `scaling` | §6: the selected variant per model over `SCALE_BUDGETS` | `model, variant, presentation, r, lag, budget, nmse` |
-| `rollout` | §7: open loop to `ROLL_H`, **every variant**, at each of `ROLL_BUDGETS` | `model, variant, presentation, r, lag, budget, h, nmse` |
-| `traj` | §8: the predicted states themselves, `TRAJ_WINDOWS` windows at `TRAJ_BUDGET` | `model, window, h, channel, label, value` |
+| `grid` | §5 **and** §6: every model, every variant, every budget in `SCALE_BUDGETS` | `variant, presentation, r, lag, budget, nmse, seconds` |
+| `rollout` | §7 **and** §8: open loop to `ROLL_H`, **every variant**, at each of `ROLL_BUDGETS`; also writes `traj.csv` | `model, variant, presentation, r, lag, budget, h, nmse` |
+| `traj` | §8: written **by the rollout**, not its own stage — the raw predicted states for every variant at each of `TRAJ_BUDGETS` | `model, variant, budget, window, h, channel, value` |
 
 The **probe** holds each context fixed, sweeps the next action over the
 environment's `probe_actions` grid, and records how far the predicted next value
@@ -184,7 +190,7 @@ costs.
 | `HP_BUDGETS` | [1, 2, 16, 64, 256, 1024, 4096] | §5's columns. 1 and 2 are the zero-shot end; most of those cells come out blank and what does not is the point |
 | `SCALE_BUDGETS` | [1 … 8192] | §6's x axis. Also sets the context length, so changing it invalidates the grid |
 | `ROLL_BUDGETS` | [64, 512, 1024, 2048, 4096] | which budgets §7 is computed at |
-| `ROLL_H` | 50 | rollout horizon. Changing it re-stamps `rollout` and `traj` only -- the grid and scaling survive, since their windows do not depend on it |
+| `ROLL_H` | 50 | rollout horizon. Changing it re-stamps `rollout` and `traj` only -- the grid survives, since its windows do not depend on it |
 | `TRAJ_BUDGET`, `TRAJ_WINDOWS` | 4096, 3 | §8's budget (clamped to what the env can serve) and how many windows it keeps |
 | `HP_WINDOWS`, `ROLL_WINDOWS` | 96, 96 | evaluation windows. **The main cost lever** |
 | `PROBE_WINDOWS`, `PROBE_CTX` | 96, 96 | the probe's window pool and how many contexts it averages |

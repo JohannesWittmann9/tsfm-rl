@@ -30,14 +30,6 @@ ILLUSTRATION_ENV = "Pendulum-v1"
 # marker    identity is carried by shape too, never by colour alone
 # lags      trained models only: the history lengths swept in the grid
 #
-# The colours are one validated categorical set, not seven free choices: every
-# pair that can land in the same panel clears the colour-blind (OKLab dE >= 8
-# under simulated protan/deutan), normal-vision (dE >= 15) and 3:1 contrast-on-
-# white gates. The one deliberate exception is the grey reference, which is
-# meant to read as neutral and is told apart by its marker and legend entry.
-# The two greens are the tight pair, so they sit on the two models that never
-# share a figure (`Chronos-2 L-syn` is probe-only, `MLP` is sections 6-7 only);
-# swapping a colour means re-checking, not just picking a nicer hex.
 MODELS = {
     "Chronos-2 S": dict(
         kind="chronos",
@@ -95,6 +87,7 @@ PLOT_MODELS = [
     "Chronos-2 S",
     "Chronos-2 S (level)",
     "Chronos-2 L",
+    "Chronos-2 L-syn",
     "Moirai",
     "MLP",
     "VARX",
@@ -141,9 +134,10 @@ model does not have raises, naming the ones it does -- a typo must not quietly
 redraw a different curve.
 
 Free in §7: `rollout.csv` holds every variant, so the override is applied when the
-figure is drawn. §6 costs one `--stages scaling` re-run, because `scaling.csv`
-carries the selected variant only; that run resumes, so it computes just the
-newly-requested cells.
+figure is drawn -- in **both** §6 and §7, since the grid now covers the whole
+budget axis and neither figure has any measurement of its own left to redo.
+
+Pick the configuration off §6a and §7a, name it here, re-run the two cells.
 """
 
 NMSE_YLIM = (1e-4, 2.0)
@@ -171,24 +165,23 @@ STRETCH_R = [1, 2, 4, 6, 8, 12, 16]
 # 1 and 2 are the zero-shot end: no context to speak of for a foundation model,
 # nothing to fit for a trained one. Most of those columns come out blank, and
 # what does not is the point of including them.
-HP_BUDGETS = [1, 2, 4, 8, 16, 64, 256, 1024, 4096, 8192]
 SCALE_BUDGETS = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192]
-ROLL_BUDGETS = [1, 2, 4, 8, 16, 64, 512, 1024, 2048, 4096]
+HP_BUDGETS = SCALE_BUDGETS
+
+ROLL_BUDGETS = SCALE_BUDGETS
 ROLL_PLOT_BUDGETS = [64, 512, 1024, 2048, 4096]  # every one of them in ROLL_BUDGETS
 """Which of the computed ROLL_BUDGETS §7 draws -- it spends a row per budget and
 gets tall fast, so the sweep is wider than the figure. None draws all of them."""
 ROLL_H = 50
-TRAJ_BUDGET = 4096  # the budget the rollout trajectories (section 8) are drawn at
 TRAJ_WINDOWS = 3  # example windows kept per environment
 
-# The stretch factor the section 2b probe uses (it runs before the grid has
-# measured anything) comes from each `<env>/env.py` as `default_r`, imported
-# above as DEFAULT_R. Section 5 reports what the sweep actually prefers.
+TRAJ_BUDGETS = [64, 512, 4096]
 
-# How section 5 picks the variant carried into sections 6 and 7. "mean_rank"
-# averages each variant's rank across budgets (the errors span six decades, so a
-# mean error would be decided by the largest budget alone) and breaks ties on the
-# geometric mean. "geo_nmse" selects on the geometric mean directly.
+
+TRAJ_BUDGET = 512
+"""Which of TRAJ_BUDGETS section 8 draws. Read when the figure is drawn, so
+switching N is an edit and a re-run of the cell."""
+
 SELECT_RULE = "mean_rank"
 
 # -------------------------------------------------------------------- protocol

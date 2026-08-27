@@ -18,7 +18,7 @@ python experiments/dyna_standard/run_all.py --stages grid # a single stage
 ```
 
 
-Flags: `--envs --stages {probe,grid,scaling,rollout,traj} --models --budgets
+Flags: `--envs --stages {probe,grid,rollout} --models --budgets
 --windows --probe-ctx --results-dir --force`. A two-minute end-to-end check:
 
 ```bash

@@ -2,10 +2,10 @@
 
     probe     section 2b  -- the counterfactual action probe under four
                              presentations of the same trajectory
-    grid      section 5   -- every model, every variant, every budget
-    scaling   section 6   -- one configuration per model against the data budget
-    rollout   section 7   -- every model, every variant, over the horizon
-    traj      section 8   -- the selected configuration's rollout, as states
+    grid      section 5+6 -- every model, every variant, every budget; §6 is
+                             this table filtered to one variant per model
+    rollout   section 7+8 -- every model, every variant, over the horizon;
+                             §8 is the raw states it keeps at TRAJ_BUDGETS
 
 Compute lives here and in ``<env>/<env>.py``; the notebooks only read the CSVs.
 Every stage resumes: rows already in the file are skipped, so adding a model to
@@ -31,7 +31,7 @@ from evaluate import (
     score,
 )
 
-STAGES = ["probe", "grid", "scaling", "rollout", "traj"]
+STAGES = ["probe", "grid", "rollout"]
 
 # The four presentations of section 2b: (label, difference?, stretch?)
 CONDITIONS = [
@@ -173,21 +173,6 @@ def _existing(env_id, stage, keys, force, evalset):
             f"measured on a different evaluation set ({evalset} now): recomputing"
         )
     return fresh, set(map(tuple, fresh[list(keys)].astype(str).values))
-
-
-def _drop_stale(done, have, best):
-    """Forget cached rows whose variant is no longer the one the grid selects.
-
-    Without this, re-running the grid with more variants would leave a curve in
-    ``scaling.csv`` that no table any longer claims, and the figure would show a
-    model in a configuration nothing selected.
-    """
-    if not len(done):
-        return done, have
-    current = {(m, b["variant"]) for m, b in best.items()}
-    keep = [tuple(x) in current for x in done[["model", "variant"]].values]
-    done = done[keep]
-    return done, set(map(tuple, done[["model", "budget"]].astype(str).values))
 
 
 # ------------------------------------------------------- stage 1: the 2b probe
@@ -497,64 +482,33 @@ def selection(env_ids, grid=None):
     return pd.DataFrame(rows, columns=cols)
 
 
-# ---------------------------------------------- stage 3: the data-budget sweep
-def run_scaling(env_id, force=False):
-    """Section 6: N on a fine grid, each model in the configuration section 5
-    selected, so a panel carries a handful of curves instead of forty.
-
-    Stretching consumes the context, so above roughly 8192/r the preferred r no
-    longer fits. Rather than let those curves disappear, r falls back to the
-    largest factor that does; the figure marks where that first happens.
-    """
-    spec, st = spec_of(env_id), study(env_id)
-    ev, pool = st["ev"], st["pool"]
-    best = best_variants(load(env_id, "grid", compute=True), env_id)
-    ek = f"{len(ev)}w@{st['ctx']}"
-    done, have = _existing(env_id, "scaling", ("model", "budget"), force, ek)
-    done, have = _drop_stale(done, have, best)
-    print(f"{env_id}: scaling over {st['scale_budgets']}")
-
-    rows = []
-    for n in st["scale_budgets"]:
-        fit = take_transitions(pool, n)
-        out = []
-        for name in config.PLOT_MODELS:
-            if name not in best or (name, str(n)) in have:
-                continue
-            b = best[name]
-            if models.is_tsfm(name):
-                r = models.usable_r(name, n, b["r"])
-                val = score(
-                    models.build(name, spec, presentation=b["presentation"], r=r), ev, n
-                )
-            else:
-                r = 0
-                try:
-                    val = score(models.build(name, spec, lag=b["lag"], fit=fit), ev)
-                except Exception:
-                    val = np.nan  # undefined at this budget: too few rows
-            rows.append(
-                dict(
-                    env=env_id,
-                    model=name,
-                    variant=b["variant"],
-                    presentation=b["presentation"],
-                    r=r,
-                    lag=b["lag"],
-                    budget=n,
-                    nmse=val,
-                    evalset=ek,
-                )
-            )
-            out.append(f"{name} " + (f"{val:.4f}" if np.isfinite(val) else "n/a"))
-        if out:
-            print(f"   N={n:>5d}  " + "  ".join(out), flush=True)
-    return _write(
-        pd.concat([done, pd.DataFrame(rows)], ignore_index=True), env_id, "scaling"
-    )
-
-
 # -------------------------------------------------- stage 4: multi-step rollout
+def _state_rows(env_id, spec, model, variant, budget, arr, evalset):
+    """``(window, horizon, channel)`` predictions as tidy rows for section 8.
+
+    Deliberately lean: no presentation/lag/label columns, and values rounded --
+    this table is one row per channel per step per window per variant, so its
+    width is what decides whether keeping it is affordable. Everything dropped
+    is recoverable from `variant` or from the env spec at draw time.
+    """
+    return [
+        dict(
+            env=env_id,
+            model=model,
+            variant=variant,
+            budget=budget,
+            window=w,
+            h=h + 1,
+            channel=c,
+            value=round(float(arr[w, h, c]), 5),
+            evalset=evalset,
+        )
+        for w in range(arr.shape[0])
+        for h in range(arr.shape[1])
+        for c in range(spec.n_obs)
+    ]
+
+
 def run_rollout(env_id, force=False):
     """Section 7: open loop to ``config.ROLL_H``, the true action sequence known
     throughout -- every variant of every model, at every budget.
@@ -580,6 +534,9 @@ def run_rollout(env_id, force=False):
     ek = f"{len(ev)}w@{cap}h{H}"
     done, have = _existing(env_id, "rollout", ("variant", "budget"), force, ek)
     todo = [p for p in plan if (p["variant"], str(p["budget"])) not in have]
+    # §8's raw states ride along on the same resume key, so the two files can
+    # never disagree about which cells have been measured
+    done_s, _ = _existing(env_id, "traj", ("variant", "budget"), force, ek)
     print(
         f"{env_id}: rollout H={H}, context to {cap}, {len(ev)} windows, "
         f"budgets {budgets} -- {len(plan)} cells, {len(todo)} to run"
@@ -589,7 +546,10 @@ def run_rollout(env_id, force=False):
         f"calls on CPU (levers: ROLL_WINDOWS, ROLL_BUDGETS, GRID_FULL, MODELS)"
     )
 
-    rows = []
+    keep = min(config.TRAJ_WINDOWS, len(ev))
+    rows, states = [], []
+    if config.TRAJ_BUDGETS:
+        states += _state_rows(env_id, spec, "truth", "-", 0, ev.fs[:keep], ek)
     for n in budgets:
         block = [p for p in todo if p["budget"] == n]
         if not block:
@@ -629,6 +589,12 @@ def run_rollout(env_id, force=False):
                 )
                 for h, v in enumerate(curve)
             ]
+            # The states behind the curve, for the budgets §8 draws. Free:
+            # `pred` is already here and is about to be reduced to an NMSE.
+            if n in (config.TRAJ_BUDGETS or ()) and np.all(np.isfinite(curve)):
+                states += _state_rows(
+                    env_id, spec, name, cell["variant"], n, pred[:keep], ek
+                )
             ok = np.all(np.isfinite(curve))
             print(
                 f"   {cell['variant']:<30s} "
@@ -644,102 +610,23 @@ def run_rollout(env_id, force=False):
         _write(
             pd.concat([done, pd.DataFrame(rows)], ignore_index=True), env_id, "rollout"
         )
-    return _write(
+        if states:
+            _write(
+                pd.concat([done_s, pd.DataFrame(states)], ignore_index=True),
+                env_id,
+                "traj",
+            )
+    out = _write(
         pd.concat([done, pd.DataFrame(rows)], ignore_index=True), env_id, "rollout"
     )
-
-
-# ------------------------------------------- stage 5: example rollout states
-def run_traj(env_id, force=False):
-    """The states behind section 7: ground truth and each model's prediction over
-    the horizon, for a handful of windows at one budget."""
-    spec, st = spec_of(env_id), study(env_id)
-    H = config.ROLL_H
-    cap = st["ctx"] - H
-    # clamped, so a panel labelled N is a panel the environment can actually
-    # deliver: Acrobot terminates early and its context stops short of 4096.
-    n = min(config.TRAJ_BUDGET, cap)
-    ev = EvalSet(
-        spec,
-        st["ev_raw"]["states"],
-        st["ev_raw"]["actions"],
-        L=cap,
-        H=H,
-        n=config.ROLL_WINDOWS,
-    )
-    keep = min(config.TRAJ_WINDOWS, len(ev))
-    best = best_variants(load(env_id, "grid", compute=True), env_id)
-    fit = take_transitions(st["pool"], n)
-    ek = f"{keep}w@{cap}h{H}N{n}"
-    done, have = _existing(env_id, "traj", ("model",), force, ek)
-    print(f"{env_id}: trajectories at N={n}, {keep} windows, H={H}")
-
-    rows = []
-    if ("truth",) not in have:
-        for w in range(keep):
-            for h in range(H):
-                for c, lab in enumerate(spec.labels):
-                    rows.append(
-                        dict(
-                            env=env_id,
-                            model="truth",
-                            variant="-",
-                            budget=n,
-                            window=w,
-                            h=h + 1,
-                            channel=c,
-                            label=lab,
-                            value=float(ev.fs[w, h, c]),
-                            evalset=ek,
-                        )
-                    )
-    for name in config.PLOT_MODELS:
-        if name not in best or (name,) in have:
-            continue
-        b = best[name]
-        if models.is_tsfm(name):
-            r = models.usable_r(name, n, b["r"])
-            m = models.build(name, spec, presentation=b["presentation"], r=r)
-            cs, ca = ev.cs[:keep, -n:], ev.ca[:keep, -n:]
-        else:
-            try:
-                m = models.build(name, spec, lag=b["lag"], fit=fit)
-            except Exception:
-                continue
-            cs, ca = ev.cs[:keep], ev.ca[:keep]
-        try:
-            p = m.predict(cs, ca, ev.fa[:keep])
-        except Exception:
-            continue
-        for w in range(keep):
-            for h in range(H):
-                for c, lab in enumerate(spec.labels):
-                    rows.append(
-                        dict(
-                            env=env_id,
-                            model=name,
-                            variant=b["variant"],
-                            budget=n,
-                            window=w,
-                            h=h + 1,
-                            channel=c,
-                            label=lab,
-                            value=float(p[w, h, c]),
-                            evalset=ek,
-                        )
-                    )
-        print(f"   {name:<20s} {b['variant']}", flush=True)
-    return _write(
-        pd.concat([done, pd.DataFrame(rows)], ignore_index=True), env_id, "traj"
-    )
+    _write(pd.concat([done_s, pd.DataFrame(states)], ignore_index=True), env_id, "traj")
+    return out
 
 
 RUNNERS = {
     "probe": run_probe,
     "grid": run_grid,
-    "scaling": run_scaling,
     "rollout": run_rollout,
-    "traj": run_traj,
 }
 
 
