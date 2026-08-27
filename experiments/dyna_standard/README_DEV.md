@@ -60,7 +60,7 @@ produced `ctx_s[:, t]`**, and `fut_a[:, 0]` drives the first predicted step.
 |---|---|---|---|
 | §2b probe | `L` = 64 | 1 | `PROBE_WINDOWS` = 96, averaged over `PROBE_CTX` = 96 contexts |
 | grid (§5), scaling (§6) | `ctx` | 1 | `HP_WINDOWS` = 96 |
-| rollout (§7), trajectories (§8) | `ctx − ROLL_H` | `ROLL_H` = 20 | `ROLL_WINDOWS` = 96 |
+| rollout (§7), trajectories (§8) | `ctx − ROLL_H` | `ROLL_H` = 50 | `ROLL_WINDOWS` = 32 |
 
 All windows are drawn once, with `SEED` = 0, and every model and every budget sees
 **the same ones**. The one-step and the 20-step sets are different draws, though —
@@ -118,9 +118,11 @@ VARX rows, where stretching has no meaning.
 Stretching does not count against the budget — N real samples become `(N−1)r + 1`
 tokens, which is a processing choice, not more data — but it does consume context.
 Combinations that would overflow `CHRONOS_CTX` / `MOIRAI_CTX` are **skipped** in
-the grid, so a row labelled `r=16` is never quietly a different r. The sweeps in §6
-and §7 instead fall back to the largest r that fits (`usable_r`) and mark where
-that happened.
+the grid and in §7, so a row labelled `r=16` is never quietly a different r. §7
+also counts the forecast: stretching multiplies the prediction length too, so
+`fits_context` checks `(N-1)r + 1 + H·r`, not just the context. §6 is the one
+sweep that still falls back to the largest r that fits (`usable_r`), because it
+draws a single curve per model and marks where the fallback happened.
 
 ### Which variant carries into §6, §7 and §8
 
@@ -128,7 +130,22 @@ that happened.
 broken on the geometric mean. Ranks rather than mean error because the errors span
 six decades and a mean would be decided by the largest budget alone. The selection
 is per environment, so **"Chronos-2 S" means a different configuration in each
-panel** — the `variant` column of every CSV says which, and §5's table marks it.
+panel** — every legend entry now names the configuration it draws, the `variant`
+column of every CSV says which, and §5's table marks it.
+
+**N=1 is excluded from the ranking.** Differencing has no increment to hand over
+at a single sample, so it is *structurally* undefined there rather than merely
+expensive, and a variant that cannot run a budget takes the worst rank. Left in,
+that one column decides the comparison on its own: on CartPole it was the whole
+reason `level` won a sweep `diff` leads at seven of the nine budgets both can run.
+
+**`PLOT_VARIANTS` overrides the pick.** It says which configuration each model is
+drawn in, per environment or for all of them, in the same dict shape as
+`MODELS[...]["fixed"]`. A variant the model does not have raises rather than
+falling back. `pipeline.selection(envs)` is the resulting table — it is what §5b
+displays and what §6 and §7 filter on, and each row is tagged `selected` or
+`manual`. Free in §7, because `rollout.csv` holds every variant; §6 needs one
+`--stages scaling` re-run, which resumes and computes only the new cells.
 
 ## 4. The stages
 
@@ -138,8 +155,8 @@ Each writes one CSV per environment into `<env>/results/`. Every stage resumes.
 |---|---|---|
 | `probe` | §2b: same contexts, same probe actions, four presentations | `condition, model, r, action, response, slope_pct` |
 | `grid` | §5: every model, every variant, every budget in `HP_BUDGETS` | `variant, presentation, r, lag, budget, nmse, seconds` |
-| `scaling` | §6: the selected variant per model over `SCALE_BUDGETS` | `model, variant, budget, r, nmse` |
-| `rollout` | §7: open loop to `ROLL_H` at each of `ROLL_BUDGETS` | `model, budget, r, h, nmse` |
+| `scaling` | §6: the selected variant per model over `SCALE_BUDGETS` | `model, variant, presentation, r, lag, budget, nmse` |
+| `rollout` | §7: open loop to `ROLL_H`, **every variant**, at each of `ROLL_BUDGETS` | `model, variant, presentation, r, lag, budget, h, nmse` |
 | `traj` | §8: the predicted states themselves, `TRAJ_WINDOWS` windows at `TRAJ_BUDGET` | `model, window, h, channel, label, value` |
 
 The **probe** holds each context fixed, sweeps the next action over the
@@ -163,11 +180,11 @@ costs.
 | `GRID_MODELS` | all 7 | which models §5 measures |
 | `GRID_FULL` | all 5 TSFMs | which get the full presentation × r factorial |
 | `PROBE_MODELS` | all 5 TSFMs | which models §2b probes |
-| `PRESENTATIONS`, `STRETCH_R` | {diff, level}, [1, 2, 4, 8, 16] | the variant grid |
+| `PRESENTATIONS`, `STRETCH_R` | {diff, level}, [1, 2, 4, 6, 8, 12, 16] | the variant grid |
 | `HP_BUDGETS` | [1, 2, 16, 64, 256, 1024, 4096] | §5's columns. 1 and 2 are the zero-shot end; most of those cells come out blank and what does not is the point |
 | `SCALE_BUDGETS` | [1 … 8192] | §6's x axis. Also sets the context length, so changing it invalidates the grid |
 | `ROLL_BUDGETS` | [64, 512, 1024, 2048, 4096] | which budgets §7 is computed at |
-| `ROLL_H` | 20 | rollout horizon. Changing it re-stamps `rollout` and `traj` only -- the grid and scaling survive, since their windows do not depend on it |
+| `ROLL_H` | 50 | rollout horizon. Changing it re-stamps `rollout` and `traj` only -- the grid and scaling survive, since their windows do not depend on it |
 | `TRAJ_BUDGET`, `TRAJ_WINDOWS` | 4096, 3 | §8's budget (clamped to what the env can serve) and how many windows it keeps |
 | `HP_WINDOWS`, `ROLL_WINDOWS` | 96, 96 | evaluation windows. **The main cost lever** |
 | `PROBE_WINDOWS`, `PROBE_CTX` | 96, 96 | the probe's window pool and how many contexts it averages |
@@ -187,10 +204,12 @@ left out is still measured and still in the CSV, it is only absent from the pane
 | `PLOT_MODELS` | 6 models | default model list for §6 and §7 |
 | `SCALING_MODELS` | `None` | §6's models; `None` follows `PLOT_MODELS` |
 | `ROLLOUT_MODELS` | `None` | §7's models |
+| `PLOT_VARIANTS` | `{}` | which *configuration* each model is drawn in, in §6 and §7; `{}` follows the §5 selection. See above |
+| `ROLL_CONFIG_BUDGET` | 512 | the budget §7a's per-configuration figure is drawn at |
 | `NMSE_YLIM` | `(1e-4, 2.0)` | the log band both are drawn in; curves outside are pinned to the edge and flagged with a triangle |
 | `SCALING_YLIM`, `ROLLOUT_YLIM` | `None` | per-figure band; `None` follows `NMSE_YLIM` |
 | `SCALE_PLOT_BUDGETS` | `None` | which budgets §6 draws; `None` is all of them |
-| `ROLL_PLOT_BUDGETS` | `[64, 512, 2048]` | which budgets §7 draws — it spends a row per budget, so the sweep is wider than the figure |
+| `ROLL_PLOT_BUDGETS` | `[64, 512, 1024, 2048, 4096]` | which budgets §7 draws — it spends a row per budget, so the sweep is wider than the figure |
 | `ROLL_PLOT_H` | `None` | how far along the horizon §7 and §8 draw; `None` is the whole computed `ROLL_H` |
 | `STRETCH_BUDGET` | 256 | the budget §5's r figure is drawn at |
 | `ILLUSTRATION_ENV` | Pendulum-v1 | which env figures 1b and 4 use |

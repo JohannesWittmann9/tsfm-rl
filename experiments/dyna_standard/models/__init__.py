@@ -124,9 +124,16 @@ def usable_r(name, n, prefer):
     return r
 
 
-def fits_context(name, n, r):
+def fits_context(name, n, r, h=0):
+    """Does N real steps at stretch ``r`` fit, with an ``h``-step forecast after it?
+
+    ``h`` defaults to 0 because the one-step stages only have to fit the context.
+    A rollout does not: stretching multiplies the *prediction* length too, so an
+    r that fits the context alone can still ask for an r*h-step forecast on top
+    of it, and that has to be checked rather than assumed.
+    """
     limit = context_limit(name)
-    return limit is None or (n - 1) * r + 1 <= limit
+    return limit is None or (n - 1) * r + 1 + h * r <= limit
 
 
 def build(name, spec, presentation="diff", r=1, lag=1, fit=None):

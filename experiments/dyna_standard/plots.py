@@ -9,6 +9,8 @@ title (the caption does that in a paper), so every function prints a
 ready-to-paste caption and writes PDF + PNG into the notebook's own ``figures/``.
 """
 
+from collections.abc import Mapping
+
 import config
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -62,10 +64,197 @@ HILITE = "#eda100"
 
 # One colour and one marker per model, straight out of config.MODELS, so a model
 # keeps its identity in every figure and nothing depends on colour alone.
-STYLE = {
-    name: dict(color=cfg["color"], marker=cfg["marker"])
-    for name, cfg in config.MODELS.items()
-}
+
+
+class _Style(Mapping):
+    """``STYLE[name]`` -> that model's colour and marker, read at draw time.
+
+    A dict comprehension here would snapshot config.MODELS at *import*, so
+    editing a colour and re-running the figure cell in a live kernel changed
+    nothing -- the one place in this module that broke the "config is read when
+    the figure is drawn" rule. Each lookup returns a fresh dict, so callers can
+    keep mutating it (``st = dict(STYLE[name])``, ``**STYLE[name]``).
+    """
+
+    def __getitem__(self, name):
+        cfg = config.MODELS[name]
+        return dict(color=cfg["color"], marker=cfg["marker"])
+
+    def __iter__(self):
+        return iter(config.MODELS)
+
+    def __len__(self):
+        return len(config.MODELS)
+
+
+STYLE = _Style()
+
+
+# The r ramp for the per-configuration figures (§6a, §7a). Inside one of those
+# panels every curve is the *same model*, so colour cannot carry model identity
+# any more: lightness carries the stretch factor and linestyle the presentation.
+# One hue, light to dark, because r is an ordered quantity -- and no step lighter
+# than the first, which is the lightest that still clears 2:1 on white.
+R_RAMP = ["#86b6ef", "#5598e7", "#3987e5", "#2a78d6", "#256abf", "#1c5cab", "#104281"]
+PRES_LS = {"diff": "-", "level": (0, (4, 2)), "-": "-"}
+
+
+def model_label(name, presentation=None, r=None, lag=None):
+    """The name a legend gives one *configuration* of a model.
+
+    ``Chronos-2 S`` drawn as diff at r=12 is ``Chronos-2 S (diff, r=12)``: which
+    variant a curve is has to be readable off the figure, not looked up in a
+    table. A model whose name already ends in a bracket is a pinned variant with
+    nothing to disambiguate, so it is left alone.
+    """
+    if name.endswith(")"):
+        return name
+    if presentation in (None, "-") or r in (None, 0):
+        return f"{name} (lag {lag})" if lag not in (None, -1, 0) else name
+    return f"{name} ({presentation}, r={int(r)})"
+
+
+def label_of(row):
+    """``model_label`` straight off a results row, whatever columns it carries."""
+    get = row.get if hasattr(row, "get") else (lambda k, d=None: getattr(row, k, d))
+    return model_label(get("model"), get("presentation"), get("r"), get("lag"))
+
+
+def _sweep_key(name):
+    """The column whose value a model's variants differ along."""
+    return "r" if models.is_tsfm(name) else "lag"
+
+
+def _sweep_value(row):
+    """The value this row's variant sits at along its model's sweep."""
+    return int(row.get(_sweep_key(str(row.get("model"))), 0) or 0)
+
+
+def _variant_style(row, steps):
+    """Colour and linestyle for one variant inside a per-configuration panel.
+
+    ``steps`` is the whole figure's sweep values, not one panel's: the ramp has
+    to mean the same thing in every panel or the legend is a lie. r and lag share
+    it -- they are both "how much history the variant is given", and the two
+    lists coincide in practice.
+    """
+    val = _sweep_value(row)
+    if len(steps) < 2:
+        colour = R_RAMP[3]
+    else:
+        i = steps.index(val) if val in steps else 0
+        colour = R_RAMP[round(i * (len(R_RAMP) - 1) / (len(steps) - 1))]
+    return dict(color=colour, ls=PRES_LS.get(str(row.get("presentation", "-")), "-"))
+
+
+def _config_legend(fig, model_names, steps, n_panels):
+    """What the lightness means, what the dash means, which curve is the pick."""
+    tsfm = any(models.is_tsfm(m) for m in model_names)
+    lab = "$r$" if tsfm else "lag"
+    h = [
+        plt.Line2D(
+            [],
+            [],
+            color=R_RAMP[
+                round(i * (len(R_RAMP) - 1) / max(len(steps) - 1, 1))
+                if len(steps) > 1
+                else 3
+            ],
+            lw=1.8,
+            label=f"{lab}={v}",
+        )
+        for i, v in enumerate(steps)
+    ]
+    if tsfm:
+        h += [
+            plt.Line2D([], [], color=INK["muted"], ls=PRES_LS["diff"], label="diff"),
+            plt.Line2D([], [], color=INK["muted"], ls=PRES_LS["level"], label="level"),
+        ]
+    h.append(
+        plt.Line2D(
+            [],
+            [],
+            color=INK["text"],
+            lw=2.4,
+            marker="o",
+            ms=4,
+            label="drawn in §6/§7",
+        )
+    )
+    _bottom_legend(fig, h, n_panels)
+
+
+def _configs_grid(df, env_ids, model_names, chosen, draw, ylabel, xlabel, height=1.7):
+    """The shared skeleton of §6a and §7a: a panel per model per environment.
+
+    Every curve in a panel is the same model, so the model palette is not used at
+    all here -- ``_variant_style`` carries the variant instead. ``draw`` plots one
+    variant into one axis; everything else is layout.
+    """
+    steps = sorted(
+        {
+            int(v)
+            for name in model_names
+            for v in df[df.model == name][_sweep_key(name)].dropna().unique()
+            if int(v) > 0
+        }
+    )
+    fig, axes = plt.subplots(
+        len(model_names),
+        len(env_ids),
+        figsize=(_width(len(env_ids)), height * len(model_names) + 0.7),
+        squeeze=False,
+        sharex=True,
+        sharey="row",
+    )
+    for r_i, name in enumerate(model_names):
+        d_model = df[df.model == name]
+        for c_i, env_id in enumerate(env_ids):
+            ax = axes[r_i][c_i]
+            d_env = d_model[d_model.env == env_id]
+            for variant in sorted(d_env.variant.unique()):
+                d = d_env[d_env.variant == variant]
+                if d.empty:
+                    continue
+                st = _variant_style(d.iloc[0], steps)
+                is_pick = chosen and chosen.get((env_id, name)) == variant
+                draw(
+                    ax,
+                    d,
+                    **st,
+                    lw=2.2 if is_pick else 1.0,
+                    marker="o" if is_pick else None,
+                    ms=3,
+                    markevery=0.25,
+                    zorder=4 if is_pick else 2,
+                )
+            ax.set(yscale="log", ylim=ylim())
+            ax.tick_params(labelsize=7)
+            axgrid(ax)
+            if r_i == 0:
+                ax.set_title(config.SHORT[env_id], fontsize=8, pad=3)
+            if c_i == 0:
+                ax.set_ylabel(f"{name}\n{ylabel}", fontsize=7.5)
+            if d_env.empty:
+                ax.text(
+                    0.5,
+                    0.5,
+                    "not measured",
+                    ha="center",
+                    va="center",
+                    transform=ax.transAxes,
+                    fontsize=7,
+                    color=INK["muted"],
+                )
+    for c_i in range(len(env_ids)):
+        axes[-1][c_i].set_xlabel(xlabel if c_i == len(env_ids) // 2 else "", fontsize=8)
+    return fig, steps
+
+
+def _sweep_models(df, model_names=None):
+    """Models worth a per-configuration panel: the ones with a variant to sweep."""
+    names = list(model_names or config.GRID_MODELS)
+    return [n for n in names if df[df.model == n].variant.nunique() > 1]
 
 
 def ylim(which=None):
@@ -189,14 +378,25 @@ def _width(n_panels, per=1.75, floor=COL):
     return float(np.clip(per * n_panels + 1.0, floor, WIDE))
 
 
-def _model_line(name, **kw):
+def _model_line(name, presentation=None, r=None, lag=None, **kw):
     """Legend handle for one model: dashed + hollow for the foundation models,
-    solid + filled for the trained ones."""
+    solid + filled for the trained ones. The label states the configuration, so
+    the reader never has to guess which variant the curve is."""
     st = dict(STYLE[name])
     if models.is_tsfm(name):
         kw.setdefault("ls", (0, (4, 2)))
         kw.setdefault("markerfacecolor", "white")
-    return plt.Line2D([], [], ms=3, label=name, **st, **kw)
+    label = model_label(name, presentation, r, lag)
+    return plt.Line2D([], [], ms=3, label=label, **st, **kw)
+
+
+def _line_for(name, drawn):
+    """Legend handle for a model, labelled with the configuration actually drawn."""
+    row = drawn.get(name)
+    if row is None:
+        return _model_line(name)
+    get = row.get if hasattr(row, "get") else (lambda k, d=None: getattr(row, k, d))
+    return _model_line(name, get("presentation"), get("r"), get("lag"))
 
 
 def _bottom_legend(fig, handles, n_panels):
@@ -209,6 +409,41 @@ def _bottom_legend(fig, handles, n_panels):
         ncol=min(len(handles), 3 if n_panels == 1 else 7),
         fontsize=7.5,
     )
+
+
+def _chosen(df, env_ids):
+    """``(env, model) -> variant`` for the two combined figures.
+
+    ``rollout.csv`` holds every variant, so a figure that draws one curve per
+    model has to say which. It asks :func:`pipeline.selection`, which is the
+    section 5 pick with ``config.PLOT_VARIANTS`` already folded in -- so choosing
+    a different configuration for the paper is an edit to that dict and a re-run
+    of the cell, with no recompute behind it.
+
+    Falls back to whatever the data holds when the variant column is absent or
+    the grid is unavailable, so an older CSV still draws.
+    """
+    if "variant" not in df.columns:
+        return None
+    try:
+        sel = pipeline.selection(list(env_ids))
+    except FileNotFoundError:
+        return None
+    return {(r.env, r.model): r.variant for r in sel.itertuples()}
+
+
+def _one_variant(d, env_id, name, chosen):
+    """One model's rows, cut to the configuration ``chosen`` names."""
+    if not chosen or (env_id, name) not in chosen:
+        return d
+    want = chosen[(env_id, name)]
+    cut = d[d.variant == want]
+    if cut.empty and not d.empty:
+        print(
+            f"   note: {name} on {env_id} has no rows for {want!r} "
+            f"(have: {sorted(d.variant.unique())}) -- not drawn"
+        )
+    return cut
 
 
 def _plot_models(models_arg, df=None):
@@ -756,6 +991,7 @@ def fig_scaling(scaling, env_ids, outdir, plot_models=None):
     """
     names = _plot_models(plot_models or config.SCALING_MODELS, scaling)
     band = ylim("SCALING_YLIM")
+    chosen, drawn = _chosen(scaling, env_ids), {}
     if config.SCALE_PLOT_BUDGETS:
         scaling = scaling[scaling.budget.isin(config.SCALE_PLOT_BUDGETS)]
     fig, axes = plt.subplots(
@@ -764,9 +1000,12 @@ def fig_scaling(scaling, env_ids, outdir, plot_models=None):
     for i, (ax, env_id) in enumerate(zip(axes[0], env_ids)):
         s = scaling[scaling.env == env_id]
         for name in names:
-            d = s[s.model == name].sort_values("budget")
+            d = _one_variant(s[s.model == name], env_id, name, chosen).sort_values(
+                "budget"
+            )
             if d.empty:
                 continue
+            drawn[name] = d.iloc[0]
             st = dict(STYLE[name])
             tsfm = models.is_tsfm(name)
             clipped_plot(
@@ -820,7 +1059,7 @@ def fig_scaling(scaling, env_ids, outdir, plot_models=None):
         if len(env_ids) > 1:
             panel_label(ax, "abcdefgh"[i], x=0.03, y=0.06, va="bottom")
     axes[0][0].set_ylabel("one-step NMSE", fontsize=8)
-    h = [_model_line(n) for n in names]
+    h = [_line_for(n, drawn) for n in names if n in drawn]
     fig.tight_layout(w_pad=0.6)
     _bottom_legend(fig, h, len(env_ids))
     return save(
@@ -828,10 +1067,53 @@ def fig_scaling(scaling, env_ids, outdir, plot_models=None):
         "fig6_scaling",
         outdir,
         "How much data each model gets, on one axis, each model in the "
-        "configuration selected by the hyperparameter study. For the "
+        "configuration named in its legend entry. For the "
         "foundation models $N$ is the whole context; for the others it is "
         "the number of transitions fitted on, drawn from episodes of the "
         "same length under the same policy.",
+    )
+
+
+# ---------------------------------------- 6a  every configuration, on N
+def fig_scaling_configs(grid, env_ids, outdir, model_names=None):
+    """One-step error against N, every variant of every model, a panel each.
+
+    §6 draws one configuration per model and answers "which model"; this answers
+    "does the configuration matter", which is the question you have to settle
+    before the other one means anything. It reads ``grid.csv`` -- the same metric
+    §6 plots, on the coarser budget axis the hyperparameter sweep already paid
+    for -- so changing what it shows never costs a recompute.
+    """
+    names = _sweep_models(grid, model_names)
+    chosen = _chosen(grid, env_ids)
+
+    def draw(ax, d, **kw):
+        d = d.sort_values("budget")
+        clipped_plot(ax, d.budget, d.nmse, **kw)
+
+    fig, steps = _configs_grid(
+        grid,
+        env_ids,
+        names,
+        chosen,
+        draw,
+        ylabel="one-step NMSE",
+        xlabel="$N$: context steps / transitions",
+    )
+    for row in fig.axes:
+        row.set_xscale("log")
+    logticks(fig.axes[-1], [b for b in sorted(grid.budget.unique()) if b > 0])
+    fig.tight_layout(w_pad=0.6, h_pad=0.4)
+    _config_legend(fig, names, steps, len(env_ids))
+    return save(
+        fig,
+        "fig6a_scaling_configs",
+        outdir,
+        "Every configuration of every model against the data budget, one panel "
+        "per model. "
+        "Lightness is the sweep value -- the stretch factor $r$ for the foundation models, the history length for the trained ones -- and the dash is the presentation; the heavy marked curve is the one the combined figure draws. "
+        "Read it for whether the spread between a model's own variants is larger "
+        "or smaller than the gap between models.",
     )
 
 
@@ -845,6 +1127,7 @@ def fig_rollout(rollout, env_ids, outdir, plot_models=None, budgets=None):
     """
     names = _plot_models(plot_models or config.ROLLOUT_MODELS, rollout)
     band = ylim("ROLLOUT_YLIM")
+    chosen, drawn = _chosen(rollout, env_ids), {}
     have = sorted(rollout.budget.unique())
     if budgets is None:
         budgets = config.ROLL_PLOT_BUDGETS or have
@@ -867,9 +1150,12 @@ def fig_rollout(rollout, env_ids, outdir, plot_models=None, budgets=None):
             ax = axes[r_i][c_i]
             d_all = rollout[(rollout.env == env_id) & (rollout.budget == n)]
             for name in names:
-                d = d_all[d_all.model == name].sort_values("h")
+                d = _one_variant(
+                    d_all[d_all.model == name], env_id, name, chosen
+                ).sort_values("h")
                 if d.empty:
                     continue
+                drawn[name] = d.iloc[0]
                 st = dict(STYLE[name])
                 tsfm = models.is_tsfm(name)
                 clipped_plot(
@@ -905,18 +1191,10 @@ def fig_rollout(rollout, env_ids, outdir, plot_models=None, budgets=None):
                     fontsize=7,
                     color=INK["muted"],
                 )
-            elif d_all.r.max() > 1:
-                ax.text(
-                    0.97,
-                    0.05,
-                    f"$r$={int(d_all.r.max())}",
-                    transform=ax.transAxes,
-                    fontsize=6.5,
-                    ha="right",
-                    va="bottom",
-                    color=INK["muted"],
-                )
-    h = [_model_line(n) for n in names]
+            # No per-panel r any more: the file holds every variant, so the max
+            # over the panel is a property of the sweep rather than of anything
+            # drawn. Each legend entry carries its own r instead.
+    h = [_line_for(n, drawn) for n in names if n in drawn]
     fig.tight_layout(w_pad=0.6, h_pad=0.5)
     _bottom_legend(fig, h, len(env_ids))
     return save(
@@ -924,11 +1202,55 @@ def fig_rollout(rollout, env_ids, outdir, plot_models=None, budgets=None):
         "fig7_rollout",
         outdir,
         f"Open-loop rollout to $h={H}$ with the true actions known, "
-        f"repeated at {len(budgets)} data budgets, each model in the "
-        f"configuration selected by the hyperparameter study. A row is one "
-        f"budget: the trained models were fitted on $N$ transitions, the "
-        f"foundation models given $N$ steps of context, stretched by the "
-        f"$r$ printed in each panel.",
+        f"repeated at {len(budgets)} data budgets. Every model is drawn in one "
+        f"configuration, named in the legend; the full sweep behind it is §7a. "
+        f"A row is one budget: the trained models were fitted on $N$ "
+        f"transitions, the foundation models given $N$ steps of context, "
+        f"stretched by the $r$ its legend entry names.",
+    )
+
+
+# ------------------------------------ 7a  every configuration, over the horizon
+def fig_rollout_configs(rollout, env_ids, outdir, budget=None, model_names=None):
+    """Rollout error against the horizon, every variant of every model.
+
+    The figure the study was missing: a variant that wins at h=1 need not win at
+    h=20, because differencing is an integration and the error it leaves is
+    accumulated rather than re-anchored. One budget only -- the panel grid is
+    already model x environment.
+    """
+    budget = budget or config.ROLL_CONFIG_BUDGET
+    have = sorted(rollout.budget.unique())
+    if budget not in have:  # the configured budget was never computed
+        budget = min(have, key=lambda b: abs(b - budget))
+    d_all = rollout[rollout.budget == budget]
+    if config.ROLL_PLOT_H:
+        d_all = d_all[d_all.h <= config.ROLL_PLOT_H]
+    names = _sweep_models(d_all, model_names)
+    chosen = _chosen(rollout, env_ids)
+
+    def draw(ax, d, **kw):
+        d = d.sort_values("h")
+        clipped_plot(ax, d.h, d.nmse, **kw)
+
+    fig, steps = _configs_grid(
+        d_all, env_ids, names, chosen, draw, ylabel="NMSE$(h)$", xlabel="horizon $h$"
+    )
+    for ax in fig.axes:
+        ax.xaxis.set_major_locator(MaxNLocator(integer=True))
+    fig.tight_layout(w_pad=0.6, h_pad=0.4)
+    _config_legend(fig, names, steps, len(env_ids))
+    return save(
+        fig,
+        "fig7a_rollout_configs",
+        outdir,
+        f"Every configuration of every model over the horizon, at $N$={budget}, "
+        f"one panel per model. "
+        f"Lightness is the sweep value -- the stretch factor $r$ for the foundation models, the history length for the trained ones -- and the dash is the presentation; the heavy marked curve is the one the combined figure draws. "
+        f"Persistence sits at 1 at every $h$, so a curve crossing that line has "
+        f"stopped being useful for planning; where a model's own variants cross "
+        f"each other is where the configuration the one-step sweep prefers stops "
+        f"being the right one.",
     )
 
 

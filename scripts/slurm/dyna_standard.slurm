@@ -11,10 +11,8 @@
 # experiments/dyna_standard/<env>/results/*.csv, so the four never touch the
 # same file and a failure in one leaves the others alone. Every stage resumes
 # from its CSV, so a task that hits the time limit can simply be resubmitted.
-#
-# Submit via scripts/slurm/submit_dyna.sh, which runs the setup job first.
+
 set -e
-cd "${SLURM_SUBMIT_DIR:?submit via scripts/slurm/submit_dyna.sh from the repo root}"
 
 export PATH="$HOME/.local/bin:$PATH"
 export UV_CACHE_DIR="/var/tmp/${USER}_uv_cache"

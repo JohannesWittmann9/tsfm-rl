@@ -29,25 +29,34 @@ ILLUSTRATION_ENV = "Pendulum-v1"
 # color     fixed per model, so a model keeps its colour in every figure
 # marker    identity is carried by shape too, never by colour alone
 # lags      trained models only: the history lengths swept in the grid
+#
+# The colours are one validated categorical set, not seven free choices: every
+# pair that can land in the same panel clears the colour-blind (OKLab dE >= 8
+# under simulated protan/deutan), normal-vision (dE >= 15) and 3:1 contrast-on-
+# white gates. The one deliberate exception is the grey reference, which is
+# meant to read as neutral and is told apart by its marker and legend entry.
+# The two greens are the tight pair, so they sit on the two models that never
+# share a figure (`Chronos-2 L-syn` is probe-only, `MLP` is sections 6-7 only);
+# swapping a colour means re-checking, not just picking a nicer hex.
 MODELS = {
     "Chronos-2 S": dict(
         kind="chronos",
         model_id="autogluon/chronos-2-small",  # 27.9M
-        color="#2a78d6",
+        color="#007BFF",
         marker="o",
         cost=1.0,
     ),
     "Chronos-2 L": dict(
         kind="chronos",
         model_id="amazon/chronos-2",  # 119.5M
-        color="#e34948",
+        color="#FF6347",
         marker="s",
         cost=3.4,
     ),
     "Chronos-2 L-syn": dict(
         kind="chronos",
         model_id="autogluon/chronos-2-synth",  # 119.0M, synthetic
-        color="#1DA019",
+        color="#28A745",
         marker="D",
         cost=3.4,
     ),
@@ -65,12 +74,12 @@ MODELS = {
     "Moirai": dict(
         kind="moirai",
         model_id="Salesforce/moirai-1.1-R-small",
-        color="#eb6834",
-        marker="s",
+        color="#FFC107",
+        marker="P",
         cost=8.6,
     ),
-    "MLP": dict(kind="mlp", lags=[1, 4, 16], color="#1baf7a", marker="^"),
-    "VARX": dict(kind="varx", lags=[1, 4, 16], color="#eda100", marker="v"),
+    "MLP": dict(kind="mlp", lags=[1, 4, 16], color="#046307", marker="^"),
+    "VARX": dict(kind="varx", lags=[1, 4, 16], color="#d76fa8", marker="v"),
 }
 
 TSFM_KINDS = ("chronos", "moirai")
@@ -95,6 +104,11 @@ PLOT_MODELS = [
 STRETCH_BUDGET = 256
 """The budget §5's stretch figure is drawn at."""
 
+ROLL_CONFIG_BUDGET = 512
+"""The budget §7a's per-configuration rollout figure is drawn at. It already
+spends a panel per model per environment, so the budget axis stays a single
+value rather than becoming a third dimension."""
+
 # ---- how the last two figures are drawn -------------------------------------
 # Everything in this block is read when the figure is drawn, never when a stage
 # computes. Change one, re-run the notebook cell, and the figure changes: none of
@@ -105,6 +119,32 @@ SCALING_MODELS = None
 
 ROLLOUT_MODELS = None
 """§7's models. None follows PLOT_MODELS."""
+
+PLOT_VARIANTS = {}
+"""Which *configuration* each model is drawn in, in §6 and §7.
+
+`SCALING_MODELS` and `ROLLOUT_MODELS` say which models appear; this says which of
+their variants. Empty means "whatever the section 5 grid selects". An entry
+overrides that pick, in the same dict shape `MODELS[...]["fixed"]` uses, so there
+is one way to name a variant in this file::
+
+    PLOT_VARIANTS = {
+        # None: applies to every environment
+        None: {"Chronos-2 S": dict(presentation="diff", r=6)},
+        # a named environment overrides the None block, for that environment only
+        "Pendulum-v1": {"Chronos-2 L": dict(presentation="diff", r=12)},
+        "CartPole-v1": {"MLP": dict(lag=4)},
+    }
+
+A model listed in neither block keeps the automatic selection. A variant that the
+model does not have raises, naming the ones it does -- a typo must not quietly
+redraw a different curve.
+
+Free in §7: `rollout.csv` holds every variant, so the override is applied when the
+figure is drawn. §6 costs one `--stages scaling` re-run, because `scaling.csv`
+carries the selected variant only; that run resumes, so it computes just the
+newly-requested cells.
+"""
 
 NMSE_YLIM = (1e-4, 2.0)
 """The log band §6 and §7 are drawn in. Errors span six decades -- a linear axis
@@ -120,7 +160,7 @@ ROLLOUT_YLIM = None
 SCALE_PLOT_BUDGETS = None
 """Which of the computed SCALE_BUDGETS §6 draws. None draws all of them."""
 
-ROLL_PLOT_H = None
+ROLL_PLOT_H = 20
 """How far along the horizon §7 and §8 draw. None draws the whole computed
 ROLL_H, so raising ROLL_H can stay a compute decision and this stays the
 presentation one."""
@@ -134,7 +174,7 @@ STRETCH_R = [1, 2, 4, 6, 8, 12, 16]
 HP_BUDGETS = [1, 2, 4, 8, 16, 64, 256, 1024, 4096, 8192]
 SCALE_BUDGETS = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192]
 ROLL_BUDGETS = [1, 2, 4, 8, 16, 64, 512, 1024, 2048, 4096]
-ROLL_PLOT_BUDGETS = [64, 512, 2048]
+ROLL_PLOT_BUDGETS = [64, 512, 1024, 2048, 4096]  # every one of them in ROLL_BUDGETS
 """Which of the computed ROLL_BUDGETS §7 draws -- it spends a row per budget and
 gets tall fast, so the sweep is wider than the figure. None draws all of them."""
 ROLL_H = 50
@@ -160,7 +200,7 @@ L = 64  # context window for the 2b probe, identical per model
 PROBE_WINDOWS = 96  # evaluation windows behind the probe
 PROBE_CTX = 96  # contexts the probe is averaged over
 HP_WINDOWS = 96  # evaluation windows for the grid -- the main cost lever
-ROLL_WINDOWS = 96  # evaluation windows for the rollout trajectories
+ROLL_WINDOWS = 32  # evaluation windows for the rollout trajectories
 
 HP_EVAL_EPISODES = 48  # long contexts overlap, so one episode per window
 HP_POOL_EPISODES = 4  # only the first is used; the rest are slack
