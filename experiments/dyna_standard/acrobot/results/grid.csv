@@ -1,0 +1,699 @@
+model,variant,presentation,r,lag,env,budget,nmse,seconds,evalset
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Acrobot-v1,1,,0.05547046661376953,96w@4080
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Acrobot-v1,1,,0.0068433284759521484,96w@4080
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,Acrobot-v1,1,,0.007066249847412109,96w@4080
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,Acrobot-v1,1,,0.005837678909301758,96w@4080
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,Acrobot-v1,1,,0.005217075347900391,96w@4080
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,Acrobot-v1,1,,0.004786491394042969,96w@4080
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,Acrobot-v1,1,,0.00447392463684082,96w@4080
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Acrobot-v1,1,0.9999995801618331,0.6670808792114258,96w@4080
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Acrobot-v1,1,1.0000006108344208,0.6752560138702393,96w@4080
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,Acrobot-v1,1,1.0000003616746596,0.6681606769561768,96w@4080
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,Acrobot-v1,1,1.000000350173281,0.6673417091369629,96w@4080
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,Acrobot-v1,1,1.0000003020550035,0.6723947525024414,96w@4080
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,Acrobot-v1,1,1.0000003330780796,0.6673715114593506,96w@4080
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,Acrobot-v1,1,1.0000004890369125,0.6694924831390381,96w@4080
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Acrobot-v1,1,,0.004992008209228516,96w@4080
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Acrobot-v1,1,,0.004866600036621094,96w@4080
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,Acrobot-v1,1,,0.004569530487060547,96w@4080
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,Acrobot-v1,1,,0.004563570022583008,96w@4080
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,Acrobot-v1,1,,0.004540443420410156,96w@4080
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,Acrobot-v1,1,,0.004537820816040039,96w@4080
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,Acrobot-v1,1,,0.004518985748291016,96w@4080
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Acrobot-v1,1,0.9999974884107562,2.2031641006469727,96w@4080
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Acrobot-v1,1,0.9999989493279835,2.20263671875,96w@4080
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,Acrobot-v1,1,0.9999995361913129,2.2026212215423584,96w@4080
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,Acrobot-v1,1,0.9999990979281388,2.1822595596313477,96w@4080
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,Acrobot-v1,1,0.9999992403086453,2.1034514904022217,96w@4080
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,Acrobot-v1,1,0.9999995420167788,2.108624219894409,96w@4080
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,Acrobot-v1,1,1.0000000255641137,2.1072099208831787,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Acrobot-v1,1,,0.005188465118408203,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Acrobot-v1,1,,0.004870414733886719,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,Acrobot-v1,1,,0.004597663879394531,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,Acrobot-v1,1,,0.004542350769042969,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,Acrobot-v1,1,,0.004540443420410156,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,Acrobot-v1,1,,0.00452423095703125,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,Acrobot-v1,1,,0.004548072814941406,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Acrobot-v1,1,1.0000001081055805,2.106457233428955,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Acrobot-v1,1,1.0000001089967274,2.101367950439453,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,Acrobot-v1,1,1.0000001075910343,2.1663217544555664,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,Acrobot-v1,1,1.0000001090669413,2.2193291187286377,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,Acrobot-v1,1,1.0000001004578916,2.2096073627471924,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,Acrobot-v1,1,1.0000001104089882,2.1180758476257324,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,Acrobot-v1,1,1.0000001170383932,2.0967044830322266,96w@4080
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Acrobot-v1,1,0.9999995801618331,0.6551072597503662,96w@4080
+Moirai,Moirai diff r=1,diff,1,-1,Acrobot-v1,1,,0.015612602233886719,96w@4080
+Moirai,Moirai diff r=2,diff,2,-1,Acrobot-v1,1,,0.001554727554321289,96w@4080
+Moirai,Moirai diff r=4,diff,4,-1,Acrobot-v1,1,,0.0011858940124511719,96w@4080
+Moirai,Moirai diff r=6,diff,6,-1,Acrobot-v1,1,,0.0011420249938964844,96w@4080
+Moirai,Moirai diff r=8,diff,8,-1,Acrobot-v1,1,,0.0011594295501708984,96w@4080
+Moirai,Moirai diff r=12,diff,12,-1,Acrobot-v1,1,,0.0011425018310546875,96w@4080
+Moirai,Moirai diff r=16,diff,16,-1,Acrobot-v1,1,,0.001140594482421875,96w@4080
+Moirai,Moirai level r=1,level,1,-1,Acrobot-v1,1,,0.0010399818420410156,96w@4080
+Moirai,Moirai level r=2,level,2,-1,Acrobot-v1,1,,0.0011773109436035156,96w@4080
+Moirai,Moirai level r=4,level,4,-1,Acrobot-v1,1,,0.0011212825775146484,96w@4080
+Moirai,Moirai level r=6,level,6,-1,Acrobot-v1,1,,0.0011360645294189453,96w@4080
+Moirai,Moirai level r=8,level,8,-1,Acrobot-v1,1,,0.0011355876922607422,96w@4080
+Moirai,Moirai level r=12,level,12,-1,Acrobot-v1,1,,0.0011112689971923828,96w@4080
+Moirai,Moirai level r=16,level,16,-1,Acrobot-v1,1,,0.0011210441589355469,96w@4080
+MLP,MLP lag 1,-,0,1,Acrobot-v1,1,,0.0029125213623046875,96w@4080
+MLP,MLP lag 4,-,0,4,Acrobot-v1,1,,0.002742767333984375,96w@4080
+MLP,MLP lag 16,-,0,16,Acrobot-v1,1,,0.002649068832397461,96w@4080
+VARX,VARX lag 1,-,0,1,Acrobot-v1,1,,0.010158538818359375,96w@4080
+VARX,VARX lag 4,-,0,4,Acrobot-v1,1,,0.0008599758148193359,96w@4080
+VARX,VARX lag 16,-,0,16,Acrobot-v1,1,,0.0008840560913085938,96w@4080
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Acrobot-v1,2,0.8262647053585818,0.6572601795196533,96w@4080
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Acrobot-v1,2,0.9289391123105563,0.6502883434295654,96w@4080
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,Acrobot-v1,2,0.8265575548450551,0.6518533229827881,96w@4080
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,Acrobot-v1,2,0.7369167761797452,0.6652512550354004,96w@4080
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,Acrobot-v1,2,0.775401868120447,0.6593191623687744,96w@4080
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,Acrobot-v1,2,0.725697695260851,0.6558315753936768,96w@4080
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,Acrobot-v1,2,0.6067996260320512,0.6543898582458496,96w@4080
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Acrobot-v1,2,1.4296638154749077,0.6557328701019287,96w@4080
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Acrobot-v1,2,1.3102349455657576,0.6719658374786377,96w@4080
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,Acrobot-v1,2,0.9149978530495799,0.6536893844604492,96w@4080
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,Acrobot-v1,2,0.8931432078702111,0.6544053554534912,96w@4080
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,Acrobot-v1,2,1.0229331257840137,0.6571855545043945,96w@4080
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,Acrobot-v1,2,0.8555663558855177,0.6569535732269287,96w@4080
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,Acrobot-v1,2,0.605598610829652,0.7261030673980713,96w@4080
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Acrobot-v1,2,0.8262627348339215,2.158539056777954,96w@4080
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Acrobot-v1,2,0.8658650786808106,2.1633543968200684,96w@4080
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,Acrobot-v1,2,0.6696659891751265,2.1641623973846436,96w@4080
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,Acrobot-v1,2,0.5611398675172069,2.16406512260437,96w@4080
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,Acrobot-v1,2,0.5919074407449504,2.1640708446502686,96w@4080
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,Acrobot-v1,2,0.5640200691592592,2.1619315147399902,96w@4080
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,Acrobot-v1,2,0.5932319549074099,2.1628329753875732,96w@4080
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Acrobot-v1,2,1.1745345271339738,2.1713643074035645,96w@4080
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Acrobot-v1,2,0.758726047433201,2.1635935306549072,96w@4080
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,Acrobot-v1,2,0.6291456693909674,2.161996841430664,96w@4080
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,Acrobot-v1,2,0.5747455254851206,2.1650707721710205,96w@4080
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,Acrobot-v1,2,0.5915913832085823,2.162137508392334,96w@4080
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,Acrobot-v1,2,0.5626539795971119,2.161910057067871,96w@4080
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,Acrobot-v1,2,0.5852605251070214,2.5003602504730225,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Acrobot-v1,2,0.8262652833379595,2.154197931289673,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Acrobot-v1,2,1.068105963881476,2.2138538360595703,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,Acrobot-v1,2,0.9967062353071356,2.1657474040985107,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,Acrobot-v1,2,0.8524211710772542,2.1580426692962646,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,Acrobot-v1,2,0.7001644795290779,2.162802219390869,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,Acrobot-v1,2,0.5764549969350522,2.1653730869293213,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,Acrobot-v1,2,0.572046033438704,2.1637954711914062,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Acrobot-v1,2,2.205279629752687,2.1647748947143555,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Acrobot-v1,2,1.6838048600423647,2.1646347045898438,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,Acrobot-v1,2,1.2380435768374591,2.163706064224243,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,Acrobot-v1,2,1.0460352566388855,2.166666030883789,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,Acrobot-v1,2,0.811778091106055,2.1671993732452393,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,Acrobot-v1,2,0.6380079481901203,2.165823221206665,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,Acrobot-v1,2,0.5701437674584063,2.519941568374634,96w@4080
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Acrobot-v1,2,1.4296638154749077,0.6670136451721191,96w@4080
+Moirai,Moirai diff r=1,diff,1,-1,Acrobot-v1,2,,0.008806228637695312,96w@4080
+Moirai,Moirai diff r=2,diff,2,-1,Acrobot-v1,2,,0.006963014602661133,96w@4080
+Moirai,Moirai diff r=4,diff,4,-1,Acrobot-v1,2,,0.0015211105346679688,96w@4080
+Moirai,Moirai diff r=6,diff,6,-1,Acrobot-v1,2,,0.001264333724975586,96w@4080
+Moirai,Moirai diff r=8,diff,8,-1,Acrobot-v1,2,,0.001268625259399414,96w@4080
+Moirai,Moirai diff r=12,diff,12,-1,Acrobot-v1,2,,0.0012819766998291016,96w@4080
+Moirai,Moirai diff r=16,diff,16,-1,Acrobot-v1,2,,0.0013263225555419922,96w@4080
+Moirai,Moirai level r=1,level,1,-1,Acrobot-v1,2,0.998085384452008,3.8855578899383545,96w@4080
+Moirai,Moirai level r=2,level,2,-1,Acrobot-v1,2,0.9979891116264832,3.886263608932495,96w@4080
+Moirai,Moirai level r=4,level,4,-1,Acrobot-v1,2,0.9977861686319667,3.910555601119995,96w@4080
+Moirai,Moirai level r=6,level,6,-1,Acrobot-v1,2,0.9985748242435221,3.926220178604126,96w@4080
+Moirai,Moirai level r=8,level,8,-1,Acrobot-v1,2,0.9985699519025734,3.8927831649780273,96w@4080
+Moirai,Moirai level r=12,level,12,-1,Acrobot-v1,2,0.9993314701504792,4.152717590332031,96w@4080
+Moirai,Moirai level r=16,level,16,-1,Acrobot-v1,2,0.999374012488282,4.1678550243377686,96w@4080
+MLP,MLP lag 1,-,0,1,Acrobot-v1,2,,0.0030612945556640625,96w@4080
+MLP,MLP lag 4,-,0,4,Acrobot-v1,2,,0.002849102020263672,96w@4080
+MLP,MLP lag 16,-,0,16,Acrobot-v1,2,,0.0027437210083007812,96w@4080
+VARX,VARX lag 1,-,0,1,Acrobot-v1,2,,0.0012121200561523438,96w@4080
+VARX,VARX lag 4,-,0,4,Acrobot-v1,2,,0.0007886886596679688,96w@4080
+VARX,VARX lag 16,-,0,16,Acrobot-v1,2,,0.0008242130279541016,96w@4080
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Acrobot-v1,4,1.331497576741262,0.7003426551818848,96w@4080
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Acrobot-v1,4,0.818527706133163,0.7128262519836426,96w@4080
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,Acrobot-v1,4,0.700216546182371,0.7147102355957031,96w@4080
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,Acrobot-v1,4,0.5201858533828175,0.8094937801361084,96w@4080
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,Acrobot-v1,4,0.5177949962370065,0.8035318851470947,96w@4080
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,Acrobot-v1,4,0.43207102939320735,0.9847283363342285,96w@4080
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,Acrobot-v1,4,0.448068593032725,0.9833276271820068,96w@4080
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Acrobot-v1,4,1.3052063648451127,0.7115428447723389,96w@4080
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Acrobot-v1,4,0.8016093590075312,0.7165176868438721,96w@4080
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,Acrobot-v1,4,0.6954115508135561,0.7112610340118408,96w@4080
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,Acrobot-v1,4,0.47039583939635493,0.8133304119110107,96w@4080
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,Acrobot-v1,4,0.505612018665594,0.8058853149414062,96w@4080
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,Acrobot-v1,4,0.39371914050579426,0.9849531650543213,96w@4080
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,Acrobot-v1,4,0.4196824645090564,1.0797934532165527,96w@4080
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Acrobot-v1,4,0.7406315712732042,2.2509756088256836,96w@4080
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Acrobot-v1,4,0.5905196032653839,2.2507078647613525,96w@4080
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,Acrobot-v1,4,0.501480332112091,2.2509849071502686,96w@4080
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,Acrobot-v1,4,0.5667028956321248,2.586308240890503,96w@4080
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,Acrobot-v1,4,0.5392787756590064,2.5350003242492676,96w@4080
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,Acrobot-v1,4,0.554986741321301,3.025749683380127,96w@4080
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,Acrobot-v1,4,0.5281902197195757,3.0240395069122314,96w@4080
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Acrobot-v1,4,0.8098640935444431,2.137619972229004,96w@4080
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Acrobot-v1,4,0.608688102238839,2.1396403312683105,96w@4080
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,Acrobot-v1,4,0.5345149628868338,2.135834217071533,96w@4080
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,Acrobot-v1,4,0.5158972781284776,2.5327999591827393,96w@4080
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,Acrobot-v1,4,0.5582529928875186,2.514174222946167,96w@4080
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,Acrobot-v1,4,0.4556166824185521,3.087702751159668,96w@4080
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,Acrobot-v1,4,0.4908366189203195,3.4891724586486816,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Acrobot-v1,4,2.174490939781443,2.182713270187378,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Acrobot-v1,4,1.193804028626216,2.2426717281341553,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,Acrobot-v1,4,0.703445580171083,2.215193748474121,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,Acrobot-v1,4,0.5145788511209292,2.5825417041778564,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,Acrobot-v1,4,0.564973868096185,2.582700252532959,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,Acrobot-v1,4,0.5528974973435963,3.1339125633239746,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,Acrobot-v1,4,0.570361572021365,3.125485897064209,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Acrobot-v1,4,2.2959103679714628,2.2182509899139404,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Acrobot-v1,4,1.0702877277583929,2.2219951152801514,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,Acrobot-v1,4,0.7712562391073265,2.271507740020752,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,Acrobot-v1,4,0.4249330370086312,2.4781136512756348,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,Acrobot-v1,4,0.546765856477321,2.480252981185913,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,Acrobot-v1,4,0.5482466772480962,3.006042957305908,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,Acrobot-v1,4,0.5672424578149602,3.4534504413604736,96w@4080
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Acrobot-v1,4,1.3052063648451127,0.657414436340332,96w@4080
+Moirai,Moirai diff r=1,diff,1,-1,Acrobot-v1,4,1.1717640315110793,4.428536653518677,96w@4080
+Moirai,Moirai diff r=2,diff,2,-1,Acrobot-v1,4,1.3229149672897487,3.9041855335235596,96w@4080
+Moirai,Moirai diff r=4,diff,4,-1,Acrobot-v1,4,0.8690625614315312,3.8877768516540527,96w@4080
+Moirai,Moirai diff r=6,diff,6,-1,Acrobot-v1,4,0.8495883264496906,4.152097463607788,96w@4080
+Moirai,Moirai diff r=8,diff,8,-1,Acrobot-v1,4,0.9181970676700472,4.124872446060181,96w@4080
+Moirai,Moirai diff r=12,diff,12,-1,Acrobot-v1,4,0.9916153262498332,4.959947347640991,96w@4080
+Moirai,Moirai diff r=16,diff,16,-1,Acrobot-v1,4,0.9535790150933979,5.264978647232056,96w@4080
+Moirai,Moirai level r=1,level,1,-1,Acrobot-v1,4,1.7220035527066815,3.8751800060272217,96w@4080
+Moirai,Moirai level r=2,level,2,-1,Acrobot-v1,4,1.5483618889149788,3.8641481399536133,96w@4080
+Moirai,Moirai level r=4,level,4,-1,Acrobot-v1,4,0.9194530948618752,4.135316371917725,96w@4080
+Moirai,Moirai level r=6,level,6,-1,Acrobot-v1,4,0.9355181261026307,4.181153774261475,96w@4080
+Moirai,Moirai level r=8,level,8,-1,Acrobot-v1,4,0.9293404277524452,4.6597559452056885,96w@4080
+Moirai,Moirai level r=12,level,12,-1,Acrobot-v1,4,0.9913325584832268,5.240758895874023,96w@4080
+Moirai,Moirai level r=16,level,16,-1,Acrobot-v1,4,0.9845307446984813,6.090475559234619,96w@4080
+MLP,MLP lag 1,-,0,1,Acrobot-v1,4,26.855233983277177,0.09854817390441895,96w@4080
+MLP,MLP lag 4,-,0,4,Acrobot-v1,4,,0.0028045177459716797,96w@4080
+MLP,MLP lag 16,-,0,16,Acrobot-v1,4,,0.0026574134826660156,96w@4080
+VARX,VARX lag 1,-,0,1,Acrobot-v1,4,3.262523428337427,0.004260540008544922,96w@4080
+VARX,VARX lag 4,-,0,4,Acrobot-v1,4,,0.0008769035339355469,96w@4080
+VARX,VARX lag 16,-,0,16,Acrobot-v1,4,,0.0008232593536376953,96w@4080
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Acrobot-v1,8,0.6728212234490015,0.6428937911987305,96w@4080
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Acrobot-v1,8,0.4793595949732324,0.6547143459320068,96w@4080
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,Acrobot-v1,8,0.4149452457015561,0.7383153438568115,96w@4080
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,Acrobot-v1,8,0.39545326875260906,0.863797664642334,96w@4080
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,Acrobot-v1,8,0.3775465640292008,0.9676904678344727,96w@4080
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,Acrobot-v1,8,0.3575597248540035,1.1963768005371094,96w@4080
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,Acrobot-v1,8,0.3868754701468296,1.309997797012329,96w@4080
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Acrobot-v1,8,0.6685880730898773,0.6543843746185303,96w@4080
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Acrobot-v1,8,0.47600944649227067,0.653740406036377,96w@4080
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,Acrobot-v1,8,0.37291195999306775,0.7386875152587891,96w@4080
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,Acrobot-v1,8,0.34680643363186553,0.8620762825012207,96w@4080
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,Acrobot-v1,8,0.3014762690060877,0.9682106971740723,96w@4080
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,Acrobot-v1,8,0.31002230923849416,1.1978535652160645,96w@4080
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,Acrobot-v1,8,0.3218352965240331,1.4107298851013184,96w@4080
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Acrobot-v1,8,0.608936606259433,2.1145734786987305,96w@4080
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Acrobot-v1,8,0.4539636596453618,2.1153907775878906,96w@4080
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,Acrobot-v1,8,0.40708064728159643,2.5700249671936035,96w@4080
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,Acrobot-v1,8,0.4609311395017049,3.1338043212890625,96w@4080
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,Acrobot-v1,8,0.42947295763478704,3.7506351470947266,96w@4080
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,Acrobot-v1,8,0.44561252356516085,4.8139848709106445,96w@4080
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,Acrobot-v1,8,0.43644012568977003,5.152284860610962,96w@4080
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Acrobot-v1,8,0.5949881295826441,2.2476754188537598,96w@4080
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Acrobot-v1,8,0.4452626522261554,2.193577766418457,96w@4080
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,Acrobot-v1,8,0.40349871336310317,2.513529062271118,96w@4080
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,Acrobot-v1,8,0.41931763197102323,3.042820930480957,96w@4080
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,Acrobot-v1,8,0.3885221719706502,3.4836766719818115,96w@4080
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,Acrobot-v1,8,0.3877567161414402,4.587211847305298,96w@4080
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,Acrobot-v1,8,0.37701643928941175,5.227977275848389,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Acrobot-v1,8,1.0127708215136686,2.173082113265991,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Acrobot-v1,8,0.48564227227542106,2.172412872314453,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,Acrobot-v1,8,0.3664253107488114,2.5049123764038086,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,Acrobot-v1,8,0.3675824038466271,3.211542844772339,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,Acrobot-v1,8,0.43614775924924426,3.64072585105896,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,Acrobot-v1,8,0.46281173717126484,4.575563907623291,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,Acrobot-v1,8,0.4183155113073224,5.00964093208313,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Acrobot-v1,8,0.9640179547101478,2.143162965774536,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Acrobot-v1,8,0.5448729469722983,2.138695001602173,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,Acrobot-v1,8,0.3474017784723014,2.511118173599243,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,Acrobot-v1,8,0.35294019190267795,3.1991465091705322,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,Acrobot-v1,8,0.3950130732525206,3.6074249744415283,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,Acrobot-v1,8,0.4278123591974472,4.576622247695923,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,Acrobot-v1,8,0.3837766090803092,5.440056800842285,96w@4080
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Acrobot-v1,8,0.6685880730898773,0.661207914352417,96w@4080
+Moirai,Moirai diff r=1,diff,1,-1,Acrobot-v1,8,1.3002211301639495,3.9042322635650635,96w@4080
+Moirai,Moirai diff r=2,diff,2,-1,Acrobot-v1,8,0.9746409701267543,4.174452543258667,96w@4080
+Moirai,Moirai diff r=4,diff,4,-1,Acrobot-v1,8,0.8716170352215901,4.94537878036499,96w@4080
+Moirai,Moirai diff r=6,diff,6,-1,Acrobot-v1,8,0.8851825242917756,6.486337661743164,96w@4080
+Moirai,Moirai diff r=8,diff,8,-1,Acrobot-v1,8,0.8267855224246689,6.614334344863892,96w@4080
+Moirai,Moirai diff r=12,diff,12,-1,Acrobot-v1,8,0.8848662411289725,9.008627653121948,96w@4080
+Moirai,Moirai diff r=16,diff,16,-1,Acrobot-v1,8,0.717905593468,10.12415337562561,96w@4080
+Moirai,Moirai level r=1,level,1,-1,Acrobot-v1,8,1.5286926275843247,4.346820592880249,96w@4080
+Moirai,Moirai level r=2,level,2,-1,Acrobot-v1,8,0.931780006270653,4.311636924743652,96w@4080
+Moirai,Moirai level r=4,level,4,-1,Acrobot-v1,8,0.9122970704442671,5.5759501457214355,96w@4080
+Moirai,Moirai level r=6,level,6,-1,Acrobot-v1,8,0.8191911880240236,6.336401462554932,96w@4080
+Moirai,Moirai level r=8,level,8,-1,Acrobot-v1,8,0.8537780945962391,7.2112767696380615,96w@4080
+Moirai,Moirai level r=12,level,12,-1,Acrobot-v1,8,1.0041939683888887,9.368059635162354,96w@4080
+Moirai,Moirai level r=16,level,16,-1,Acrobot-v1,8,0.8947379979312573,11.217164993286133,96w@4080
+MLP,MLP lag 1,-,0,1,Acrobot-v1,8,36.91104919199128,0.15439724922180176,96w@4080
+MLP,MLP lag 4,-,0,4,Acrobot-v1,8,123.9809148046288,0.12014102935791016,96w@4080
+MLP,MLP lag 16,-,0,16,Acrobot-v1,8,,0.0035200119018554688,96w@4080
+VARX,VARX lag 1,-,0,1,Acrobot-v1,8,2.327660706925625,0.004057884216308594,96w@4080
+VARX,VARX lag 4,-,0,4,Acrobot-v1,8,5.544118734190381,0.004008054733276367,96w@4080
+VARX,VARX lag 16,-,0,16,Acrobot-v1,8,,0.0008401870727539062,96w@4080
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Acrobot-v1,16,0.4269069176046975,0.712256908416748,96w@4080
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Acrobot-v1,16,0.3739075199144148,0.801680326461792,96w@4080
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,Acrobot-v1,16,0.31654297027448436,1.1167113780975342,96w@4080
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,Acrobot-v1,16,0.3105330820076939,1.2417526245117188,96w@4080
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,Acrobot-v1,16,0.3065623543236186,1.4463281631469727,96w@4080
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,Acrobot-v1,16,0.32518811671951553,1.9032702445983887,96w@4080
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,Acrobot-v1,16,0.33392397798816803,2.238464117050171,96w@4080
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Acrobot-v1,16,0.4726139791186337,0.7117750644683838,96w@4080
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Acrobot-v1,16,0.412000496227676,0.8005239963531494,96w@4080
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,Acrobot-v1,16,0.3097335141183661,1.070739984512329,96w@4080
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,Acrobot-v1,16,0.2927911512436885,1.2328376770019531,96w@4080
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,Acrobot-v1,16,0.27389742422056473,1.4448413848876953,96w@4080
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,Acrobot-v1,16,0.2719194788518313,1.8986525535583496,96w@4080
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,Acrobot-v1,16,0.2658007520572963,2.3632936477661133,96w@4080
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Acrobot-v1,16,0.36892967580416874,2.2493233680725098,96w@4080
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Acrobot-v1,16,0.295352811731539,2.587268829345703,96w@4080
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,Acrobot-v1,16,0.29279595316890067,3.7116539478302,96w@4080
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,Acrobot-v1,16,0.35922536801521093,4.738018035888672,96w@4080
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,Acrobot-v1,16,0.3199564716186789,5.61745023727417,96w@4080
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,Acrobot-v1,16,0.3550513996078453,7.1053924560546875,96w@4080
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,Acrobot-v1,16,0.35801303327878475,8.259346961975098,96w@4080
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Acrobot-v1,16,0.3899762593521931,2.3345134258270264,96w@4080
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Acrobot-v1,16,0.32016326483902485,2.7091474533081055,96w@4080
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,Acrobot-v1,16,0.30085078214229727,3.7660253047943115,96w@4080
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,Acrobot-v1,16,0.33153229938999945,4.453732490539551,96w@4080
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,Acrobot-v1,16,0.2947813174088907,5.3317060470581055,96w@4080
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,Acrobot-v1,16,0.30488997263913115,6.9026877880096436,96w@4080
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,Acrobot-v1,16,0.29995113503305015,8.49643325805664,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Acrobot-v1,16,0.46783966824942746,2.2093558311462402,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Acrobot-v1,16,0.3185316716670599,2.577354907989502,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,Acrobot-v1,16,0.2832505348260226,3.6041419506073,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,Acrobot-v1,16,0.33570947044311933,4.660947322845459,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,Acrobot-v1,16,0.354400026635475,5.292080879211426,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,Acrobot-v1,16,0.38876437081728027,6.807878494262695,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,Acrobot-v1,16,0.35819623058325245,8.22522521018982,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Acrobot-v1,16,0.48800721295441507,2.1090123653411865,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Acrobot-v1,16,0.33038352488853734,2.5246551036834717,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,Acrobot-v1,16,0.28156502702841485,3.361532688140869,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,Acrobot-v1,16,0.33948188593155265,4.5995776653289795,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,Acrobot-v1,16,0.32129453557120796,5.376788377761841,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,Acrobot-v1,16,0.3666683540522313,7.029383659362793,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,Acrobot-v1,16,0.30393452507616864,8.656021356582642,96w@4080
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Acrobot-v1,16,0.4726139791186337,0.6515281200408936,96w@4080
+Moirai,Moirai diff r=1,diff,1,-1,Acrobot-v1,16,1.0598990913659512,4.175487041473389,96w@4080
+Moirai,Moirai diff r=2,diff,2,-1,Acrobot-v1,16,0.7022068528129203,4.948390007019043,96w@4080
+Moirai,Moirai diff r=4,diff,4,-1,Acrobot-v1,16,0.68992486151546,6.64717698097229,96w@4080
+Moirai,Moirai diff r=6,diff,6,-1,Acrobot-v1,16,0.7329061272223689,9.263379335403442,96w@4080
+Moirai,Moirai diff r=8,diff,8,-1,Acrobot-v1,16,0.6667846502807045,11.049149751663208,96w@4080
+Moirai,Moirai diff r=12,diff,12,-1,Acrobot-v1,16,0.6681987382137309,15.834556341171265,96w@4080
+Moirai,Moirai diff r=16,diff,16,-1,Acrobot-v1,16,0.6239732256622381,20.354143142700195,96w@4080
+Moirai,Moirai level r=1,level,1,-1,Acrobot-v1,16,1.0556252309680838,4.5956127643585205,96w@4080
+Moirai,Moirai level r=2,level,2,-1,Acrobot-v1,16,0.7351929853882728,4.982185125350952,96w@4080
+Moirai,Moirai level r=4,level,4,-1,Acrobot-v1,16,0.6307410164781281,6.788815975189209,96w@4080
+Moirai,Moirai level r=6,level,6,-1,Acrobot-v1,16,0.71141508176297,8.853062629699707,96w@4080
+Moirai,Moirai level r=8,level,8,-1,Acrobot-v1,16,0.7890522868787602,11.036052703857422,96w@4080
+Moirai,Moirai level r=12,level,12,-1,Acrobot-v1,16,0.7760848215995798,15.992415428161621,96w@4080
+Moirai,Moirai level r=16,level,16,-1,Acrobot-v1,16,0.7497417659987891,21.471637725830078,96w@4080
+MLP,MLP lag 1,-,0,1,Acrobot-v1,16,8.930954121940234,0.09189772605895996,96w@4080
+MLP,MLP lag 4,-,0,4,Acrobot-v1,16,13.49272984923519,0.10990428924560547,96w@4080
+MLP,MLP lag 16,-,0,16,Acrobot-v1,16,,0.002894878387451172,96w@4080
+VARX,VARX lag 1,-,0,1,Acrobot-v1,16,1.8541417670628944,0.0032906532287597656,96w@4080
+VARX,VARX lag 4,-,0,4,Acrobot-v1,16,5.7643172712790784,0.003426074981689453,96w@4080
+VARX,VARX lag 16,-,0,16,Acrobot-v1,16,,0.0008213520050048828,96w@4080
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Acrobot-v1,32,0.4209713353682001,0.7286946773529053,96w@4080
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Acrobot-v1,32,0.3583438363241875,0.9859199523925781,96w@4080
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,Acrobot-v1,32,0.3494384596707804,1.3889787197113037,96w@4080
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,Acrobot-v1,32,0.30053194875919537,1.8988444805145264,96w@4080
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,Acrobot-v1,32,0.28585866575024593,2.2946977615356445,96w@4080
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,Acrobot-v1,32,0.30872986529905816,3.22098970413208,96w@4080
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,Acrobot-v1,32,0.332331156561477,3.8882369995117188,96w@4080
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Acrobot-v1,32,0.4564529440362044,0.7678806781768799,96w@4080
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Acrobot-v1,32,0.3546161103130647,1.0251350402832031,96w@4080
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,Acrobot-v1,32,0.3330480632648236,1.423004150390625,96w@4080
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,Acrobot-v1,32,0.2744962532082527,1.843562364578247,96w@4080
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,Acrobot-v1,32,0.2580098229195699,2.3183250427246094,96w@4080
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,Acrobot-v1,32,0.2507140039048569,3.158505439758301,96w@4080
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,Acrobot-v1,32,0.25071932891189225,3.95881724357605,96w@4080
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Acrobot-v1,32,0.3954265836437756,2.507769823074341,96w@4080
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Acrobot-v1,32,0.28154094325425066,3.596830368041992,96w@4080
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,Acrobot-v1,32,0.2678625059002488,5.501937627792358,96w@4080
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,Acrobot-v1,32,0.28978295840455653,7.144604921340942,96w@4080
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,Acrobot-v1,32,0.27205032719416367,8.824031352996826,96w@4080
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,Acrobot-v1,32,0.2882586761077663,12.0378098487854,96w@4080
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,Acrobot-v1,32,0.331472274159136,15.008074760437012,96w@4080
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Acrobot-v1,32,0.4126352963072262,2.627875566482544,96w@4080
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Acrobot-v1,32,0.27208582688875355,3.6174051761627197,96w@4080
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,Acrobot-v1,32,0.2550554891494402,5.437149524688721,96w@4080
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,Acrobot-v1,32,0.268305658192231,6.872354507446289,96w@4080
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,Acrobot-v1,32,0.25173160213676105,8.49579405784607,96w@4080
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,Acrobot-v1,32,0.26251555081246297,11.56220006942749,96w@4080
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,Acrobot-v1,32,0.28176028669514186,15.288119554519653,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Acrobot-v1,32,0.43726642811316946,2.585254669189453,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Acrobot-v1,32,0.30001455588883363,3.698620080947876,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,Acrobot-v1,32,0.29012573500496835,5.514248609542847,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,Acrobot-v1,32,0.28202786217838655,7.075551748275757,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,Acrobot-v1,32,0.30812090201382375,8.70553970336914,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,Acrobot-v1,32,0.3125283845902975,11.696401357650757,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,Acrobot-v1,32,0.3249328248983087,14.924555540084839,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Acrobot-v1,32,0.4205267973807774,2.5093986988067627,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Acrobot-v1,32,0.27865179586925365,3.6182239055633545,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,Acrobot-v1,32,0.28578299119363637,5.49007248878479,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,Acrobot-v1,32,0.29562537705561787,6.742760896682739,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,Acrobot-v1,32,0.2792861592470683,8.309704542160034,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,Acrobot-v1,32,0.3039547044218311,11.644835472106934,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,Acrobot-v1,32,0.27886621562213904,15.234633684158325,96w@4080
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Acrobot-v1,32,0.4564529440362044,0.7508816719055176,96w@4080
+Moirai,Moirai diff r=1,diff,1,-1,Acrobot-v1,32,0.868652616874125,4.994109630584717,96w@4080
+Moirai,Moirai diff r=2,diff,2,-1,Acrobot-v1,32,0.7257166314767604,6.868718862533569,96w@4080
+Moirai,Moirai diff r=4,diff,4,-1,Acrobot-v1,32,0.7404415434528611,11.071470022201538,96w@4080
+Moirai,Moirai diff r=6,diff,6,-1,Acrobot-v1,32,0.6799867654290153,16.32370376586914,96w@4080
+Moirai,Moirai diff r=8,diff,8,-1,Acrobot-v1,32,0.6365958937149536,21.40632724761963,96w@4080
+Moirai,Moirai diff r=12,diff,12,-1,Acrobot-v1,32,0.7594797575747164,35.29985547065735,96w@4080
+Moirai,Moirai diff r=16,diff,16,-1,Acrobot-v1,32,0.6341849712709261,48.811110496520996,96w@4080
+Moirai,Moirai level r=1,level,1,-1,Acrobot-v1,32,0.9046436723433439,5.29735255241394,96w@4080
+Moirai,Moirai level r=2,level,2,-1,Acrobot-v1,32,0.7483587021901915,6.791244745254517,96w@4080
+Moirai,Moirai level r=4,level,4,-1,Acrobot-v1,32,0.6642583230763356,11.406387567520142,96w@4080
+Moirai,Moirai level r=6,level,6,-1,Acrobot-v1,32,0.6515902533664161,16.903131246566772,96w@4080
+Moirai,Moirai level r=8,level,8,-1,Acrobot-v1,32,0.642937057594432,22.575106859207153,96w@4080
+Moirai,Moirai level r=12,level,12,-1,Acrobot-v1,32,0.8175979548747834,34.96126866340637,96w@4080
+Moirai,Moirai level r=16,level,16,-1,Acrobot-v1,32,0.7197922697603502,48.95690155029297,96w@4080
+MLP,MLP lag 1,-,0,1,Acrobot-v1,32,25.609108633861457,0.4874248504638672,96w@4080
+MLP,MLP lag 4,-,0,4,Acrobot-v1,32,29.273897041358566,0.2988581657409668,96w@4080
+MLP,MLP lag 16,-,0,16,Acrobot-v1,32,21.043389544184926,0.19807887077331543,96w@4080
+VARX,VARX lag 1,-,0,1,Acrobot-v1,32,1.2802717183439127,0.0034308433532714844,96w@4080
+VARX,VARX lag 4,-,0,4,Acrobot-v1,32,643.0727779492224,0.006070852279663086,96w@4080
+VARX,VARX lag 16,-,0,16,Acrobot-v1,32,6.1155136286128835,0.005367755889892578,96w@4080
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Acrobot-v1,64,0.34666446037430987,0.9893715381622314,96w@4080
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Acrobot-v1,64,0.293966550043617,1.3725745677947998,96w@4080
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,Acrobot-v1,64,0.2734539661108306,2.340156078338623,96w@4080
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,Acrobot-v1,64,0.25332742304958455,3.1718921661376953,96w@4080
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,Acrobot-v1,64,0.24793790691926765,3.9748332500457764,96w@4080
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,Acrobot-v1,64,0.2609850747431006,5.699407339096069,96w@4080
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,Acrobot-v1,64,0.27339792381519984,7.383254289627075,96w@4080
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Acrobot-v1,64,0.368885934683352,1.0161817073822021,96w@4080
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Acrobot-v1,64,0.3160383618807237,1.4216747283935547,96w@4080
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,Acrobot-v1,64,0.2690255496630835,2.298708200454712,96w@4080
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,Acrobot-v1,64,0.2338198049337291,3.2147600650787354,96w@4080
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,Acrobot-v1,64,0.21584796711122664,3.9554686546325684,96w@4080
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,Acrobot-v1,64,0.22901351025326533,5.7496654987335205,96w@4080
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,Acrobot-v1,64,0.21416974131449862,7.484171390533447,96w@4080
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Acrobot-v1,64,0.3177162961464097,3.4807944297790527,96w@4080
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Acrobot-v1,64,0.23053356427168073,5.186194658279419,96w@4080
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,Acrobot-v1,64,0.21467687303943658,8.35875654220581,96w@4080
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,Acrobot-v1,64,0.22678269828011077,11.617109537124634,96w@4080
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,Acrobot-v1,64,0.20852719991477767,15.064139604568481,96w@4080
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,Acrobot-v1,64,0.22554804040843646,22.32960796356201,96w@4080
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,Acrobot-v1,64,0.2708178981763677,28.833145141601562,96w@4080
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Acrobot-v1,64,0.3353878560275076,3.7126035690307617,96w@4080
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Acrobot-v1,64,0.23888078386857803,5.359390497207642,96w@4080
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,Acrobot-v1,64,0.20166569385123587,8.591477870941162,96w@4080
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,Acrobot-v1,64,0.20958250826143252,11.979294776916504,96w@4080
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,Acrobot-v1,64,0.18812793433297162,15.220665216445923,96w@4080
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,Acrobot-v1,64,0.2403046970381327,22.124898672103882,96w@4080
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,Acrobot-v1,64,0.23579499819862057,29.488874673843384,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Acrobot-v1,64,0.31235715745545783,3.6157422065734863,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Acrobot-v1,64,0.2522852664231218,5.30836033821106,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,Acrobot-v1,64,0.23446250055253168,8.38911247253418,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,Acrobot-v1,64,0.2452678908195818,11.736470699310303,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,Acrobot-v1,64,0.23406482231562828,15.074987649917603,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,Acrobot-v1,64,0.2701321933305891,22.17656683921814,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,Acrobot-v1,64,0.2575202162699413,28.923020601272583,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Acrobot-v1,64,0.3200584104993973,3.4705851078033447,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Acrobot-v1,64,0.24798463448074115,5.155510902404785,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,Acrobot-v1,64,0.2308146446608026,8.318032264709473,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,Acrobot-v1,64,0.2554217562724128,11.597846746444702,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,Acrobot-v1,64,0.21127927006766778,15.091984987258911,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,Acrobot-v1,64,0.2638212364959199,22.082632064819336,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,Acrobot-v1,64,0.2180423878515609,29.511787176132202,96w@4080
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Acrobot-v1,64,0.368885934683352,1.0744411945343018,96w@4080
+Moirai,Moirai diff r=1,diff,1,-1,Acrobot-v1,64,0.791646183443154,7.536261320114136,96w@4080
+Moirai,Moirai diff r=2,diff,2,-1,Acrobot-v1,64,0.7369360667590108,12.147975206375122,96w@4080
+Moirai,Moirai diff r=4,diff,4,-1,Acrobot-v1,64,0.7187808791464793,22.21015977859497,96w@4080
+Moirai,Moirai diff r=6,diff,6,-1,Acrobot-v1,64,0.6006765066911375,36.50254702568054,96w@4080
+Moirai,Moirai diff r=8,diff,8,-1,Acrobot-v1,64,0.6292061976105039,49.7435188293457,96w@4080
+Moirai,Moirai diff r=12,diff,12,-1,Acrobot-v1,64,0.6816526394088741,82.56636714935303,96w@4080
+Moirai,Moirai diff r=16,diff,16,-1,Acrobot-v1,64,0.6098096581484563,120.35755848884583,96w@4080
+Moirai,Moirai level r=1,level,1,-1,Acrobot-v1,64,0.7661335795324825,7.434839248657227,96w@4080
+Moirai,Moirai level r=2,level,2,-1,Acrobot-v1,64,0.8013856699572189,11.341852188110352,96w@4080
+Moirai,Moirai level r=4,level,4,-1,Acrobot-v1,64,0.612600045407117,22.456664562225342,96w@4080
+Moirai,Moirai level r=6,level,6,-1,Acrobot-v1,64,0.6317912266313149,36.025874376297,96w@4080
+Moirai,Moirai level r=8,level,8,-1,Acrobot-v1,64,0.5869184093816997,49.80111026763916,96w@4080
+Moirai,Moirai level r=12,level,12,-1,Acrobot-v1,64,0.7701312887644082,83.19569158554077,96w@4080
+Moirai,Moirai level r=16,level,16,-1,Acrobot-v1,64,0.6984863146422855,121.44613742828369,96w@4080
+MLP,MLP lag 1,-,0,1,Acrobot-v1,64,1.5400218741564495,0.5360431671142578,96w@4080
+MLP,MLP lag 4,-,0,4,Acrobot-v1,64,3.0836628701601074,1.1649439334869385,96w@4080
+MLP,MLP lag 16,-,0,16,Acrobot-v1,64,3.598210669674543,0.2588474750518799,96w@4080
+VARX,VARX lag 1,-,0,1,Acrobot-v1,64,0.8955275440497953,0.003339052200317383,96w@4080
+VARX,VARX lag 4,-,0,4,Acrobot-v1,64,17.394021311416612,0.0034723281860351562,96w@4080
+VARX,VARX lag 16,-,0,16,Acrobot-v1,64,71.87701893624683,0.0067975521087646484,96w@4080
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Acrobot-v1,128,0.3268758783205928,1.391826868057251,96w@4080
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Acrobot-v1,128,0.28458655234860913,2.3124067783355713,96w@4080
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,Acrobot-v1,128,0.25572977978472367,4.287440776824951,96w@4080
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,Acrobot-v1,128,0.25105360390875137,5.6396260261535645,96w@4080
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,Acrobot-v1,128,0.2472107462503944,7.427693128585815,96w@4080
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,Acrobot-v1,128,0.2546090855647361,11.169911861419678,96w@4080
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,Acrobot-v1,128,0.2822067735380142,15.298762798309326,96w@4080
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Acrobot-v1,128,0.35658636243668806,1.4187626838684082,96w@4080
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Acrobot-v1,128,0.29549161627190806,2.2641026973724365,96w@4080
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,Acrobot-v1,128,0.2646939490446361,3.879720449447632,96w@4080
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,Acrobot-v1,128,0.22982728124761484,5.640269756317139,96w@4080
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,Acrobot-v1,128,0.21369625344423415,7.305830717086792,96w@4080
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,Acrobot-v1,128,0.21996063681181155,11.200294733047485,96w@4080
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,Acrobot-v1,128,0.21588088744592016,15.318042516708374,96w@4080
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Acrobot-v1,128,0.27989388288547484,5.195465087890625,96w@4080
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Acrobot-v1,128,0.20858877120602157,8.381813049316406,96w@4080
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,Acrobot-v1,128,0.18743163258132048,15.41223406791687,96w@4080
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,Acrobot-v1,128,0.1886315488683011,22.372820615768433,96w@4080
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,Acrobot-v1,128,0.19497278750570768,29.54365873336792,96w@4080
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,Acrobot-v1,128,0.2113345430928859,45.25399470329285,96w@4080
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,Acrobot-v1,128,0.2479624174359424,60.17126727104187,96w@4080
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Acrobot-v1,128,0.2941950099333653,5.213028430938721,96w@4080
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Acrobot-v1,128,0.20681014389272587,8.601387739181519,96w@4080
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,Acrobot-v1,128,0.1794215042754204,15.332385778427124,96w@4080
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,Acrobot-v1,128,0.18575533494384347,22.116358280181885,96w@4080
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,Acrobot-v1,128,0.17169825114776419,29.441291332244873,96w@4080
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,Acrobot-v1,128,0.21405961427403755,44.522385120391846,96w@4080
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,Acrobot-v1,128,0.21041711337925298,60.617308378219604,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Acrobot-v1,128,0.27338873262306373,5.15216588973999,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Acrobot-v1,128,0.22751064879610128,8.392674684524536,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,Acrobot-v1,128,0.20513816886748018,15.242307424545288,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,Acrobot-v1,128,0.2337562647689768,22.421221256256104,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,Acrobot-v1,128,0.2217447313534343,29.54562497138977,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,Acrobot-v1,128,0.2437455506690435,45.262431383132935,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,Acrobot-v1,128,0.23974798318294324,60.31740689277649,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Acrobot-v1,128,0.2749369502100465,5.189059257507324,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Acrobot-v1,128,0.2315488012215379,8.35424256324768,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,Acrobot-v1,128,0.2095611462071517,15.370314359664917,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,Acrobot-v1,128,0.2269685938089506,22.153510093688965,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,Acrobot-v1,128,0.2010901556498219,29.45959782600403,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,Acrobot-v1,128,0.2373532197336027,45.03502416610718,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,Acrobot-v1,128,0.20988958863686671,60.723615884780884,96w@4080
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Acrobot-v1,128,0.35658636243668806,1.4977927207946777,96w@4080
+Moirai,Moirai diff r=1,diff,1,-1,Acrobot-v1,128,0.7779842334607303,11.746549606323242,96w@4080
+Moirai,Moirai diff r=2,diff,2,-1,Acrobot-v1,128,0.7491538308444888,22.45897078514099,96w@4080
+Moirai,Moirai diff r=4,diff,4,-1,Acrobot-v1,128,0.6686742336275202,50.46299338340759,96w@4080
+Moirai,Moirai diff r=6,diff,6,-1,Acrobot-v1,128,0.6284203072488047,85.54723262786865,96w@4080
+Moirai,Moirai diff r=8,diff,8,-1,Acrobot-v1,128,0.6012986588622219,121.53390645980835,96w@4080
+Moirai,Moirai diff r=12,diff,12,-1,Acrobot-v1,128,0.6651422791342337,215.79103684425354,96w@4080
+Moirai,Moirai diff r=16,diff,16,-1,Acrobot-v1,128,0.6567129797402396,329.85447454452515,96w@4080
+Moirai,Moirai level r=1,level,1,-1,Acrobot-v1,128,0.7107278175521445,11.264302015304565,96w@4080
+Moirai,Moirai level r=2,level,2,-1,Acrobot-v1,128,0.815077643321464,22.45701575279236,96w@4080
+Moirai,Moirai level r=4,level,4,-1,Acrobot-v1,128,0.607179007756101,51.80358099937439,96w@4080
+Moirai,Moirai level r=6,level,6,-1,Acrobot-v1,128,0.5917496580358924,84.8701765537262,96w@4080
+Moirai,Moirai level r=8,level,8,-1,Acrobot-v1,128,0.5526290794334231,122.78744220733643,96w@4080
+Moirai,Moirai level r=12,level,12,-1,Acrobot-v1,128,0.7370655441092246,217.66045093536377,96w@4080
+Moirai,Moirai level r=16,level,16,-1,Acrobot-v1,128,0.8320457036226901,334.3412914276123,96w@4080
+MLP,MLP lag 1,-,0,1,Acrobot-v1,128,1.0865599894369342,1.1872515678405762,96w@4080
+MLP,MLP lag 4,-,0,4,Acrobot-v1,128,0.9338435594270936,1.1809539794921875,96w@4080
+MLP,MLP lag 16,-,0,16,Acrobot-v1,128,1.7348675646186116,0.8581547737121582,96w@4080
+VARX,VARX lag 1,-,0,1,Acrobot-v1,128,0.9033134025636054,0.0035200119018554688,96w@4080
+VARX,VARX lag 4,-,0,4,Acrobot-v1,128,1.4654853591958779,0.0038154125213623047,96w@4080
+VARX,VARX lag 16,-,0,16,Acrobot-v1,128,174.23815383160448,0.011922121047973633,96w@4080
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Acrobot-v1,256,0.2843253028606877,2.250711679458618,96w@4080
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Acrobot-v1,256,0.27212214290524955,4.092291355133057,96w@4080
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,Acrobot-v1,256,0.2321225648139108,7.408977508544922,96w@4080
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,Acrobot-v1,256,0.22852544117048965,11.263183355331421,96w@4080
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,Acrobot-v1,256,0.2361070572987485,15.416522979736328,96w@4080
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,Acrobot-v1,256,0.25046617744882776,24.258542776107788,96w@4080
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,Acrobot-v1,256,0.28348852336823155,33.864131450653076,96w@4080
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Acrobot-v1,256,0.31301163122195264,2.275167942047119,96w@4080
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Acrobot-v1,256,0.29413541889760114,3.970433473587036,96w@4080
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,Acrobot-v1,256,0.2395664257683673,7.414328336715698,96w@4080
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,Acrobot-v1,256,0.20704457942356347,11.307539701461792,96w@4080
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,Acrobot-v1,256,0.20211813994250613,15.418689250946045,96w@4080
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,Acrobot-v1,256,0.21654206238921833,24.2551212310791,96w@4080
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,Acrobot-v1,256,0.21404821531993537,33.94995737075806,96w@4080
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Acrobot-v1,256,0.26622615191757504,8.542205095291138,96w@4080
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Acrobot-v1,256,0.17748731667592973,15.123196363449097,96w@4080
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,Acrobot-v1,256,0.15760315199299094,29.50440263748169,96w@4080
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,Acrobot-v1,256,0.16513373398108325,45.03417944908142,96w@4080
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,Acrobot-v1,256,0.16897448910721335,60.66425967216492,96w@4080
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,Acrobot-v1,256,0.20257997888013143,94.21445107460022,96w@4080
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,Acrobot-v1,256,0.23182031613965082,130.33177542686462,96w@4080
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Acrobot-v1,256,0.2588340625765136,8.317850589752197,96w@4080
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Acrobot-v1,256,0.18623488014980918,15.077488899230957,96w@4080
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,Acrobot-v1,256,0.15276642424142117,29.414180517196655,96w@4080
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,Acrobot-v1,256,0.1538285464983168,43.93521237373352,96w@4080
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,Acrobot-v1,256,0.14081006498237522,59.975802183151245,96w@4080
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,Acrobot-v1,256,0.1997618781042992,94.18950653076172,96w@4080
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,Acrobot-v1,256,0.19934275712098734,129.69817686080933,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Acrobot-v1,256,0.264390217319347,8.336338996887207,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Acrobot-v1,256,0.2146364520933195,14.986660718917847,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,Acrobot-v1,256,0.20659214702342274,29.494075775146484,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,Acrobot-v1,256,0.22024847581716092,44.2116916179657,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,Acrobot-v1,256,0.2047593615489295,60.28409767150879,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,Acrobot-v1,256,0.2216464693300254,94.20959401130676,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,Acrobot-v1,256,0.22337066233268624,129.95962381362915,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Acrobot-v1,256,0.25867944109455565,8.29574179649353,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Acrobot-v1,256,0.21750497427177154,15.135965585708618,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,Acrobot-v1,256,0.19731414550642082,29.465396881103516,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,Acrobot-v1,256,0.2079218294700784,44.163495779037476,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,Acrobot-v1,256,0.1785239047845539,59.97943615913391,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,Acrobot-v1,256,0.21806856353815995,94.1912133693695,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,Acrobot-v1,256,0.19645824864289085,130.22029972076416,96w@4080
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Acrobot-v1,256,0.31301163122195264,2.3354790210723877,96w@4080
+Moirai,Moirai diff r=1,diff,1,-1,Acrobot-v1,256,0.8002745216514454,22.955906867980957,96w@4080
+Moirai,Moirai diff r=2,diff,2,-1,Acrobot-v1,256,0.7866895708784654,50.91612720489502,96w@4080
+Moirai,Moirai diff r=4,diff,4,-1,Acrobot-v1,256,0.6365901329729381,124.58054375648499,96w@4080
+Moirai,Moirai diff r=6,diff,6,-1,Acrobot-v1,256,0.6196424922940333,219.5714693069458,96w@4080
+Moirai,Moirai diff r=8,diff,8,-1,Acrobot-v1,256,0.5879572885016152,334.44615173339844,96w@4080
+Moirai,Moirai diff r=12,diff,12,-1,Acrobot-v1,256,0.6724573881079282,621.6475019454956,96w@4080
+Moirai,Moirai diff r=16,diff,16,-1,Acrobot-v1,256,0.7216173721317324,984.9792234897614,96w@4080
+Moirai,Moirai level r=1,level,1,-1,Acrobot-v1,256,0.940100899509691,22.236322164535522,96w@4080
+Moirai,Moirai level r=2,level,2,-1,Acrobot-v1,256,0.7785491988173884,51.343589782714844,96w@4080
+Moirai,Moirai level r=4,level,4,-1,Acrobot-v1,256,0.6580056169429183,125.79490900039673,96w@4080
+Moirai,Moirai level r=6,level,6,-1,Acrobot-v1,256,0.6193091553908032,219.5352168083191,96w@4080
+Moirai,Moirai level r=8,level,8,-1,Acrobot-v1,256,0.5910358621942935,337.63861083984375,96w@4080
+Moirai,Moirai level r=12,level,12,-1,Acrobot-v1,256,0.7754625366119604,622.4019637107849,96w@4080
+Moirai,Moirai level r=16,level,16,-1,Acrobot-v1,256,0.7734947455331053,987.397004365921,96w@4080
+MLP,MLP lag 1,-,0,1,Acrobot-v1,256,0.5625446900920233,1.212538719177246,96w@4080
+MLP,MLP lag 4,-,0,4,Acrobot-v1,256,0.5484673906016541,1.1992011070251465,96w@4080
+MLP,MLP lag 16,-,0,16,Acrobot-v1,256,0.9014849195797315,1.2202951908111572,96w@4080
+VARX,VARX lag 1,-,0,1,Acrobot-v1,256,0.7975967544415008,0.0037412643432617188,96w@4080
+VARX,VARX lag 4,-,0,4,Acrobot-v1,256,0.32522384273867294,0.004087924957275391,96w@4080
+VARX,VARX lag 16,-,0,16,Acrobot-v1,256,2.1920042110819695,0.01195073127746582,96w@4080
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Acrobot-v1,512,0.2774384318359762,4.1052610874176025,96w@4080
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Acrobot-v1,512,0.2661244607476529,7.44942831993103,96w@4080
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,Acrobot-v1,512,0.21399199987659787,15.35749888420105,96w@4080
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,Acrobot-v1,512,0.21509926604740545,24.06673288345337,96w@4080
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,Acrobot-v1,512,0.23753255466120304,33.58925986289978,96w@4080
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,Acrobot-v1,512,0.2615127767574462,52.70809006690979,96w@4080
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,Acrobot-v1,512,0.29159834734899487,71.95997953414917,96w@4080
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Acrobot-v1,512,0.3131193131438151,3.9924585819244385,96w@4080
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Acrobot-v1,512,0.2813244279025458,7.493368864059448,96w@4080
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,Acrobot-v1,512,0.21748828772066406,15.086994409561157,96w@4080
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,Acrobot-v1,512,0.1974902212043074,23.931605339050293,96w@4080
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,Acrobot-v1,512,0.19227496813954717,33.73216366767883,96w@4080
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,Acrobot-v1,512,0.22060912382374298,53.094011068344116,96w@4080
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,Acrobot-v1,512,0.22303345402291594,71.73959064483643,96w@4080
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Acrobot-v1,512,0.2518874668169117,15.155827283859253,96w@4080
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Acrobot-v1,512,0.1588885688940502,29.492002725601196,96w@4080
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,Acrobot-v1,512,0.1473675583113833,59.8789644241333,96w@4080
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,Acrobot-v1,512,0.1621089399977377,94.16377854347229,96w@4080
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,Acrobot-v1,512,0.171321183085439,130.88955211639404,96w@4080
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,Acrobot-v1,512,0.20665078571176432,197.54120755195618,96w@4080
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,Acrobot-v1,512,0.2311443309951419,263.87190222740173,96w@4080
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Acrobot-v1,512,0.24619171443912083,15.279389381408691,96w@4080
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Acrobot-v1,512,0.1671236274170872,29.413010835647583,96w@4080
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,Acrobot-v1,512,0.1495904432461311,59.97184419631958,96w@4080
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,Acrobot-v1,512,0.14675531579138607,94.27400088310242,96w@4080
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,Acrobot-v1,512,0.14774614126179336,130.00616836547852,96w@4080
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,Acrobot-v1,512,0.20379420102512838,196.88405179977417,96w@4080
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,Acrobot-v1,512,0.19947022657517763,265.2532079219818,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Acrobot-v1,512,0.23526795737749298,15.037925958633423,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Acrobot-v1,512,0.21413069777488683,29.30100679397583,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,Acrobot-v1,512,0.19951930168598123,59.90768647193909,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,Acrobot-v1,512,0.21924795321800036,94.22131371498108,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,Acrobot-v1,512,0.20801371587153375,130.7877655029297,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,Acrobot-v1,512,0.22649373137808115,197.97694659233093,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,Acrobot-v1,512,0.22918086277476565,263.9949531555176,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Acrobot-v1,512,0.24751095140461787,14.933881282806396,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Acrobot-v1,512,0.2069046221012679,29.09911608695984,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,Acrobot-v1,512,0.1905158746584051,59.91596007347107,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,Acrobot-v1,512,0.19524858586770952,94.22137022018433,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,Acrobot-v1,512,0.17253558380370684,130.2826223373413,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,Acrobot-v1,512,0.22072562213764435,196.60052680969238,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,Acrobot-v1,512,0.19834318682203003,264.9584331512451,96w@4080
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Acrobot-v1,512,0.3131193131438151,3.959139585494995,96w@4080
+Moirai,Moirai diff r=1,diff,1,-1,Acrobot-v1,512,0.8392737003011114,51.83274483680725,96w@4080
+Moirai,Moirai diff r=2,diff,2,-1,Acrobot-v1,512,0.8531344617139337,126.16740822792053,96w@4080
+Moirai,Moirai diff r=4,diff,4,-1,Acrobot-v1,512,0.7375145765117032,336.2411410808563,96w@4080
+Moirai,Moirai diff r=6,diff,6,-1,Acrobot-v1,512,0.5890366585095029,622.1609289646149,96w@4080
+Moirai,Moirai diff r=8,diff,8,-1,Acrobot-v1,512,0.6720187022438594,988.9548354148865,96w@4080
+Moirai,Moirai level r=1,level,1,-1,Acrobot-v1,512,0.9158138608185435,51.77851605415344,96w@4080
+Moirai,Moirai level r=2,level,2,-1,Acrobot-v1,512,0.8162747811142652,124.65440225601196,96w@4080
+Moirai,Moirai level r=4,level,4,-1,Acrobot-v1,512,0.7064702460041018,339.328581571579,96w@4080
+Moirai,Moirai level r=6,level,6,-1,Acrobot-v1,512,0.6362619890980267,622.8019073009491,96w@4080
+Moirai,Moirai level r=8,level,8,-1,Acrobot-v1,512,0.7023923380790972,990.0567121505737,96w@4080
+MLP,MLP lag 1,-,0,1,Acrobot-v1,512,0.42866871723384703,2.7143075466156006,96w@4080
+MLP,MLP lag 4,-,0,4,Acrobot-v1,512,0.42065390500764815,2.832476854324341,96w@4080
+MLP,MLP lag 16,-,0,16,Acrobot-v1,512,0.6813103035505588,2.4994709491729736,96w@4080
+VARX,VARX lag 1,-,0,1,Acrobot-v1,512,0.7411271163845373,0.005109548568725586,96w@4080
+VARX,VARX lag 4,-,0,4,Acrobot-v1,512,0.37552508620846176,0.005979061126708984,96w@4080
+VARX,VARX lag 16,-,0,16,Acrobot-v1,512,1.3171428975877584,0.008097648620605469,96w@4080
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Acrobot-v1,1024,0.2805713391302109,7.496537446975708,96w@4080
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Acrobot-v1,1024,0.25479057261560517,15.05951976776123,96w@4080
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,Acrobot-v1,1024,0.21706259227401414,33.58983874320984,96w@4080
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,Acrobot-v1,1024,0.2166067145633197,52.86543846130371,96w@4080
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,Acrobot-v1,1024,0.24471885956934095,72.24403834342957,96w@4080
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Acrobot-v1,1024,0.3160010251324136,7.435624122619629,96w@4080
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Acrobot-v1,1024,0.2706656603738821,15.273809909820557,96w@4080
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,Acrobot-v1,1024,0.22300102471254643,33.70215106010437,96w@4080
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,Acrobot-v1,1024,0.1992674427160818,53.23826241493225,96w@4080
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,Acrobot-v1,1024,0.19703069939799897,71.7234320640564,96w@4080
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Acrobot-v1,1024,0.2358486453397557,29.08156943321228,96w@4080
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Acrobot-v1,1024,0.15189584483948873,59.94795536994934,96w@4080
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,Acrobot-v1,1024,0.1543486704151934,131.06927132606506,96w@4080
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,Acrobot-v1,1024,0.1747956938067793,197.44087266921997,96w@4080
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,Acrobot-v1,1024,0.17722966309383295,264.70031476020813,96w@4080
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Acrobot-v1,1024,0.2326769998754138,29.409534215927124,96w@4080
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Acrobot-v1,1024,0.15886986303070527,60.27888226509094,96w@4080
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,Acrobot-v1,1024,0.14976154794868543,130.78894591331482,96w@4080
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,Acrobot-v1,1024,0.1505238921764412,196.671226978302,96w@4080
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,Acrobot-v1,1024,0.14770442241041604,264.88561630249023,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Acrobot-v1,1024,0.23415152087681804,29.34762930870056,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Acrobot-v1,1024,0.20566916876764674,60.32377862930298,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,Acrobot-v1,1024,0.19645448249793618,130.90316605567932,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,Acrobot-v1,1024,0.22244531339956766,197.90511798858643,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,Acrobot-v1,1024,0.21359370516776385,265.3567020893097,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Acrobot-v1,1024,0.24321874185001757,29.12436819076538,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Acrobot-v1,1024,0.2084253386290166,59.5648238658905,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,Acrobot-v1,1024,0.1840733838979981,129.97551846504211,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,Acrobot-v1,1024,0.19812358870512622,196.60801887512207,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,Acrobot-v1,1024,0.1761887651109468,265.6071445941925,96w@4080
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Acrobot-v1,1024,0.3160010251324136,7.435189247131348,96w@4080
+Moirai,Moirai diff r=1,diff,1,-1,Acrobot-v1,1024,0.8382429252842888,124.68601322174072,96w@4080
+Moirai,Moirai diff r=2,diff,2,-1,Acrobot-v1,1024,0.8211511339789532,338.1985704898834,96w@4080
+Moirai,Moirai diff r=4,diff,4,-1,Acrobot-v1,1024,0.710639377623163,991.5943846702576,96w@4080
+Moirai,Moirai level r=1,level,1,-1,Acrobot-v1,1024,0.9491329781501591,125.96471357345581,96w@4080
+Moirai,Moirai level r=2,level,2,-1,Acrobot-v1,1024,0.7321938460032363,338.70811700820923,96w@4080
+Moirai,Moirai level r=4,level,4,-1,Acrobot-v1,1024,0.7833908998135705,995.4611988067627,96w@4080
+MLP,MLP lag 1,-,0,1,Acrobot-v1,1024,0.12249510031823112,4.596671104431152,96w@4080
+MLP,MLP lag 4,-,0,4,Acrobot-v1,1024,0.1329703239785928,4.600348711013794,96w@4080
+MLP,MLP lag 16,-,0,16,Acrobot-v1,1024,0.3426667026708187,4.443736553192139,96w@4080
+VARX,VARX lag 1,-,0,1,Acrobot-v1,1024,0.6344521989893664,0.004866838455200195,96w@4080
+VARX,VARX lag 4,-,0,4,Acrobot-v1,1024,0.24737299055853812,0.0073778629302978516,96w@4080
+VARX,VARX lag 16,-,0,16,Acrobot-v1,1024,0.38793431779421916,0.015857696533203125,96w@4080
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Acrobot-v1,2048,0.2864221318869736,15.140145063400269,96w@4080
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Acrobot-v1,2048,0.27553619089125153,33.57899594306946,96w@4080
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,Acrobot-v1,2048,0.22860121768288258,72.14261269569397,96w@4080
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Acrobot-v1,2048,0.32535182074254215,15.20902419090271,96w@4080
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Acrobot-v1,2048,0.30001471419792375,33.90265417098999,96w@4080
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,Acrobot-v1,2048,0.2312697599083584,72.07977819442749,96w@4080
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Acrobot-v1,2048,0.22586118396228336,59.901437520980835,96w@4080
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Acrobot-v1,2048,0.1553666440217667,131.11620116233826,96w@4080
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,Acrobot-v1,2048,0.16212896272038083,265.18669867515564,96w@4080
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Acrobot-v1,2048,0.225748738116502,59.4294638633728,96w@4080
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Acrobot-v1,2048,0.15645524648415374,130.31686520576477,96w@4080
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,Acrobot-v1,2048,0.1527891497388789,265.799197435379,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Acrobot-v1,2048,0.2402340285093736,59.94041323661804,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Acrobot-v1,2048,0.20182901671537248,131.91754126548767,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,Acrobot-v1,2048,0.2031677918793849,264.7769844532013,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Acrobot-v1,2048,0.25358345554378486,59.693002223968506,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Acrobot-v1,2048,0.2058558609738207,131.1787645816803,96w@4080
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,Acrobot-v1,2048,0.18900143286884297,264.9817068576813,96w@4080
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Acrobot-v1,2048,0.32535182074254215,15.114734172821045,96w@4080
+Moirai,Moirai diff r=1,diff,1,-1,Acrobot-v1,2048,1.0082999290059593,339.94416213035583,96w@4080
+Moirai,Moirai diff r=2,diff,2,-1,Acrobot-v1,2048,0.930867386368906,997.7132079601288,96w@4080
+Moirai,Moirai level r=1,level,1,-1,Acrobot-v1,2048,0.9295663143851433,339.62795066833496,96w@4080
+Moirai,Moirai level r=2,level,2,-1,Acrobot-v1,2048,1.0153142718738537,997.5350942611694,96w@4080
+MLP,MLP lag 1,-,0,1,Acrobot-v1,2048,0.09086119661822185,8.09728479385376,96w@4080
+MLP,MLP lag 4,-,0,4,Acrobot-v1,2048,0.08904255342359342,8.105933666229248,96w@4080
+MLP,MLP lag 16,-,0,16,Acrobot-v1,2048,0.22399119586683336,6.423860788345337,96w@4080
+VARX,VARX lag 1,-,0,1,Acrobot-v1,2048,0.6355390488643279,0.006636619567871094,96w@4080
+VARX,VARX lag 4,-,0,4,Acrobot-v1,2048,0.22844753521345607,0.009765148162841797,96w@4080
+VARX,VARX lag 16,-,0,16,Acrobot-v1,2048,0.39788734304771195,0.021829605102539062,96w@4080

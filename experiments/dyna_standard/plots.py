@@ -106,9 +106,10 @@ def model_label(name, presentation=None, r=None, lag=None):
     ``Chronos-2 S`` drawn as diff at r=12 is ``Chronos-2 S (diff, r=12)``: which
     variant a curve is has to be readable off the figure, not looked up in a
     table. A model whose name already ends in a bracket is a pinned variant with
-    nothing to disambiguate, so it is left alone.
+    nothing to disambiguate, so it is left alone -- as is everything when
+    ``config.LEGEND_VARIANTS`` is off.
     """
-    if name.endswith(")"):
+    if not config.LEGEND_VARIANTS or name.endswith(")"):
         return name
     if presentation in (None, "-") or r in (None, 0):
         return f"{name} (lag {lag})" if lag not in (None, -1, 0) else name

@@ -1,0 +1,733 @@
+model,variant,presentation,r,lag,env,budget,nmse,seconds,evalset
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,CartPole-v1,1,,0.05453610420227051,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,CartPole-v1,1,,0.004986286163330078,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,CartPole-v1,1,,0.004691362380981445,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,CartPole-v1,1,,0.004678249359130859,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,CartPole-v1,1,,0.0046236515045166016,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,CartPole-v1,1,,0.004578351974487305,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,CartPole-v1,1,,0.004480600357055664,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,CartPole-v1,1,1.0000741370008464,0.5122485160827637,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,CartPole-v1,1,0.9998601213331761,0.5135433673858643,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,CartPole-v1,1,0.9999007038423324,0.510352611541748,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,CartPole-v1,1,0.9999124676524799,0.5124363899230957,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,CartPole-v1,1,0.9999266230655709,0.517343282699585,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,CartPole-v1,1,0.999916142743,0.5129184722900391,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,CartPole-v1,1,0.9999219246440918,0.5208914279937744,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,CartPole-v1,1,,0.006165981292724609,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,CartPole-v1,1,,0.00539088249206543,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,CartPole-v1,1,,0.00455021858215332,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,CartPole-v1,1,,0.00455474853515625,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,CartPole-v1,1,,0.004559040069580078,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,CartPole-v1,1,,0.004518032073974609,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,CartPole-v1,1,,0.004530668258666992,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,CartPole-v1,1,1.0005283904972537,1.583984375,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,CartPole-v1,1,1.0001689201222679,1.6070294380187988,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,CartPole-v1,1,1.0000867393754327,1.6413750648498535,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,CartPole-v1,1,1.0002170363986074,1.623032808303833,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,CartPole-v1,1,1.0001872303580752,1.6127171516418457,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,CartPole-v1,1,1.00013439589125,1.6366527080535889,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,CartPole-v1,1,1.0000649307525777,1.5556161403656006,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,CartPole-v1,1,,0.0060863494873046875,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,CartPole-v1,1,,0.005327701568603516,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,CartPole-v1,1,,0.004570960998535156,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,CartPole-v1,1,,0.004566192626953125,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,CartPole-v1,1,,0.004530429840087891,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,CartPole-v1,1,,0.004546642303466797,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,CartPole-v1,1,,0.0046269893646240234,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,CartPole-v1,1,1.0000076503674076,1.5586552619934082,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,CartPole-v1,1,1.0000007439784369,1.5672507286071777,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,CartPole-v1,1,1.0000039239966463,1.5592153072357178,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,CartPole-v1,1,1.0000038970654965,1.4749469757080078,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,CartPole-v1,1,1.0000031001147933,1.4875175952911377,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,CartPole-v1,1,1.0000021259077183,1.4659433364868164,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,CartPole-v1,1,1.0000044633819871,1.4707486629486084,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,CartPole-v1,1,1.0000741370008464,0.471099853515625,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,CartPole-v1,1,,0.014138460159301758,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,CartPole-v1,1,,0.001232147216796875,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,CartPole-v1,1,,0.0011641979217529297,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,CartPole-v1,1,,0.001161813735961914,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,CartPole-v1,1,,0.0011463165283203125,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,CartPole-v1,1,,0.0011565685272216797,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,CartPole-v1,1,,0.0011959075927734375,96w@8192
+Moirai,Moirai level r=1,level,1,-1,CartPole-v1,1,,0.0010793209075927734,96w@8192
+Moirai,Moirai level r=2,level,2,-1,CartPole-v1,1,,0.0011463165283203125,96w@8192
+Moirai,Moirai level r=4,level,4,-1,CartPole-v1,1,,0.001148223876953125,96w@8192
+Moirai,Moirai level r=6,level,6,-1,CartPole-v1,1,,0.0011861324310302734,96w@8192
+Moirai,Moirai level r=8,level,8,-1,CartPole-v1,1,,0.0011458396911621094,96w@8192
+Moirai,Moirai level r=12,level,12,-1,CartPole-v1,1,,0.0011539459228515625,96w@8192
+Moirai,Moirai level r=16,level,16,-1,CartPole-v1,1,,0.0011649131774902344,96w@8192
+MLP,MLP lag 1,-,0,1,CartPole-v1,1,,0.0030281543731689453,96w@8192
+MLP,MLP lag 4,-,0,4,CartPole-v1,1,,0.0027418136596679688,96w@8192
+MLP,MLP lag 16,-,0,16,CartPole-v1,1,,0.0026597976684570312,96w@8192
+VARX,VARX lag 1,-,0,1,CartPole-v1,1,,0.010132789611816406,96w@8192
+VARX,VARX lag 4,-,0,4,CartPole-v1,1,,0.0008611679077148438,96w@8192
+VARX,VARX lag 16,-,0,16,CartPole-v1,1,,0.0008571147918701172,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,CartPole-v1,2,2.05739807237564,0.4740478992462158,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,CartPole-v1,2,2.0573104991260394,0.4734220504760742,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,CartPole-v1,2,2.0573096041928034,0.47223997116088867,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,CartPole-v1,2,2.05731310503802,0.4759345054626465,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,CartPole-v1,2,2.0573130505977253,0.47435855865478516,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,CartPole-v1,2,2.0573122225528664,0.47312140464782715,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,CartPole-v1,2,2.0573123343797994,0.4735434055328369,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,CartPole-v1,2,0.9146321963270654,0.4745051860809326,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,CartPole-v1,2,0.9383342079557463,0.4734668731689453,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,CartPole-v1,2,0.9360172887543299,0.4736325740814209,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,CartPole-v1,2,0.9713058904131262,0.47324204444885254,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,CartPole-v1,2,0.9457174161666213,0.47382187843322754,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,CartPole-v1,2,0.9223328325989348,0.4741394519805908,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,CartPole-v1,2,1.5807798003446414,0.5401496887207031,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,CartPole-v1,2,2.0579408457765798,1.5151467323303223,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,CartPole-v1,2,2.0573465135199873,1.5311200618743896,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,CartPole-v1,2,2.0573039018806507,1.5180745124816895,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,CartPole-v1,2,2.057314250821774,1.518003225326538,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,CartPole-v1,2,2.0573141323405206,1.5185678005218506,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,CartPole-v1,2,2.0573125918583814,1.5746538639068604,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,CartPole-v1,2,2.057312830855101,1.591402292251587,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,CartPole-v1,2,0.9845460308105629,1.5879781246185303,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,CartPole-v1,2,1.065858617431147,1.5872092247009277,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,CartPole-v1,2,1.1616863192297449,1.5877370834350586,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,CartPole-v1,2,1.3599829665069534,1.5884733200073242,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,CartPole-v1,2,1.6680213901775978,1.5881774425506592,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,CartPole-v1,2,1.4429103928274967,1.5902879238128662,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,CartPole-v1,2,1.690921277329345,1.8733127117156982,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,CartPole-v1,2,2.0573199660432415,1.5839488506317139,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,CartPole-v1,2,2.0572994655125996,1.582685947418213,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,CartPole-v1,2,2.057300703249617,1.5876801013946533,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,CartPole-v1,2,2.0573150490447407,1.5834689140319824,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,CartPole-v1,2,2.0573131524744483,1.5839674472808838,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,CartPole-v1,2,2.057312108706899,1.5824053287506104,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,CartPole-v1,2,2.057313048414703,1.5316121578216553,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,CartPole-v1,2,1.060123062322802,1.5071842670440674,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,CartPole-v1,2,0.9740899592632001,1.5079898834228516,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,CartPole-v1,2,0.9589260928431416,1.5075230598449707,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,CartPole-v1,2,0.9525184718751509,1.5564815998077393,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,CartPole-v1,2,0.9759049890811575,1.5918705463409424,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,CartPole-v1,2,1.142165809564836,1.5926527976989746,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,CartPole-v1,2,1.365675416493914,1.8840749263763428,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,CartPole-v1,2,0.9146321963270654,0.4847707748413086,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,CartPole-v1,2,,0.004415750503540039,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,CartPole-v1,2,,0.001829385757446289,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,CartPole-v1,2,,0.0013384819030761719,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,CartPole-v1,2,,0.0013208389282226562,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,CartPole-v1,2,,0.0013272762298583984,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,CartPole-v1,2,,0.0013446807861328125,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,CartPole-v1,2,,0.0013511180877685547,96w@8192
+Moirai,Moirai level r=1,level,1,-1,CartPole-v1,2,1.37480382283702,3.0567524433135986,96w@8192
+Moirai,Moirai level r=2,level,2,-1,CartPole-v1,2,1.3013660896902863,3.062913417816162,96w@8192
+Moirai,Moirai level r=4,level,4,-1,CartPole-v1,2,1.3149934723142735,3.063887596130371,96w@8192
+Moirai,Moirai level r=6,level,6,-1,CartPole-v1,2,1.282141212583709,3.052570104598999,96w@8192
+Moirai,Moirai level r=8,level,8,-1,CartPole-v1,2,1.3356668590683858,3.0637664794921875,96w@8192
+Moirai,Moirai level r=12,level,12,-1,CartPole-v1,2,1.3358109478534075,3.2646872997283936,96w@8192
+Moirai,Moirai level r=16,level,16,-1,CartPole-v1,2,1.3798806751284292,3.2494301795959473,96w@8192
+MLP,MLP lag 1,-,0,1,CartPole-v1,2,,0.0030508041381835938,96w@8192
+MLP,MLP lag 4,-,0,4,CartPole-v1,2,,0.0027964115142822266,96w@8192
+MLP,MLP lag 16,-,0,16,CartPole-v1,2,,0.0027670860290527344,96w@8192
+VARX,VARX lag 1,-,0,1,CartPole-v1,2,,0.0011739730834960938,96w@8192
+VARX,VARX lag 4,-,0,4,CartPole-v1,2,,0.0008184909820556641,96w@8192
+VARX,VARX lag 16,-,0,16,CartPole-v1,2,,0.0008327960968017578,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,CartPole-v1,4,0.8713653088271451,0.47508811950683594,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,CartPole-v1,4,0.6295328864540665,0.5233533382415771,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,CartPole-v1,4,0.5599568785774084,0.4710350036621094,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,CartPole-v1,4,0.5668330639863877,0.5381195545196533,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,CartPole-v1,4,0.5511575077422286,0.5370798110961914,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,CartPole-v1,4,0.4976965590717498,0.6666419506072998,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,CartPole-v1,4,1.0228856235840096,0.6667230129241943,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,CartPole-v1,4,0.7574201710339429,0.47240400314331055,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,CartPole-v1,4,0.7095864765967382,0.4687826633453369,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,CartPole-v1,4,0.7358858273452746,0.4693009853363037,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,CartPole-v1,4,0.8412171287403956,0.5344300270080566,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,CartPole-v1,4,0.7941545421738538,0.53605055809021,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,CartPole-v1,4,0.7960191663506531,0.6623156070709229,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,CartPole-v1,4,0.8462307686932161,0.7112524509429932,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,CartPole-v1,4,1.5337588258066797,1.5096309185028076,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,CartPole-v1,4,1.5152470503403448,1.5102028846740723,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,CartPole-v1,4,0.8329635699321765,1.5093176364898682,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,CartPole-v1,4,0.5095819972057978,1.7949635982513428,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,CartPole-v1,4,0.9603876892606704,1.7936656475067139,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,CartPole-v1,4,0.4953536037016747,2.365186929702759,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,CartPole-v1,4,1.2481737739533862,2.412569046020508,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,CartPole-v1,4,0.8241533194264785,1.5868861675262451,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,CartPole-v1,4,0.8467680864231364,1.5874276161193848,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,CartPole-v1,4,0.8794773274200076,1.5864083766937256,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,CartPole-v1,4,1.0075344850657988,1.8839945793151855,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,CartPole-v1,4,0.9142486923385871,1.8838114738464355,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,CartPole-v1,4,0.9899070330528259,2.4059488773345947,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,CartPole-v1,4,0.9556253522548719,2.6126675605773926,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,CartPole-v1,4,0.7386237577161808,1.5826406478881836,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,CartPole-v1,4,0.5503139388703783,1.5823163986206055,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,CartPole-v1,4,0.47928068853885675,1.5834317207336426,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,CartPole-v1,4,0.4651198093994649,1.8788986206054688,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,CartPole-v1,4,0.4956716906647153,1.8783769607543945,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,CartPole-v1,4,0.4446665950506724,2.4022483825683594,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,CartPole-v1,4,0.5918917299511476,2.400075674057007,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,CartPole-v1,4,1.0139328992352963,1.5841360092163086,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,CartPole-v1,4,0.7898935940877054,1.5840322971343994,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,CartPole-v1,4,0.6695146989113712,1.5838780403137207,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,CartPole-v1,4,0.7916795127649006,1.9582703113555908,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,CartPole-v1,4,0.7177360047974377,1.9630401134490967,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,CartPole-v1,4,0.7846767426535685,2.400582790374756,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,CartPole-v1,4,0.8929584298603279,2.611217498779297,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,CartPole-v1,4,0.7574201710339429,0.5238265991210938,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,CartPole-v1,4,1.5737058890931586,3.533318042755127,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,CartPole-v1,4,1.5962067148589585,3.5178794860839844,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,CartPole-v1,4,1.6605364235162217,3.532980442047119,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,CartPole-v1,4,1.9002768418627616,3.48432993888855,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,CartPole-v1,4,1.948755203212174,3.267066240310669,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,CartPole-v1,4,2.14244324916727,3.8529436588287354,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,CartPole-v1,4,1.8359778709421917,4.1722331047058105,96w@8192
+Moirai,Moirai level r=1,level,1,-1,CartPole-v1,4,1.3610370151917994,3.5364747047424316,96w@8192
+Moirai,Moirai level r=2,level,2,-1,CartPole-v1,4,1.253652773079987,3.21732234954834,96w@8192
+Moirai,Moirai level r=4,level,4,-1,CartPole-v1,4,1.1272994507058431,3.2614238262176514,96w@8192
+Moirai,Moirai level r=6,level,6,-1,CartPole-v1,4,1.2460632670697165,3.2587807178497314,96w@8192
+Moirai,Moirai level r=8,level,8,-1,CartPole-v1,4,1.4756058589344228,3.6454501152038574,96w@8192
+Moirai,Moirai level r=12,level,12,-1,CartPole-v1,4,1.3029220374949526,4.0241522789001465,96w@8192
+Moirai,Moirai level r=16,level,16,-1,CartPole-v1,4,1.2185292413658613,4.582151889801025,96w@8192
+MLP,MLP lag 1,-,0,1,CartPole-v1,4,16.868118066401994,0.21260643005371094,96w@8192
+MLP,MLP lag 4,-,0,4,CartPole-v1,4,,0.002887725830078125,96w@8192
+MLP,MLP lag 16,-,0,16,CartPole-v1,4,,0.0027382373809814453,96w@8192
+VARX,VARX lag 1,-,0,1,CartPole-v1,4,148.4436642069902,0.004698514938354492,96w@8192
+VARX,VARX lag 4,-,0,4,CartPole-v1,4,,0.0008168220520019531,96w@8192
+VARX,VARX lag 16,-,0,16,CartPole-v1,4,,0.0007748603820800781,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,CartPole-v1,8,0.5283056329815736,0.4895186424255371,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,CartPole-v1,8,0.4341515601417321,0.4889545440673828,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,CartPole-v1,8,0.37412509137867944,0.5469086170196533,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,CartPole-v1,8,0.3324112446365572,0.6545476913452148,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,CartPole-v1,8,0.36105808681862767,0.6996109485626221,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,CartPole-v1,8,0.4343405459651431,0.847491979598999,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,CartPole-v1,8,1.153305680124574,0.9258372783660889,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,CartPole-v1,8,0.7005173233607718,0.48600220680236816,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,CartPole-v1,8,0.8518227159306895,0.47037291526794434,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,CartPole-v1,8,0.8024264230756293,0.5350463390350342,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,CartPole-v1,8,0.8785722313255179,0.6530106067657471,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,CartPole-v1,8,0.7829049004419188,0.7042372226715088,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,CartPole-v1,8,0.8079991393128649,0.8466687202453613,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,CartPole-v1,8,0.8287533277336475,1.0136525630950928,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,CartPole-v1,8,1.0404252784874277,1.5129265785217285,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,CartPole-v1,8,0.907471541198632,1.5231399536132812,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,CartPole-v1,8,0.5022288292165427,1.8039648532867432,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,CartPole-v1,8,0.5604799905208103,2.321122884750366,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,CartPole-v1,8,0.5433600574984516,2.505615234375,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,CartPole-v1,8,0.6410182818563316,3.330028772354126,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,CartPole-v1,8,0.7485669651720851,3.640486001968384,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,CartPole-v1,8,0.8090291724932062,1.5129132270812988,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,CartPole-v1,8,0.9149544133767689,1.5079805850982666,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,CartPole-v1,8,0.8628778649238957,1.8008506298065186,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,CartPole-v1,8,0.9754274388270736,2.33505916595459,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,CartPole-v1,8,0.9494142007632091,2.505984306335449,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,CartPole-v1,8,0.9793486350748496,3.333765983581543,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,CartPole-v1,8,1.015803540423701,3.886193037033081,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,CartPole-v1,8,0.44845414055367677,1.5048563480377197,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,CartPole-v1,8,0.40892304997751344,1.503770112991333,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,CartPole-v1,8,0.34934215931711615,1.8290281295776367,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,CartPole-v1,8,0.31853476787891144,2.4067225456237793,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,CartPole-v1,8,0.3147513988255321,2.611694574356079,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,CartPole-v1,8,0.3507596932002043,3.191843032836914,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,CartPole-v1,8,0.44707963951746194,3.5192575454711914,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,CartPole-v1,8,0.8158435493793901,1.588421106338501,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,CartPole-v1,8,0.7792617182962369,1.5876836776733398,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,CartPole-v1,8,0.7311942548344676,1.8874833583831787,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,CartPole-v1,8,0.7996467405426203,2.4104180335998535,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,CartPole-v1,8,0.7912589088819428,2.612992525100708,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,CartPole-v1,8,0.8608456982402926,3.1876163482666016,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,CartPole-v1,8,0.9463055517908163,3.8047826290130615,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,CartPole-v1,8,0.7005173233607718,0.4730110168457031,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,CartPole-v1,8,1.2960274636248201,3.113689422607422,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,CartPole-v1,8,1.572514510954042,3.2589004039764404,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,CartPole-v1,8,1.5771696795732761,3.6668756008148193,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,CartPole-v1,8,1.7590773219544351,4.394207954406738,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,CartPole-v1,8,1.8860694322989229,4.748811483383179,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,CartPole-v1,8,1.7222664295634151,6.502774715423584,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,CartPole-v1,8,1.7781183817762827,7.065679550170898,96w@8192
+Moirai,Moirai level r=1,level,1,-1,CartPole-v1,8,1.6959006206652134,3.35870361328125,96w@8192
+Moirai,Moirai level r=2,level,2,-1,CartPole-v1,8,1.0419535103572541,3.282660961151123,96w@8192
+Moirai,Moirai level r=4,level,4,-1,CartPole-v1,8,1.359139222350843,3.836822271347046,96w@8192
+Moirai,Moirai level r=6,level,6,-1,CartPole-v1,8,1.0895138721366524,4.400353193283081,96w@8192
+Moirai,Moirai level r=8,level,8,-1,CartPole-v1,8,1.224031143057677,4.975129127502441,96w@8192
+Moirai,Moirai level r=12,level,12,-1,CartPole-v1,8,1.031627214568419,6.3780622482299805,96w@8192
+Moirai,Moirai level r=16,level,16,-1,CartPole-v1,8,1.1662211850031474,7.565361261367798,96w@8192
+MLP,MLP lag 1,-,0,1,CartPole-v1,8,2.46659411053155,0.19678211212158203,96w@8192
+MLP,MLP lag 4,-,0,4,CartPole-v1,8,17.613813757053293,0.2500424385070801,96w@8192
+MLP,MLP lag 16,-,0,16,CartPole-v1,8,,0.002884387969970703,96w@8192
+VARX,VARX lag 1,-,0,1,CartPole-v1,8,126.66817423349796,0.003382444381713867,96w@8192
+VARX,VARX lag 4,-,0,4,CartPole-v1,8,14.813094474509636,0.003499269485473633,96w@8192
+VARX,VARX lag 16,-,0,16,CartPole-v1,8,,0.0007848739624023438,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,CartPole-v1,16,0.5428075411968663,0.4733407497406006,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,CartPole-v1,16,0.44229597300202944,0.5369257926940918,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,CartPole-v1,16,0.3879927272811355,0.7078032493591309,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,CartPole-v1,16,0.34471605134071415,0.8633582592010498,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,CartPole-v1,16,0.4565894834496461,1.0064921379089355,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,CartPole-v1,16,0.38264130140139213,1.2988526821136475,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,CartPole-v1,16,1.018906304549112,1.5664632320404053,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,CartPole-v1,16,0.7501879023876692,0.57295823097229,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,CartPole-v1,16,0.7639425785339683,0.5921494960784912,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,CartPole-v1,16,0.8427888843489014,0.7278456687927246,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,CartPole-v1,16,0.7977303416648183,0.9049839973449707,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,CartPole-v1,16,0.9165894628648924,1.0468785762786865,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,CartPole-v1,16,0.6974529849295945,1.4119751453399658,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,CartPole-v1,16,0.8628240817626851,1.652374267578125,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,CartPole-v1,16,0.7045570152438473,1.5992648601531982,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,CartPole-v1,16,0.6954102750954286,1.8991377353668213,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,CartPole-v1,16,0.5018246768058745,2.5624301433563232,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,CartPole-v1,16,0.4313337672220195,3.1488301753997803,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,CartPole-v1,16,0.48652563801027743,3.7365639209747314,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,CartPole-v1,16,0.524529834830565,4.848999738693237,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,CartPole-v1,16,0.6242038513675074,5.695798397064209,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,CartPole-v1,16,0.8355172917888765,1.593796968460083,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,CartPole-v1,16,0.8052276322600553,1.8994770050048828,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,CartPole-v1,16,0.8828412529657645,2.620427370071411,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,CartPole-v1,16,0.8615707274647448,3.4430110454559326,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,CartPole-v1,16,0.935871499369719,4.0197227001190186,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,CartPole-v1,16,0.6594915041658796,4.9070093631744385,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,CartPole-v1,16,0.7879431827915613,5.966404914855957,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,CartPole-v1,16,0.4587173016946124,1.5208659172058105,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,CartPole-v1,16,0.5429002816118105,1.8016715049743652,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,CartPole-v1,16,0.5164734040430304,2.534008264541626,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,CartPole-v1,16,0.35010480222487966,3.128650426864624,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,CartPole-v1,16,0.37268709195889993,3.747546434402466,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,CartPole-v1,16,0.3207881407170196,4.8422324657440186,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,CartPole-v1,16,0.659319574877921,5.697356224060059,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,CartPole-v1,16,0.8382091823720572,1.510457992553711,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,CartPole-v1,16,0.6847982745158334,1.8032798767089844,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,CartPole-v1,16,0.8486605374614811,2.5473406314849854,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,CartPole-v1,16,0.836153207478705,3.233696222305298,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,CartPole-v1,16,0.8616335457565798,3.935028553009033,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,CartPole-v1,16,0.7030034274613133,5.000837087631226,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,CartPole-v1,16,0.8583695011017409,6.0415871143341064,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,CartPole-v1,16,0.7501879023876692,0.5228402614593506,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,CartPole-v1,16,1.491717413605202,3.7478384971618652,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,CartPole-v1,16,1.4362062193526355,4.315081596374512,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,CartPole-v1,16,1.4998999650946963,4.999988555908203,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,CartPole-v1,16,1.5885587810132131,6.582973003387451,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,CartPole-v1,16,1.7118772112846514,7.568277835845947,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,CartPole-v1,16,1.5803313482626513,10.983820915222168,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,CartPole-v1,16,1.8263345323885312,13.688404083251953,96w@8192
+Moirai,Moirai level r=1,level,1,-1,CartPole-v1,16,1.3901723997076323,3.268876075744629,96w@8192
+Moirai,Moirai level r=2,level,2,-1,CartPole-v1,16,1.0207300238057535,3.8386032581329346,96w@8192
+Moirai,Moirai level r=4,level,4,-1,CartPole-v1,16,1.204507101217021,5.164546012878418,96w@8192
+Moirai,Moirai level r=6,level,6,-1,CartPole-v1,16,1.060803888069165,6.983670473098755,96w@8192
+Moirai,Moirai level r=8,level,8,-1,CartPole-v1,16,1.0884372513503227,7.997551918029785,96w@8192
+Moirai,Moirai level r=12,level,12,-1,CartPole-v1,16,1.0772160872513095,11.157775163650513,96w@8192
+Moirai,Moirai level r=16,level,16,-1,CartPole-v1,16,1.0334503814182352,14.406491041183472,96w@8192
+MLP,MLP lag 1,-,0,1,CartPole-v1,16,0.8530653101209358,0.18561768531799316,96w@8192
+MLP,MLP lag 4,-,0,4,CartPole-v1,16,0.8523622135581327,0.2535572052001953,96w@8192
+MLP,MLP lag 16,-,0,16,CartPole-v1,16,,0.002864837646484375,96w@8192
+VARX,VARX lag 1,-,0,1,CartPole-v1,16,123.73163343905642,0.003448963165283203,96w@8192
+VARX,VARX lag 4,-,0,4,CartPole-v1,16,68.10203555583274,0.003545999526977539,96w@8192
+VARX,VARX lag 16,-,0,16,CartPole-v1,16,,0.0007929801940917969,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,CartPole-v1,32,0.34610758044032425,0.5405590534210205,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,CartPole-v1,32,0.21051046280631985,0.7022864818572998,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,CartPole-v1,32,0.20703702123187773,0.9953980445861816,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,CartPole-v1,32,0.17274417122594876,1.28029465675354,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,CartPole-v1,32,0.3522957714721658,1.5887024402618408,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,CartPole-v1,32,0.2894146902475243,2.210156202316284,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,CartPole-v1,32,1.1246734644572658,2.6790144443511963,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,CartPole-v1,32,0.5598036344039347,0.5443904399871826,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,CartPole-v1,32,0.5697319537709993,0.7172350883483887,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,CartPole-v1,32,0.6320485059389885,1.0180504322052002,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,CartPole-v1,32,0.5984990638132998,1.313969612121582,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,CartPole-v1,32,0.7705354588821642,1.6469600200653076,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,CartPole-v1,32,0.5901845467048994,2.3297436237335205,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,CartPole-v1,32,0.6970496516568002,2.845696449279785,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,CartPole-v1,32,0.3839997061925693,1.7974827289581299,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,CartPole-v1,32,0.3234548340068292,2.5421440601348877,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,CartPole-v1,32,0.25482651068208356,3.7286229133605957,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,CartPole-v1,32,0.2620379228012738,4.866866827011108,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,CartPole-v1,32,0.28513015841171657,6.0327184200286865,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,CartPole-v1,32,0.3756462848684424,8.478979110717773,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,CartPole-v1,32,0.3281619537707742,10.601635932922363,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,CartPole-v1,32,0.6324546217690837,1.9735798835754395,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,CartPole-v1,32,0.6171453597270624,2.61320424079895,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,CartPole-v1,32,0.6191819271798706,3.798800230026245,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,CartPole-v1,32,0.5606773486249284,4.939853191375732,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,CartPole-v1,32,0.5981208116444454,6.163565635681152,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,CartPole-v1,32,0.4093223392338414,8.406442403793335,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,CartPole-v1,32,0.5010989055378166,10.826913595199585,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,CartPole-v1,32,0.3170834171923752,1.7958345413208008,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,CartPole-v1,32,0.26780703358182145,2.5369386672973633,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,CartPole-v1,32,0.20145739669622942,3.7660980224609375,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,CartPole-v1,32,0.12453271016723219,4.980438470840454,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,CartPole-v1,32,0.19272006970909225,6.096833944320679,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,CartPole-v1,32,0.20806419951507013,8.477622270584106,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,CartPole-v1,32,0.5371006462039591,10.561015605926514,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,CartPole-v1,32,0.5842142473999892,1.8070898056030273,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,CartPole-v1,32,0.4592783338872428,2.5283362865448,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,CartPole-v1,32,0.5718392815800414,3.709745168685913,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,CartPole-v1,32,0.5109020537578236,4.8633294105529785,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,CartPole-v1,32,0.6586656760349404,6.013102293014526,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,CartPole-v1,32,0.5395690541003261,8.393721103668213,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,CartPole-v1,32,0.7014071039002246,10.85830020904541,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,CartPole-v1,32,0.5598036344039347,0.5974307060241699,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,CartPole-v1,32,1.4216457892252885,4.366702318191528,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,CartPole-v1,32,1.3404189814978758,5.720899343490601,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,CartPole-v1,32,1.4620476747258473,8.133855104446411,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,CartPole-v1,32,1.474391084467939,12.077901363372803,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,CartPole-v1,32,1.5998433682503752,15.171950817108154,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,CartPole-v1,32,1.5425789449756033,23.285463094711304,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,CartPole-v1,32,1.8052674991730508,31.462434768676758,96w@8192
+Moirai,Moirai level r=1,level,1,-1,CartPole-v1,32,1.327621353761574,4.350158452987671,96w@8192
+Moirai,Moirai level r=2,level,2,-1,CartPole-v1,32,1.0890571638258564,5.728743553161621,96w@8192
+Moirai,Moirai level r=4,level,4,-1,CartPole-v1,32,1.0445914004041774,8.203369617462158,96w@8192
+Moirai,Moirai level r=6,level,6,-1,CartPole-v1,32,0.9930651445853018,11.375118494033813,96w@8192
+Moirai,Moirai level r=8,level,8,-1,CartPole-v1,32,1.018759020246473,14.882920503616333,96w@8192
+Moirai,Moirai level r=12,level,12,-1,CartPole-v1,32,0.9514169276621594,23.541365385055542,96w@8192
+Moirai,Moirai level r=16,level,16,-1,CartPole-v1,32,1.0674991710318675,32.02002286911011,96w@8192
+MLP,MLP lag 1,-,0,1,CartPole-v1,32,0.6617093639319519,0.19918346405029297,96w@8192
+MLP,MLP lag 4,-,0,4,CartPole-v1,32,0.8709046977579219,0.22885513305664062,96w@8192
+MLP,MLP lag 16,-,0,16,CartPole-v1,32,1.211955490065531,0.08189749717712402,96w@8192
+VARX,VARX lag 1,-,0,1,CartPole-v1,32,9.494016038765764e-09,0.0034177303314208984,96w@8192
+VARX,VARX lag 4,-,0,4,CartPole-v1,32,2.0090922226834258e-08,0.0035789012908935547,96w@8192
+VARX,VARX lag 16,-,0,16,CartPole-v1,32,6.865525374513522,0.005062580108642578,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,CartPole-v1,64,0.29999164172652015,0.7086658477783203,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,CartPole-v1,64,0.19802466350300996,1.002244472503662,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,CartPole-v1,64,0.17899161564419366,1.6120483875274658,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,CartPole-v1,64,0.15940272181939977,2.2034671306610107,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,CartPole-v1,64,0.3929140085572583,2.7900872230529785,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,CartPole-v1,64,0.30649517394071857,3.9497716426849365,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,CartPole-v1,64,0.9296329791687634,5.074361085891724,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,CartPole-v1,64,0.5433298868424828,0.7876901626586914,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,CartPole-v1,64,0.5114501640540832,1.0876123905181885,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,CartPole-v1,64,0.5670151231918262,1.747924566268921,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,CartPole-v1,64,0.48002837317625224,2.3720409870147705,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,CartPole-v1,64,0.6728450704378477,2.865201950073242,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,CartPole-v1,64,0.49465962400976793,4.068866729736328,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,CartPole-v1,64,0.6222275759022728,5.258585453033447,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,CartPole-v1,64,0.25293854169454577,2.4980175495147705,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,CartPole-v1,64,0.20754417867161293,3.857962131500244,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,CartPole-v1,64,0.1930986506400859,6.086229562759399,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,CartPole-v1,64,0.1990811736487428,8.262496948242188,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,CartPole-v1,64,0.29049480881044626,10.810599565505981,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,CartPole-v1,64,0.2516773382863797,15.706493377685547,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,CartPole-v1,64,0.2814144446072571,20.995848655700684,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,CartPole-v1,64,0.5518518654467413,2.5029356479644775,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,CartPole-v1,64,0.4182821382746773,3.851097583770752,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,CartPole-v1,64,0.40588994973266557,6.085450172424316,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,CartPole-v1,64,0.3176395374827861,8.355489015579224,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,CartPole-v1,64,0.38390696410663694,10.711252689361572,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,CartPole-v1,64,0.21930862647432908,15.710172414779663,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,CartPole-v1,64,0.36229522850605445,21.222089529037476,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,CartPole-v1,64,0.19255795375098772,2.491253137588501,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,CartPole-v1,64,0.14443127692833016,3.895192861557007,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,CartPole-v1,64,0.13326191438161794,6.171196460723877,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,CartPole-v1,64,0.11926087291078927,8.399300813674927,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,CartPole-v1,64,0.17235317294923128,10.829160928726196,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,CartPole-v1,64,0.1491088891413837,15.572379112243652,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,CartPole-v1,64,0.4486508657365755,21.07431650161743,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,CartPole-v1,64,0.4685963331669948,2.5355634689331055,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,CartPole-v1,64,0.30277916403764915,3.690488815307617,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,CartPole-v1,64,0.42743999916415326,5.967897891998291,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,CartPole-v1,64,0.32525353008406965,8.290014505386353,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,CartPole-v1,64,0.4846954737588217,10.63843297958374,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,CartPole-v1,64,0.33488839387126346,15.567700862884521,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,CartPole-v1,64,0.610585410073924,21.226197481155396,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,CartPole-v1,64,0.5433298868424828,0.7487626075744629,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,CartPole-v1,64,1.3458252045662,5.315345048904419,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,CartPole-v1,64,1.39299654470065,8.157534837722778,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,CartPole-v1,64,1.3773428544503044,15.249931573867798,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,CartPole-v1,64,1.410848749676374,23.09997320175171,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,CartPole-v1,64,1.5660450027312107,31.75382661819458,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,CartPole-v1,64,1.477179171335946,52.279990911483765,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,CartPole-v1,64,1.7604091836973872,75.19030833244324,96w@8192
+Moirai,Moirai level r=1,level,1,-1,CartPole-v1,64,1.3861167522617106,5.157881498336792,96w@8192
+Moirai,Moirai level r=2,level,2,-1,CartPole-v1,64,1.0255530337609222,8.282584428787231,96w@8192
+Moirai,Moirai level r=4,level,4,-1,CartPole-v1,64,1.016740048704615,15.953698635101318,96w@8192
+Moirai,Moirai level r=6,level,6,-1,CartPole-v1,64,0.9970308317045862,23.885130882263184,96w@8192
+Moirai,Moirai level r=8,level,8,-1,CartPole-v1,64,0.9997112918679277,32.434985876083374,96w@8192
+Moirai,Moirai level r=12,level,12,-1,CartPole-v1,64,1.022720098792006,53.25105094909668,96w@8192
+Moirai,Moirai level r=16,level,16,-1,CartPole-v1,64,1.0759962870321922,76.02106428146362,96w@8192
+MLP,MLP lag 1,-,0,1,CartPole-v1,64,0.08496342848990374,0.44234752655029297,96w@8192
+MLP,MLP lag 4,-,0,4,CartPole-v1,64,0.23085935912501315,1.1557893753051758,96w@8192
+MLP,MLP lag 16,-,0,16,CartPole-v1,64,0.7662849607731395,0.5085835456848145,96w@8192
+VARX,VARX lag 1,-,0,1,CartPole-v1,64,9.752408708351645e-09,0.003552675247192383,96w@8192
+VARX,VARX lag 4,-,0,4,CartPole-v1,64,1.6135967736081272e-08,0.003652334213256836,96w@8192
+VARX,VARX lag 16,-,0,16,CartPole-v1,64,9.011377875508428e-07,0.006887674331665039,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,CartPole-v1,128,0.24987107645955908,1.0553169250488281,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,CartPole-v1,128,0.19540511925270365,1.6536226272583008,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,CartPole-v1,128,0.2636307106975399,2.8192691802978516,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,CartPole-v1,128,0.16847936954369278,4.010350465774536,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,CartPole-v1,128,0.4462607594870863,5.23104453086853,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,CartPole-v1,128,0.28747527101726317,8.060920000076294,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,CartPole-v1,128,0.8491777091645791,10.609927654266357,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,CartPole-v1,128,0.47903235394274296,1.0139307975769043,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,CartPole-v1,128,0.4720725145786282,1.64205002784729,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,CartPole-v1,128,0.522809953799637,2.825601577758789,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,CartPole-v1,128,0.43360678332525737,4.027506589889526,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,CartPole-v1,128,0.6072425703949491,5.299534797668457,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,CartPole-v1,128,0.43441900264828137,7.949366331100464,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,CartPole-v1,128,0.5624251982313393,10.701593399047852,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,CartPole-v1,128,0.17272506525858997,3.801995277404785,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,CartPole-v1,128,0.11974191372857429,5.944531202316284,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,CartPole-v1,128,0.1499567051877527,10.78248929977417,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,CartPole-v1,128,0.1411236143615489,15.86487102508545,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,CartPole-v1,128,0.13512961712007462,21.159841775894165,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,CartPole-v1,128,0.10189062998524447,31.38809299468994,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,CartPole-v1,128,0.18412900011245406,42.17858409881592,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,CartPole-v1,128,0.4370058275197488,3.7319467067718506,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,CartPole-v1,128,0.31645380466138284,5.97091007232666,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,CartPole-v1,128,0.2875556072712474,10.698590993881226,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,CartPole-v1,128,0.2156207956300879,15.709051847457886,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,CartPole-v1,128,0.25046890408778905,21.142656326293945,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,CartPole-v1,128,0.13835705469500578,31.28380537033081,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,CartPole-v1,128,0.24903634463986934,42.50839352607727,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,CartPole-v1,128,0.12056139076788265,3.84100604057312,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,CartPole-v1,128,0.13643012126991183,6.024428367614746,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,CartPole-v1,128,0.11564048476798093,10.737129926681519,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,CartPole-v1,128,0.06848606302675608,15.728656530380249,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,CartPole-v1,128,0.16930512632588698,21.172709941864014,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,CartPole-v1,128,0.10203054524508133,31.24320149421692,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,CartPole-v1,128,0.4809369787267377,42.52104735374451,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,CartPole-v1,128,0.34332850729825315,3.8607263565063477,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,CartPole-v1,128,0.24292879207139798,6.1411354541778564,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,CartPole-v1,128,0.34612647457134005,10.957861185073853,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,CartPole-v1,128,0.1953512052366607,15.881300449371338,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,CartPole-v1,128,0.4074222745768069,21.161293268203735,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,CartPole-v1,128,0.23357355380281758,31.239794731140137,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,CartPole-v1,128,0.5317892782625312,42.51911282539368,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,CartPole-v1,128,0.47903235394274296,1.0148296356201172,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,CartPole-v1,128,1.470499318988503,8.207410335540771,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,CartPole-v1,128,1.3039011344566362,15.021419048309326,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,CartPole-v1,128,1.382653192825487,32.495686054229736,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,CartPole-v1,128,1.3904997349042532,54.531991958618164,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,CartPole-v1,128,1.490026443120597,77.2853045463562,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,CartPole-v1,128,1.4448109982362383,133.23954677581787,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,CartPole-v1,128,1.6934856547232089,195.61423349380493,96w@8192
+Moirai,Moirai level r=1,level,1,-1,CartPole-v1,128,1.2154595142550833,8.727593183517456,96w@8192
+Moirai,Moirai level r=2,level,2,-1,CartPole-v1,128,1.0621424732352716,15.408844470977783,96w@8192
+Moirai,Moirai level r=4,level,4,-1,CartPole-v1,128,1.2042296760093556,33.33769702911377,96w@8192
+Moirai,Moirai level r=6,level,6,-1,CartPole-v1,128,1.043879286038344,53.02609968185425,96w@8192
+Moirai,Moirai level r=8,level,8,-1,CartPole-v1,128,1.0320788450149525,78.07261800765991,96w@8192
+Moirai,Moirai level r=12,level,12,-1,CartPole-v1,128,1.0914998316530835,132.4377405643463,96w@8192
+Moirai,Moirai level r=16,level,16,-1,CartPole-v1,128,1.0971785102303904,198.0353307723999,96w@8192
+MLP,MLP lag 1,-,0,1,CartPole-v1,128,0.06633419817966892,1.188784122467041,96w@8192
+MLP,MLP lag 4,-,0,4,CartPole-v1,128,0.08142053390620471,1.2631580829620361,96w@8192
+MLP,MLP lag 16,-,0,16,CartPole-v1,128,0.4400900676780277,1.4662694931030273,96w@8192
+VARX,VARX lag 1,-,0,1,CartPole-v1,128,1.0989633318695144e-08,0.004462718963623047,96w@8192
+VARX,VARX lag 4,-,0,4,CartPole-v1,128,1.2150629491404755e-08,0.004816532135009766,96w@8192
+VARX,VARX lag 16,-,0,16,CartPole-v1,128,1.3754617588060934e-08,0.007617473602294922,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,CartPole-v1,256,0.232129825836309,1.6455159187316895,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,CartPole-v1,256,0.24390059190680013,2.805945873260498,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,CartPole-v1,256,0.43275008283393396,5.223102331161499,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,CartPole-v1,256,0.19555583248777875,8.047427892684937,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,CartPole-v1,256,0.4881974730726297,10.72858715057373,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,CartPole-v1,256,0.2722449257803917,17.208845376968384,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,CartPole-v1,256,0.9170164852824648,23.996932983398438,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,CartPole-v1,256,0.4453384870630123,1.6301968097686768,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,CartPole-v1,256,0.43659607729391764,2.822563886642456,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,CartPole-v1,256,0.588636950105368,5.2892231941223145,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,CartPole-v1,256,0.48287313944404575,7.941193580627441,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,CartPole-v1,256,0.5535592075256642,10.641159057617188,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,CartPole-v1,256,0.40977078861699023,17.044766187667847,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,CartPole-v1,256,0.5681085928912442,24.060750246047974,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,CartPole-v1,256,0.1270078681204572,6.028851747512817,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,CartPole-v1,256,0.12348629592323278,10.804816484451294,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,CartPole-v1,256,0.14866336036880615,21.06232452392578,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,CartPole-v1,256,0.11456030500596508,31.322047233581543,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,CartPole-v1,256,0.1025058896622583,42.74341011047363,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,CartPole-v1,256,0.06112496982314599,66.8137412071228,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,CartPole-v1,256,0.18771414092769734,91.86068820953369,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,CartPole-v1,256,0.3402323001925462,6.103780031204224,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,CartPole-v1,256,0.2835110767652202,10.77510118484497,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,CartPole-v1,256,0.27623031908467,21.094833374023438,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,CartPole-v1,256,0.16431504164462693,31.850287199020386,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,CartPole-v1,256,0.19852065987838938,42.9566593170166,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,CartPole-v1,256,0.12048087621884175,67.26042366027832,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,CartPole-v1,256,0.27034106145570935,92.82806634902954,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,CartPole-v1,256,0.08039009411426767,6.092641115188599,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,CartPole-v1,256,0.14762275625933508,10.792632579803467,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,CartPole-v1,256,0.1929372356918634,21.13621735572815,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,CartPole-v1,256,0.08927403433408697,31.682831048965454,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,CartPole-v1,256,0.23334721843658307,42.84677338600159,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,CartPole-v1,256,0.1612035399248317,67.24064874649048,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,CartPole-v1,256,0.7994193107568626,91.58180475234985,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,CartPole-v1,256,0.28486130332695436,6.061774492263794,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,CartPole-v1,256,0.20868815527382392,10.733478546142578,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,CartPole-v1,256,0.3138736835059372,21.06471061706543,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,CartPole-v1,256,0.15375788441715718,31.837180137634277,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,CartPole-v1,256,0.3562909904057514,43.01097917556763,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,CartPole-v1,256,0.2307533099504862,67.27778649330139,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,CartPole-v1,256,0.5434051667118558,91.86269664764404,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,CartPole-v1,256,0.4453384870630123,1.6291368007659912,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,CartPole-v1,256,1.3816563632969874,15.195001125335693,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,CartPole-v1,256,1.2857807497941147,33.07640027999878,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,CartPole-v1,256,1.343296243912745,77.62116861343384,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,CartPole-v1,256,1.3330111340740045,131.6135070323944,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,CartPole-v1,256,1.411765412770547,197.3098645210266,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,CartPole-v1,256,1.423817553870356,362.3091003894806,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,CartPole-v1,256,1.633859596058964,562.0836396217346,96w@8192
+Moirai,Moirai level r=1,level,1,-1,CartPole-v1,256,1.3606281450543014,15.729352951049805,96w@8192
+Moirai,Moirai level r=2,level,2,-1,CartPole-v1,256,1.1085110720514433,34.12491154670715,96w@8192
+Moirai,Moirai level r=4,level,4,-1,CartPole-v1,256,1.0112585009190924,78.54635548591614,96w@8192
+Moirai,Moirai level r=6,level,6,-1,CartPole-v1,256,1.0699071998467584,132.75218558311462,96w@8192
+Moirai,Moirai level r=8,level,8,-1,CartPole-v1,256,1.3615118171913554,198.6768913269043,96w@8192
+Moirai,Moirai level r=12,level,12,-1,CartPole-v1,256,1.5763299178271857,362.6192684173584,96w@8192
+Moirai,Moirai level r=16,level,16,-1,CartPole-v1,256,1.3457400245723816,564.1090023517609,96w@8192
+MLP,MLP lag 1,-,0,1,CartPole-v1,256,0.05502385852221424,0.3566243648529053,96w@8192
+MLP,MLP lag 4,-,0,4,CartPole-v1,256,0.047075211259067946,1.1850566864013672,96w@8192
+MLP,MLP lag 16,-,0,16,CartPole-v1,256,0.1785905438772685,1.2191259860992432,96w@8192
+VARX,VARX lag 1,-,0,1,CartPole-v1,256,6.6917282452051515e-09,0.003884553909301758,96w@8192
+VARX,VARX lag 4,-,0,4,CartPole-v1,256,1.3555465228823458e-08,0.004060029983520508,96w@8192
+VARX,VARX lag 16,-,0,16,CartPole-v1,256,1.6223955332806788e-08,0.009622335433959961,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,CartPole-v1,512,0.22168120253686818,2.808738946914673,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,CartPole-v1,512,0.27659238245005024,5.14880895614624,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,CartPole-v1,512,0.5143487651947298,10.885275840759277,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,CartPole-v1,512,0.21378848140580706,17.207534313201904,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,CartPole-v1,512,0.4326839223174201,24.18039846420288,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,CartPole-v1,512,0.2771589431992694,37.46568536758423,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,CartPole-v1,512,0.9349070167152344,50.80691838264465,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,CartPole-v1,512,0.5581171295363574,2.859632730484009,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,CartPole-v1,512,0.531595040229799,5.339248418807983,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,CartPole-v1,512,0.575611227810389,10.852107763290405,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,CartPole-v1,512,0.4905119644298209,17.171014308929443,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,CartPole-v1,512,0.5285461509097567,24.19037675857544,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,CartPole-v1,512,0.414573441673865,37.46869373321533,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,CartPole-v1,512,0.5887164300062127,51.43935227394104,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,CartPole-v1,512,0.10911066108792894,10.749660015106201,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,CartPole-v1,512,0.12794391095318533,20.98215365409851,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,CartPole-v1,512,0.12444428331344402,42.88055109977722,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,CartPole-v1,512,0.11204400296662823,67.31961679458618,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,CartPole-v1,512,0.10650964470520555,93.13129901885986,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,CartPole-v1,512,0.07919020629737555,140.10424613952637,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,CartPole-v1,512,0.22557848419279644,187.03923630714417,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,CartPole-v1,512,0.3227145032442186,10.661895990371704,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,CartPole-v1,512,0.32910265352054746,21.04598593711853,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,CartPole-v1,512,0.29861899546916687,43.13628172874451,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,CartPole-v1,512,0.17855202587629984,67.13969397544861,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,CartPole-v1,512,0.2339208078771848,92.54801225662231,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,CartPole-v1,512,0.1615226415084966,139.87221431732178,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,CartPole-v1,512,0.3076256481483747,187.346497297287,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,CartPole-v1,512,0.05286576841574126,10.739593029022217,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,CartPole-v1,512,0.14556519001463347,21.17155933380127,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,CartPole-v1,512,0.19972247570166168,43.02153944969177,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,CartPole-v1,512,0.12931481308775108,67.32372522354126,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,CartPole-v1,512,0.29693736550328087,92.42756128311157,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,CartPole-v1,512,0.21188548481850036,140.26427149772644,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,CartPole-v1,512,0.8212048169493584,186.88860082626343,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,CartPole-v1,512,0.26796309144346564,10.644503831863403,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,CartPole-v1,512,0.23232473225562117,21.050239324569702,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,CartPole-v1,512,0.30407937865923534,43.42290258407593,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,CartPole-v1,512,0.1891352329517243,67.31352257728577,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,CartPole-v1,512,0.41601507394918785,92.47632193565369,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,CartPole-v1,512,0.29646396117265955,140.0921185016632,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,CartPole-v1,512,0.5418087274115073,187.07837772369385,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,CartPole-v1,512,0.5581171295363574,2.7978453636169434,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,CartPole-v1,512,1.4722088121068855,33.0724675655365,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,CartPole-v1,512,1.257754627585126,78.12551951408386,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,CartPole-v1,512,1.3164212224835439,198.58873105049133,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,CartPole-v1,512,1.3424196179159513,365.41772174835205,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,CartPole-v1,512,1.4085572993593805,564.6174175739288,96w@8192
+Moirai,Moirai level r=1,level,1,-1,CartPole-v1,512,1.3409621346485945,33.55746364593506,96w@8192
+Moirai,Moirai level r=2,level,2,-1,CartPole-v1,512,1.0361077274125576,78.83189153671265,96w@8192
+Moirai,Moirai level r=4,level,4,-1,CartPole-v1,512,1.2660083071845014,200.19015645980835,96w@8192
+Moirai,Moirai level r=6,level,6,-1,CartPole-v1,512,1.352441701397566,363.97675609588623,96w@8192
+Moirai,Moirai level r=8,level,8,-1,CartPole-v1,512,1.7249977079641048,566.1058552265167,96w@8192
+MLP,MLP lag 1,-,0,1,CartPole-v1,512,0.04498674893905057,0.4520456790924072,96w@8192
+MLP,MLP lag 4,-,0,4,CartPole-v1,512,0.013415089122123271,2.3332996368408203,96w@8192
+MLP,MLP lag 16,-,0,16,CartPole-v1,512,0.05692329886583917,2.3809189796447754,96w@8192
+VARX,VARX lag 1,-,0,1,CartPole-v1,512,5.793914374076626e-09,0.004336357116699219,96w@8192
+VARX,VARX lag 4,-,0,4,CartPole-v1,512,5.023709682275965e-09,0.0061986446380615234,96w@8192
+VARX,VARX lag 16,-,0,16,CartPole-v1,512,7.959996745939312e-09,0.011707782745361328,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,CartPole-v1,1024,0.19716816200648749,5.16150689125061,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,CartPole-v1,1024,0.29140985757971405,10.60547161102295,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,CartPole-v1,1024,0.5330699573360752,24.285005807876587,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,CartPole-v1,1024,0.2167121278101965,37.44002938270569,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,CartPole-v1,1024,0.46254463438565957,50.99120855331421,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,CartPole-v1,1024,0.4940732782607573,5.319539785385132,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,CartPole-v1,1024,0.566176071870918,10.842642068862915,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,CartPole-v1,1024,0.5450473649336919,24.19100546836853,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,CartPole-v1,1024,0.4822547113411909,37.61137652397156,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,CartPole-v1,1024,0.52590395254196,51.034422874450684,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,CartPole-v1,1024,0.10003998823247053,20.949138402938843,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,CartPole-v1,1024,0.1317426275576242,42.92676830291748,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,CartPole-v1,1024,0.13435521567724712,93.08262467384338,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,CartPole-v1,1024,0.12436707271480966,139.7748875617981,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,CartPole-v1,1024,0.11474964891949391,187.69847702980042,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,CartPole-v1,1024,0.28773273258049314,20.955304622650146,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,CartPole-v1,1024,0.34647310771186385,43.09379720687866,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,CartPole-v1,1024,0.3123534774956379,92.55173301696777,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,CartPole-v1,1024,0.23492578843148618,139.70910620689392,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,CartPole-v1,1024,0.2734983968512728,187.80823278427124,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,CartPole-v1,1024,0.04541949478548883,20.97668719291687,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,CartPole-v1,1024,0.1348835415719699,42.89131021499634,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,CartPole-v1,1024,0.3525135068082609,93.11112427711487,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,CartPole-v1,1024,0.18866733010973286,140.03634905815125,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,CartPole-v1,1024,0.34387890444174996,187.59703969955444,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,CartPole-v1,1024,0.28124288751916166,20.987600803375244,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,CartPole-v1,1024,0.24665474612159788,43.10955619812012,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,CartPole-v1,1024,0.4054722876222947,92.68311500549316,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,CartPole-v1,1024,0.2934913888839891,140.08991885185242,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,CartPole-v1,1024,0.4460845358294232,187.93240904808044,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,CartPole-v1,1024,0.4940732782607573,5.3427205085754395,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,CartPole-v1,1024,1.579115285182625,78.70296120643616,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,CartPole-v1,1024,1.2455666560572667,200.52125477790833,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,CartPole-v1,1024,1.315311698199701,565.3837080001831,96w@8192
+Moirai,Moirai level r=1,level,1,-1,CartPole-v1,1024,1.9827405332898995,78.2977683544159,96w@8192
+Moirai,Moirai level r=2,level,2,-1,CartPole-v1,1024,1.9239892294128125,199.3987214565277,96w@8192
+Moirai,Moirai level r=4,level,4,-1,CartPole-v1,1024,3.6504735717320287,568.6096858978271,96w@8192
+MLP,MLP lag 1,-,0,1,CartPole-v1,1024,0.0009822613886343596,4.540990591049194,96w@8192
+MLP,MLP lag 4,-,0,4,CartPole-v1,1024,0.00097689711480602,4.562107801437378,96w@8192
+MLP,MLP lag 16,-,0,16,CartPole-v1,1024,0.006814973128586557,4.587761640548706,96w@8192
+VARX,VARX lag 1,-,0,1,CartPole-v1,1024,5.79530053532696e-09,0.004936695098876953,96w@8192
+VARX,VARX lag 4,-,0,4,CartPole-v1,1024,5.051672147028321e-09,0.005685329437255859,96w@8192
+VARX,VARX lag 16,-,0,16,CartPole-v1,1024,6.3164990287356295e-09,0.011971712112426758,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,CartPole-v1,2048,0.18481249725152202,10.428445100784302,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,CartPole-v1,2048,0.2792401453365518,24.00480818748474,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,CartPole-v1,2048,0.4982251753456702,51.084895849227905,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,CartPole-v1,2048,0.4926709519777312,10.817262411117554,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,CartPole-v1,2048,0.537092008751281,24.718573093414307,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,CartPole-v1,2048,0.572075380288696,51.14851665496826,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,CartPole-v1,2048,0.08444027871321824,43.15939950942993,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,CartPole-v1,2048,0.14352377049830964,93.28356337547302,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,CartPole-v1,2048,0.1555016454442763,188.06577467918396,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,CartPole-v1,2048,0.29944639051392763,43.140705823898315,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,CartPole-v1,2048,0.30060947699539503,92.50204277038574,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,CartPole-v1,2048,0.3038678754975203,187.61641788482666,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,CartPole-v1,2048,0.04035843788384842,43.21894860267639,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,CartPole-v1,2048,0.18108001911478966,92.96744179725647,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,CartPole-v1,2048,0.4197872809694609,187.4764280319214,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,CartPole-v1,2048,0.2722456087582757,43.14959979057312,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,CartPole-v1,2048,0.2972952019141954,92.54532098770142,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,CartPole-v1,2048,0.462348430500246,187.52489018440247,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,CartPole-v1,2048,0.4926709519777312,10.918348550796509,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,CartPole-v1,2048,1.3687354181610032,200.34568881988525,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,CartPole-v1,2048,1.2484822199002075,570.5988619327545,96w@8192
+Moirai,Moirai level r=1,level,1,-1,CartPole-v1,2048,1.5894762223221643,200.69005942344666,96w@8192
+Moirai,Moirai level r=2,level,2,-1,CartPole-v1,2048,1.2056107077068172,568.5799086093903,96w@8192
+MLP,MLP lag 1,-,0,1,CartPole-v1,2048,0.000340508864907959,9.633188486099243,96w@8192
+MLP,MLP lag 4,-,0,4,CartPole-v1,2048,0.0004498959289410436,8.577829599380493,96w@8192
+MLP,MLP lag 16,-,0,16,CartPole-v1,2048,0.0027761440781742877,7.951356410980225,96w@8192
+VARX,VARX lag 1,-,0,1,CartPole-v1,2048,1.1932617768062814e-08,0.008061885833740234,96w@8192
+VARX,VARX lag 4,-,0,4,CartPole-v1,2048,9.686950740255274e-09,0.008150577545166016,96w@8192
+VARX,VARX lag 16,-,0,16,CartPole-v1,2048,1.0269706686485071e-08,0.01423501968383789,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,CartPole-v1,4096,0.16449459250065715,24.26109504699707,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,CartPole-v1,4096,0.2849356528635435,51.1847083568573,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,CartPole-v1,4096,0.47207707411100147,24.37865662574768,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,CartPole-v1,4096,0.5155565924355427,51.10466980934143,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,CartPole-v1,4096,0.0751948792131794,92.85134840011597,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,CartPole-v1,4096,0.1609408013270946,187.9602084159851,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,CartPole-v1,4096,0.3031384452042062,93.15366744995117,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,CartPole-v1,4096,0.3022014936112385,187.56125593185425,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,CartPole-v1,4096,0.05073834527158712,93.51828026771545,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,CartPole-v1,4096,0.22294034960239598,187.90131378173828,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,CartPole-v1,4096,0.2808662412840694,92.44628238677979,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,CartPole-v1,4096,0.34380527298833646,187.61838960647583,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,CartPole-v1,4096,0.47207707411100147,24.21022629737854,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,CartPole-v1,4096,1.4932095889381687,569.3183569908142,96w@8192
+Moirai,Moirai level r=1,level,1,-1,CartPole-v1,4096,1.527831725125994,569.7331898212433,96w@8192
+MLP,MLP lag 1,-,0,1,CartPole-v1,4096,6.304807494941462e-05,14.883658409118652,96w@8192
+MLP,MLP lag 4,-,0,4,CartPole-v1,4096,0.00012399010169750828,17.73995304107666,96w@8192
+MLP,MLP lag 16,-,0,16,CartPole-v1,4096,0.0004022094391744617,14.98769235610962,96w@8192
+VARX,VARX lag 1,-,0,1,CartPole-v1,4096,9.126123665536353e-09,0.009455680847167969,96w@8192
+VARX,VARX lag 4,-,0,4,CartPole-v1,4096,4.952554980142065e-09,0.012776851654052734,96w@8192
+VARX,VARX lag 16,-,0,16,CartPole-v1,4096,5.122015615019629e-09,0.02859210968017578,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,CartPole-v1,8192,0.1644652313747274,51.01966881752014,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,CartPole-v1,8192,0.49954592921383756,51.06135869026184,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,CartPole-v1,8192,0.07875436763128678,188.00651669502258,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,CartPole-v1,8192,0.3100958469557626,187.88032627105713,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,CartPole-v1,8192,0.06514175721837573,187.79191303253174,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,CartPole-v1,8192,0.3109759759990657,188.32465958595276,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,CartPole-v1,8192,0.49954592921383756,51.151978969573975,96w@8192
+MLP,MLP lag 1,-,0,1,CartPole-v1,8192,3.485828048406019e-05,22.226056814193726,96w@8192
+MLP,MLP lag 4,-,0,4,CartPole-v1,8192,3.74612565803964e-05,30.107656002044678,96w@8192
+MLP,MLP lag 16,-,0,16,CartPole-v1,8192,3.8502910570488536e-05,27.609066247940063,96w@8192
+VARX,VARX lag 1,-,0,1,CartPole-v1,8192,7.3043808311476764e-09,0.01711559295654297,96w@8192
+VARX,VARX lag 4,-,0,4,CartPole-v1,8192,4.633629376079703e-09,0.019160747528076172,96w@8192
+VARX,VARX lag 16,-,0,16,CartPole-v1,8192,4.458129650352499e-09,0.028639793395996094,96w@8192

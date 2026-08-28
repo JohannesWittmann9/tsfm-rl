@@ -1,0 +1,733 @@
+model,variant,presentation,r,lag,env,budget,nmse,seconds,evalset
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,MountainCar-v0,1,,0.005404233932495117,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,MountainCar-v0,1,,0.007827281951904297,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,MountainCar-v0,1,,0.0069446563720703125,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,MountainCar-v0,1,,0.005620241165161133,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,MountainCar-v0,1,,0.0050811767578125,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,MountainCar-v0,1,,0.004681825637817383,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,MountainCar-v0,1,,0.004504680633544922,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,MountainCar-v0,1,0.9989329956628505,0.32676243782043457,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,MountainCar-v0,1,1.0003721631041897,0.3295135498046875,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,MountainCar-v0,1,1.000096797030281,0.33118557929992676,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,MountainCar-v0,1,1.0001049891782308,0.3356640338897705,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,MountainCar-v0,1,1.000118907390278,0.3317382335662842,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,MountainCar-v0,1,1.0001862786158158,0.3325462341308594,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,MountainCar-v0,1,1.0006398407066845,0.328993558883667,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,MountainCar-v0,1,,0.006195783615112305,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,MountainCar-v0,1,,0.0053975582122802734,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,MountainCar-v0,1,,0.004427433013916016,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,MountainCar-v0,1,,0.0043752193450927734,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,MountainCar-v0,1,,0.004457712173461914,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,MountainCar-v0,1,,0.004454851150512695,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,MountainCar-v0,1,,0.004559040069580078,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,MountainCar-v0,1,0.9950387847754716,1.0009233951568604,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,MountainCar-v0,1,0.9974743634014605,1.0030863285064697,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,MountainCar-v0,1,0.9988307759232871,1.0044572353363037,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,MountainCar-v0,1,0.9985729081161779,1.0026965141296387,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,MountainCar-v0,1,0.9988028235320955,1.0128350257873535,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,MountainCar-v0,1,0.9991877025103837,1.0097079277038574,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,MountainCar-v0,1,0.9999098311117397,1.0069830417633057,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,MountainCar-v0,1,,0.006250143051147461,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,MountainCar-v0,1,,0.005358457565307617,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,MountainCar-v0,1,,0.0045473575592041016,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,MountainCar-v0,1,,0.004533052444458008,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,MountainCar-v0,1,,0.004511117935180664,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,MountainCar-v0,1,,0.004522085189819336,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,MountainCar-v0,1,,0.004472970962524414,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,MountainCar-v0,1,0.9999445742398699,1.0002708435058594,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,MountainCar-v0,1,0.9999636562882861,1.0039410591125488,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,MountainCar-v0,1,0.9999415625644035,0.9680821895599365,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,MountainCar-v0,1,0.999955144757746,0.9479444026947021,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,MountainCar-v0,1,0.9999485601734646,0.9508278369903564,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,MountainCar-v0,1,0.9999860020243937,0.950237512588501,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,MountainCar-v0,1,1.0000372662663672,0.9519979953765869,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,MountainCar-v0,1,0.9989329956628505,0.3098642826080322,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,MountainCar-v0,1,,0.003167867660522461,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,MountainCar-v0,1,,0.001252889633178711,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,MountainCar-v0,1,,0.0011949539184570312,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,MountainCar-v0,1,,0.0012211799621582031,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,MountainCar-v0,1,,0.0011780261993408203,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,MountainCar-v0,1,,0.001178741455078125,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,MountainCar-v0,1,,0.0011355876922607422,96w@8192
+Moirai,Moirai level r=1,level,1,-1,MountainCar-v0,1,,0.0010416507720947266,96w@8192
+Moirai,Moirai level r=2,level,2,-1,MountainCar-v0,1,,0.0011057853698730469,96w@8192
+Moirai,Moirai level r=4,level,4,-1,MountainCar-v0,1,,0.001100301742553711,96w@8192
+Moirai,Moirai level r=6,level,6,-1,MountainCar-v0,1,,0.0011093616485595703,96w@8192
+Moirai,Moirai level r=8,level,8,-1,MountainCar-v0,1,,0.0011107921600341797,96w@8192
+Moirai,Moirai level r=12,level,12,-1,MountainCar-v0,1,,0.0011029243469238281,96w@8192
+Moirai,Moirai level r=16,level,16,-1,MountainCar-v0,1,,0.0011026859283447266,96w@8192
+MLP,MLP lag 1,-,0,1,MountainCar-v0,1,,0.0028896331787109375,96w@8192
+MLP,MLP lag 4,-,0,4,MountainCar-v0,1,,0.002699136734008789,96w@8192
+MLP,MLP lag 16,-,0,16,MountainCar-v0,1,,0.002599477767944336,96w@8192
+VARX,VARX lag 1,-,0,1,MountainCar-v0,1,,0.0012629032135009766,96w@8192
+VARX,VARX lag 4,-,0,4,MountainCar-v0,1,,0.0008399486541748047,96w@8192
+VARX,VARX lag 16,-,0,16,MountainCar-v0,1,,0.0008382797241210938,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,MountainCar-v0,2,0.19484977491741562,0.30886101722717285,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,MountainCar-v0,2,0.19614315455120154,0.3105030059814453,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,MountainCar-v0,2,0.19604776880525684,0.3104574680328369,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,MountainCar-v0,2,0.19603190036815707,0.30976104736328125,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,MountainCar-v0,2,0.1960420104428787,0.31055617332458496,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,MountainCar-v0,2,0.19603885593590364,0.31060004234313965,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,MountainCar-v0,2,0.19603780403216708,0.30766749382019043,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,MountainCar-v0,2,2.570520862325956,0.30461621284484863,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,MountainCar-v0,2,1.4074889087580353,0.30492234230041504,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,MountainCar-v0,2,0.9629487991577997,0.30594635009765625,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,MountainCar-v0,2,0.8522804236308825,0.3064901828765869,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,MountainCar-v0,2,0.956744179770334,0.3080155849456787,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,MountainCar-v0,2,0.6814898649618976,0.30674099922180176,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,MountainCar-v0,2,0.24756213898705337,0.3420424461364746,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,MountainCar-v0,2,0.18564379242427437,0.9560623168945312,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,MountainCar-v0,2,0.1959228317418037,0.9525997638702393,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,MountainCar-v0,2,0.1960360870577791,0.9564483165740967,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,MountainCar-v0,2,0.19603303564982774,0.97200608253479,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,MountainCar-v0,2,0.19602855686355464,0.9936609268188477,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,MountainCar-v0,2,0.19603237872319856,0.9884135723114014,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,MountainCar-v0,2,0.1960336867396986,0.9890584945678711,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,MountainCar-v0,2,1.2000039380959024,0.9888792037963867,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,MountainCar-v0,2,0.667895417562798,0.9860496520996094,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,MountainCar-v0,2,0.46047941865803266,0.9853181838989258,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,MountainCar-v0,2,0.3037543542273763,0.9870679378509521,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,MountainCar-v0,2,0.26289382654798776,0.9863114356994629,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,MountainCar-v0,2,0.21776203563646745,0.9856884479522705,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,MountainCar-v0,2,0.19184457520635181,1.139050006866455,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,MountainCar-v0,2,0.19593318444304594,0.9865109920501709,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,MountainCar-v0,2,0.19602847456360736,0.9851963520050049,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,MountainCar-v0,2,0.19605855761800725,0.9853589534759521,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,MountainCar-v0,2,0.19605882116098958,0.9870829582214355,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,MountainCar-v0,2,0.1961198908887674,0.9856433868408203,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,MountainCar-v0,2,0.19608007098446373,0.9983160495758057,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,MountainCar-v0,2,0.19602989562874043,1.0330007076263428,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,MountainCar-v0,2,8.018837268086083,0.9852817058563232,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,MountainCar-v0,2,2.044886783683107,0.9929802417755127,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,MountainCar-v0,2,1.355765370246897,1.0217094421386719,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,MountainCar-v0,2,0.993891814113062,0.9862773418426514,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,MountainCar-v0,2,0.6315164701377146,1.0092525482177734,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,MountainCar-v0,2,0.40621592662595635,1.0732429027557373,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,MountainCar-v0,2,0.2784991869948916,1.1346714496612549,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,MountainCar-v0,2,2.570520862325956,0.31461572647094727,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,MountainCar-v0,2,,0.007996320724487305,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,MountainCar-v0,2,,0.001463174819946289,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,MountainCar-v0,2,,0.0013163089752197266,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,MountainCar-v0,2,,0.0013012886047363281,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,MountainCar-v0,2,,0.0013179779052734375,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,MountainCar-v0,2,,0.001323699951171875,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,MountainCar-v0,2,,0.0013222694396972656,96w@8192
+Moirai,Moirai level r=1,level,1,-1,MountainCar-v0,2,2.597344312620144,2.1879706382751465,96w@8192
+Moirai,Moirai level r=2,level,2,-1,MountainCar-v0,2,2.5452693725573337,2.184985876083374,96w@8192
+Moirai,Moirai level r=4,level,4,-1,MountainCar-v0,2,2.8534027727504707,2.19211483001709,96w@8192
+Moirai,Moirai level r=6,level,6,-1,MountainCar-v0,2,3.5148760121995477,2.5771703720092773,96w@8192
+Moirai,Moirai level r=8,level,8,-1,MountainCar-v0,2,3.5353921245283324,2.6460213661193848,96w@8192
+Moirai,Moirai level r=12,level,12,-1,MountainCar-v0,2,3.3971529312527,2.603092908859253,96w@8192
+Moirai,Moirai level r=16,level,16,-1,MountainCar-v0,2,3.4594855336660957,2.302027463912964,96w@8192
+MLP,MLP lag 1,-,0,1,MountainCar-v0,2,,0.003036022186279297,96w@8192
+MLP,MLP lag 4,-,0,4,MountainCar-v0,2,,0.0027854442596435547,96w@8192
+MLP,MLP lag 16,-,0,16,MountainCar-v0,2,,0.002710103988647461,96w@8192
+VARX,VARX lag 1,-,0,1,MountainCar-v0,2,,0.0011670589447021484,96w@8192
+VARX,VARX lag 4,-,0,4,MountainCar-v0,2,,0.0007970333099365234,96w@8192
+VARX,VARX lag 16,-,0,16,MountainCar-v0,2,,0.0007996559143066406,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,MountainCar-v0,4,0.06185935296959108,0.30370330810546875,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,MountainCar-v0,4,0.06133289991657963,0.309067964553833,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,MountainCar-v0,4,0.05870471771212123,0.311551570892334,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,MountainCar-v0,4,0.05158211453319016,0.34566521644592285,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,MountainCar-v0,4,0.05425158646132562,0.34745192527770996,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,MountainCar-v0,4,0.05274217285464927,0.39153242111206055,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,MountainCar-v0,4,0.13716551696417775,0.39053797721862793,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,MountainCar-v0,4,1.7188333816558712,0.3110508918762207,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,MountainCar-v0,4,0.985074380339258,0.30939579010009766,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,MountainCar-v0,4,0.6932776058277839,0.3096339702606201,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,MountainCar-v0,4,0.27177783262433775,0.34595227241516113,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,MountainCar-v0,4,0.21592653983847462,0.3458445072174072,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,MountainCar-v0,4,0.21226366583541806,0.3910541534423828,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,MountainCar-v0,4,0.21319187490891392,0.4618642330169678,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,MountainCar-v0,4,0.1691131144256155,0.9840383529663086,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,MountainCar-v0,4,0.15866610522245098,0.982659101486206,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,MountainCar-v0,4,0.11659720246658214,0.9823887348175049,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,MountainCar-v0,4,0.07875632079934847,1.1342008113861084,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,MountainCar-v0,4,0.12077938787747082,1.1350789070129395,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,MountainCar-v0,4,0.06015662642133621,1.309028148651123,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,MountainCar-v0,4,0.15515348266633888,1.3102161884307861,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,MountainCar-v0,4,0.3836812256620614,0.9837319850921631,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,MountainCar-v0,4,0.2866397802817359,0.9836227893829346,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,MountainCar-v0,4,0.24537773281864816,0.9832935333251953,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,MountainCar-v0,4,0.2224683147682912,1.135495901107788,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,MountainCar-v0,4,0.2383650700151923,1.139505386352539,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,MountainCar-v0,4,0.22307906810302094,1.3182878494262695,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,MountainCar-v0,4,0.18002953157567708,1.6263134479522705,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,MountainCar-v0,4,0.04981929182961528,0.9811487197875977,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,MountainCar-v0,4,0.03812599830404388,0.9823529720306396,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,MountainCar-v0,4,0.04132343796465465,0.9834024906158447,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,MountainCar-v0,4,0.03906485185958642,1.1644072532653809,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,MountainCar-v0,4,0.043799143398112514,1.1373281478881836,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,MountainCar-v0,4,0.03538167548374794,1.3068678379058838,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,MountainCar-v0,4,0.053078621024855194,1.3062691688537598,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,MountainCar-v0,4,3.2682446865788295,0.9793286323547363,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,MountainCar-v0,4,1.4224776863523756,0.979464054107666,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,MountainCar-v0,4,0.4987897439479083,0.9807021617889404,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,MountainCar-v0,4,0.26627910956173995,1.1336581707000732,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,MountainCar-v0,4,0.18815441351447793,1.1399736404418945,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,MountainCar-v0,4,0.1822443494949491,1.3052804470062256,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,MountainCar-v0,4,0.16768533382441053,1.62060546875,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,MountainCar-v0,4,1.7188333816558712,0.31005382537841797,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,MountainCar-v0,4,0.31866212976115466,2.1788249015808105,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,MountainCar-v0,4,0.22708449060813007,2.1777150630950928,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,MountainCar-v0,4,0.23321080025570795,2.1786885261535645,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,MountainCar-v0,4,0.2518194499013518,2.3059206008911133,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,MountainCar-v0,4,0.18162086909672537,2.320268392562866,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,MountainCar-v0,4,0.15342916807852272,2.684373378753662,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,MountainCar-v0,4,0.1958733881896488,2.800154209136963,96w@8192
+Moirai,Moirai level r=1,level,1,-1,MountainCar-v0,4,3.1282593924463606,2.171330451965332,96w@8192
+Moirai,Moirai level r=2,level,2,-1,MountainCar-v0,4,2.957963256519339,2.17010498046875,96w@8192
+Moirai,Moirai level r=4,level,4,-1,MountainCar-v0,4,0.6472745662987974,2.310295820236206,96w@8192
+Moirai,Moirai level r=6,level,6,-1,MountainCar-v0,4,0.7601183983928358,2.3081579208374023,96w@8192
+Moirai,Moirai level r=8,level,8,-1,MountainCar-v0,4,0.536589547160586,2.5585880279541016,96w@8192
+Moirai,Moirai level r=12,level,12,-1,MountainCar-v0,4,0.6931756602950395,2.864694356918335,96w@8192
+Moirai,Moirai level r=16,level,16,-1,MountainCar-v0,4,0.687704644024457,3.623812198638916,96w@8192
+MLP,MLP lag 1,-,0,1,MountainCar-v0,4,1.052067934346971,0.09761881828308105,96w@8192
+MLP,MLP lag 4,-,0,4,MountainCar-v0,4,,0.003490924835205078,96w@8192
+MLP,MLP lag 16,-,0,16,MountainCar-v0,4,,0.003348112106323242,96w@8192
+VARX,VARX lag 1,-,0,1,MountainCar-v0,4,258.30199016867056,0.004033803939819336,96w@8192
+VARX,VARX lag 4,-,0,4,MountainCar-v0,4,,0.0008077621459960938,96w@8192
+VARX,VARX lag 16,-,0,16,MountainCar-v0,4,,0.0007493495941162109,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,MountainCar-v0,8,0.04942781960647761,0.33057188987731934,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,MountainCar-v0,8,0.03987700820214237,0.33690643310546875,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,MountainCar-v0,8,0.02396675660613342,0.35349440574645996,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,MountainCar-v0,8,0.027795804456191196,0.3899974822998047,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,MountainCar-v0,8,0.026646901516589452,0.4655494689941406,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,MountainCar-v0,8,0.03401900281503621,0.5483481884002686,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,MountainCar-v0,8,0.11318630022152172,0.5939080715179443,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,MountainCar-v0,8,0.5617359767219999,0.30837583541870117,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,MountainCar-v0,8,0.6194273320087137,0.30764269828796387,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,MountainCar-v0,8,0.2355436117892388,0.3456003665924072,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,MountainCar-v0,8,0.22603846499505556,0.38938331604003906,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,MountainCar-v0,8,0.16862375697537466,0.4640529155731201,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,MountainCar-v0,8,0.12294697023857536,0.548755407333374,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,MountainCar-v0,8,0.15321571621460714,0.640204668045044,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,MountainCar-v0,8,0.1292673737789921,0.9865360260009766,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,MountainCar-v0,8,0.11289056628595583,0.9905364513397217,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,MountainCar-v0,8,0.04767860747947479,1.1388883590698242,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,MountainCar-v0,8,0.04662159421718607,1.3336524963378906,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,MountainCar-v0,8,0.04015829353404036,1.6212241649627686,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,MountainCar-v0,8,0.030356861186534554,1.9625952243804932,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,MountainCar-v0,8,0.11034572096690054,2.238724946975708,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,MountainCar-v0,8,0.3163112534427836,0.9917325973510742,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,MountainCar-v0,8,0.20894648291342102,0.9825117588043213,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,MountainCar-v0,8,0.19961856217042315,1.1348867416381836,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,MountainCar-v0,8,0.17369568338247898,1.3125622272491455,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,MountainCar-v0,8,0.16117310680432584,1.6235501766204834,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,MountainCar-v0,8,0.13804523825521978,1.961780309677124,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,MountainCar-v0,8,0.156213417617026,2.336404323577881,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,MountainCar-v0,8,0.02614445361096242,0.984687328338623,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,MountainCar-v0,8,0.020862545012093066,0.992102861404419,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,MountainCar-v0,8,0.02119484258108387,1.1645145416259766,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,MountainCar-v0,8,0.016622405150461848,1.3621599674224854,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,MountainCar-v0,8,0.013302249310495215,1.6724495887756348,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,MountainCar-v0,8,0.013361581711980739,2.022127389907837,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,MountainCar-v0,8,0.02706868913085735,2.1711466312408447,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,MountainCar-v0,8,0.5505561652449706,0.9854042530059814,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,MountainCar-v0,8,0.4223508526957755,0.9800238609313965,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,MountainCar-v0,8,0.22129595094035312,1.1292352676391602,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,MountainCar-v0,8,0.16556225642040842,1.3079259395599365,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,MountainCar-v0,8,0.13652239376653058,1.6126532554626465,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,MountainCar-v0,8,0.11997538765928974,2.0319325923919678,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,MountainCar-v0,8,0.12824145712752277,2.406306743621826,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,MountainCar-v0,8,0.5617359767219999,0.3105459213256836,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,MountainCar-v0,8,0.22467730842973097,2.202894449234009,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,MountainCar-v0,8,0.214853886217065,2.3009254932403564,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,MountainCar-v0,8,0.17467197628497702,2.550246477127075,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,MountainCar-v0,8,0.16258537685631447,3.0494723320007324,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,MountainCar-v0,8,0.1686001596779901,3.1643989086151123,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,MountainCar-v0,8,0.17384843379861598,4.114255428314209,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,MountainCar-v0,8,0.16827855412888784,4.570956468582153,96w@8192
+Moirai,Moirai level r=1,level,1,-1,MountainCar-v0,8,3.0700141287023266,2.1581366062164307,96w@8192
+Moirai,Moirai level r=2,level,2,-1,MountainCar-v0,8,0.8425710595067541,2.2920963764190674,96w@8192
+Moirai,Moirai level r=4,level,4,-1,MountainCar-v0,8,0.47461540430624777,2.6796486377716064,96w@8192
+Moirai,Moirai level r=6,level,6,-1,MountainCar-v0,8,0.611821319986084,3.0465023517608643,96w@8192
+Moirai,Moirai level r=8,level,8,-1,MountainCar-v0,8,0.6568288250227372,3.3982179164886475,96w@8192
+Moirai,Moirai level r=12,level,12,-1,MountainCar-v0,8,0.5802795430377439,4.213436603546143,96w@8192
+Moirai,Moirai level r=16,level,16,-1,MountainCar-v0,8,0.43015824817351256,5.550451040267944,96w@8192
+MLP,MLP lag 1,-,0,1,MountainCar-v0,8,27.8579601309331,0.240523099899292,96w@8192
+MLP,MLP lag 4,-,0,4,MountainCar-v0,8,70.53316415882631,0.20394277572631836,96w@8192
+MLP,MLP lag 16,-,0,16,MountainCar-v0,8,,0.0034627914428710938,96w@8192
+VARX,VARX lag 1,-,0,1,MountainCar-v0,8,0.09353699016476323,0.004235744476318359,96w@8192
+VARX,VARX lag 4,-,0,4,MountainCar-v0,8,502.57267138108205,0.004030942916870117,96w@8192
+VARX,VARX lag 16,-,0,16,MountainCar-v0,8,,0.0007476806640625,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,MountainCar-v0,16,0.04644041826696404,0.33528780937194824,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,MountainCar-v0,16,0.024706465832493675,0.3795287609100342,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,MountainCar-v0,16,0.01970844563922998,0.49794983863830566,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,MountainCar-v0,16,0.01992681948041381,0.5744907855987549,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,MountainCar-v0,16,0.01651837617436267,0.6662733554840088,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,MountainCar-v0,16,0.017673946638360305,0.8457028865814209,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,MountainCar-v0,16,0.10320340369616633,0.9989962577819824,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,MountainCar-v0,16,0.6636774741424338,0.33827948570251465,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,MountainCar-v0,16,0.32737613324046194,0.3634684085845947,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,MountainCar-v0,16,0.16628367884881823,0.4641427993774414,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,MountainCar-v0,16,0.14758654563371687,0.552959680557251,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,MountainCar-v0,16,0.13812602655295098,0.6428427696228027,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,MountainCar-v0,16,0.10409972907667861,0.8225545883178711,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,MountainCar-v0,16,0.13899063190927957,1.0076842308044434,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,MountainCar-v0,16,0.08802818763816646,0.9836940765380859,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,MountainCar-v0,16,0.044734935449256615,1.1325631141662598,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,MountainCar-v0,16,0.024278359480656306,1.6151819229125977,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,MountainCar-v0,16,0.017037654159350497,2.0356760025024414,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,MountainCar-v0,16,0.014202252256883386,2.411223888397217,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,MountainCar-v0,16,0.011172548195691091,3.0870676040649414,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,MountainCar-v0,16,0.0480142959506361,3.491093158721924,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,MountainCar-v0,16,0.6221917776747706,1.0201451778411865,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,MountainCar-v0,16,0.3290548302352855,1.1402428150177002,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,MountainCar-v0,16,0.16493188418036422,1.614983320236206,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,MountainCar-v0,16,0.15497869233950032,2.032954692840576,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,MountainCar-v0,16,0.15433607629973028,2.4129958152770996,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,MountainCar-v0,16,0.13810542932042205,3.088024616241455,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,MountainCar-v0,16,0.12955711990360505,3.7601075172424316,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,MountainCar-v0,16,0.029022697585276928,0.9817605018615723,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,MountainCar-v0,16,0.02403219600296166,1.1433513164520264,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,MountainCar-v0,16,0.014350030466297507,1.6097462177276611,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,MountainCar-v0,16,0.011005258462690072,2.031343460083008,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,MountainCar-v0,16,0.009499525198708617,2.4128763675689697,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,MountainCar-v0,16,0.006842862841442711,3.0665299892425537,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,MountainCar-v0,16,0.016903891728714933,3.49174165725708,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,MountainCar-v0,16,0.5894103086840793,0.9828994274139404,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,MountainCar-v0,16,0.4598368842355196,1.1364924907684326,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,MountainCar-v0,16,0.23601105937277517,1.615114688873291,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,MountainCar-v0,16,0.17300894037814496,1.945984125137329,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,MountainCar-v0,16,0.14014761194603595,2.3173208236694336,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,MountainCar-v0,16,0.11065426227783778,2.982133388519287,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,MountainCar-v0,16,0.10103456769438514,3.6724839210510254,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,MountainCar-v0,16,0.6636774741424338,0.30913209915161133,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,MountainCar-v0,16,0.21758966922728915,2.3121750354766846,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,MountainCar-v0,16,0.17986502754679398,2.6873955726623535,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,MountainCar-v0,16,0.197253149520919,3.396726131439209,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,MountainCar-v0,16,0.16316725579371358,4.358882188796997,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,MountainCar-v0,16,0.1757384162989046,4.911226749420166,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,MountainCar-v0,16,0.1732554826503633,6.887224197387695,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,MountainCar-v0,16,0.18944170650056183,8.382988452911377,96w@8192
+Moirai,Moirai level r=1,level,1,-1,MountainCar-v0,16,0.8288283500516609,2.3231348991394043,96w@8192
+Moirai,Moirai level r=2,level,2,-1,MountainCar-v0,16,0.5632832821965833,2.7006165981292725,96w@8192
+Moirai,Moirai level r=4,level,4,-1,MountainCar-v0,16,0.5534784314419199,3.5339157581329346,96w@8192
+Moirai,Moirai level r=6,level,6,-1,MountainCar-v0,16,0.45049059504532557,4.373762369155884,96w@8192
+Moirai,Moirai level r=8,level,8,-1,MountainCar-v0,16,0.6090095947069322,5.721553325653076,96w@8192
+Moirai,Moirai level r=12,level,12,-1,MountainCar-v0,16,0.3902502232603522,7.662898063659668,96w@8192
+Moirai,Moirai level r=16,level,16,-1,MountainCar-v0,16,0.39550531196189476,9.092177867889404,96w@8192
+MLP,MLP lag 1,-,0,1,MountainCar-v0,16,0.7334758485303824,0.15200304985046387,96w@8192
+MLP,MLP lag 4,-,0,4,MountainCar-v0,16,1.0804061963011928,0.11390304565429688,96w@8192
+MLP,MLP lag 16,-,0,16,MountainCar-v0,16,,0.0028574466705322266,96w@8192
+VARX,VARX lag 1,-,0,1,MountainCar-v0,16,0.10528149946869952,0.003336668014526367,96w@8192
+VARX,VARX lag 4,-,0,4,MountainCar-v0,16,0.10811464689935366,0.0034270286560058594,96w@8192
+VARX,VARX lag 16,-,0,16,MountainCar-v0,16,,0.0007665157318115234,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,MountainCar-v0,32,0.03789438454420925,0.341904878616333,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,MountainCar-v0,32,0.022109958295332823,0.4502873420715332,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,MountainCar-v0,32,0.016241326466075304,0.6320123672485352,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,MountainCar-v0,32,0.013752688014240746,0.8043804168701172,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,MountainCar-v0,32,0.015339337706172795,0.9903967380523682,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,MountainCar-v0,32,0.014844984161490044,1.3762524127960205,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,MountainCar-v0,32,0.0873740675763346,1.7496931552886963,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,MountainCar-v0,32,1.1327692978747999,0.38140225410461426,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,MountainCar-v0,32,0.28798261239009326,0.5015051364898682,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,MountainCar-v0,32,0.21561379490702964,0.6677885055541992,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,MountainCar-v0,32,0.14730172485777743,0.8469123840332031,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,MountainCar-v0,32,0.12790868825942112,1.0517971515655518,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,MountainCar-v0,32,0.10134266159367086,1.4499008655548096,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,MountainCar-v0,32,0.14444541238921432,1.802927017211914,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,MountainCar-v0,32,0.06877872976807571,1.2070374488830566,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,MountainCar-v0,32,0.030058095241797384,1.68800687789917,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,MountainCar-v0,32,0.014641583336128888,2.4083008766174316,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,MountainCar-v0,32,0.01121046090783885,3.169358730316162,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,MountainCar-v0,32,0.01035224409252323,3.6716299057006836,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,MountainCar-v0,32,0.010556826135443356,5.0985376834869385,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,MountainCar-v0,32,0.03534999814703741,6.382349491119385,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,MountainCar-v0,32,0.5387117950267185,1.1981732845306396,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,MountainCar-v0,32,0.32233672973726807,1.6261374950408936,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,MountainCar-v0,32,0.13732697891044396,2.351210355758667,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,MountainCar-v0,32,0.12406778227400524,3.0183699131011963,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,MountainCar-v0,32,0.1123630719303815,3.6762590408325195,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,MountainCar-v0,32,0.09380841763158,5.105581998825073,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,MountainCar-v0,32,0.09137149408350612,6.578289985656738,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,MountainCar-v0,32,0.047414266198731785,1.1343276500701904,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,MountainCar-v0,32,0.021730493771825427,1.6622118949890137,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,MountainCar-v0,32,0.007369843379083519,2.3762006759643555,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,MountainCar-v0,32,0.0054907841896461645,3.044029474258423,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,MountainCar-v0,32,0.005787876593911967,3.7344558238983154,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,MountainCar-v0,32,0.006053067384619951,5.147014379501343,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,MountainCar-v0,32,0.015917157258312137,6.534170866012573,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,MountainCar-v0,32,0.8626558714516063,1.2570786476135254,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,MountainCar-v0,32,0.4928016591430596,1.7027335166931152,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,MountainCar-v0,32,0.16030018912921898,2.4357993602752686,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,MountainCar-v0,32,0.11757405401099814,3.166675567626953,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,MountainCar-v0,32,0.1097432927989658,3.7933871746063232,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,MountainCar-v0,32,0.07324160837944704,5.127280950546265,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,MountainCar-v0,32,0.06512774845947872,6.594669342041016,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,MountainCar-v0,32,1.1327692978747999,0.3477644920349121,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,MountainCar-v0,32,0.21399022468715354,2.696756362915039,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,MountainCar-v0,32,0.19503797812063953,3.51623797416687,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,MountainCar-v0,32,0.17674993950355516,5.155177116394043,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,MountainCar-v0,32,0.1690498915337445,7.11003851890564,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,MountainCar-v0,32,0.1820297727023784,8.895005226135254,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,MountainCar-v0,32,0.1749330944719301,12.889454364776611,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,MountainCar-v0,32,0.19103098569058222,17.592962503433228,96w@8192
+Moirai,Moirai level r=1,level,1,-1,MountainCar-v0,32,0.6190262551257718,3.163391351699829,96w@8192
+Moirai,Moirai level r=2,level,2,-1,MountainCar-v0,32,0.6609020924351321,4.0229811668396,96w@8192
+Moirai,Moirai level r=4,level,4,-1,MountainCar-v0,32,0.6019197434238458,5.9228010177612305,96w@8192
+Moirai,Moirai level r=6,level,6,-1,MountainCar-v0,32,0.6203693728174473,7.800734519958496,96w@8192
+Moirai,Moirai level r=8,level,8,-1,MountainCar-v0,32,0.5919237866128688,9.740997314453125,96w@8192
+Moirai,Moirai level r=12,level,12,-1,MountainCar-v0,32,0.5826973792558219,13.823723554611206,96w@8192
+Moirai,Moirai level r=16,level,16,-1,MountainCar-v0,32,0.612639257224653,18.03684091567993,96w@8192
+MLP,MLP lag 1,-,0,1,MountainCar-v0,32,0.17882606696381642,1.1473114490509033,96w@8192
+MLP,MLP lag 4,-,0,4,MountainCar-v0,32,0.3762871730187141,0.3182411193847656,96w@8192
+MLP,MLP lag 16,-,0,16,MountainCar-v0,32,1.86401008565683,0.1263895034790039,96w@8192
+VARX,VARX lag 1,-,0,1,MountainCar-v0,32,0.10876733876959126,0.003398895263671875,96w@8192
+VARX,VARX lag 4,-,0,4,MountainCar-v0,32,0.10979981524308774,0.0035130977630615234,96w@8192
+VARX,VARX lag 16,-,0,16,MountainCar-v0,32,9.977450644169506,0.00493311882019043,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,MountainCar-v0,64,0.032007533786257966,0.45541906356811523,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,MountainCar-v0,64,0.015773686077878494,0.6238701343536377,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,MountainCar-v0,64,0.010770651841072478,0.9827969074249268,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,MountainCar-v0,64,0.010100979092115452,1.3394536972045898,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,MountainCar-v0,64,0.01751708838248459,1.7018537521362305,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,MountainCar-v0,64,0.014098051700611116,2.4027466773986816,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,MountainCar-v0,64,0.07189596531362051,3.2484350204467773,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,MountainCar-v0,64,1.1815480873142996,0.46816396713256836,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,MountainCar-v0,64,0.35360926467665166,0.6425797939300537,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,MountainCar-v0,64,0.17175449416174227,1.014955759048462,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,MountainCar-v0,64,0.1206597200644245,1.3931553363800049,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,MountainCar-v0,64,0.14022128974653525,1.7708590030670166,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,MountainCar-v0,64,0.11401477464096907,2.4893250465393066,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,MountainCar-v0,64,0.11159896070766781,3.2724952697753906,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,MountainCar-v0,64,0.05608328157443417,1.6223924160003662,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,MountainCar-v0,64,0.017989214934860717,2.4332528114318848,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,MountainCar-v0,64,0.008580531142493667,3.7871696949005127,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,MountainCar-v0,64,0.008095751911294935,5.141567945480347,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,MountainCar-v0,64,0.010433390763142418,6.583667755126953,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,MountainCar-v0,64,0.006679207153014548,9.602812051773071,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,MountainCar-v0,64,0.03682166532665394,12.431493759155273,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,MountainCar-v0,64,0.32387002617164623,1.6207749843597412,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,MountainCar-v0,64,0.20036258203587687,2.4194087982177734,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,MountainCar-v0,64,0.14843138478680895,3.7749698162078857,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,MountainCar-v0,64,0.14326185023630553,5.143540143966675,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,MountainCar-v0,64,0.11151429606198851,6.579464673995972,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,MountainCar-v0,64,0.0841046798442411,9.524082660675049,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,MountainCar-v0,64,0.09146257432548374,12.83401870727539,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,MountainCar-v0,64,0.0331457006714785,1.6122446060180664,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,MountainCar-v0,64,0.01373692617924068,2.423434257507324,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,MountainCar-v0,64,0.005131448887601003,3.8483664989471436,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,MountainCar-v0,64,0.004269160819639116,5.239513397216797,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,MountainCar-v0,64,0.004970930117897331,6.558776617050171,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,MountainCar-v0,64,0.0036139634130281403,9.526618003845215,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,MountainCar-v0,64,0.015507808117211745,12.507502555847168,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,MountainCar-v0,64,0.6629525280929303,1.621453046798706,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,MountainCar-v0,64,0.3180265693044256,2.337939739227295,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,MountainCar-v0,64,0.1705888225930906,3.7326810359954834,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,MountainCar-v0,64,0.11744205306199221,5.138298034667969,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,MountainCar-v0,64,0.09311384159897329,6.6320481300354,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,MountainCar-v0,64,0.06375614461461626,9.590714454650879,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,MountainCar-v0,64,0.05296214211249494,12.838459253311157,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,MountainCar-v0,64,1.1815480873142996,0.46831631660461426,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,MountainCar-v0,64,0.20330442454288988,3.5664563179016113,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,MountainCar-v0,64,0.2086301882557866,5.285113573074341,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,MountainCar-v0,64,0.1980689807289514,8.995378255844116,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,MountainCar-v0,64,0.18223257417554864,13.19104814529419,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,MountainCar-v0,64,0.18697105183177237,17.60326647758484,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,MountainCar-v0,64,0.18855795450410637,27.92857336997986,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,MountainCar-v0,64,0.20740109564706077,39.21600794792175,96w@8192
+Moirai,Moirai level r=1,level,1,-1,MountainCar-v0,64,0.6156984613276434,3.521305561065674,96w@8192
+Moirai,Moirai level r=2,level,2,-1,MountainCar-v0,64,0.7496362813799315,5.307931661605835,96w@8192
+Moirai,Moirai level r=4,level,4,-1,MountainCar-v0,64,0.8116704193518754,9.090368270874023,96w@8192
+Moirai,Moirai level r=6,level,6,-1,MountainCar-v0,64,0.889590306738255,13.18932580947876,96w@8192
+Moirai,Moirai level r=8,level,8,-1,MountainCar-v0,64,0.880909923100546,18.10419201850891,96w@8192
+Moirai,Moirai level r=12,level,12,-1,MountainCar-v0,64,1.0269480840298604,28.269274711608887,96w@8192
+Moirai,Moirai level r=16,level,16,-1,MountainCar-v0,64,1.0033148265470557,40.37808299064636,96w@8192
+MLP,MLP lag 1,-,0,1,MountainCar-v0,64,0.09060525420098871,0.28415822982788086,96w@8192
+MLP,MLP lag 4,-,0,4,MountainCar-v0,64,0.11127499023572673,1.3988420963287354,96w@8192
+MLP,MLP lag 16,-,0,16,MountainCar-v0,64,0.3498898612720622,0.1630866527557373,96w@8192
+VARX,VARX lag 1,-,0,1,MountainCar-v0,64,0.10858130161543975,0.0042531490325927734,96w@8192
+VARX,VARX lag 4,-,0,4,MountainCar-v0,64,0.10947619671351838,0.004641294479370117,96w@8192
+VARX,VARX lag 16,-,0,16,MountainCar-v0,64,4.517800548438151,0.005278110504150391,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,MountainCar-v0,128,0.029559481765948505,0.6428132057189941,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,MountainCar-v0,128,0.011088248210048621,0.9979088306427002,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,MountainCar-v0,128,0.006912236976101458,1.7087738513946533,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,MountainCar-v0,128,0.00775677945449646,2.5201780796051025,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,MountainCar-v0,128,0.020922314918446545,3.23309588432312,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,MountainCar-v0,128,0.012376004758776718,4.775147438049316,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,MountainCar-v0,128,0.058187848734692266,6.4162774085998535,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,MountainCar-v0,128,0.7936866877103111,0.6357138156890869,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,MountainCar-v0,128,0.37329490401642423,0.9993126392364502,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,MountainCar-v0,128,0.14158196013103735,1.7626292705535889,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,MountainCar-v0,128,0.10159730406081287,2.4950027465820312,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,MountainCar-v0,128,0.10277482956381068,3.359125852584839,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,MountainCar-v0,128,0.08589619535985818,4.93491005897522,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,MountainCar-v0,128,0.07774449633877979,6.518276691436768,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,MountainCar-v0,128,0.04691663185197572,2.451415777206421,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,MountainCar-v0,128,0.012688880668260379,3.7693440914154053,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,MountainCar-v0,128,0.004269737093327317,6.6289756298065186,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,MountainCar-v0,128,0.007160402450351408,9.518408060073853,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,MountainCar-v0,128,0.006020722773810021,12.513341426849365,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,MountainCar-v0,128,0.005698984253007189,19.241902351379395,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,MountainCar-v0,128,0.03654008352458,25.58479356765747,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,MountainCar-v0,128,0.2178197072809754,2.4857048988342285,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,MountainCar-v0,128,0.17430325545618663,3.8258345127105713,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,MountainCar-v0,128,0.13302445391620524,6.6967809200286865,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,MountainCar-v0,128,0.1171509932302048,9.61464810371399,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,MountainCar-v0,128,0.09951619351479357,12.590728282928467,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,MountainCar-v0,128,0.10550309928297277,19.10762071609497,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,MountainCar-v0,128,0.10395792661409241,25.827526330947876,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,MountainCar-v0,128,0.019537563056737862,2.367887258529663,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,MountainCar-v0,128,0.007883463079408164,3.7511634826660156,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,MountainCar-v0,128,0.003534959685268506,6.580729961395264,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,MountainCar-v0,128,0.004209945863034421,9.588233709335327,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,MountainCar-v0,128,0.0035601888543134973,12.581127882003784,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,MountainCar-v0,128,0.00349010309719583,19.18941617012024,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,MountainCar-v0,128,0.013272589220730853,25.477153539657593,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,MountainCar-v0,128,0.29244087230481663,2.4160704612731934,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,MountainCar-v0,128,0.21357431510706984,3.7753238677978516,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,MountainCar-v0,128,0.129455199802888,6.611980438232422,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,MountainCar-v0,128,0.09755075844620646,9.50095796585083,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,MountainCar-v0,128,0.06818783776773148,12.494243621826172,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,MountainCar-v0,128,0.05683044716932886,19.23625946044922,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,MountainCar-v0,128,0.04641728100093321,25.354987144470215,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,MountainCar-v0,128,0.7936866877103111,0.6356534957885742,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,MountainCar-v0,128,0.19306345314143097,5.2875659465789795,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,MountainCar-v0,128,0.2056059622009322,9.097806215286255,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,MountainCar-v0,128,0.2072580146028249,17.853474855422974,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,MountainCar-v0,128,0.1855128483967668,28.206393241882324,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,MountainCar-v0,128,0.19416417297309616,40.015077114105225,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,MountainCar-v0,128,0.19761117624099492,66.74865436553955,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,MountainCar-v0,128,0.19492616329517246,96.82576012611389,96w@8192
+Moirai,Moirai level r=1,level,1,-1,MountainCar-v0,128,0.5077788672296684,5.691493272781372,96w@8192
+Moirai,Moirai level r=2,level,2,-1,MountainCar-v0,128,0.6481181719855433,9.832429647445679,96w@8192
+Moirai,Moirai level r=4,level,4,-1,MountainCar-v0,128,0.5543711465375848,19.12356448173523,96w@8192
+Moirai,Moirai level r=6,level,6,-1,MountainCar-v0,128,0.6550634182125079,29.03889536857605,96w@8192
+Moirai,Moirai level r=8,level,8,-1,MountainCar-v0,128,0.7291655853014323,41.53305625915527,96w@8192
+Moirai,Moirai level r=12,level,12,-1,MountainCar-v0,128,0.9283888106882123,67.1111056804657,96w@8192
+Moirai,Moirai level r=16,level,16,-1,MountainCar-v0,128,0.9073013889384489,99.46875977516174,96w@8192
+MLP,MLP lag 1,-,0,1,MountainCar-v0,128,0.06330924664436588,0.3520224094390869,96w@8192
+MLP,MLP lag 4,-,0,4,MountainCar-v0,128,0.14505773646503542,0.2958829402923584,96w@8192
+MLP,MLP lag 16,-,0,16,MountainCar-v0,128,0.1923860787384804,1.4142465591430664,96w@8192
+VARX,VARX lag 1,-,0,1,MountainCar-v0,128,0.09374478273647464,0.0044095516204833984,96w@8192
+VARX,VARX lag 4,-,0,4,MountainCar-v0,128,0.09415635310719636,0.0047109127044677734,96w@8192
+VARX,VARX lag 16,-,0,16,MountainCar-v0,128,2808.675966348507,0.005448579788208008,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,MountainCar-v0,256,0.03274584218327563,1.009688377380371,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,MountainCar-v0,256,0.010337531543045666,1.738434076309204,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,MountainCar-v0,256,0.0074157698046190676,3.144742965698242,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,MountainCar-v0,256,0.0055190196891581915,4.865097761154175,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,MountainCar-v0,256,0.02742630767720799,6.529520034790039,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,MountainCar-v0,256,0.013901255292137102,10.249974012374878,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,MountainCar-v0,256,0.061297168082933416,14.736273288726807,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,MountainCar-v0,256,0.7060952832209753,1.0188000202178955,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,MountainCar-v0,256,0.2531634325458384,1.7960479259490967,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,MountainCar-v0,256,0.17062256196596814,3.231912136077881,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,MountainCar-v0,256,0.09881102288885253,4.8332061767578125,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,MountainCar-v0,256,0.11110253498292066,6.569742202758789,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,MountainCar-v0,256,0.09924305566985825,10.306845664978027,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,MountainCar-v0,256,0.09695044273431969,14.89957857131958,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,MountainCar-v0,256,0.03995329088090997,3.7388386726379395,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,MountainCar-v0,256,0.00975025194971394,6.648959159851074,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,MountainCar-v0,256,0.003704491932918418,12.567104816436768,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,MountainCar-v0,256,0.005128172162446094,19.325477361679077,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,MountainCar-v0,256,0.005219750525793531,25.76317024230957,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,MountainCar-v0,256,0.004364260261199898,40.39516592025757,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,MountainCar-v0,256,0.050781167337777974,55.612252712249756,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,MountainCar-v0,256,0.2932062417812652,3.77374005317688,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,MountainCar-v0,256,0.13699353024944416,6.560743093490601,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,MountainCar-v0,256,0.11259313266539364,12.538569450378418,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,MountainCar-v0,256,0.10296278724589444,18.86164927482605,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,MountainCar-v0,256,0.12291116306818041,25.810053825378418,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,MountainCar-v0,256,0.1203317680894691,40.324589252471924,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,MountainCar-v0,256,0.10951797331884278,56.43268632888794,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,MountainCar-v0,256,0.014241863283752624,3.812373399734497,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,MountainCar-v0,256,0.006529442852667743,6.590742111206055,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,MountainCar-v0,256,0.004930776312292558,12.526499509811401,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,MountainCar-v0,256,0.004625891163150578,18.833279848098755,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,MountainCar-v0,256,0.004919491749024829,25.74946403503418,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,MountainCar-v0,256,0.00391126334181868,40.479132652282715,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,MountainCar-v0,256,0.017254587405376925,55.800877809524536,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,MountainCar-v0,256,0.3138974767934493,3.8054568767547607,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,MountainCar-v0,256,0.21094966384924146,6.655913591384888,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,MountainCar-v0,256,0.12508220070630685,12.597718954086304,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,MountainCar-v0,256,0.07518313242113657,18.801517724990845,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,MountainCar-v0,256,0.0620828110740882,25.869632720947266,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,MountainCar-v0,256,0.08133597151338139,40.355859994888306,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,MountainCar-v0,256,0.06716822210492662,56.437903881073,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,MountainCar-v0,256,0.7060952832209753,0.9911899566650391,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,MountainCar-v0,256,0.18089322871491526,9.767648935317993,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,MountainCar-v0,256,0.1933002616763609,18.789306640625,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,MountainCar-v0,256,0.19452598336369523,40.77720332145691,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,MountainCar-v0,256,0.1999689237208276,68.76944327354431,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,MountainCar-v0,256,0.17666567875735903,99.03650546073914,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,MountainCar-v0,256,0.21510238849201468,171.5063316822052,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,MountainCar-v0,256,0.2365896341199599,261.09181356430054,96w@8192
+Moirai,Moirai level r=1,level,1,-1,MountainCar-v0,256,0.6992001336136764,9.83431100845337,96w@8192
+Moirai,Moirai level r=2,level,2,-1,MountainCar-v0,256,0.5166016868099036,18.345235586166382,96w@8192
+Moirai,Moirai level r=4,level,4,-1,MountainCar-v0,256,0.5577638342251332,40.716113805770874,96w@8192
+Moirai,Moirai level r=6,level,6,-1,MountainCar-v0,256,0.8478544980468441,68.57597208023071,96w@8192
+Moirai,Moirai level r=8,level,8,-1,MountainCar-v0,256,0.8050557948140727,98.39837908744812,96w@8192
+Moirai,Moirai level r=12,level,12,-1,MountainCar-v0,256,0.8915050621846972,172.4103548526764,96w@8192
+Moirai,Moirai level r=16,level,16,-1,MountainCar-v0,256,0.8163847043436325,262.10259675979614,96w@8192
+MLP,MLP lag 1,-,0,1,MountainCar-v0,256,0.08371912043428148,0.3912022113800049,96w@8192
+MLP,MLP lag 4,-,0,4,MountainCar-v0,256,0.09180411218495661,1.199507236480713,96w@8192
+MLP,MLP lag 16,-,0,16,MountainCar-v0,256,0.06950919031668573,1.2182385921478271,96w@8192
+VARX,VARX lag 1,-,0,1,MountainCar-v0,256,0.09421037508649499,0.0036728382110595703,96w@8192
+VARX,VARX lag 4,-,0,4,MountainCar-v0,256,0.09442235593988385,0.0039010047912597656,96w@8192
+VARX,VARX lag 16,-,0,16,MountainCar-v0,256,5294.702741043667,0.005486726760864258,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,MountainCar-v0,512,0.028236281840685946,1.7127571105957031,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,MountainCar-v0,512,0.010053911296116973,3.274553060531616,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,MountainCar-v0,512,0.008930006823840863,6.4934163093566895,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,MountainCar-v0,512,0.006843949733875567,10.203500032424927,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,MountainCar-v0,512,0.025774690069122613,14.617616891860962,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,MountainCar-v0,512,0.011137458384355335,23.045714139938354,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,MountainCar-v0,512,0.06849474996982909,30.874294757843018,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,MountainCar-v0,512,0.6193158693635503,1.7743427753448486,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,MountainCar-v0,512,0.22101576773426593,3.2366695404052734,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,MountainCar-v0,512,0.13703407363758685,6.466174125671387,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,MountainCar-v0,512,0.11296448994686707,10.193017959594727,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,MountainCar-v0,512,0.10688474211110871,14.593189001083374,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,MountainCar-v0,512,0.1023885196549121,22.662046670913696,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,MountainCar-v0,512,0.1152647085310476,30.943348169326782,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,MountainCar-v0,512,0.026920512629063382,6.559076547622681,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,MountainCar-v0,512,0.009913808003338121,12.536215782165527,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,MountainCar-v0,512,0.0037328708854521514,25.7770254611969,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,MountainCar-v0,512,0.005192259235477226,40.511531352996826,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,MountainCar-v0,512,0.006414716333418794,56.13166952133179,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,MountainCar-v0,512,0.004683897256219703,84.74802851676941,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,MountainCar-v0,512,0.0588703810633384,113.59604859352112,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,MountainCar-v0,512,0.24220803895477583,6.598146200180054,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,MountainCar-v0,512,0.1348114905387438,12.543987512588501,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,MountainCar-v0,512,0.11321282275061204,25.926939725875854,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,MountainCar-v0,512,0.10429525227607944,40.25275802612305,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,MountainCar-v0,512,0.10416134304754529,56.662455558776855,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,MountainCar-v0,512,0.10938382503334963,84.7106568813324,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,MountainCar-v0,512,0.10678255148771917,113.94452857971191,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,MountainCar-v0,512,0.015087215669394098,6.58601713180542,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,MountainCar-v0,512,0.009295775022580466,12.503527402877808,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,MountainCar-v0,512,0.009661056459876858,25.72095012664795,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,MountainCar-v0,512,0.006576005901669437,40.411031007766724,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,MountainCar-v0,512,0.007913873830153427,56.242738485336304,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,MountainCar-v0,512,0.005325840209872822,84.68687462806702,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,MountainCar-v0,512,0.021156261499800256,113.50426721572876,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,MountainCar-v0,512,0.326948800674308,6.513771057128906,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,MountainCar-v0,512,0.16839406771536494,12.55050253868103,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,MountainCar-v0,512,0.10717666767931597,26.07110357284546,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,MountainCar-v0,512,0.06020894612825378,40.307578563690186,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,MountainCar-v0,512,0.06366894880654264,55.895079612731934,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,MountainCar-v0,512,0.0697699728553545,84.66933798789978,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,MountainCar-v0,512,0.0691267390955383,113.99138236045837,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,MountainCar-v0,512,0.6193158693635503,1.7903437614440918,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,MountainCar-v0,512,0.1997476127538224,18.51417636871338,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,MountainCar-v0,512,0.17336870385856237,40.37087821960449,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,MountainCar-v0,512,0.19044110301712702,98.38282370567322,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,MountainCar-v0,512,0.2167934066289823,172.6204001903534,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,MountainCar-v0,512,0.2364476345343593,262.2070746421814,96w@8192
+Moirai,Moirai level r=1,level,1,-1,MountainCar-v0,512,0.6604504418198267,18.832119464874268,96w@8192
+Moirai,Moirai level r=2,level,2,-1,MountainCar-v0,512,0.5947590344997262,41.72935605049133,96w@8192
+Moirai,Moirai level r=4,level,4,-1,MountainCar-v0,512,0.6484024867734431,100.69660186767578,96w@8192
+Moirai,Moirai level r=6,level,6,-1,MountainCar-v0,512,0.9610150678460204,172.11669874191284,96w@8192
+Moirai,Moirai level r=8,level,8,-1,MountainCar-v0,512,0.7599162980392153,263.560035943985,96w@8192
+MLP,MLP lag 1,-,0,1,MountainCar-v0,512,0.08152081111562864,2.3341727256774902,96w@8192
+MLP,MLP lag 4,-,0,4,MountainCar-v0,512,0.0914952644533906,2.2918975353240967,96w@8192
+MLP,MLP lag 16,-,0,16,MountainCar-v0,512,0.07390141801285623,2.3043928146362305,96w@8192
+VARX,VARX lag 1,-,0,1,MountainCar-v0,512,0.09625204560051653,0.0041539669036865234,96w@8192
+VARX,VARX lag 4,-,0,4,MountainCar-v0,512,0.0961898294269609,0.004277944564819336,96w@8192
+VARX,VARX lag 16,-,0,16,MountainCar-v0,512,812.5499324753678,0.009772300720214844,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,MountainCar-v0,1024,0.022647912209321722,3.1497931480407715,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,MountainCar-v0,1024,0.009173539102272654,6.451037645339966,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,MountainCar-v0,1024,0.010819290926771823,14.615989923477173,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,MountainCar-v0,1024,0.007399345375765913,22.597872734069824,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,MountainCar-v0,1024,0.024286690040554122,31.116861581802368,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,MountainCar-v0,1024,0.5214951956986658,3.2177770137786865,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,MountainCar-v0,1024,0.21981890467989335,6.462851047515869,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,MountainCar-v0,1024,0.12363894309807837,14.619905233383179,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,MountainCar-v0,1024,0.1126970100189378,22.737165212631226,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,MountainCar-v0,1024,0.10338765532182362,30.92507028579712,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,MountainCar-v0,1024,0.014839788601725275,12.579361200332642,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,MountainCar-v0,1024,0.009670335345459177,25.793190717697144,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,MountainCar-v0,1024,0.007393021093077794,56.21416401863098,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,MountainCar-v0,1024,0.00572929439594485,84.9648368358612,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,MountainCar-v0,1024,0.007147056357826548,114.09705781936646,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,MountainCar-v0,1024,0.22746710848078772,12.51388955116272,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,MountainCar-v0,1024,0.12541621182463453,25.742258548736572,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,MountainCar-v0,1024,0.12722789133422618,56.44204592704773,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,MountainCar-v0,1024,0.10754448122875472,84.65528106689453,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,MountainCar-v0,1024,0.10169525102141921,113.88142561912537,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,MountainCar-v0,1024,0.016573651980659302,12.495597124099731,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,MountainCar-v0,1024,0.01230478791131575,25.728147268295288,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,MountainCar-v0,1024,0.0166835241108985,56.39780044555664,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,MountainCar-v0,1024,0.01259805361241789,85.0749659538269,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,MountainCar-v0,1024,0.009754437621928149,114.12825012207031,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,MountainCar-v0,1024,0.30602130571652975,12.58230710029602,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,MountainCar-v0,1024,0.12737380015106042,25.793452739715576,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,MountainCar-v0,1024,0.08900975443152451,56.6415741443634,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,MountainCar-v0,1024,0.06937867665516825,84.52516770362854,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,MountainCar-v0,1024,0.06599900385465773,114.03943419456482,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,MountainCar-v0,1024,0.5214951956986658,3.1751086711883545,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,MountainCar-v0,1024,0.17508060526290906,41.0216121673584,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,MountainCar-v0,1024,0.17314702505344381,101.50043058395386,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,MountainCar-v0,1024,0.1854762748033215,263.6919276714325,96w@8192
+Moirai,Moirai level r=1,level,1,-1,MountainCar-v0,1024,0.6733873226681087,40.54669213294983,96w@8192
+Moirai,Moirai level r=2,level,2,-1,MountainCar-v0,1024,0.7015691428020581,99.24796938896179,96w@8192
+Moirai,Moirai level r=4,level,4,-1,MountainCar-v0,1024,0.9866220327643889,264.2333254814148,96w@8192
+MLP,MLP lag 1,-,0,1,MountainCar-v0,1024,0.04759591164221055,4.597301721572876,96w@8192
+MLP,MLP lag 4,-,0,4,MountainCar-v0,1024,0.055846413977207944,4.240480661392212,96w@8192
+MLP,MLP lag 16,-,0,16,MountainCar-v0,1024,0.05111312601751082,3.013821601867676,96w@8192
+VARX,VARX lag 1,-,0,1,MountainCar-v0,1024,0.07905925683471351,0.004929065704345703,96w@8192
+VARX,VARX lag 4,-,0,4,MountainCar-v0,1024,0.07717727816851139,0.007125377655029297,96w@8192
+VARX,VARX lag 16,-,0,16,MountainCar-v0,1024,1704.0732481341374,0.01271200180053711,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,MountainCar-v0,2048,0.018260454767075843,6.283456087112427,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,MountainCar-v0,2048,0.008892170637293889,14.66001272201538,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,MountainCar-v0,2048,0.013146997164524709,30.991202354431152,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,MountainCar-v0,2048,0.495059551646816,6.292048692703247,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,MountainCar-v0,2048,0.2607068520317963,14.85848355293274,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,MountainCar-v0,2048,0.12684255715082174,31.034483909606934,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,MountainCar-v0,2048,0.01269185769242075,25.620510578155518,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,MountainCar-v0,2048,0.01483194154053971,56.1524772644043,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,MountainCar-v0,2048,0.00999459381817759,114.0472309589386,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,MountainCar-v0,2048,0.2435898123393014,25.776070833206177,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,MountainCar-v0,2048,0.13930283508921132,56.04231548309326,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,MountainCar-v0,2048,0.12803032537099884,114.25735306739807,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,MountainCar-v0,2048,0.013293931078528746,25.80386257171631,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,MountainCar-v0,2048,0.01342291733283432,56.53153347969055,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,MountainCar-v0,2048,0.02089536884500546,114.11393237113953,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,MountainCar-v0,2048,0.26677844565283204,25.77945113182068,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,MountainCar-v0,2048,0.12613991511467965,56.133580684661865,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,MountainCar-v0,2048,0.08619656674977154,114.04166316986084,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,MountainCar-v0,2048,0.495059551646816,6.374422311782837,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,MountainCar-v0,2048,0.15934157938651825,100.27795100212097,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,MountainCar-v0,2048,0.19111300790255445,264.21634459495544,96w@8192
+Moirai,Moirai level r=1,level,1,-1,MountainCar-v0,2048,1.0348581518101247,98.98030924797058,96w@8192
+Moirai,Moirai level r=2,level,2,-1,MountainCar-v0,2048,0.8786292002906764,264.05453300476074,96w@8192
+MLP,MLP lag 1,-,0,1,MountainCar-v0,2048,0.035604644224541515,7.80758261680603,96w@8192
+MLP,MLP lag 4,-,0,4,MountainCar-v0,2048,0.041505625540519904,7.844438552856445,96w@8192
+MLP,MLP lag 16,-,0,16,MountainCar-v0,2048,0.03942111637606398,8.73231816291809,96w@8192
+VARX,VARX lag 1,-,0,1,MountainCar-v0,2048,0.07501229769728321,0.0074503421783447266,96w@8192
+VARX,VARX lag 4,-,0,4,MountainCar-v0,2048,0.07280365180108536,0.007780313491821289,96w@8192
+VARX,VARX lag 16,-,0,16,MountainCar-v0,2048,252.2575268131992,0.009493589401245117,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,MountainCar-v0,4096,0.023065165124022624,14.865878105163574,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,MountainCar-v0,4096,0.009948213986738591,31.04629158973694,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,MountainCar-v0,4096,0.5440768001527709,14.468889236450195,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,MountainCar-v0,4096,0.2962418156712598,31.109375,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,MountainCar-v0,4096,0.02084805214121144,56.92552042007446,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,MountainCar-v0,4096,0.019087074637366287,114.28718686103821,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,MountainCar-v0,4096,0.267774029861912,56.73051595687866,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,MountainCar-v0,4096,0.15381592642655562,113.93237853050232,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,MountainCar-v0,4096,0.013946653161871166,56.05646586418152,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,MountainCar-v0,4096,0.014588598030770296,113.99576377868652,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,MountainCar-v0,4096,0.34200323527719234,56.831411361694336,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,MountainCar-v0,4096,0.12027029987021923,114.30952596664429,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,MountainCar-v0,4096,0.5440768001527709,14.404047727584839,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,MountainCar-v0,4096,0.17206294094181604,265.30996966362,96w@8192
+Moirai,Moirai level r=1,level,1,-1,MountainCar-v0,4096,4.093696002087367,264.9469747543335,96w@8192
+MLP,MLP lag 1,-,0,1,MountainCar-v0,4096,0.0007956612747735706,14.651639223098755,96w@8192
+MLP,MLP lag 4,-,0,4,MountainCar-v0,4096,0.0017559178331133032,14.449897766113281,96w@8192
+MLP,MLP lag 16,-,0,16,MountainCar-v0,4096,0.001984936604790207,14.636510372161865,96w@8192
+VARX,VARX lag 1,-,0,1,MountainCar-v0,4096,0.04486939199001624,0.008916378021240234,96w@8192
+VARX,VARX lag 4,-,0,4,MountainCar-v0,4096,0.03205038212067668,0.010603666305541992,96w@8192
+VARX,VARX lag 16,-,0,16,MountainCar-v0,4096,30721.614901961515,0.016955137252807617,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,MountainCar-v0,8192,0.03557245603519932,30.946632862091064,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,MountainCar-v0,8192,0.6039847785644756,31.06415367126465,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,MountainCar-v0,8192,0.035454374656134435,114.10690879821777,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,MountainCar-v0,8192,0.2915494300027154,114.1540014743805,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,MountainCar-v0,8192,0.01695234455745751,114.16266107559204,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,MountainCar-v0,8192,0.3399093631289234,114.34662961959839,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,MountainCar-v0,8192,0.6039847785644756,31.360161781311035,96w@8192
+MLP,MLP lag 1,-,0,1,MountainCar-v0,8192,0.0006656774165209465,10.605394124984741,96w@8192
+MLP,MLP lag 4,-,0,4,MountainCar-v0,8192,0.0004141965281360536,17.457377910614014,96w@8192
+MLP,MLP lag 16,-,0,16,MountainCar-v0,8192,0.0005526728154055544,13.470413208007812,96w@8192
+VARX,VARX lag 1,-,0,1,MountainCar-v0,8192,0.029558156099344222,0.0164334774017334,96w@8192
+VARX,VARX lag 4,-,0,4,MountainCar-v0,8192,0.014635542918146371,0.01794266700744629,96w@8192
+VARX,VARX lag 16,-,0,16,MountainCar-v0,8192,0.010561813425082207,0.022206544876098633,96w@8192

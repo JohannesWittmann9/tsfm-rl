@@ -102,24 +102,27 @@ ROLL_CONFIG_BUDGET = 512
 spends a panel per model per environment, so the budget axis stays a single
 value rather than becoming a third dimension."""
 
-# ---- how the last two figures are drawn -------------------------------------
-# Everything in this block is read when the figure is drawn, never when a stage
-# computes. Change one, re-run the notebook cell, and the figure changes: none of
-# it costs a recompute. A model left out here is still measured and still in the
-# CSV, it is only absent from the panel.
+
+LEGEND_VARIANTS = False
+"""Whether §6/§7/§8 legends name the configuration each curve is drawn in."""
+
 SCALING_MODELS = None
 """§6's models. None follows PLOT_MODELS."""
 
 ROLLOUT_MODELS = None
 """§7's models. None follows PLOT_MODELS."""
 
-PLOT_VARIANTS = {}
+PLOT_VARIANTS = {
+    None: {
+        "Chronos-2 S":     dict(presentation="diff",  r=6),
+        "Chronos-2 L":     dict(presentation="diff",  r=4),
+        "Chronos-2 L-syn": dict(presentation="diff",  r=6),
+        "Moirai":          dict(presentation="level", r=1),
+        "MLP":             dict(lag=1),
+        "VARX":            dict(lag=4),
+    }
+}
 """Which *configuration* each model is drawn in, in §6 and §7.
-
-`SCALING_MODELS` and `ROLLOUT_MODELS` say which models appear; this says which of
-their variants. Empty means "whatever the section 5 grid selects". An entry
-overrides that pick, in the same dict shape `MODELS[...]["fixed"]` uses, so there
-is one way to name a variant in this file::
 
     PLOT_VARIANTS = {
         # None: applies to every environment
@@ -132,12 +135,6 @@ is one way to name a variant in this file::
 A model listed in neither block keeps the automatic selection. A variant that the
 model does not have raises, naming the ones it does -- a typo must not quietly
 redraw a different curve.
-
-Free in §7: `rollout.csv` holds every variant, so the override is applied when the
-figure is drawn -- in **both** §6 and §7, since the grid now covers the whole
-budget axis and neither figure has any measurement of its own left to redo.
-
-Pick the configuration off §6a and §7a, name it here, re-run the two cells.
 """
 
 NMSE_YLIM = (1e-4, 2.0)
@@ -148,13 +145,13 @@ a curve outside this band is pinned to the edge and flagged with a triangle."""
 SCALING_YLIM = None
 """§6's own band, when it wants one. None follows NMSE_YLIM."""
 
-ROLLOUT_YLIM = None
+ROLLOUT_YLIM = (5e-4, 5)
 """§7's own band, when it wants one. None follows NMSE_YLIM."""
 
 SCALE_PLOT_BUDGETS = None
 """Which of the computed SCALE_BUDGETS §6 draws. None draws all of them."""
 
-ROLL_PLOT_H = 20
+ROLL_PLOT_H = 30
 """How far along the horizon §7 and §8 draw. None draws the whole computed
 ROLL_H, so raising ROLL_H can stay a compute decision and this stays the
 presentation one."""
@@ -169,7 +166,7 @@ SCALE_BUDGETS = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192]
 HP_BUDGETS = SCALE_BUDGETS
 
 ROLL_BUDGETS = SCALE_BUDGETS
-ROLL_PLOT_BUDGETS = [64, 512, 1024, 2048, 4096]  # every one of them in ROLL_BUDGETS
+ROLL_PLOT_BUDGETS = [64, 256, 1024]  # every one of them in ROLL_BUDGETS
 """Which of the computed ROLL_BUDGETS §7 draws -- it spends a row per budget and
 gets tall fast, so the sweep is wider than the figure. None draws all of them."""
 ROLL_H = 50

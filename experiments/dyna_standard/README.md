@@ -8,6 +8,9 @@ All knobs â€” models, budgets, sweeps, which models the last two figures draw â€
 live in `config.py`. [README_DEV.md](README_DEV.md) explains the procedure and
 every knob in it.
 
+## Full Results
+Full results of parameter sweeps are provided within the notebooks. Just run one or all experiments.
+
 ## Running it
 
 ```bash

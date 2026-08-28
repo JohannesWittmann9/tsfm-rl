@@ -1,0 +1,733 @@
+model,variant,presentation,r,lag,env,budget,nmse,seconds,evalset
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Pendulum-v1,1,,0.00657963752746582,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Pendulum-v1,1,,0.0076138973236083984,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,Pendulum-v1,1,,0.006571769714355469,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,Pendulum-v1,1,,0.005888938903808594,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,Pendulum-v1,1,,0.0052683353424072266,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,Pendulum-v1,1,,0.00518345832824707,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,Pendulum-v1,1,,0.005053043365478516,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Pendulum-v1,1,0.999994869364345,0.4362375736236572,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Pendulum-v1,1,0.9999965711662284,0.42647361755371094,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,Pendulum-v1,1,0.9999967427743605,0.4196491241455078,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,Pendulum-v1,1,0.9999974337558738,0.4219489097595215,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,Pendulum-v1,1,0.9999980005030351,0.4195284843444824,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,Pendulum-v1,1,0.9999981339240387,0.420853853225708,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,Pendulum-v1,1,1.0000023428051208,0.4199378490447998,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Pendulum-v1,1,,0.004934787750244141,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Pendulum-v1,1,,0.004961729049682617,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,Pendulum-v1,1,,0.004934787750244141,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,Pendulum-v1,1,,0.004925727844238281,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,Pendulum-v1,1,,0.00494694709777832,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,Pendulum-v1,1,,0.004943132400512695,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,Pendulum-v1,1,,0.004891872406005859,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Pendulum-v1,1,0.9999779099684442,1.2842516899108887,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Pendulum-v1,1,0.9999861820926546,1.2238707542419434,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,Pendulum-v1,1,0.9999926739663859,1.2237260341644287,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,Pendulum-v1,1,0.9999953998867664,1.2094428539276123,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,Pendulum-v1,1,0.9999963356985676,1.2185771465301514,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,Pendulum-v1,1,0.9999982596288904,1.2209737300872803,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,Pendulum-v1,1,1.000003042718308,1.2231547832489014,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Pendulum-v1,1,,0.00494694709777832,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Pendulum-v1,1,,0.004791736602783203,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,Pendulum-v1,1,,0.004759550094604492,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,Pendulum-v1,1,,0.004776954650878906,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,Pendulum-v1,1,,0.004716634750366211,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,Pendulum-v1,1,,0.00473475456237793,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,Pendulum-v1,1,,0.00469517707824707,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Pendulum-v1,1,0.999999838140076,1.2378859519958496,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Pendulum-v1,1,0.9999998320352105,1.2245988845825195,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,Pendulum-v1,1,0.9999997822677825,1.2433772087097168,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,Pendulum-v1,1,1.0000000100675266,1.2794663906097412,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,Pendulum-v1,1,0.9999998102865907,1.3290400505065918,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,Pendulum-v1,1,0.9999999994606017,1.3336021900177002,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,Pendulum-v1,1,1.0000005496931534,1.318326711654663,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Pendulum-v1,1,0.999994869364345,0.4305384159088135,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,Pendulum-v1,1,,0.007456779479980469,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,Pendulum-v1,1,,0.0016109943389892578,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,Pendulum-v1,1,,0.0012142658233642578,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,Pendulum-v1,1,,0.0011990070343017578,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,Pendulum-v1,1,,0.0011761188507080078,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,Pendulum-v1,1,,0.001192331314086914,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,Pendulum-v1,1,,0.0011782646179199219,96w@8192
+Moirai,Moirai level r=1,level,1,-1,Pendulum-v1,1,,0.0011050701141357422,96w@8192
+Moirai,Moirai level r=2,level,2,-1,Pendulum-v1,1,,0.0011713504791259766,96w@8192
+Moirai,Moirai level r=4,level,4,-1,Pendulum-v1,1,,0.001165628433227539,96w@8192
+Moirai,Moirai level r=6,level,6,-1,Pendulum-v1,1,,0.0011723041534423828,96w@8192
+Moirai,Moirai level r=8,level,8,-1,Pendulum-v1,1,,0.0011677742004394531,96w@8192
+Moirai,Moirai level r=12,level,12,-1,Pendulum-v1,1,,0.0011622905731201172,96w@8192
+Moirai,Moirai level r=16,level,16,-1,Pendulum-v1,1,,0.0011663436889648438,96w@8192
+MLP,MLP lag 1,-,0,1,Pendulum-v1,1,,0.0030341148376464844,96w@8192
+MLP,MLP lag 4,-,0,4,Pendulum-v1,1,,0.0028228759765625,96w@8192
+MLP,MLP lag 16,-,0,16,Pendulum-v1,1,,0.0027382373809814453,96w@8192
+VARX,VARX lag 1,-,0,1,Pendulum-v1,1,,0.0012149810791015625,96w@8192
+VARX,VARX lag 4,-,0,4,Pendulum-v1,1,,0.0007863044738769531,96w@8192
+VARX,VARX lag 16,-,0,16,Pendulum-v1,1,,0.00079345703125,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Pendulum-v1,2,0.7509877655957858,0.4071385860443115,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Pendulum-v1,2,0.8176097112929163,0.40491509437561035,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,Pendulum-v1,2,0.6958503368859862,0.40892553329467773,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,Pendulum-v1,2,0.5463529794831959,0.41107749938964844,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,Pendulum-v1,2,0.5649252300209295,0.4088737964630127,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,Pendulum-v1,2,0.4791493905329678,0.40714359283447266,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,Pendulum-v1,2,0.18028641497941492,0.4005908966064453,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Pendulum-v1,2,2.400379934860135,0.4047424793243408,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Pendulum-v1,2,1.7658016907985778,0.40468764305114746,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,Pendulum-v1,2,1.189166906860387,0.40006232261657715,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,Pendulum-v1,2,0.9291736127852745,0.4024317264556885,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,Pendulum-v1,2,1.0613405826097797,0.40491747856140137,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,Pendulum-v1,2,0.9603127106883637,0.40692806243896484,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,Pendulum-v1,2,0.23150150796895663,0.5016560554504395,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Pendulum-v1,2,0.7509639610925656,1.225956916809082,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Pendulum-v1,2,0.7728700030769747,1.21177077293396,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,Pendulum-v1,2,0.5227174128863813,1.2118134498596191,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,Pendulum-v1,2,0.2884708318973461,1.2249608039855957,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,Pendulum-v1,2,0.19133079060850586,1.2236676216125488,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,Pendulum-v1,2,0.17396997673093376,1.2235438823699951,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,Pendulum-v1,2,0.155853409942234,1.2953102588653564,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Pendulum-v1,2,1.2224162518885082,1.2667207717895508,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Pendulum-v1,2,0.6732079971690389,1.2533538341522217,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,Pendulum-v1,2,0.4777176510708265,1.2528858184814453,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,Pendulum-v1,2,0.29928774117082385,1.2537450790405273,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,Pendulum-v1,2,0.2215185060352264,1.2537028789520264,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,Pendulum-v1,2,0.20510372320032333,1.2516415119171143,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,Pendulum-v1,2,0.16672237864234388,1.5872807502746582,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Pendulum-v1,2,0.7509932755934794,1.2458670139312744,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Pendulum-v1,2,1.0450685791293193,1.2474250793457031,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,Pendulum-v1,2,0.8375342106345954,1.247816562652588,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,Pendulum-v1,2,0.6649678744607571,1.2468502521514893,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,Pendulum-v1,2,0.4186802561924674,1.2468070983886719,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,Pendulum-v1,2,0.23323050637405485,1.247835636138916,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,Pendulum-v1,2,0.2576438416597529,1.246511697769165,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Pendulum-v1,2,7.080440600887613,1.2464675903320312,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Pendulum-v1,2,5.711983120984885,1.2534070014953613,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,Pendulum-v1,2,2.455783885586083,1.2469615936279297,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,Pendulum-v1,2,1.301079926281262,1.246422290802002,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,Pendulum-v1,2,0.968260366530831,1.2482805252075195,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,Pendulum-v1,2,0.624362750616343,1.2458946704864502,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,Pendulum-v1,2,0.4425400778565054,1.667018175125122,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Pendulum-v1,2,2.400379934860135,0.44878220558166504,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,Pendulum-v1,2,,0.00448298454284668,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,Pendulum-v1,2,,0.0017042160034179688,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,Pendulum-v1,2,,0.0015604496002197266,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,Pendulum-v1,2,,0.0015659332275390625,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,Pendulum-v1,2,,0.0012874603271484375,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,Pendulum-v1,2,,0.001255035400390625,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,Pendulum-v1,2,,0.0012803077697753906,96w@8192
+Moirai,Moirai level r=1,level,1,-1,Pendulum-v1,2,0.9991716621302819,3.050304412841797,96w@8192
+Moirai,Moirai level r=2,level,2,-1,Pendulum-v1,2,1.000250585556058,3.051368474960327,96w@8192
+Moirai,Moirai level r=4,level,4,-1,Pendulum-v1,2,0.9969600985053578,3.049478054046631,96w@8192
+Moirai,Moirai level r=6,level,6,-1,Pendulum-v1,2,1.0003623480259998,3.0239694118499756,96w@8192
+Moirai,Moirai level r=8,level,8,-1,Pendulum-v1,2,0.9983436855416431,2.724926471710205,96w@8192
+Moirai,Moirai level r=12,level,12,-1,Pendulum-v1,2,0.9979266380839341,2.745021343231201,96w@8192
+Moirai,Moirai level r=16,level,16,-1,Pendulum-v1,2,0.9971493604895274,2.7577617168426514,96w@8192
+MLP,MLP lag 1,-,0,1,Pendulum-v1,2,,0.003083944320678711,96w@8192
+MLP,MLP lag 4,-,0,4,Pendulum-v1,2,,0.002826690673828125,96w@8192
+MLP,MLP lag 16,-,0,16,Pendulum-v1,2,,0.0027244091033935547,96w@8192
+VARX,VARX lag 1,-,0,1,Pendulum-v1,2,,0.0011963844299316406,96w@8192
+VARX,VARX lag 4,-,0,4,Pendulum-v1,2,,0.0007693767547607422,96w@8192
+VARX,VARX lag 16,-,0,16,Pendulum-v1,2,,0.0008141994476318359,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Pendulum-v1,4,1.862383557581417,0.4060027599334717,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Pendulum-v1,4,1.0528832159123986,0.4069185256958008,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,Pendulum-v1,4,0.8229074358430702,0.40607404708862305,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,Pendulum-v1,4,0.21109976706682518,0.48232102394104004,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,Pendulum-v1,4,0.20289532102213872,0.4906949996948242,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,Pendulum-v1,4,0.15005490470426183,0.5297596454620361,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,Pendulum-v1,4,0.1334489592979515,0.5285952091217041,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Pendulum-v1,4,1.7129761232323502,0.409517765045166,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Pendulum-v1,4,0.9043268439557147,0.4050791263580322,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,Pendulum-v1,4,0.6171281266313144,0.4061141014099121,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,Pendulum-v1,4,0.20962769576556095,0.4903726577758789,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,Pendulum-v1,4,0.21957995807400177,0.500333309173584,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,Pendulum-v1,4,0.16876783387754266,0.5708065032958984,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,Pendulum-v1,4,0.15459052995485162,0.6221036911010742,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Pendulum-v1,4,0.4969109465333185,1.3256466388702393,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Pendulum-v1,4,0.2750486566829982,1.2527921199798584,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,Pendulum-v1,4,0.17142588019083002,1.2501771450042725,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,Pendulum-v1,4,0.14533751414811127,1.6717712879180908,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,Pendulum-v1,4,0.12902648462299726,1.6773645877838135,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,Pendulum-v1,4,0.08442380025998841,1.8576407432556152,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,Pendulum-v1,4,0.10961860808392769,1.86088228225708,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Pendulum-v1,4,0.3695879943418501,1.340142011642456,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Pendulum-v1,4,0.22369652367914203,1.3394184112548828,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,Pendulum-v1,4,0.16607608756494477,1.3412201404571533,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,Pendulum-v1,4,0.16481179611255872,1.7571895122528076,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,Pendulum-v1,4,0.18173986265355713,1.7588553428649902,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,Pendulum-v1,4,0.12416651528510542,1.8570835590362549,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,Pendulum-v1,4,0.12268747694940642,1.9737884998321533,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Pendulum-v1,4,3.047632960710567,1.2552530765533447,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Pendulum-v1,4,1.9133073893393888,1.2550764083862305,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,Pendulum-v1,4,0.7081844127975164,1.2638771533966064,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,Pendulum-v1,4,0.19566252746793175,1.5899431705474854,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,Pendulum-v1,4,0.16696952233917395,1.589315414428711,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,Pendulum-v1,4,0.13379728709448566,1.778357982635498,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,Pendulum-v1,4,0.12279469606476211,1.7747609615325928,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Pendulum-v1,4,3.0856477923662076,1.2552006244659424,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Pendulum-v1,4,1.3681753799064185,1.2568995952606201,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,Pendulum-v1,4,0.5050277542318812,1.2556495666503906,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,Pendulum-v1,4,0.21660981724663805,1.672222375869751,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,Pendulum-v1,4,0.1825339757510128,1.6726484298706055,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,Pendulum-v1,4,0.14997990275258757,1.8534255027770996,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,Pendulum-v1,4,0.14067652293284108,2.0527403354644775,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Pendulum-v1,4,1.7129761232323502,0.41255974769592285,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,Pendulum-v1,4,1.3106254953816487,2.6056957244873047,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,Pendulum-v1,4,1.415968301309024,2.607947826385498,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,Pendulum-v1,4,0.49476451410278516,2.6515915393829346,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,Pendulum-v1,4,0.7186688100769936,2.7945961952209473,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,Pendulum-v1,4,0.7576144624459639,2.8112573623657227,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,Pendulum-v1,4,0.6305070860734048,3.2767748832702637,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,Pendulum-v1,4,0.5409160001148624,3.429431200027466,96w@8192
+Moirai,Moirai level r=1,level,1,-1,Pendulum-v1,4,2.350157510971142,2.5977513790130615,96w@8192
+Moirai,Moirai level r=2,level,2,-1,Pendulum-v1,4,2.0280785157211674,2.591970205307007,96w@8192
+Moirai,Moirai level r=4,level,4,-1,Pendulum-v1,4,0.709778581170454,2.784721851348877,96w@8192
+Moirai,Moirai level r=6,level,6,-1,Pendulum-v1,4,0.8423884868023549,2.788538694381714,96w@8192
+Moirai,Moirai level r=8,level,8,-1,Pendulum-v1,4,0.8193883247980235,3.122896909713745,96w@8192
+Moirai,Moirai level r=12,level,12,-1,Pendulum-v1,4,0.862897729383948,3.4174911975860596,96w@8192
+Moirai,Moirai level r=16,level,16,-1,Pendulum-v1,4,0.7028731936826139,3.8873050212860107,96w@8192
+MLP,MLP lag 1,-,0,1,Pendulum-v1,4,1.7200864152559874,0.17181134223937988,96w@8192
+MLP,MLP lag 4,-,0,4,Pendulum-v1,4,,0.0028803348541259766,96w@8192
+MLP,MLP lag 16,-,0,16,Pendulum-v1,4,,0.0027768611907958984,96w@8192
+VARX,VARX lag 1,-,0,1,Pendulum-v1,4,40.69854948443177,0.0035126209259033203,96w@8192
+VARX,VARX lag 4,-,0,4,Pendulum-v1,4,,0.0008792877197265625,96w@8192
+VARX,VARX lag 16,-,0,16,Pendulum-v1,4,,0.0007925033569335938,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Pendulum-v1,8,0.39103877198001796,0.4220702648162842,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Pendulum-v1,8,0.417631600147325,0.4198331832885742,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,Pendulum-v1,8,0.14042149481121322,0.5018820762634277,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,Pendulum-v1,8,0.11847374628637093,0.5325510501861572,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,Pendulum-v1,8,0.08223398125342778,0.5818977355957031,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,Pendulum-v1,8,0.06445148057005186,0.7421426773071289,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,Pendulum-v1,8,0.0877401389704797,0.8093538284301758,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Pendulum-v1,8,0.5012233375286855,0.4190175533294678,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Pendulum-v1,8,0.451257467722189,0.41704320907592773,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,Pendulum-v1,8,0.17378955616304284,0.4968907833099365,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,Pendulum-v1,8,0.18004966256014066,0.5357584953308105,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,Pendulum-v1,8,0.1346446159096591,0.5861279964447021,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,Pendulum-v1,8,0.09384350738240081,0.7482514381408691,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,Pendulum-v1,8,0.10212581528043489,0.8660473823547363,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Pendulum-v1,8,0.24861370737882496,1.264286994934082,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Pendulum-v1,8,0.17675218995867126,1.2647144794464111,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,Pendulum-v1,8,0.08441608286487094,1.598698377609253,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,Pendulum-v1,8,0.05936254541340142,1.7926673889160156,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,Pendulum-v1,8,0.058253519791617,1.9780449867248535,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,Pendulum-v1,8,0.049580043249263406,2.684518337249756,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,Pendulum-v1,8,0.06650652148887672,2.8544161319732666,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Pendulum-v1,8,0.40509572651301506,1.2651841640472412,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Pendulum-v1,8,0.2381225173437095,1.262021541595459,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,Pendulum-v1,8,0.14813278716856407,1.595041275024414,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,Pendulum-v1,8,0.10586830780793066,1.7879648208618164,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,Pendulum-v1,8,0.10021543883845972,1.9765303134918213,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,Pendulum-v1,8,0.08920588590609056,2.6862940788269043,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,Pendulum-v1,8,0.07816839746352015,3.0642683506011963,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Pendulum-v1,8,0.47275399697803855,1.2598471641540527,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Pendulum-v1,8,0.3353163029450063,1.2608563899993896,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,Pendulum-v1,8,0.12093213240202318,1.591249942779541,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,Pendulum-v1,8,0.08129553733680271,1.7875347137451172,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,Pendulum-v1,8,0.06298363915284372,1.9732587337493896,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,Pendulum-v1,8,0.04945654214490793,2.7348217964172363,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,Pendulum-v1,8,0.04959978427874045,2.8588974475860596,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Pendulum-v1,8,0.5497194952447145,1.2591030597686768,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Pendulum-v1,8,0.4523607299326531,1.2564630508422852,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,Pendulum-v1,8,0.1985727387820714,1.582106590270996,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,Pendulum-v1,8,0.13586920018153179,1.7690603733062744,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,Pendulum-v1,8,0.09441677238431667,1.9783570766448975,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,Pendulum-v1,8,0.08547420917097114,2.6471269130706787,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,Pendulum-v1,8,0.0755299469962457,3.2429301738739014,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Pendulum-v1,8,0.5012233375286855,0.41712284088134766,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,Pendulum-v1,8,2.3496016927501238,2.6070008277893066,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,Pendulum-v1,8,1.0461811527311689,2.801750659942627,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,Pendulum-v1,8,0.6175161033720397,3.111170768737793,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,Pendulum-v1,8,0.6066646851967205,3.737992763519287,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,Pendulum-v1,8,0.6147337503121566,3.887648344039917,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,Pendulum-v1,8,0.6680355435527198,5.1278979778289795,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,Pendulum-v1,8,0.42879890055588193,5.749596357345581,96w@8192
+Moirai,Moirai level r=1,level,1,-1,Pendulum-v1,8,1.6021384772615013,2.631265163421631,96w@8192
+Moirai,Moirai level r=2,level,2,-1,Pendulum-v1,8,0.7674869418699508,2.7918741703033447,96w@8192
+Moirai,Moirai level r=4,level,4,-1,Pendulum-v1,8,0.6857718826190146,3.2705211639404297,96w@8192
+Moirai,Moirai level r=6,level,6,-1,Pendulum-v1,8,0.5829532292452216,3.727248191833496,96w@8192
+Moirai,Moirai level r=8,level,8,-1,Pendulum-v1,8,0.6404516930320029,4.186734437942505,96w@8192
+Moirai,Moirai level r=12,level,12,-1,Pendulum-v1,8,0.7721462793897733,5.28040623664856,96w@8192
+Moirai,Moirai level r=16,level,16,-1,Pendulum-v1,8,0.7431145888538273,6.216096639633179,96w@8192
+MLP,MLP lag 1,-,0,1,Pendulum-v1,8,1.6097024003835283,0.1861565113067627,96w@8192
+MLP,MLP lag 4,-,0,4,Pendulum-v1,8,2.0908978504077327,0.18819427490234375,96w@8192
+MLP,MLP lag 16,-,0,16,Pendulum-v1,8,,0.002904176712036133,96w@8192
+VARX,VARX lag 1,-,0,1,Pendulum-v1,8,4.065102094282573,0.003358602523803711,96w@8192
+VARX,VARX lag 4,-,0,4,Pendulum-v1,8,22.11676123201269,0.0034847259521484375,96w@8192
+VARX,VARX lag 16,-,0,16,Pendulum-v1,8,,0.0007777214050292969,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Pendulum-v1,16,0.4494915326594257,0.4143853187561035,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Pendulum-v1,16,0.23034139293833586,0.5023491382598877,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,Pendulum-v1,16,0.12487623560369664,0.5849204063415527,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,Pendulum-v1,16,0.08462852128523779,0.7469089031219482,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,Pendulum-v1,16,0.07869265543733812,0.8641233444213867,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,Pendulum-v1,16,0.07159271214650391,1.0714662075042725,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,Pendulum-v1,16,0.0952208149877693,1.2553818225860596,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Pendulum-v1,16,0.45625905320632715,0.41558218002319336,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Pendulum-v1,16,0.25318962003063583,0.49875426292419434,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,Pendulum-v1,16,0.14213674682594626,0.5843734741210938,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,Pendulum-v1,16,0.11415448865101148,0.7480576038360596,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,Pendulum-v1,16,0.10029338012582889,0.8649163246154785,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,Pendulum-v1,16,0.0819602707448205,1.0870070457458496,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,Pendulum-v1,16,0.09392938699778257,1.308485746383667,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Pendulum-v1,16,0.36666145561670255,1.2621407508850098,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Pendulum-v1,16,0.35922466816596793,1.5873169898986816,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,Pendulum-v1,16,0.09550800612894587,1.9687860012054443,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,Pendulum-v1,16,0.06968240190890716,2.681593894958496,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,Pendulum-v1,16,0.05328561904323775,3.0606632232666016,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,Pendulum-v1,16,0.05224177010585842,3.9081037044525146,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,Pendulum-v1,16,0.06141538958084658,4.712542772293091,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Pendulum-v1,16,0.6417792886446231,1.2626147270202637,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Pendulum-v1,16,0.4929867445976716,1.5839869976043701,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,Pendulum-v1,16,0.13604716195274566,1.9714860916137695,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,Pendulum-v1,16,0.1125521577877074,2.682650089263916,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,Pendulum-v1,16,0.07873471197377281,3.059034824371338,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,Pendulum-v1,16,0.078248436756934,3.907231092453003,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,Pendulum-v1,16,0.06844581212014546,4.967713832855225,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Pendulum-v1,16,0.4244258487927752,1.3249032497406006,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Pendulum-v1,16,0.1776895966026206,1.6407935619354248,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,Pendulum-v1,16,0.08903975689622035,2.0383388996124268,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,Pendulum-v1,16,0.07811871203036616,2.761707305908203,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,Pendulum-v1,16,0.06801190584429913,3.148073673248291,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,Pendulum-v1,16,0.047542272467204265,3.996433973312378,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,Pendulum-v1,16,0.061282975395646845,4.68065333366394,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Pendulum-v1,16,0.4670818442679057,1.3133306503295898,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Pendulum-v1,16,0.2768902528774229,1.6602232456207275,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,Pendulum-v1,16,0.14726499084900044,2.040818691253662,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,Pendulum-v1,16,0.12042256920158616,2.7403836250305176,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,Pendulum-v1,16,0.08699102290670953,3.387921094894409,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,Pendulum-v1,16,0.07509748948102851,4.208771467208862,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,Pendulum-v1,16,0.06910864165729308,5.0718629360198975,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Pendulum-v1,16,0.45625905320632715,0.44590091705322266,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,Pendulum-v1,16,1.014278332401971,3.2123281955718994,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,Pendulum-v1,16,0.7272317974875753,3.6952178478240967,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,Pendulum-v1,16,0.7297969440164426,4.649202823638916,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,Pendulum-v1,16,0.7683341369027169,5.461663007736206,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,Pendulum-v1,16,0.6280162588118914,6.125115156173706,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,Pendulum-v1,16,0.819881464727358,8.747249841690063,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,Pendulum-v1,16,0.6004760033388649,11.572903156280518,96w@8192
+Moirai,Moirai level r=1,level,1,-1,Pendulum-v1,16,0.9572761376772757,3.1822636127471924,96w@8192
+Moirai,Moirai level r=2,level,2,-1,Pendulum-v1,16,0.6804741730241766,3.68064022064209,96w@8192
+Moirai,Moirai level r=4,level,4,-1,Pendulum-v1,16,0.786411530092119,4.8348188400268555,96w@8192
+Moirai,Moirai level r=6,level,6,-1,Pendulum-v1,16,0.8114829460970882,5.975008726119995,96w@8192
+Moirai,Moirai level r=8,level,8,-1,Pendulum-v1,16,1.0100590737124875,7.108422517776489,96w@8192
+Moirai,Moirai level r=12,level,12,-1,Pendulum-v1,16,0.9815096281693947,9.661126852035522,96w@8192
+Moirai,Moirai level r=16,level,16,-1,Pendulum-v1,16,0.8038314271458721,12.095768928527832,96w@8192
+MLP,MLP lag 1,-,0,1,Pendulum-v1,16,1.951814628429882,0.5433716773986816,96w@8192
+MLP,MLP lag 4,-,0,4,Pendulum-v1,16,1.9700211740747129,0.27416300773620605,96w@8192
+MLP,MLP lag 16,-,0,16,Pendulum-v1,16,,0.003542661666870117,96w@8192
+VARX,VARX lag 1,-,0,1,Pendulum-v1,16,8.160740358827322,0.0042400360107421875,96w@8192
+VARX,VARX lag 4,-,0,4,Pendulum-v1,16,6.9134676690335395,0.004075527191162109,96w@8192
+VARX,VARX lag 16,-,0,16,Pendulum-v1,16,,0.0007674694061279297,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Pendulum-v1,32,0.36088794969119603,0.5502135753631592,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Pendulum-v1,32,0.2271144095578406,0.6222867965698242,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,Pendulum-v1,32,0.0954013928257968,0.878366231918335,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,Pendulum-v1,32,0.07802399583208343,1.1146063804626465,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,Pendulum-v1,32,0.08701772014667199,1.352632999420166,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,Pendulum-v1,32,0.06966792086111748,1.8320748805999756,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,Pendulum-v1,32,0.0902033694555207,2.2975080013275146,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Pendulum-v1,32,0.5676983046641783,0.5304961204528809,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Pendulum-v1,32,0.3167759737311716,0.6160492897033691,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,Pendulum-v1,32,0.13130629968923196,0.8943448066711426,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,Pendulum-v1,32,0.11214272254396225,1.1205577850341797,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,Pendulum-v1,32,0.0918993813602701,1.3494682312011719,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,Pendulum-v1,32,0.07591893628929318,1.839078426361084,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,Pendulum-v1,32,0.07513332752869965,2.3248302936553955,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Pendulum-v1,32,0.20755607061911685,1.6519222259521484,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Pendulum-v1,32,0.10340426077041241,2.0343968868255615,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,Pendulum-v1,32,0.05296147263821845,3.130375385284424,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,Pendulum-v1,32,0.048261660941768196,3.976719617843628,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,Pendulum-v1,32,0.03102274583139014,4.866286993026733,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,Pendulum-v1,32,0.030340829126396,6.669888973236084,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,Pendulum-v1,32,0.05176742850380465,8.312614440917969,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Pendulum-v1,32,0.40655502420438544,1.652756929397583,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Pendulum-v1,32,0.17773859463634553,2.034060478210449,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,Pendulum-v1,32,0.09430296057300298,3.1445043087005615,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,Pendulum-v1,32,0.08005857533190594,3.977605104446411,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,Pendulum-v1,32,0.05571116165319243,5.0240747928619385,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,Pendulum-v1,32,0.05401512676838599,6.766769886016846,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,Pendulum-v1,32,0.054898297028328547,8.56796407699585,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Pendulum-v1,32,0.2734341356871486,1.57503342628479,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Pendulum-v1,32,0.11211488832189136,1.9584369659423828,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,Pendulum-v1,32,0.05808409318002288,3.2724645137786865,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,Pendulum-v1,32,0.04316042602508651,4.122716903686523,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,Pendulum-v1,32,0.037747442239745584,4.9245946407318115,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,Pendulum-v1,32,0.03387914067613808,6.681413888931274,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,Pendulum-v1,32,0.05044145757792704,8.305678129196167,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Pendulum-v1,32,0.3493816284780012,1.7384605407714844,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Pendulum-v1,32,0.1804499381515643,2.045976400375366,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,Pendulum-v1,32,0.09567648268823024,3.3257358074188232,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,Pendulum-v1,32,0.07807246019211668,4.135979652404785,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,Pendulum-v1,32,0.059338499561471046,5.091010332107544,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,Pendulum-v1,32,0.052736012721109955,6.955316543579102,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,Pendulum-v1,32,0.04518061134327186,8.560513973236084,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Pendulum-v1,32,0.5676983046641783,0.4907078742980957,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,Pendulum-v1,32,0.489547003594975,3.2473247051239014,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,Pendulum-v1,32,0.37414822469401815,4.350167274475098,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,Pendulum-v1,32,0.38636463136134597,6.492693901062012,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,Pendulum-v1,32,0.40116957314949575,9.050751209259033,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,Pendulum-v1,32,0.5666795323544574,11.32154107093811,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,Pendulum-v1,32,0.5859407590918725,17.495936155319214,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,Pendulum-v1,32,0.5689234943522111,24.496000289916992,96w@8192
+Moirai,Moirai level r=1,level,1,-1,Pendulum-v1,32,0.5712400137066783,3.6929609775543213,96w@8192
+Moirai,Moirai level r=2,level,2,-1,Pendulum-v1,32,0.36583475153177253,4.4649341106414795,96w@8192
+Moirai,Moirai level r=4,level,4,-1,Pendulum-v1,32,0.4920791799291144,7.042758226394653,96w@8192
+Moirai,Moirai level r=6,level,6,-1,Pendulum-v1,32,0.5839785261170274,9.255470514297485,96w@8192
+Moirai,Moirai level r=8,level,8,-1,Pendulum-v1,32,0.5588811290600738,11.773514986038208,96w@8192
+Moirai,Moirai level r=12,level,12,-1,Pendulum-v1,32,1.0376030081814844,18.360069036483765,96w@8192
+Moirai,Moirai level r=16,level,16,-1,Pendulum-v1,32,0.8714518140687085,24.98400616645813,96w@8192
+MLP,MLP lag 1,-,0,1,Pendulum-v1,32,0.7763161026837931,0.12884068489074707,96w@8192
+MLP,MLP lag 4,-,0,4,Pendulum-v1,32,0.9376583134588437,0.11200714111328125,96w@8192
+MLP,MLP lag 16,-,0,16,Pendulum-v1,32,1.443187325993013,0.2161116600036621,96w@8192
+VARX,VARX lag 1,-,0,1,Pendulum-v1,32,0.7151047415583753,0.0034825801849365234,96w@8192
+VARX,VARX lag 4,-,0,4,Pendulum-v1,32,0.46218311321736955,0.0034914016723632812,96w@8192
+VARX,VARX lag 16,-,0,16,Pendulum-v1,32,25.445961089142134,0.004998207092285156,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Pendulum-v1,64,0.24124951119220897,0.5812466144561768,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Pendulum-v1,64,0.1375254447283649,0.8556442260742188,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,Pendulum-v1,64,0.0678135076765425,1.311208963394165,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,Pendulum-v1,64,0.06023960670292311,1.7933754920959473,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,Pendulum-v1,64,0.06554413685076328,2.2437868118286133,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,Pendulum-v1,64,0.058546020937656866,3.228431224822998,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,Pendulum-v1,64,0.07804733927312281,4.078600645065308,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Pendulum-v1,64,0.3294975617173751,0.5811948776245117,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Pendulum-v1,64,0.22234358158572567,0.8760108947753906,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,Pendulum-v1,64,0.101198849654396,1.3158481121063232,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,Pendulum-v1,64,0.08752391312407232,1.8016979694366455,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,Pendulum-v1,64,0.07343735820449802,2.292968511581421,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,Pendulum-v1,64,0.06733378282734127,3.169435977935791,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,Pendulum-v1,64,0.0624201814833138,4.122512578964233,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Pendulum-v1,64,0.12957149509767682,2.0549392700195312,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Pendulum-v1,64,0.06976991979901738,3.053644895553589,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,Pendulum-v1,64,0.04276629932153366,4.796677350997925,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,Pendulum-v1,64,0.03131595728556221,6.813614845275879,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,Pendulum-v1,64,0.0241670632295079,8.685911178588867,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,Pendulum-v1,64,0.023840431656828375,12.654527187347412,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,Pendulum-v1,64,0.04267023804885256,15.98929214477539,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Pendulum-v1,64,0.253717140266224,1.9548254013061523,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Pendulum-v1,64,0.12856985660996037,3.2103006839752197,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,Pendulum-v1,64,0.07813792693815876,4.804148435592651,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,Pendulum-v1,64,0.06987113158433435,6.5762104988098145,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,Pendulum-v1,64,0.046658284137597726,8.477851867675781,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,Pendulum-v1,64,0.04806410340451186,12.337592601776123,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,Pendulum-v1,64,0.04666883346593048,16.41816258430481,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Pendulum-v1,64,0.141086728624327,1.946239709854126,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Pendulum-v1,64,0.07525843901339195,3.0377471446990967,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,Pendulum-v1,64,0.03294634838908376,4.768153429031372,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,Pendulum-v1,64,0.02794009770038605,6.589991092681885,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,Pendulum-v1,64,0.023026729874080176,8.482831239700317,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,Pendulum-v1,64,0.022502357698776856,12.30502986907959,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,Pendulum-v1,64,0.04642957484162371,16.00826644897461,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Pendulum-v1,64,0.19147720917177924,1.950293779373169,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Pendulum-v1,64,0.12607159768469375,3.180516004562378,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,Pendulum-v1,64,0.06647237309224499,4.936047792434692,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,Pendulum-v1,64,0.05409377876062279,6.688331842422485,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,Pendulum-v1,64,0.04176987081428359,8.595320224761963,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,Pendulum-v1,64,0.037566125348587914,12.456399202346802,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,Pendulum-v1,64,0.032382943073102854,16.5532808303833,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Pendulum-v1,64,0.3294975617173751,0.5769977569580078,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,Pendulum-v1,64,0.5015728333056554,4.274859189987183,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,Pendulum-v1,64,0.3432309520402599,6.632050275802612,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,Pendulum-v1,64,0.37461915616087477,11.77178692817688,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,Pendulum-v1,64,0.35077746050260056,18.28287672996521,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,Pendulum-v1,64,0.49730576203767374,25.23405385017395,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,Pendulum-v1,64,0.6237995269391503,40.88414144515991,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,Pendulum-v1,64,0.5615030595648509,56.20234942436218,96w@8192
+Moirai,Moirai level r=1,level,1,-1,Pendulum-v1,64,0.5775069925443984,4.3061606884002686,96w@8192
+Moirai,Moirai level r=2,level,2,-1,Pendulum-v1,64,0.37806064375513687,6.628627061843872,96w@8192
+Moirai,Moirai level r=4,level,4,-1,Pendulum-v1,64,0.4097239932871763,12.177563905715942,96w@8192
+Moirai,Moirai level r=6,level,6,-1,Pendulum-v1,64,0.5088683961868554,18.139763593673706,96w@8192
+Moirai,Moirai level r=8,level,8,-1,Pendulum-v1,64,0.5523542932499031,24.73464798927307,96w@8192
+Moirai,Moirai level r=12,level,12,-1,Pendulum-v1,64,0.7684049824641143,40.201448917388916,96w@8192
+Moirai,Moirai level r=16,level,16,-1,Pendulum-v1,64,0.7899800900358619,56.94427943229675,96w@8192
+MLP,MLP lag 1,-,0,1,Pendulum-v1,64,0.16184229955967935,1.1464922428131104,96w@8192
+MLP,MLP lag 4,-,0,4,Pendulum-v1,64,0.42675251512299006,1.1434566974639893,96w@8192
+MLP,MLP lag 16,-,0,16,Pendulum-v1,64,0.5782123922890517,0.1934967041015625,96w@8192
+VARX,VARX lag 1,-,0,1,Pendulum-v1,64,0.586782232366848,0.003401041030883789,96w@8192
+VARX,VARX lag 4,-,0,4,Pendulum-v1,64,0.056453908596279356,0.0035653114318847656,96w@8192
+VARX,VARX lag 16,-,0,16,Pendulum-v1,64,419.66324519696576,0.0051975250244140625,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Pendulum-v1,128,0.242702948507751,0.8538358211517334,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Pendulum-v1,128,0.1515223650956576,1.2863929271697998,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,Pendulum-v1,128,0.06729681669887438,2.3795955181121826,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,Pendulum-v1,128,0.05639378152024219,3.2325284481048584,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,Pendulum-v1,128,0.06688787973344716,4.182116985321045,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,Pendulum-v1,128,0.05332082607510983,6.282001495361328,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,Pendulum-v1,128,0.07812625319176231,8.22963833808899,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Pendulum-v1,128,0.45305669505759116,0.8932821750640869,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Pendulum-v1,128,0.24849783585492347,1.3454737663269043,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,Pendulum-v1,128,0.1008022308086206,2.315208911895752,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,Pendulum-v1,128,0.07984411205855486,3.2764945030212402,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,Pendulum-v1,128,0.06746270381737997,4.266786098480225,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,Pendulum-v1,128,0.06950679226529867,6.054372072219849,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,Pendulum-v1,128,0.05987136732616655,8.339411735534668,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Pendulum-v1,128,0.10057568690599529,3.228174924850464,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Pendulum-v1,128,0.0474124179538526,4.914495229721069,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,Pendulum-v1,128,0.027570619452480547,8.607161521911621,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,Pendulum-v1,128,0.027416878561241323,12.33693242073059,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,Pendulum-v1,128,0.025342883466012513,16.042766094207764,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,Pendulum-v1,128,0.023057685963705915,24.365735292434692,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,Pendulum-v1,128,0.04765201181560639,32.9801025390625,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Pendulum-v1,128,0.18100617403216293,3.0426220893859863,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Pendulum-v1,128,0.09239978060416958,4.852210283279419,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,Pendulum-v1,128,0.05549265750362675,8.529207944869995,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,Pendulum-v1,128,0.0638395068364943,12.298708438873291,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,Pendulum-v1,128,0.047205899410266726,16.213077068328857,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,Pendulum-v1,128,0.048539273046060566,24.373537302017212,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,Pendulum-v1,128,0.04357137793241009,33.25841927528381,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Pendulum-v1,128,0.15139396745736386,3.042238235473633,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Pendulum-v1,128,0.07087947760818761,4.763111591339111,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,Pendulum-v1,128,0.036405841001234306,8.496745824813843,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,Pendulum-v1,128,0.029534470363729914,12.291365623474121,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,Pendulum-v1,128,0.026402850141727215,16.010480642318726,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,Pendulum-v1,128,0.025604287730399935,24.40951895713806,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,Pendulum-v1,128,0.04274838155318422,33.05176877975464,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Pendulum-v1,128,0.20683985914996209,3.3282854557037354,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Pendulum-v1,128,0.11855042828457985,5.027007341384888,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,Pendulum-v1,128,0.06996521646922448,8.671669960021973,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,Pendulum-v1,128,0.05509136501954046,12.442924737930298,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,Pendulum-v1,128,0.04302809433392515,16.34160852432251,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,Pendulum-v1,128,0.03197126927204719,24.522075414657593,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,Pendulum-v1,128,0.02704694177004668,33.61183309555054,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Pendulum-v1,128,0.45305669505759116,0.861241340637207,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,Pendulum-v1,128,0.43662975923490205,6.823362588882446,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,Pendulum-v1,128,0.28231460856579244,12.645739078521729,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,Pendulum-v1,128,0.3197257580561332,25.313555479049683,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,Pendulum-v1,128,0.39432633781367304,40.75518274307251,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,Pendulum-v1,128,0.4182305310943602,56.81323194503784,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,Pendulum-v1,128,0.5142491770857264,97.46687698364258,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,Pendulum-v1,128,0.5818337020162571,143.31277561187744,96w@8192
+Moirai,Moirai level r=1,level,1,-1,Pendulum-v1,128,0.47382374937044025,6.63264274597168,96w@8192
+Moirai,Moirai level r=2,level,2,-1,Pendulum-v1,128,0.288412749065691,11.94601321220398,96w@8192
+Moirai,Moirai level r=4,level,4,-1,Pendulum-v1,128,0.3860646800701775,24.96077847480774,96w@8192
+Moirai,Moirai level r=6,level,6,-1,Pendulum-v1,128,0.46310964042982095,41.03789663314819,96w@8192
+Moirai,Moirai level r=8,level,8,-1,Pendulum-v1,128,0.5816139405402726,56.988497734069824,96w@8192
+Moirai,Moirai level r=12,level,12,-1,Pendulum-v1,128,0.6980593082208806,98.0451648235321,96w@8192
+Moirai,Moirai level r=16,level,16,-1,Pendulum-v1,128,0.7334625370202287,145.1750612258911,96w@8192
+MLP,MLP lag 1,-,0,1,Pendulum-v1,128,0.06293777032320423,1.1794137954711914,96w@8192
+MLP,MLP lag 4,-,0,4,Pendulum-v1,128,0.14717258975345002,1.1617040634155273,96w@8192
+MLP,MLP lag 16,-,0,16,Pendulum-v1,128,0.4438032574107182,1.2956726551055908,96w@8192
+VARX,VARX lag 1,-,0,1,Pendulum-v1,128,0.5531418112480183,0.0044286251068115234,96w@8192
+VARX,VARX lag 4,-,0,4,Pendulum-v1,128,0.008423260568776028,0.004786252975463867,96w@8192
+VARX,VARX lag 16,-,0,16,Pendulum-v1,128,0.03319631965283521,0.005789279937744141,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Pendulum-v1,256,0.1654410248600736,1.3378643989562988,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Pendulum-v1,256,0.10448698870986846,2.264638662338257,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,Pendulum-v1,256,0.05819910016190052,4.227698564529419,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,Pendulum-v1,256,0.04521943067410864,6.264016389846802,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,Pendulum-v1,256,0.06380443186555647,8.325455665588379,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,Pendulum-v1,256,0.05630748578348219,13.387451648712158,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,Pendulum-v1,256,0.07994345739666311,17.974121809005737,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Pendulum-v1,256,0.37289909911609537,1.3061964511871338,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Pendulum-v1,256,0.21442058628846636,2.263859272003174,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,Pendulum-v1,256,0.08748428815756089,4.1571269035339355,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,Pendulum-v1,256,0.07497759810116993,6.0697901248931885,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,Pendulum-v1,256,0.06268495651811905,8.281096935272217,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,Pendulum-v1,256,0.07153082051589228,13.297435998916626,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,Pendulum-v1,256,0.06127694608369133,18.442570209503174,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Pendulum-v1,256,0.09386352206088992,4.8262598514556885,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Pendulum-v1,256,0.04283599312523357,8.490248680114746,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,Pendulum-v1,256,0.02231034529314487,16.01603364944458,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,Pendulum-v1,256,0.023912370448810342,24.374332189559937,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,Pendulum-v1,256,0.026157590425837315,33.27125835418701,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,Pendulum-v1,256,0.02386548621297767,52.49555730819702,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,Pendulum-v1,256,0.055117691851020424,71.73545408248901,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Pendulum-v1,256,0.15435567948995868,4.794906854629517,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Pendulum-v1,256,0.08683484759967146,8.451964139938354,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,Pendulum-v1,256,0.05263452227154436,16.101831674575806,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,Pendulum-v1,256,0.05735521258789137,24.71804714202881,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,Pendulum-v1,256,0.04739544672892134,33.31427812576294,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,Pendulum-v1,256,0.05029491098293886,53.2395133972168,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,Pendulum-v1,256,0.04927276278135301,72.13792181015015,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Pendulum-v1,256,0.12949752720302674,4.7845354080200195,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Pendulum-v1,256,0.06992215063923758,8.588170528411865,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,Pendulum-v1,256,0.030849546198452798,16.15629005432129,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,Pendulum-v1,256,0.02731174222692645,24.629556894302368,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,Pendulum-v1,256,0.026894005075174938,33.529465675354004,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,Pendulum-v1,256,0.029787953110356202,53.191794872283936,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,Pendulum-v1,256,0.037999568201955984,71.89951753616333,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Pendulum-v1,256,0.20644971723022154,4.923746109008789,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Pendulum-v1,256,0.0999276202425793,8.47525668144226,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,Pendulum-v1,256,0.05653040004740845,16.108672857284546,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,Pendulum-v1,256,0.04444927082609756,24.582725286483765,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,Pendulum-v1,256,0.03775446209267821,33.31974911689758,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,Pendulum-v1,256,0.030190327231346088,52.85351490974426,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,Pendulum-v1,256,0.028099760277663463,72.08996176719666,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Pendulum-v1,256,0.37289909911609537,1.3064079284667969,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,Pendulum-v1,256,0.4473695456631981,11.90634036064148,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,Pendulum-v1,256,0.27511135616837434,25.242206811904907,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,Pendulum-v1,256,0.3191581835023289,58.68937039375305,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,Pendulum-v1,256,0.35500273275775435,100.05002903938293,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,Pendulum-v1,256,0.428812885130114,144.41812181472778,96w@8192
+Moirai,Moirai diff r=12,diff,12,-1,Pendulum-v1,256,0.4688518575168225,262.27472829818726,96w@8192
+Moirai,Moirai diff r=16,diff,16,-1,Pendulum-v1,256,0.6569100265823015,403.25176548957825,96w@8192
+Moirai,Moirai level r=1,level,1,-1,Pendulum-v1,256,0.4742726054173985,11.904891729354858,96w@8192
+Moirai,Moirai level r=2,level,2,-1,Pendulum-v1,256,0.31436490978906323,25.774975061416626,96w@8192
+Moirai,Moirai level r=4,level,4,-1,Pendulum-v1,256,0.4764490520316215,58.87166142463684,96w@8192
+Moirai,Moirai level r=6,level,6,-1,Pendulum-v1,256,0.5704063322327853,98.23464179039001,96w@8192
+Moirai,Moirai level r=8,level,8,-1,Pendulum-v1,256,0.5798963179517976,146.77419018745422,96w@8192
+Moirai,Moirai level r=12,level,12,-1,Pendulum-v1,256,0.7146336925459016,263.1566958427429,96w@8192
+Moirai,Moirai level r=16,level,16,-1,Pendulum-v1,256,0.7852624148003309,404.43595910072327,96w@8192
+MLP,MLP lag 1,-,0,1,Pendulum-v1,256,0.009969864820685946,1.4366214275360107,96w@8192
+MLP,MLP lag 4,-,0,4,Pendulum-v1,256,0.025866349379866246,1.4426288604736328,96w@8192
+MLP,MLP lag 16,-,0,16,Pendulum-v1,256,0.2612007291799547,0.3014352321624756,96w@8192
+VARX,VARX lag 1,-,0,1,Pendulum-v1,256,0.5222668275159462,0.004559993743896484,96w@8192
+VARX,VARX lag 4,-,0,4,Pendulum-v1,256,0.00510502153897111,0.004937410354614258,96w@8192
+VARX,VARX lag 16,-,0,16,Pendulum-v1,256,0.005153193522824994,0.00932621955871582,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Pendulum-v1,512,0.22042309606810775,2.222296714782715,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Pendulum-v1,512,0.09553817050895654,4.037885427474976,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,Pendulum-v1,512,0.057917992654733935,8.156032800674438,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,Pendulum-v1,512,0.049305135114423866,13.280673265457153,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,Pendulum-v1,512,0.07132356967702298,18.10948395729065,96w@8192
+Chronos-2 S,Chronos-2 S diff r=12,diff,12,-1,Pendulum-v1,512,0.05915693219000301,29.579101085662842,96w@8192
+Chronos-2 S,Chronos-2 S diff r=16,diff,16,-1,Pendulum-v1,512,0.08290190368936856,40.42749261856079,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Pendulum-v1,512,0.32439376379330764,2.276134729385376,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Pendulum-v1,512,0.17545125030953065,4.126865386962891,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,Pendulum-v1,512,0.08461266418234233,8.35641360282898,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,Pendulum-v1,512,0.08320550632633107,13.363599300384521,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,Pendulum-v1,512,0.07152490279703579,18.094170570373535,96w@8192
+Chronos-2 S,Chronos-2 S level r=12,level,12,-1,Pendulum-v1,512,0.07540015801513855,29.502198696136475,96w@8192
+Chronos-2 S,Chronos-2 S level r=16,level,16,-1,Pendulum-v1,512,0.0629546841021083,40.541176557540894,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Pendulum-v1,512,0.07873285500918938,8.43701720237732,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Pendulum-v1,512,0.03952530522766833,16.049384117126465,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,Pendulum-v1,512,0.023335725765211705,33.34800052642822,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,Pendulum-v1,512,0.027057928912450357,51.30464577674866,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,Pendulum-v1,512,0.031753144162394754,72.14013385772705,96w@8192
+Chronos-2 L,Chronos-2 L diff r=12,diff,12,-1,Pendulum-v1,512,0.027233971273786323,111.12385582923889,96w@8192
+Chronos-2 L,Chronos-2 L diff r=16,diff,16,-1,Pendulum-v1,512,0.056839856156288705,149.37612891197205,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Pendulum-v1,512,0.1314820129036368,8.511378526687622,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Pendulum-v1,512,0.08284146755518301,16.047876834869385,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,Pendulum-v1,512,0.05437545831892938,33.309327363967896,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,Pendulum-v1,512,0.06110574653402858,51.35488986968994,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,Pendulum-v1,512,0.05344832582771251,72.21718668937683,96w@8192
+Chronos-2 L,Chronos-2 L level r=12,level,12,-1,Pendulum-v1,512,0.05688306489530683,110.892648935318,96w@8192
+Chronos-2 L,Chronos-2 L level r=16,level,16,-1,Pendulum-v1,512,0.0520286053709069,150.03756880760193,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Pendulum-v1,512,0.09132795670954628,8.4235258102417,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Pendulum-v1,512,0.07455637513761888,15.99884819984436,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,Pendulum-v1,512,0.036008885422484475,33.50941586494446,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,Pendulum-v1,512,0.029363159834532786,51.32117223739624,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,Pendulum-v1,512,0.03375672859328593,72.42780661582947,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=12,diff,12,-1,Pendulum-v1,512,0.03555172592470699,110.94655776023865,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=16,diff,16,-1,Pendulum-v1,512,0.04021885281283237,149.4579463005066,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Pendulum-v1,512,0.16808013759534834,8.41050934791565,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Pendulum-v1,512,0.10874723523273311,16.028799057006836,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,Pendulum-v1,512,0.057315752762931604,33.37315225601196,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,Pendulum-v1,512,0.04200542259113038,51.57625079154968,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,Pendulum-v1,512,0.03741239576581686,72.15611052513123,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=12,level,12,-1,Pendulum-v1,512,0.03373751411961561,110.6899185180664,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=16,level,16,-1,Pendulum-v1,512,0.030304856983219042,150.11851358413696,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Pendulum-v1,512,0.32439376379330764,2.2821643352508545,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,Pendulum-v1,512,0.4274684782130355,25.01200270652771,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,Pendulum-v1,512,0.22578926012261827,58.49008536338806,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,Pendulum-v1,512,0.33367879010275603,148.43157172203064,96w@8192
+Moirai,Moirai diff r=6,diff,6,-1,Pendulum-v1,512,0.42322190318076364,264.4586124420166,96w@8192
+Moirai,Moirai diff r=8,diff,8,-1,Pendulum-v1,512,0.4768240815977037,405.26048040390015,96w@8192
+Moirai,Moirai level r=1,level,1,-1,Pendulum-v1,512,0.44510169075570927,25.21785879135132,96w@8192
+Moirai,Moirai level r=2,level,2,-1,Pendulum-v1,512,0.3040152715943407,58.88069033622742,96w@8192
+Moirai,Moirai level r=4,level,4,-1,Pendulum-v1,512,0.4939100157427283,146.9774467945099,96w@8192
+Moirai,Moirai level r=6,level,6,-1,Pendulum-v1,512,0.6735164406786357,264.09645342826843,96w@8192
+Moirai,Moirai level r=8,level,8,-1,Pendulum-v1,512,0.649426720003539,406.76567816734314,96w@8192
+MLP,MLP lag 1,-,0,1,Pendulum-v1,512,0.00463420841664517,2.273111581802368,96w@8192
+MLP,MLP lag 4,-,0,4,Pendulum-v1,512,0.01021793912942393,2.2928781509399414,96w@8192
+MLP,MLP lag 16,-,0,16,Pendulum-v1,512,0.08100045990698788,2.3376548290252686,96w@8192
+VARX,VARX lag 1,-,0,1,Pendulum-v1,512,0.5246914584953812,0.0040798187255859375,96w@8192
+VARX,VARX lag 4,-,0,4,Pendulum-v1,512,0.005287408070851227,0.0043697357177734375,96w@8192
+VARX,VARX lag 16,-,0,16,Pendulum-v1,512,0.004895312186683916,0.009822845458984375,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Pendulum-v1,1024,0.1832680465781206,4.308721303939819,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Pendulum-v1,1024,0.08926388918673361,8.308464050292969,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,Pendulum-v1,1024,0.0642827881863126,18.11309027671814,96w@8192
+Chronos-2 S,Chronos-2 S diff r=6,diff,6,-1,Pendulum-v1,1024,0.05696664162892572,29.492891550064087,96w@8192
+Chronos-2 S,Chronos-2 S diff r=8,diff,8,-1,Pendulum-v1,1024,0.07669384395805802,40.544466495513916,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Pendulum-v1,1024,0.27212436909829174,4.129019260406494,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Pendulum-v1,1024,0.16332680785633197,8.32117223739624,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,Pendulum-v1,1024,0.09497117628539813,18.11511516571045,96w@8192
+Chronos-2 S,Chronos-2 S level r=6,level,6,-1,Pendulum-v1,1024,0.08635178049958986,29.568785190582275,96w@8192
+Chronos-2 S,Chronos-2 S level r=8,level,8,-1,Pendulum-v1,1024,0.07351241730557478,40.67341709136963,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Pendulum-v1,1024,0.08016378658618806,16.12569785118103,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Pendulum-v1,1024,0.03731244862366371,33.618091344833374,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,Pendulum-v1,1024,0.027061999828867922,72.25642371177673,96w@8192
+Chronos-2 L,Chronos-2 L diff r=6,diff,6,-1,Pendulum-v1,1024,0.03200969673421872,110.66063261032104,96w@8192
+Chronos-2 L,Chronos-2 L diff r=8,diff,8,-1,Pendulum-v1,1024,0.03338185962010882,150.17726612091064,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Pendulum-v1,1024,0.1301726101023771,16.047224044799805,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Pendulum-v1,1024,0.07721202500985969,33.434160232543945,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,Pendulum-v1,1024,0.05692610224381268,72.04153943061829,96w@8192
+Chronos-2 L,Chronos-2 L level r=6,level,6,-1,Pendulum-v1,1024,0.066270456365925,110.90711116790771,96w@8192
+Chronos-2 L,Chronos-2 L level r=8,level,8,-1,Pendulum-v1,1024,0.05623091999198134,150.05747604370117,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Pendulum-v1,1024,0.0954430612914835,16.106781005859375,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Pendulum-v1,1024,0.06938820808848536,33.415488719940186,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,Pendulum-v1,1024,0.04610897871255513,72.43151259422302,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=6,diff,6,-1,Pendulum-v1,1024,0.03605656379993869,111.04356789588928,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=8,diff,8,-1,Pendulum-v1,1024,0.039395504142929236,150.00192785263062,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Pendulum-v1,1024,0.18512529550272128,16.076987266540527,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Pendulum-v1,1024,0.09758311136303838,33.42756485939026,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,Pendulum-v1,1024,0.05964031233435798,72.33202457427979,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=6,level,6,-1,Pendulum-v1,1024,0.04544548641281706,110.89131236076355,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=8,level,8,-1,Pendulum-v1,1024,0.044164688421301966,150.05820035934448,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Pendulum-v1,1024,0.27212436909829174,4.130408048629761,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,Pendulum-v1,1024,0.41085870087429943,58.26831269264221,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,Pendulum-v1,1024,0.31477257169329553,146.69955825805664,96w@8192
+Moirai,Moirai diff r=4,diff,4,-1,Pendulum-v1,1024,0.41980090750698484,406.2854542732239,96w@8192
+Moirai,Moirai level r=1,level,1,-1,Pendulum-v1,1024,0.5416491723687299,58.51562762260437,96w@8192
+Moirai,Moirai level r=2,level,2,-1,Pendulum-v1,1024,0.40315995913050157,147.4602267742157,96w@8192
+Moirai,Moirai level r=4,level,4,-1,Pendulum-v1,1024,0.8061748379542694,408.19309425354004,96w@8192
+MLP,MLP lag 1,-,0,1,Pendulum-v1,1024,0.00279888338063001,4.503786325454712,96w@8192
+MLP,MLP lag 4,-,0,4,Pendulum-v1,1024,0.007424709375529901,4.493643283843994,96w@8192
+MLP,MLP lag 16,-,0,16,Pendulum-v1,1024,0.05851704008154542,3.495805025100708,96w@8192
+VARX,VARX lag 1,-,0,1,Pendulum-v1,1024,0.5405021978123578,0.004843473434448242,96w@8192
+VARX,VARX lag 4,-,0,4,Pendulum-v1,1024,0.005960615150645914,0.006908416748046875,96w@8192
+VARX,VARX lag 16,-,0,16,Pendulum-v1,1024,0.005421788939100425,0.013490915298461914,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Pendulum-v1,2048,0.18040722245740393,8.12557339668274,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Pendulum-v1,2048,0.09044891912115667,18.13492727279663,96w@8192
+Chronos-2 S,Chronos-2 S diff r=4,diff,4,-1,Pendulum-v1,2048,0.06882035631666313,40.63394093513489,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Pendulum-v1,2048,0.28681831493212484,8.269841432571411,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Pendulum-v1,2048,0.17254048280665346,18.111536264419556,96w@8192
+Chronos-2 S,Chronos-2 S level r=4,level,4,-1,Pendulum-v1,2048,0.0998810806140528,40.57405471801758,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Pendulum-v1,2048,0.0723600713140359,33.21389079093933,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Pendulum-v1,2048,0.04881189063293403,72.25726962089539,96w@8192
+Chronos-2 L,Chronos-2 L diff r=4,diff,4,-1,Pendulum-v1,2048,0.030681482897245333,150.77947306632996,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Pendulum-v1,2048,0.12441353223719787,33.170679807662964,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Pendulum-v1,2048,0.08297126922879151,72.31095051765442,96w@8192
+Chronos-2 L,Chronos-2 L level r=4,level,4,-1,Pendulum-v1,2048,0.059758962493846095,150.2073962688446,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Pendulum-v1,2048,0.09611140760529925,33.32456159591675,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Pendulum-v1,2048,0.08469330845475614,72.03930068016052,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=4,diff,4,-1,Pendulum-v1,2048,0.05455412565743963,150.82065749168396,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Pendulum-v1,2048,0.19226621957457657,33.20975685119629,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Pendulum-v1,2048,0.10353437685299098,72.17150211334229,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=4,level,4,-1,Pendulum-v1,2048,0.06208338143754807,150.14734053611755,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Pendulum-v1,2048,0.28681831493212484,8.295443058013916,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,Pendulum-v1,2048,0.5316777219328643,146.74396347999573,96w@8192
+Moirai,Moirai diff r=2,diff,2,-1,Pendulum-v1,2048,0.488692911315338,408.5115587711334,96w@8192
+Moirai,Moirai level r=1,level,1,-1,Pendulum-v1,2048,0.758742622998657,149.12807941436768,96w@8192
+Moirai,Moirai level r=2,level,2,-1,Pendulum-v1,2048,0.8420934250410053,407.29226517677307,96w@8192
+MLP,MLP lag 1,-,0,1,Pendulum-v1,2048,0.0004981466613675675,7.576959133148193,96w@8192
+MLP,MLP lag 4,-,0,4,Pendulum-v1,2048,0.0008155653660400584,9.008371353149414,96w@8192
+MLP,MLP lag 16,-,0,16,Pendulum-v1,2048,0.0025215432194488066,5.298755645751953,96w@8192
+VARX,VARX lag 1,-,0,1,Pendulum-v1,2048,0.5337858777610786,0.0076754093170166016,96w@8192
+VARX,VARX lag 4,-,0,4,Pendulum-v1,2048,0.005278476064161195,0.007806301116943359,96w@8192
+VARX,VARX lag 16,-,0,16,Pendulum-v1,2048,0.004371414399524026,0.010292291641235352,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Pendulum-v1,4096,0.19156862022515944,17.70499849319458,96w@8192
+Chronos-2 S,Chronos-2 S diff r=2,diff,2,-1,Pendulum-v1,4096,0.10483621152369123,40.801225662231445,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Pendulum-v1,4096,0.29046262776833875,18.206681489944458,96w@8192
+Chronos-2 S,Chronos-2 S level r=2,level,2,-1,Pendulum-v1,4096,0.20405267907154548,40.64958047866821,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Pendulum-v1,4096,0.0871022351481649,72.08265376091003,96w@8192
+Chronos-2 L,Chronos-2 L diff r=2,diff,2,-1,Pendulum-v1,4096,0.05460708877503009,150.32123565673828,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Pendulum-v1,4096,0.12932237958470205,72.6690936088562,96w@8192
+Chronos-2 L,Chronos-2 L level r=2,level,2,-1,Pendulum-v1,4096,0.09239825428345244,150.1488974094391,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Pendulum-v1,4096,0.11273143380701606,72.08302760124207,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=2,diff,2,-1,Pendulum-v1,4096,0.0877387735863339,150.1090865135193,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Pendulum-v1,4096,0.2039300887678491,72.0920615196228,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=2,level,2,-1,Pendulum-v1,4096,0.10685648676344144,150.75119042396545,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Pendulum-v1,4096,0.29046262776833875,18.159589052200317,96w@8192
+Moirai,Moirai diff r=1,diff,1,-1,Pendulum-v1,4096,0.8447606198319558,406.42570066452026,96w@8192
+Moirai,Moirai level r=1,level,1,-1,Pendulum-v1,4096,1.5836030323199626,407.65550208091736,96w@8192
+MLP,MLP lag 1,-,0,1,Pendulum-v1,4096,0.0002971563428331232,8.921432733535767,96w@8192
+MLP,MLP lag 4,-,0,4,Pendulum-v1,4096,0.0003389906964340364,11.076869249343872,96w@8192
+MLP,MLP lag 16,-,0,16,Pendulum-v1,4096,0.0008574257389808085,17.027912616729736,96w@8192
+VARX,VARX lag 1,-,0,1,Pendulum-v1,4096,0.5305556960279878,0.009111166000366211,96w@8192
+VARX,VARX lag 4,-,0,4,Pendulum-v1,4096,0.005080336192852304,0.01257634162902832,96w@8192
+VARX,VARX lag 16,-,0,16,Pendulum-v1,4096,0.004119638366578914,0.026285409927368164,96w@8192
+Chronos-2 S,Chronos-2 S diff r=1,diff,1,-1,Pendulum-v1,8192,0.24386396756185058,40.5047709941864,96w@8192
+Chronos-2 S,Chronos-2 S level r=1,level,1,-1,Pendulum-v1,8192,0.3513280683717537,40.56725549697876,96w@8192
+Chronos-2 L,Chronos-2 L diff r=1,diff,1,-1,Pendulum-v1,8192,0.10306054695411142,150.09801292419434,96w@8192
+Chronos-2 L,Chronos-2 L level r=1,level,1,-1,Pendulum-v1,8192,0.15619103368762832,150.31207084655762,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn diff r=1,diff,1,-1,Pendulum-v1,8192,0.11977324023487725,150.05399084091187,96w@8192
+Chronos-2 L-syn,Chronos-2 L-syn level r=1,level,1,-1,Pendulum-v1,8192,0.21343857979644643,150.07488656044006,96w@8192
+Chronos-2 S (level),Chronos-2 S (level) level r=1,level,1,-1,Pendulum-v1,8192,0.3513280683717537,40.63392114639282,96w@8192
+MLP,MLP lag 1,-,0,1,Pendulum-v1,8192,6.660092090206637e-05,35.17809200286865,96w@8192
+MLP,MLP lag 4,-,0,4,Pendulum-v1,8192,0.00016847026145457586,22.666707754135132,96w@8192
+MLP,MLP lag 16,-,0,16,Pendulum-v1,8192,0.0003885304826446475,17.910483837127686,96w@8192
+VARX,VARX lag 1,-,0,1,Pendulum-v1,8192,0.5229108496856346,0.015084028244018555,96w@8192
+VARX,VARX lag 4,-,0,4,Pendulum-v1,8192,0.004953572184585974,0.02042675018310547,96w@8192
+VARX,VARX lag 16,-,0,16,Pendulum-v1,8192,0.0039199904549638885,0.04496598243713379,96w@8192
