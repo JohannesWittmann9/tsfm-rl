@@ -1,6 +1,6 @@
 """Train the SAC policies for the single-building forecast experiment (forecast.ipynb).
 
-    python forecast_train.py            # every missing run (7 arms x 3 seeds)
+    python forecast_train.py            # every missing run (9 arms x 3 seeds)
     python forecast_train.py demand 0   # one specific run
     THREADS=2 python forecast_train.py  # cap torch CPU threads
 
@@ -32,20 +32,20 @@ WEATHER_COLS = [
     for s in ("temperature", "humidity", "diffuse", "direct")
     for h in sf.HORIZONS
 ]
-DEMAND_COLS = [
-    f"{s}_{k}"
-    for s in ("load", "solar")
-    for k in ("h6", "h12", "h24", "sum6", "sum12", "sum24")
-]
+DEMAND_POINT_COLS = [f"{s}_h{h}" for s in ("load", "solar") for h in (6, 12, 24)]
+DEMAND_VOLUME_COLS = [f"{s}_sum{h}" for s in ("load", "solar") for h in (6, 12, 24)]
+ALL_COLS = PRICE_COLS + WEATHER_COLS + DEMAND_POINT_COLS + DEMAND_VOLUME_COLS
 
 ARMS = {
     "baseline": (None, []),
     "price": ("chronos", PRICE_COLS),
     "weather": ("chronos", WEATHER_COLS),
-    "demand": ("chronos", DEMAND_COLS),
-    "demand_oracle": ("oracle", DEMAND_COLS),
-    "seasonal_naive": ("naive", DEMAND_COLS),
-    "all": ("chronos", PRICE_COLS + WEATHER_COLS + DEMAND_COLS),
+    "demand_points": ("chronos", DEMAND_POINT_COLS),
+    "demand_volumes": ("chronos", DEMAND_VOLUME_COLS),
+    "seasonal_naive_points": ("naive", DEMAND_POINT_COLS),
+    "seasonal_naive_volumes": ("naive", DEMAND_VOLUME_COLS),
+    "all": ("chronos", ALL_COLS),
+    "all_oracle": ("oracle", ALL_COLS),
 }
 SEEDS = (0, 1, 2)
 
@@ -86,7 +86,7 @@ def make_b1_env(split: str, seed: int = 0, eval_block: int | None = None):
         root_directory=str(common.SOURCE_DIR),
         buildings=["Building_1"],
         central_agent=True,
-        reward_function=common.DifferenceCostReward
+        reward_function=common.ShapedDifferenceReward
         if split == "train"
         else common.CostReward,
         inactive_observations=common.DATASET_PREDICTED_COLS,

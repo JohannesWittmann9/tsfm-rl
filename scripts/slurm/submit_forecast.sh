@@ -1,6 +1,6 @@
 #!/bin/bash
 # Submit the single-building forecast experiment as a Slurm dependency chain:
-# Chronos forecasts -> training array (21 tasks).
+# Chronos forecasts -> training array (27 tasks).
 # Run from anywhere: bash scripts/slurm/submit_forecast.sh
 set -e
 cd "$(dirname "$0")/../.."

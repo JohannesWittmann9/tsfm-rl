@@ -63,6 +63,12 @@ DATASET_PREDICTED_COLS = [
 TOTAL_TIMESTEPS = 131_040  # ~19 passes over the train blocks
 GAMMA = 0.99
 
+BATTERY_CAPACITY = 6.4  # kWh (schema)
+BATTERY_RTE = 0.9**0.5  # grid-side kWh recovered per stored kWh
+PRICE_MEAN = float(
+    pd.read_csv(SOURCE_DIR / "pricing.csv")["electricity_pricing"].mean()
+)
+
 PALETTE = ["#0072B2", "#D55E00", "#009E73", "#E69F00", "#CC79A7", "#56B4E9", "#999999"]
 plt.rcParams.update(
     {
@@ -112,6 +118,36 @@ class DifferenceCostReward(RewardFunction):
             for o in observations
         ]
         return [sum(reward_list)] if self.central_agent else reward_list
+
+
+class ShapedDifferenceReward(DifferenceCostReward):
+    """DifferenceCostReward plus potential-based shaping (Ng et al. 1999):
+
+        r'_t = r_t + GAMMA * phi(s_{t+1}) - phi(s_t)
+        phi(s) = soc * BATTERY_CAPACITY * BATTERY_RTE * PRICE_MEAN
+
+    phi values the stored energy at the mean price, so charging PV surplus
+    pays immediately instead of hours later at discharge. Provably does not
+    change the optimal policy; without it SAC never leaves the do-nothing
+    corner (demand_oracle run, 2026-08). Training-only."""
+
+    _previous_potential = 0.0
+
+    def reset(self):
+        super().reset()
+        self._previous_potential = 0.0  # battery starts every episode empty
+
+    def calculate(self, observations):
+        base = super().calculate(observations)
+        potential = (
+            sum(o["electrical_storage_soc"] for o in observations)
+            * BATTERY_CAPACITY
+            * BATTERY_RTE
+            * PRICE_MEAN
+        )
+        shaping = GAMMA * potential - self._previous_potential
+        self._previous_potential = potential
+        return [r + shaping / len(base) for r in base]
 
 
 class ForecastWrapper(gym.ObservationWrapper):
