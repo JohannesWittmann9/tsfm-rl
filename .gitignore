@@ -224,3 +224,11 @@ experiments/citylearn_exog_forecast/models/
 logs/
 *.out
 *.err
+
+
+gym4ReaL/
+models/
+precompute.log
+nbexec.log
+experiments/dam/results/*.csv
+experiments/citylearn_exog_forecast/results/*
