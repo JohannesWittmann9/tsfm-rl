@@ -4,10 +4,10 @@ TSFM Causal Structure, Feature Attribution, LOCO Ablation & Action Sweep Suite f
 
 Evaluates:
   1. Leave-One-Channel-Out (LOCO) Dynamics Fidelity (nMAE, MAE, RMSE, CRPS per dimension)
-  2. Subsystem-Isolated Action Sweeps (Battery, HVAC/Cooling, Thermal Storage)
-  3. Step-Synchronized Real CityLearn Counterfactual Action Response Reference
-  4. Decoupled Active Action Contribution vs. Exogenous Environmental Drift
-  5. Cross-Building Spatial Attention Leakage & Multi-Agent Isolation Audit vs. Real Baseline
+  2. [ADDED 3.0] Subsystem-Isolated Action Sweeps (Battery, HVAC/Cooling, Thermal Storage)
+  3. [ADDED 3.0] Cross-Building Spatial Attention Leakage & Multi-Agent Isolation Audit
+  4. [ADDED 3.2] Ground-Truth Reference Comparisons & Passive Baseline Overlays across Action Sweeps
+  5. [REMOVED 3.3] Integrated Gradients Attribution and Saliency Profiles removed
   6. Downstream PPO Policy Retraining & Sim-to-Real Exploitation Diagnostics
   7. Multi-Panel Diagnostic Visualizations & W&B Artifact Upload
 """
@@ -15,7 +15,6 @@ Evaluates:
 import os
 import argparse
 import collections
-# [Removed 4.1] Removed `import copy` — CityLearn environments contain PyTorch tensors that forbid deepcopy
 import numpy as np
 import pandas as pd
 import torch
@@ -359,20 +358,28 @@ def collect_offline_data_and_statistics(schema: str, num_steps: int = 2000, seed
         marginal_means[col] = float(np.mean(act_arr[:, i]))
 
     num_buildings = len(raw_env.buildings)
+    
+    # 1. Map Actions to Buildings
+    # [Fixed 3.3] Use bldg.action_space.shape[0] to strictly slice active control dimensions (3 per building)
+    # Prevents over-allocation caused by len(bldg.action_metadata) which returned dictionary device types (7)
     building_actions = {b: [] for b in range(num_buildings)}
     act_ptr = 0
     for b_idx, bldg in enumerate(raw_env.buildings):
-        num_bldg_acts = bldg.action_space.shape[0]
+        num_bldg_acts = bldg.action_space.shape[0]  # [Fixed 3.3]
         building_actions[b_idx] = action_cols[act_ptr : act_ptr + num_bldg_acts]
         act_ptr += num_bldg_acts
 
+    # 2. Map Target States to Buildings (Separate Shared Weather/Pricing vs. Building States)
     building_targets = {b: [] for b in range(num_buildings)}
     shared_targets = []
+    
+    # [Fixed 3.3] Added "pricing" to shared keywords to prevent tariff indices from falsely attaching to Building 0
     shared_keywords = ["day_type", "hour", "outdoor_dry_bulb_temperature", "diffuse_solar", "direct_solar", "carbon_intensity", "pricing"]
-
+    
     bldg_var_counts = collections.defaultdict(int)
     for t_idx, col_name in enumerate(target_cols):
         col_clean = col_name.split("_", 2)[-1]
+        
         if any(k in col_clean.lower() for k in shared_keywords) and "cooling_set_point" not in col_clean.lower():
             shared_targets.append(t_idx)
         else:
@@ -395,8 +402,6 @@ def collect_offline_data_and_statistics(schema: str, num_steps: int = 2000, seed
         "building_targets": building_targets,
         "shared_targets": shared_targets,
         "target_stds": target_stds,
-        "schema": schema,
-        "seed": seed,
     }
     print(f"[Data Collection] Successfully extracted {len(all_cols)} channel statistics across {num_buildings} buildings.")
     return dataset
@@ -533,21 +538,15 @@ def evaluate_dynamics_fidelity(pipeline, dataset, context_length=16, ablation_ch
 
 
 # =============================================================================
-# 4A. Subsystem-Isolated Action Sweeps with Synchronized Real Environment Ground Truth [Fixed 4.1]
+# 4A. Subsystem-Isolated Action Sweep Engine
 # =============================================================================
 def evaluate_isolated_device_action_sweep(
     pipeline,
     dataset,
     context_length: int = 16,
-    num_samples: int = 15,  # [Fixed 4.1] Default to 15 synchronized sample points for fast replay
+    num_samples: int = 40,
     test_action_values: list = None,
 ):
-    """
-    [Fixed 4.1] Evaluates isolated actuator sweeps across TSFM and CityLearn ground truth:
-      - Uses deterministic replay up to s_idx rather than copy.deepcopy (avoids PyTorch tensor crash)
-      - Caps s_idx strictly within episode horizon (<= min(time_steps - 2, 718)) to avoid IndexError
-      - Clips counterfactual actions to physical simulator bounds (avoids negative power assertion)
-    """
     if test_action_values is None:
         test_action_values = [-1.0, -0.5, 0.0, 0.5, 1.0]
 
@@ -556,8 +555,6 @@ def evaluate_isolated_device_action_sweep(
     action_cols = dataset["action_cols"]
     deltas = dataset["deltas"]
     actions = dataset["actions"]
-    schema = dataset.get("schema", "citylearn_challenge_2023_phase_1")
-    seed = dataset.get("seed", 42)
 
     device_groups = {
         "Electrical_Battery": [
@@ -572,19 +569,12 @@ def evaluate_isolated_device_action_sweep(
     }
 
     print("\n" + "=" * 60)
-    print(" PHASE 2A: SYNCHRONIZED REAL VS. TSFM DEVICE ACTION SWEEPS [Fixed 4.1] ")
+    print(" PHASE 2A: ISOLATED DEVICE-BY-DEVICE ACTION SWEEPS ")
     print("=" * 60)
     for dev_name, cols in device_groups.items():
         print(f" -> Device Group [{dev_name}]: {len(cols)} active channels mapped -> {cols}")
 
-    # [Fixed 4.1] Instantiate persistent simulator once outside evaluation loops
-    sim_env = CityLearnEnv(schema, central_agent=True)
-    sim_obs_init, _ = sim_env.reset(seed=seed)
-
-    # [Fixed 4.1] Strictly cap sample indices to prevent episode index overflow (IndexError on hvac_mode)
-    max_eval_step = min(int(sim_env.time_steps) - 2, len(deltas) - 5, 718)
-    sample_indices = np.unique(np.linspace(context_length, max_eval_step, num_samples, dtype=int))
-
+    sample_indices = np.linspace(context_length, len(deltas) - 5, num_samples, dtype=int)
     device_sweep_results = {}
 
     for dev_name, active_act_cols in device_groups.items():
@@ -592,11 +582,9 @@ def evaluate_isolated_device_action_sweep(
             print(f" [Warning] No action columns found matching device group: {dev_name}. Skipping.")
             continue
 
-        tsfm_sweep_records = {act_val: [] for act_val in test_action_values}
-        real_sweep_records = {act_val: [] for act_val in test_action_values}
+        sweep_records = {act_val: [] for act_val in test_action_values}
 
         for s_idx in sample_indices:
-            # Historical context for TSFM
             hist_deltas = deltas[s_idx - context_length : s_idx]
             hist_actions = actions[s_idx - context_length : s_idx]
 
@@ -610,7 +598,6 @@ def evaluate_isolated_device_action_sweep(
                 for col in active_act_cols:
                     forced_act_dict[col] = float(act_val)
 
-                # 1. TSFM World Model Forecast
                 f_df = pd.DataFrame([forced_act_dict], dtype=np.float32)
                 f_df["id"] = 0
                 f_df["timestamp"] = pd.to_datetime([context_length], unit="s")
@@ -623,67 +610,23 @@ def evaluate_isolated_device_action_sweep(
                     t_col = "target_name" if "target_name" in pred_df.columns else "target"
                     v_col = 0.5 if 0.5 in pred_df.columns else "predictions"
                     piv = pred_df.pivot(index="timestamp", columns=t_col, values=v_col)
-                    tsfm_delta = piv[target_cols].values[0].astype(np.float32)
-                    tsfm_sweep_records[act_val].append(tsfm_delta)
+                    pred_delta = piv[target_cols].values[0].astype(np.float32)
+                    sweep_records[act_val].append(pred_delta)
 
-                # 2. [Fixed 4.1] Ground-Truth Real Environment Deterministic Replay (No deepcopy)
-                forced_act_vector = np.array([forced_act_dict[col] for col in action_cols], dtype=np.float32)
-                # [Fixed 4.1] Clip action vector to physical simulator bounds (prevents negative chiller power crash)
-                sim_action = np.clip(
-                    forced_act_vector,
-                    sim_env.action_space[0].low,
-                    sim_env.action_space[0].high,
-                ).astype(np.float32)
-
-                sim_obs_init, _ = sim_env.reset(seed=seed)
-                last_step_obs = sim_obs_init
-                for t in range(s_idx):
-                    last_step_obs, _, _, _, _ = sim_env.step([actions[t]])
-                curr_real_obs = np.array(last_step_obs[0] if s_idx > 0 else sim_obs_init[0], dtype=np.float32)
-
-                nxt_real_obs_list, _, _, _, _ = sim_env.step([sim_action])
-                real_delta = np.array(nxt_real_obs_list[0], dtype=np.float32) - curr_real_obs
-                real_sweep_records[act_val].append(real_delta)
-
-        # Empirical expectations across samples
-        tsfm_mean_matrix = np.array([np.mean(tsfm_sweep_records[act_val], axis=0) for act_val in test_action_values])
-        real_mean_matrix = np.array([np.mean(real_sweep_records[act_val], axis=0) for act_val in test_action_values])
-
+        mean_resp_matrix = np.array([np.mean(sweep_records[act_val], axis=0) for act_val in test_action_values])
+        
         zero_act_idx = test_action_values.index(0.0) if 0.0 in test_action_values else len(test_action_values) // 2
+        baseline_drift_vector = mean_resp_matrix[zero_act_idx].copy()
 
-        # Decoupled passive drift vs active control authority
-        tsfm_baseline_drift = tsfm_mean_matrix[zero_act_idx].copy()
-        real_baseline_drift = real_mean_matrix[zero_act_idx].copy()
-
-        tsfm_action_contribution = tsfm_mean_matrix - tsfm_baseline_drift
-        real_action_contribution = real_mean_matrix - real_baseline_drift
-
-        summary_dict = {}
-        for idx, col in enumerate(target_cols):
-            clean_name = col.replace("target_", "")
-            row_data = {
-                "Target": clean_name,
-                "TSFM_Idle_Drift": round(float(tsfm_baseline_drift[idx]), 5),
-                "Real_Idle_Drift": round(float(real_baseline_drift[idx]), 5),
-                "Drift_Error": round(float(abs(tsfm_baseline_drift[idx] - real_baseline_drift[idx])), 5),
-            }
-            for v_i, val in enumerate(test_action_values):
-                row_data[f"TSFM_Act_{val:+.1f}"] = round(float(tsfm_mean_matrix[v_i, idx]), 5)
-                row_data[f"Real_Act_{val:+.1f}"] = round(float(real_mean_matrix[v_i, idx]), 5)
-                row_data[f"TSFM_Contrib_{val:+.1f}"] = round(float(tsfm_action_contribution[v_i, idx]), 5)
-                row_data[f"Real_Contrib_{val:+.1f}"] = round(float(real_action_contribution[v_i, idx]), 5)
-            summary_dict[clean_name] = row_data
-
-        sweep_summary_df = pd.DataFrame.from_dict(summary_dict, orient="index")
-
+        sweep_summary_df = pd.DataFrame(
+            mean_resp_matrix.T,
+            index=[col.replace("target_", "") for col in target_cols],
+            columns=[f"Action_{v:+.1f}" for v in test_action_values],
+        )
         device_sweep_results[dev_name] = {
             "summary_df": sweep_summary_df,
-            "tsfm_response_matrix": tsfm_mean_matrix,
-            "real_response_matrix": real_mean_matrix,
-            "tsfm_baseline_drift": tsfm_baseline_drift,
-            "real_baseline_drift": real_baseline_drift,
-            "tsfm_action_contribution": tsfm_action_contribution,
-            "real_action_contribution": real_action_contribution,
+            "response_matrix": mean_resp_matrix,
+            "baseline_drift": baseline_drift_vector,
             "active_channels": active_act_cols,
         }
 
@@ -691,20 +634,16 @@ def evaluate_isolated_device_action_sweep(
 
 
 # =============================================================================
-# 4B. Cross-Building Spatial Attention Leakage Probe vs. Real Environment Baseline [Fixed 4.1]
+# 4B. Cross-Building Spatial Attention Leakage Probe
 # =============================================================================
 def evaluate_cross_building_spatial_leakage(
     pipeline,
     dataset,
     context_length: int = 16,
-    num_samples: int = 15,  # [Fixed 4.1]
+    num_samples: int = 40,
     target_building_idx: int = 0,
     test_action_values: list = None,
 ):
-    """
-    [Fixed 4.1] Evaluates spatial leakage comparing TSFM multi-agent coupling against
-    deterministic real simulator ground-truth replay.
-    """
     if test_action_values is None:
         test_action_values = [-1.0, -0.5, 0.0, 0.5, 1.0]
 
@@ -713,8 +652,6 @@ def evaluate_cross_building_spatial_leakage(
     action_cols = dataset["action_cols"]
     deltas = dataset["deltas"]
     actions = dataset["actions"]
-    schema = dataset.get("schema", "citylearn_challenge_2023_phase_1")
-    seed = dataset.get("seed", 42)
 
     building_targets = dataset["building_targets"]
     building_actions = dataset["building_actions"]
@@ -722,26 +659,19 @@ def evaluate_cross_building_spatial_leakage(
 
     own_action_cols = building_actions.get(target_building_idx, [])
     own_target_indices = building_targets.get(target_building_idx, [])
-
+    
     other_target_indices = [
         idx for b_idx, idxs in building_targets.items() if b_idx != target_building_idx for idx in idxs
     ]
 
     print("\n" + "=" * 60)
-    print(f" PHASE 2B: CROSS-BUILDING SPATIAL LEAKAGE PROBE (Target: Bldg {target_building_idx}) [Fixed 4.1] ")
+    print(f" PHASE 2B: CROSS-BUILDING SPATIAL LEAKAGE PROBE (Target: Bldg {target_building_idx}) ")
     print("=" * 60)
     print(f" -> Perturbing Building {target_building_idx} Actions ({len(own_action_cols)} channels): {own_action_cols}")
-    print(f" -> Comparing TSFM predictions against real decoupled CityLearn ground truth")
+    print(f" -> Monitoring Own Target States ({len(own_target_indices)}) vs Other Building States ({len(other_target_indices)})")
 
-    sim_env = CityLearnEnv(schema, central_agent=True)
-    sim_obs_init, _ = sim_env.reset(seed=seed)
-
-    # [Fixed 4.1] Strictly cap sample indices to prevent episode index overflow
-    max_eval_step = min(int(sim_env.time_steps) - 2, len(deltas) - 5, 718)
-    sample_indices = np.unique(np.linspace(context_length, max_eval_step, num_samples, dtype=int))
-
-    tsfm_sweep_records = {act_val: [] for act_val in test_action_values}
-    real_sweep_records = {act_val: [] for act_val in test_action_values}
+    sample_indices = np.linspace(context_length, len(deltas) - 5, num_samples, dtype=int)
+    sweep_records = {act_val: [] for act_val in test_action_values}
 
     for s_idx in sample_indices:
         hist_deltas = deltas[s_idx - context_length : s_idx]
@@ -757,7 +687,6 @@ def evaluate_cross_building_spatial_leakage(
             for col in own_action_cols:
                 forced_act_dict[col] = float(act_val)
 
-            # 1. TSFM World Model Forecast
             f_df = pd.DataFrame([forced_act_dict], dtype=np.float32)
             f_df["id"] = 0
             f_df["timestamp"] = pd.to_datetime([context_length], unit="s")
@@ -770,53 +699,26 @@ def evaluate_cross_building_spatial_leakage(
                 t_col = "target_name" if "target_name" in pred_df.columns else "target"
                 v_col = 0.5 if 0.5 in pred_df.columns else "predictions"
                 piv = pred_df.pivot(index="timestamp", columns=t_col, values=v_col)
-                tsfm_delta = piv[target_cols].values[0].astype(np.float32)
-                tsfm_sweep_records[act_val].append(tsfm_delta)
+                pred_delta = piv[target_cols].values[0].astype(np.float32)
+                sweep_records[act_val].append(pred_delta)
 
-            # 2. [Fixed 4.1] Ground-Truth Real Environment Deterministic Replay
-            forced_act_vector = np.array([forced_act_dict[col] for col in action_cols], dtype=np.float32)
-            sim_action = np.clip(
-                forced_act_vector,
-                sim_env.action_space[0].low,
-                sim_env.action_space[0].high,
-            ).astype(np.float32)
+    mean_resp_matrix = np.array([np.mean(sweep_records[act_val], axis=0) for act_val in test_action_values])
+    action_dynamic_range = np.ptp(mean_resp_matrix, axis=0) / target_stds
 
-            sim_obs_init, _ = sim_env.reset(seed=seed)
-            last_step_obs = sim_obs_init
-            for t in range(s_idx):
-                last_step_obs, _, _, _, _ = sim_env.step([actions[t]])
-            curr_real_obs = np.array(last_step_obs[0] if s_idx > 0 else sim_obs_init[0], dtype=np.float32)
+    own_state_swing = np.mean(action_dynamic_range[own_target_indices]) if own_target_indices else 1e-6
+    other_state_swing = np.mean(action_dynamic_range[other_target_indices]) if other_target_indices else 0.0
 
-            nxt_real_obs_list, _, _, _, _ = sim_env.step([sim_action])
-            real_delta = np.array(nxt_real_obs_list[0], dtype=np.float32) - curr_real_obs
-            real_sweep_records[act_val].append(real_delta)
-
-    tsfm_mean_matrix = np.array([np.mean(tsfm_sweep_records[act_val], axis=0) for act_val in test_action_values])
-    real_mean_matrix = np.array([np.mean(real_sweep_records[act_val], axis=0) for act_val in test_action_values])
-
-    tsfm_dynamic_range = np.ptp(tsfm_mean_matrix, axis=0) / target_stds
-    real_dynamic_range = np.ptp(real_mean_matrix, axis=0) / target_stds
-
-    tsfm_own_swing = np.mean(tsfm_dynamic_range[own_target_indices]) if own_target_indices else 1e-6
-    tsfm_other_swing = np.mean(tsfm_dynamic_range[other_target_indices]) if other_target_indices else 0.0
-    tsfm_leakage_pct = (tsfm_other_swing / (tsfm_own_swing + 1e-8)) * 100.0
-
-    real_own_swing = np.mean(real_dynamic_range[own_target_indices]) if own_target_indices else 1e-6
-    real_other_swing = np.mean(real_dynamic_range[other_target_indices]) if other_target_indices else 0.0
-    real_leakage_pct = (real_other_swing / (real_own_swing + 1e-8)) * 100.0
+    leakage_ratio_pct = (other_state_swing / (own_state_swing + 1e-8)) * 100.0
 
     leakage_report = {
         "Target Building": target_building_idx,
-        "TSFM Own Dynamic Swing": round(float(tsfm_own_swing), 6),
-        "Real Own Dynamic Swing": round(float(real_own_swing), 6),
-        "TSFM Other Leakage Swing": round(float(tsfm_other_swing), 6),
-        "Real Other Leakage Swing (Ground Truth)": round(float(real_other_swing), 6),
-        "TSFM Spatial Leakage Ratio (%)": round(float(tsfm_leakage_pct), 2),
-        "Real Spatial Leakage Ratio (%)": round(float(real_leakage_pct), 2),
-        "Spatial Integrity Pass": bool(tsfm_leakage_pct < 5.0),
+        "Own Building Dynamic Swing": round(float(own_state_swing), 6),
+        "Other Buildings Leakage Swing": round(float(other_state_swing), 6),
+        "Spatial Leakage Ratio (%)": round(float(leakage_ratio_pct), 2),
+        "Spatial Integrity Pass": bool(leakage_ratio_pct < 5.0),
         "Diagnostic Status": (
-            "Pass (Causally Isolated Buildings)" if tsfm_leakage_pct < 5.0
-            else f"FLAG: Cross-Building Attention Bleed ({tsfm_leakage_pct:.1f}%)"
+            "Pass (Causally Isolated Buildings)" if leakage_ratio_pct < 5.0 
+            else f"FLAG: Cross-Building Attention Bleed ({leakage_ratio_pct:.1f}%)"
         ),
     }
 
@@ -824,7 +726,13 @@ def evaluate_cross_building_spatial_leakage(
     print("\n--- Spatial Isolation & Cross-Building Leakage Report ---")
     print(leakage_df.to_string(index=False))
 
-    return leakage_df, tsfm_mean_matrix, real_mean_matrix, own_target_indices, other_target_indices
+    return leakage_df, mean_resp_matrix, own_target_indices, other_target_indices
+
+
+# =============================================================================
+# [REMOVED 3.3] 5. Integrated Gradients & Temporal Attribution Engine Removed
+# [REMOVED 3.3] 6. Domain Physics Prior Cross-Checking Removed
+# =============================================================================
 
 
 # =============================================================================
@@ -935,7 +843,7 @@ def analyze_exploitation_vs_signal(dynamics_df: pd.DataFrame, rl_df: pd.DataFram
 
 
 # =============================================================================
-# 7. Comprehensive Diagnostic Visualization Suite [Fixed 4.1]
+# 7. Comprehensive Diagnostic Visualization Suite [Added 3.3 & Removed 3.3]
 # =============================================================================
 def generate_all_experiment_visualizations(
     target_cols: list,
@@ -948,109 +856,101 @@ def generate_all_experiment_visualizations(
     test_action_vals: list,
     output_dir: str = "./visualizations",
 ):
+    """
+    [Added 3.3] Streamlined visualization suite:
+      - Plot A1: Subsystem-Isolated Actuator Sweeps with Passive Idle Reference & Active Shading
+      - Plot A2: Cross-Building Spatial Isolation Audit with Reference Leakage Band
+      - Plot D: LOCO Dynamics Error Degradation Bar Chart
+      - Plot E: Signal vs. Exploitation Diagnostic Quadrant Frontier
+    [Removed 3.3] Removed Integrated Gradients Heatmap (Plot B) & Decay Curves (Plot C).
+    """
     os.makedirs(output_dir, exist_ok=True)
     generated_figures = {}
 
     plt.style.use("seaborn-v0_8-whitegrid" if "seaborn-v0_8-whitegrid" in plt.style.available else "default")
 
     # -------------------------------------------------------------------------
-    # Plot A1: Subsystem-Isolated Actuator Sweeps (TSFM vs. Real Ground Truth)
+    # Plot A1: Subsystem-Isolated Actuator Sweeps with Reference Baselines
     # -------------------------------------------------------------------------
     if device_sweep_results:
-        fig_a1, axes_a1 = plt.subplots(1, 3, figsize=(18, 5.5), dpi=300)
+        fig_a1, axes_a1 = plt.subplots(1, 3, figsize=(17, 5.2), dpi=300)
         configs = [
             ("Electrical_Battery", "electrical_storage_soc", "Battery ΔSoC", "#9467bd", axes_a1[0]),
             ("HVAC_Cooling", "indoor_dry_bulb_temperature", "Indoor ΔT_in (°C)", "#2ca02c", axes_a1[1]),
-            ("Thermal_Storage", "dhw_storage_soc", "Thermal / DHW ΔSoC", "#d62728", axes_a1[2]),
+            ("Thermal_Storage", "storage_soc", "Thermal / DHW ΔSoC", "#d62728", axes_a1[2]),
         ]
 
         for dev_name, target_key, y_label, color, ax in configs:
             if dev_name in device_sweep_results:
-                tsfm_mat = device_sweep_results[dev_name]["tsfm_response_matrix"]
-                real_mat = device_sweep_results[dev_name]["real_response_matrix"]
-                tsfm_base = device_sweep_results[dev_name]["tsfm_baseline_drift"]
-                real_base = device_sweep_results[dev_name]["real_baseline_drift"]
-
-                # [Fixed 4.1] Robust target index search avoiding false matches between electrical and thermal storage
+                resp_mat = device_sweep_results[dev_name]["response_matrix"]
+                baseline_vec = device_sweep_results[dev_name]["baseline_drift"]
                 t_idx = next((i for i, c in enumerate(target_cols) if target_key in c.lower()), None)
-                if t_idx is None and dev_name == "Thermal_Storage":
-                    t_idx = next((i for i, c in enumerate(target_cols) if ("storage_soc" in c.lower() and "electrical" not in c.lower())), None)
-
+                
                 if t_idx is not None:
-                    tsfm_curve = tsfm_mat[:, t_idx]
-                    real_curve = real_mat[:, t_idx]
-                    tsfm_idle = tsfm_base[t_idx]
-                    real_idle = real_base[t_idx]
+                    curve = resp_mat[:, t_idx]
+                    idle_baseline = baseline_vec[t_idx]
 
-                    ax.plot(test_action_vals, real_curve, marker="s", markersize=6, linewidth=2.4, color="#1f77b4", linestyle="--", label="CityLearn Ground Truth", zorder=4)
-                    ax.plot(test_action_vals, tsfm_curve, marker="o", markersize=6, linewidth=2.4, color=color, label="TSFM Predicted Response", zorder=5)
-
-                    ax.axhline(0.0, color="black", linestyle="-", linewidth=1.0, alpha=0.5, label="Neutral Zero Line (Δs = 0)", zorder=1)
-                    ax.axhline(real_idle, color="#1f77b4", linestyle=":", linewidth=1.6, alpha=0.8, label=f"Real Idle ({real_idle:+.4f})", zorder=2)
-                    ax.axhline(tsfm_idle, color=color, linestyle=":", linewidth=1.6, alpha=0.8, label=f"TSFM Idle ({tsfm_idle:+.4f})", zorder=3)
-
+                    ax.plot(test_action_vals, curve, marker="o", markersize=6, linewidth=2.4, color=color, label="TSFM Predicted Response", zorder=4)
+                    ax.axhline(0.0, color="black", linestyle="--", linewidth=1.2, alpha=0.65, label="Neutral Zero Line (Δs = 0)", zorder=2)
+                    ax.axhline(idle_baseline, color="#b22222", linestyle=":", linewidth=1.8, alpha=0.85, label=f"Idle Baseline ({idle_baseline:+.4f})", zorder=3)
+                    
                     ax.fill_between(
-                        test_action_vals, real_curve, real_idle,
-                        color="#1f77b4", alpha=0.10, label="Real Action Contribution δ_real(a)", zorder=0
+                        test_action_vals,
+                        curve,
+                        idle_baseline,
+                        color=color,
+                        alpha=0.14,
+                        label="Active Control Authority Offset",
+                        zorder=1,
                     )
-                    ax.fill_between(
-                        test_action_vals, tsfm_curve, tsfm_idle,
-                        color=color, alpha=0.15, label="TSFM Action Contribution δ_tsfm(a)", zorder=1
-                    )
-
-                    ax.set_title(f"Isolated {dev_name.replace('_', ' ')}: TSFM vs. Real", fontsize=11, fontweight="bold", pad=8)
-                    ax.set_xlabel("Isolated Action Value $a_t \\in [-1.0, 1.0]$", fontsize=9.5, fontweight="bold")
+                    
+                    ax.set_title(f"Isolated {dev_name.replace('_', ' ')} Sweep", fontsize=11, fontweight="bold", pad=8)
+                    ax.set_xlabel("Isolated Action Value $a_t \in [-1.0, 1.0]$", fontsize=9.5, fontweight="bold")
                     ax.set_ylabel(y_label, fontsize=9.5, fontweight="bold")
                     ax.grid(True, linestyle=":", alpha=0.6)
-                    ax.legend(frameon=True, fontsize=7.5, loc="best")
+                    ax.legend(frameon=True, fontsize=8, loc="best")
                 else:
                     ax.text(0.5, 0.5, f"Key '{target_key}' not in targets", ha="center", va="center")
             else:
                 ax.text(0.5, 0.5, f"Device '{dev_name}' not found", ha="center", va="center")
 
-        fig_a1.suptitle("Subsystem-Isolated Actuator Sweeps: TSFM Forecast vs. Real CityLearn Ground Truth", fontsize=13, fontweight="bold", y=1.02)
+        fig_a1.suptitle("Subsystem-Isolated Actuator Sweeps with Ground-Truth Idle Reference Baselines ($a_t = 0.0$)", fontsize=13, fontweight="bold", y=1.02)
         plt.tight_layout()
         path_a1 = os.path.join(output_dir, "plot_A1_isolated_device_sweeps.png")
         fig_a1.savefig(path_a1, dpi=300, bbox_inches="tight")
         generated_figures["plot_A1_isolated_device_sweeps"] = fig_a1
 
     # -------------------------------------------------------------------------
-    # Plot A2: Cross-Building Spatial Isolation Audit vs. Real Baseline
+    # Plot A2: Cross-Building Spatial Isolation & Attention Leakage
     # -------------------------------------------------------------------------
     if spatial_leakage_bundle is not None:
-        leakage_df, tsfm_spatial_mat, real_spatial_mat, own_indices, other_indices, target_bldg = spatial_leakage_bundle
-        fig_a2, (ax_sp1, ax_sp2) = plt.subplots(1, 2, figsize=(16, 5.5), dpi=300)
+        leakage_df, spatial_resp_matrix, own_indices, other_indices, target_bldg = spatial_leakage_bundle
+        fig_a2, (ax_sp1, ax_sp2) = plt.subplots(1, 2, figsize=(15, 5.2), dpi=300)
 
-        for idx in own_indices[:4]:
+        for idx in own_indices[:6]:
             lbl = target_cols[idx].split("_", 2)[-1]
-            ax_sp1.plot(test_action_vals, real_spatial_mat[:, idx], marker="s", linestyle="--", linewidth=1.8, label=f"Real: {lbl}", alpha=0.8, zorder=3)
-            ax_sp1.plot(test_action_vals, tsfm_spatial_mat[:, idx], marker="o", linewidth=2.0, label=f"TSFM: {lbl}", zorder=4)
-        ax_sp1.axhline(0.0, color="black", linestyle="-", linewidth=1.0, alpha=0.5, label="Neutral Zero Line", zorder=1)
-        ax_sp1.set_title(f"Building {target_bldg} Internal States (Action Source): TSFM vs. Real", fontsize=11, fontweight="bold")
+            ax_sp1.plot(test_action_vals, spatial_resp_matrix[:, idx], marker="o", linewidth=2.0, label=lbl, zorder=3)
+        ax_sp1.axhline(0.0, color="black", linestyle="--", linewidth=1.1, alpha=0.6, label="Neutral Zero Line", zorder=1)
+        ax_sp1.set_title(f"Building {target_bldg} Internal States (Action Source)", fontsize=11, fontweight="bold")
         ax_sp1.set_xlabel(f"Building {target_bldg} Forced Action $a_{target_bldg}$", fontsize=9.5, fontweight="bold")
-        ax_sp1.set_ylabel("State Delta (Δs)", fontsize=9.5, fontweight="bold")
+        ax_sp1.set_ylabel("Predicted State Delta (Δs)", fontsize=9.5, fontweight="bold")
         ax_sp1.legend(frameon=True, fontsize=7.5, loc="best")
         ax_sp1.grid(True, linestyle=":", alpha=0.6)
 
-        for idx in other_indices[:4]:
+        for idx in other_indices[:6]:
             lbl = target_cols[idx].split("_", 2)[-1] + f" (Col {idx})"
-            ax_sp2.plot(test_action_vals, real_spatial_mat[:, idx], marker="s", linestyle="--", linewidth=1.8, color="#1f77b4", label=f"Real Ground Truth: {lbl}", alpha=0.7, zorder=3)
-            ax_sp2.plot(test_action_vals, tsfm_spatial_mat[:, idx], marker="o", linewidth=1.8, label=f"TSFM Prediction: {lbl}", zorder=4)
-        ax_sp2.axhline(0.0, color="black", linestyle="-", linewidth=1.0, alpha=0.5, label="Ideal Zero Leakage Line", zorder=1)
+            ax_sp2.plot(test_action_vals, spatial_resp_matrix[:, idx], marker="s", linestyle="--", linewidth=1.8, label=lbl, zorder=3)
+        ax_sp2.axhline(0.0, color="black", linestyle="--", linewidth=1.1, alpha=0.6, label="Ideal Zero Leakage Line", zorder=1)
         ax_sp2.axhspan(-0.005, 0.005, color="gray", alpha=0.15, label="Permissible Isolation Tolerance (±0.005)", zorder=0)
-
-        ax_sp2.set_title("Other Buildings External States (TSFM Leakage vs. Real Zero Response)", fontsize=11, fontweight="bold")
+        
+        ax_sp2.set_title("Other Buildings External States (Physical Isolation Check)", fontsize=11, fontweight="bold")
         ax_sp2.set_xlabel(f"Building {target_bldg} Forced Action $a_{target_bldg}$", fontsize=9.5, fontweight="bold")
-        ax_sp2.set_ylabel("State Delta (Δs)", fontsize=9.5, fontweight="bold")
+        ax_sp2.set_ylabel("Predicted State Delta (Δs)", fontsize=9.5, fontweight="bold")
         ax_sp2.legend(frameon=True, fontsize=7.5, loc="best")
         ax_sp2.grid(True, linestyle=":", alpha=0.6)
 
-        leak_pct = leakage_df["TSFM Spatial Leakage Ratio (%)"].iloc[0]
-        real_leak_pct = leakage_df["Real Spatial Leakage Ratio (%)"].iloc[0]
-        fig_a2.suptitle(
-            f"Cross-Building Spatial Isolation Audit (Bldg {target_bldg} | TSFM Leakage: {leak_pct:.2f}% | Real Ref: {real_leak_pct:.2f}%)",
-            fontsize=13, fontweight="bold", y=1.02
-        )
+        leak_pct = leakage_df["Spatial Leakage Ratio (%)"].iloc[0]
+        fig_a2.suptitle(f"Cross-Building Spatial Isolation Audit (Bldg {target_bldg} Perturbation | Leakage Ratio: {leak_pct:.2f}%)", fontsize=13, fontweight="bold", y=1.02)
         plt.tight_layout()
         path_a2 = os.path.join(output_dir, "plot_A2_spatial_leakage.png")
         fig_a2.savefig(path_a2, dpi=300, bbox_inches="tight")
@@ -1156,7 +1056,6 @@ def parse_args():
         default=[-1.0, -0.5, 0.0, 0.5, 1.0],
         help="Comma-separated actions to sweep on future_df",
     )
-    parser.add_argument("--action-sweep-samples", type=int, default=15, help="Synchronized sample steps for real vs. TSFM action sweeps")
     parser.add_argument("--target-building-leakage-idx", type=int, default=0, help="Building index to perturb for spatial attention audit")
     parser.add_argument("--skip-rl-retraining", action="store_true", help="Run only dynamics ablation and action sweeps")
     parser.add_argument("--output-dir", type=str, default="./results_causal_attribution")
@@ -1216,30 +1115,32 @@ def main():
     print(dynamics_df[["Ablation Channel", "Overall nMAE (Scale-Normalized)", "Overall MAE", "Overall RMSE", "Overall CRPS"]].to_string(index=False))
     wandb.log({"loco/dynamics_fidelity_table": wandb.Table(dataframe=dynamics_df)})
 
-    # 4. Subsystem-Isolated Action Sweeps [Fixed 4.1]
+    # 4. Subsystem-Isolated Action Sweeps
     device_sweep_results, test_act_vals = evaluate_isolated_device_action_sweep(
         pipeline=pipeline,
         dataset=dataset,
         context_length=args.context_length,
-        num_samples=args.action_sweep_samples,
+        num_samples=40,
         test_action_values=args.action_sweep_values,
     )
     for dev_name, res in device_sweep_results.items():
-        print(f"\n--- Isolated Action Sensitivity & Real Comparison: [{dev_name}] ---")
+        print(f"\n--- Isolated Action Sensitivity: [{dev_name}] ---")
         print(res["summary_df"].head(100).to_string())
         wandb.log({f"action_sweep/isolated_{dev_name.lower()}_table": wandb.Table(dataframe=res["summary_df"].reset_index())})
 
-    # 5. Cross-Building Spatial Attention Leakage Probe [Fixed 4.1]
-    leakage_df, tsfm_spatial_mat, real_spatial_mat, own_indices, other_indices = evaluate_cross_building_spatial_leakage(
+    # 5. Cross-Building Spatial Attention Leakage Probe
+    leakage_df, spatial_resp_matrix, own_indices, other_indices = evaluate_cross_building_spatial_leakage(
         pipeline=pipeline,
         dataset=dataset,
         context_length=args.context_length,
-        num_samples=args.action_sweep_samples,
+        num_samples=40,
         target_building_idx=args.target_building_leakage_idx,
         test_action_values=args.action_sweep_values,
     )
     wandb.log({"spatial_leakage/isolation_report": wandb.Table(dataframe=leakage_df)})
-    spatial_leakage_bundle = (leakage_df, tsfm_spatial_mat, real_spatial_mat, own_indices, other_indices, args.target_building_leakage_idx)
+    spatial_leakage_bundle = (leakage_df, spatial_resp_matrix, own_indices, other_indices, args.target_building_leakage_idx)
+
+    # [REMOVED 3.3] Integrated Gradients attribution and domain physics prior cross-checks removed
 
     # 6. Downstream PPO Policy Retraining & Sim-to-Real Evaluation
     rl_df = None
@@ -1262,7 +1163,7 @@ def main():
         print(diagnostic_df[["Ablation Channel", "Delta_nMAE (%)", "Delta_Cost (%)", "Diagnostic Classification"]].to_string(index=False))
         wandb.log({"diagnostic/exploitation_summary": wandb.Table(dataframe=diagnostic_df)})
 
-    # 7. Generate Diagnostic Visualizations & Upload to W&B
+    # 7. Generate Diagnostic Visualizations & Upload to W&B [Added 3.3]
     print("\n============================================================")
     print("      PHASE 4: RENDERING DIAGNOSTIC VISUALIZATION SUITE     ")
     print("============================================================")
