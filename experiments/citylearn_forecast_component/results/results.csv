@@ -1,0 +1,49 @@
+series,model,budget,nmse
+non_shiftable_load,Seasonal-naive,16,0.7969742144876514
+non_shiftable_load,Seasonal-naive,64,0.7969742144876514
+non_shiftable_load,Seasonal-naive,256,0.7969742144876514
+non_shiftable_load,Seasonal-naive,1024,0.7969742144876514
+non_shiftable_load,Chronos-2 S (level),16,0.632036269364639
+non_shiftable_load,Chronos-2 S (level),64,0.5367332355215296
+non_shiftable_load,Chronos-2 S (level),256,0.47678369795134135
+non_shiftable_load,Chronos-2 S (level),1024,0.43259432661688474
+non_shiftable_load,Chronos-2 S (diff),16,9.195558890880184
+non_shiftable_load,Chronos-2 S (diff),64,1.375995597117034
+non_shiftable_load,Chronos-2 S (diff),256,0.9257760891150087
+non_shiftable_load,Chronos-2 S (diff),1024,0.830101598228237
+non_shiftable_load,MLP,16,
+non_shiftable_load,MLP,64,0.8219419852455347
+non_shiftable_load,MLP,256,0.7044428549403579
+non_shiftable_load,MLP,1024,0.6058542825615815
+solar_generation,Seasonal-naive,16,0.1476800467515594
+solar_generation,Seasonal-naive,64,0.1476800467515594
+solar_generation,Seasonal-naive,256,0.1476800467515594
+solar_generation,Seasonal-naive,1024,0.1476800467515594
+solar_generation,Chronos-2 S (level),16,0.21066378954205608
+solar_generation,Chronos-2 S (level),64,0.09015814150543655
+solar_generation,Chronos-2 S (level),256,0.07887465695564642
+solar_generation,Chronos-2 S (level),1024,0.07711841860347031
+solar_generation,Chronos-2 S (diff),16,17.336084496404933
+solar_generation,Chronos-2 S (diff),64,0.5868224471756288
+solar_generation,Chronos-2 S (diff),256,0.2521788181963747
+solar_generation,Chronos-2 S (diff),1024,0.17190087558286626
+solar_generation,MLP,16,
+solar_generation,MLP,64,27.412680195910085
+solar_generation,MLP,256,0.13297425256975406
+solar_generation,MLP,1024,0.09364360132585085
+electricity_pricing,Seasonal-naive,16,0.0760294776364754
+electricity_pricing,Seasonal-naive,64,0.0760294776364754
+electricity_pricing,Seasonal-naive,256,0.0760294776364754
+electricity_pricing,Seasonal-naive,1024,0.0760294776364754
+electricity_pricing,Chronos-2 S (level),16,1.2500126744837121
+electricity_pricing,Chronos-2 S (level),64,0.24035992080555232
+electricity_pricing,Chronos-2 S (level),256,0.018202749845529588
+electricity_pricing,Chronos-2 S (level),1024,0.011698913742599237
+electricity_pricing,Chronos-2 S (diff),16,25.247390353347765
+electricity_pricing,Chronos-2 S (diff),64,1.0568228623448883
+electricity_pricing,Chronos-2 S (diff),256,0.2737485857718184
+electricity_pricing,Chronos-2 S (diff),1024,0.2831560838386842
+electricity_pricing,MLP,16,
+electricity_pricing,MLP,64,63801494157.78616
+electricity_pricing,MLP,256,0.0996193087173322
+electricity_pricing,MLP,1024,0.09402323147326576

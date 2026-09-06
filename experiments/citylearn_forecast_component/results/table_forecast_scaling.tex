@@ -1,0 +1,15 @@
+\begin{table}[H]
+\centering
+\caption{24h-ahead NMSE at the largest context budget ($N=1024$). Best (lowest) per column in bold. Persistence scores 1.0.}
+\label{tab:forecast_component}
+\begin{tabular}{lrrr}
+\toprule
+ & Load & Solar & Price \\
+\midrule
+Chronos-2 S, differenced & 0.83 & 0.172 & 0.283 \\
+Chronos-2 S, levels & \textbf{0.433} & \textbf{0.0771} & \textbf{0.0117} \\
+MLP & 0.606 & 0.0936 & 0.094 \\
+Seasonal-naive & 0.797 & 0.148 & 0.076 \\
+\bottomrule
+\end{tabular}
+\end{table}
