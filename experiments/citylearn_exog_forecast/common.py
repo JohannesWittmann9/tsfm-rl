@@ -60,7 +60,7 @@ DATASET_PREDICTED_COLS = [
     for k in (1, 2, 3)
 ]
 
-TOTAL_TIMESTEPS = 131_040  # ~19 passes over the train blocks
+TOTAL_TIMESTEPS = 202_320
 GAMMA = 0.99
 
 BATTERY_CAPACITY = 6.4  # kWh (schema)
