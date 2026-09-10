@@ -1,36 +1,24 @@
-# tsfm-rl
+# Time Series Foundation Models in Reinforcement Learning
 
-Time-series foundation models (TSFMs) for reinforcement learning.
-
-We investigate whether TSFMs such as Chronos can serve as a world model or forecasting
-component in RL, using [CityLearn](https://www.citylearn.net/), a Gymnasium environment
-for building energy coordination and demand response, as the test scenario.
-
-**Research questions**
-
-- *TBD*
-
----
+This project studies how time-series foundation models can be used in reinforcement learning.
+Chronos and Moirai are evaluated as dynamics models for control tasks and as forecasting components for building energy management with [CityLearn](https://www.citylearn.net/).
+The experiments compare them with smaller task-specific baselines such as MLP and VARX models.
 
 ## Setup
 
-Requires Python >= 3.10.
+The project requires Git, Python 3.10 or newer, and [uv](https://docs.astral.sh/uv/).
+Package dependencies are declared in `pyproject.toml`.
+The exact resolved versions are stored in `uv.lock`.
 
-**1. Install uv**
-
-Windows:
-
-```powershell
-winget install --id=astral-sh.uv -e
-```
-
-macOS / Linux:
+Install `uv` on macOS or Linux:
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-**2. Clone and sync**
+On Windows, run `winget install --id=astral-sh.uv -e`.
+
+Clone the repository and install all dependencies:
 
 ```bash
 git clone https://github.com/JohannesWittmann9/tsfm-rl.git
@@ -38,74 +26,62 @@ cd tsfm-rl
 uv sync --locked
 ```
 
-`uv sync --locked` creates the virtualenv, installs the exact versions from `uv.lock`,
-and fails if the lockfile is out of date. That failure is intentional, it means someone
-changed dependencies without committing the lockfile.
-
-**3. Verify**
+`uv sync --locked` creates a local virtual environment and installs the versions from the lockfile.
+Run the smoke test to check the CityLearn installation:
 
 ```bash
-uv run pytest # TBD: Currently no tests
-uv run python scripts/smoke.py # Minimal script to check setup (Maybe enhance?)
+uv run python scripts/smoke.py
 ```
 
-### Platform notes
+Model weights are downloaded automatically when Chronos or Moirai is used for the first time.
+The initial run therefore requires an internet connection and may take longer.
 
-- **Windows.** CityLearn pins `openstudio<=3.3.0`, which has no Windows wheels. We
-  override it to `>=3.10.0` in `pyproject.toml`; openstudio is unused in our code path.
+## Running the experiments
 
----
+Run these commands from the repository root.
 
-## Project structure
+### Dynamics models
 
-```
-src/tsfmrl/
-├── TBD
-scripts/          entry points: collect_data.py, run_experiment.py, figures.py
-tests/            maybe we will need some testing
-notebooks/        exploration only, never imported by src/
-docs/             decisions.md and design notes (TBD)
-```
-
----
-
-## Contributing
-
-### Dependencies
-
-- Add packages with `uv add <package>`
-- Commit `pyproject.toml` **and** `uv.lock` together in the same PR.
-- **Never `pip install` into the project venv.** It installs packages the lockfile
-  doesn't record, the environment silently diverges, and results stop being reproducible.
-- Prefix commands with `uv run` rather than activating the venv manually, e.g. `uv run pytest` or `uv run ruff check`.
-
-### Code style
-
-`ruff` handles linting and formatting, enforced by pre-commit and CI. Set it up once:
+Run the standard dynamics-model experiments on Pendulum, MountainCar, Acrobot, and CartPole:
 
 ```bash
-uv run pre-commit install
+uv run python experiments/dyna_standard/run_all.py
 ```
 
-## Citation
+### CityLearn forecasting component
 
-CityLearn:
+Run the CityLearn forecasting comparison:
 
-```bibtex
-@article{doi:10.1080/19401493.2024.2418813,
-   author = {Nweye, Kingsley and Kaspar, Kathryn and Buscemi, Giacomo and Fonseca, Tiago
-             and Pinto, Giuseppe and Ghose, Dipanjan and Duddukuru, Satvik and Pratapa, Pavani
-             and Li, Han and Mohammadi, Javad and Lino Ferreira, Luis and Hong, Tianzhen
-             and Ouf, Mohamed and Capozzoli, Alfonso and Nagy, Zoltan},
-   title = {CityLearn v2: energy-flexible, resilient, occupant-centric, and carbon-aware
-            management of grid-interactive communities},
-   journal = {Journal of Building Performance Simulation},
-   volume = {0},
-   number = {0},
-   pages = {1--22},
-   year = {2024},
-   publisher = {Taylor \& Francis},
-   doi = {10.1080/19401493.2024.2418813},
-   url = {https://doi.org/10.1080/19401493.2024.2418813},
-}
+```bash
+cd experiments/citylearn_forecast_component
+uv run python run.py
+uv run python plot.py
 ```
+
+### CityLearn exogenous forecasts
+
+Generate the Chronos forecast features and train the CityLearn agents that use them:
+
+```bash
+cd experiments/citylearn_exog_forecast
+uv run python forecast_chronos.py
+uv run python forecast_train.py
+```
+
+`forecast_chronos.py` writes the forecast data used during training.
+The trained models and learning curves are saved under `models/` and `results/`.
+The evaluation and plots are available in `forecast.ipynb`.
+
+Results are written to the corresponding experiment directories.
+The README files inside `dyna_standard` and `citylearn_forecast_component` describe their available options and shorter test runs.
+
+## Repository layout
+
+```text
+experiments/   experiment code, cached results, and figures
+notebooks/     exploratory notebooks
+scripts/       training, smoke-test, and cluster entry points
+```
+
+Use `uv run` for project commands so they run with the locked environment.
+Run `uv run ruff check .` to check the Python code.

@@ -1,8 +1,7 @@
 # CityLearn forecast component
 
-Answers section 3.2 of the report ("TSFM as a Forecasting Component"): does
-Chronos-2 zero-shot forecasting compete with classical baselines on real
-CityLearn time series, and how does that compare to section 3.1's result on
+Does Chronos-2 zero-shot forecasting compete with classical baselines on real
+CityLearn time series, and how does that compare to the results on
 synthetic control-environment dynamics?
 
 Pure forecasting, no RL, no battery model, no environment stepping. Three
