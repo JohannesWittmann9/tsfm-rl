@@ -2,7 +2,7 @@
 #SBATCH --job-name=forecast_train
 #SBATCH --partition=NvidiaAll
 #SBATCH --cpus-per-task=2
-#SBATCH --time=06:00:00
+#SBATCH --time=01:30:00
 #SBATCH --array=0-26%14
 #SBATCH --output=logs/%x_%A_%a.out
 #SBATCH --error=logs/%x_%A_%a.err
