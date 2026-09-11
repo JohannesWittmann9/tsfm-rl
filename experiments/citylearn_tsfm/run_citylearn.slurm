@@ -20,7 +20,7 @@ python3 -u train_citylearn_tsfm.py \
     --model-name "amazon/chronos-2" \
     --device cuda \
     --wandb-project "CityLearn-TSFM-RL" \
-    --wandb-group "e2e-multiseed-annual" \
+    --wandb-group "e2e-multiseed-16-context" \
     --wandb-run-name "slurm_job_${SLURM_JOB_ID}" \
     --output-dir "./experiments/run_${SLURM_JOB_ID}"
 

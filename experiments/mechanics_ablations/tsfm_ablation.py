@@ -1,17 +1,3 @@
-#!/usr/bin/env python3
-"""
-TSFM Causal Structure, Feature Attribution, LOCO Ablation & Action Sweep Suite for CityLearn
-
-Evaluates:
-  1. Leave-One-Channel-Out (LOCO) Dynamics Fidelity (nMAE, MAE, RMSE, CRPS per dimension)
-  2. [ADDED 3.0] Subsystem-Isolated Action Sweeps (Battery, HVAC/Cooling, Thermal Storage)
-  3. [ADDED 3.0] Cross-Building Spatial Attention Leakage & Multi-Agent Isolation Audit
-  4. [ADDED 3.2] Ground-Truth Reference Comparisons & Passive Baseline Overlays across Action Sweeps
-  5. [REMOVED 3.3] Integrated Gradients Attribution and Saliency Profiles removed
-  6. Downstream PPO Policy Retraining & Sim-to-Real Exploitation Diagnostics
-  7. Multi-Panel Diagnostic Visualizations & W&B Artifact Upload
-"""
-
 import os
 import argparse
 import collections
@@ -35,9 +21,6 @@ from citylearn.citylearn import CityLearnEnv
 from citylearn.wrappers import StableBaselines3Wrapper
 
 
-# =============================================================================
-# 1. Environment: CityLearn TSFM World Model with Channel Ablation Support
-# =============================================================================
 class CityLearnTSFMEnv(gym.Env):
     metadata = {"render_modes": []}
 
@@ -311,9 +294,6 @@ class CityLearnTSFMEnv(gym.Env):
         return float(reward_list[0]) if isinstance(reward_list, list) else float(reward_list)
 
 
-# =============================================================================
-# 2. Offline Dataset Harvester & Marginal Statistics Estimator
-# =============================================================================
 def collect_offline_data_and_statistics(schema: str, num_steps: int = 2000, seed: int = 42):
     print(f"\n[Data Collection] Gathering {num_steps} transitions to compute marginal statistics...")
     raw_env = CityLearnEnv(schema, central_agent=True)
@@ -359,21 +339,21 @@ def collect_offline_data_and_statistics(schema: str, num_steps: int = 2000, seed
 
     num_buildings = len(raw_env.buildings)
     
-    # 1. Map Actions to Buildings
-    # [Fixed 3.3] Use bldg.action_space.shape[0] to strictly slice active control dimensions (3 per building)
+    # Map Actions to Buildings
+    # [Fixed] Use bldg.action_space.shape[0] to strictly slice active control dimensions (3 per building)
     # Prevents over-allocation caused by len(bldg.action_metadata) which returned dictionary device types (7)
     building_actions = {b: [] for b in range(num_buildings)}
     act_ptr = 0
     for b_idx, bldg in enumerate(raw_env.buildings):
-        num_bldg_acts = bldg.action_space.shape[0]  # [Fixed 3.3]
+        num_bldg_acts = bldg.action_space.shape[0] 
         building_actions[b_idx] = action_cols[act_ptr : act_ptr + num_bldg_acts]
         act_ptr += num_bldg_acts
 
-    # 2. Map Target States to Buildings (Separate Shared Weather/Pricing vs. Building States)
+    # Map Target States to Buildings (Separate Shared Weather/Pricing vs. Building States)
     building_targets = {b: [] for b in range(num_buildings)}
     shared_targets = []
     
-    # [Fixed 3.3] Added "pricing" to shared keywords to prevent tariff indices from falsely attaching to Building 0
+    # [Fixed] Added "pricing" to shared keywords to prevent tariff indices from falsely attaching to Building 0
     shared_keywords = ["day_type", "hour", "outdoor_dry_bulb_temperature", "diffuse_solar", "direct_solar", "carbon_intensity", "pricing"]
     
     bldg_var_counts = collections.defaultdict(int)
@@ -407,9 +387,6 @@ def collect_offline_data_and_statistics(schema: str, num_steps: int = 2000, seed
     return dataset
 
 
-# =============================================================================
-# 3. Leave-One-Channel-Out (LOCO) Dynamics Error Evaluator
-# =============================================================================
 def evaluate_dynamics_fidelity(pipeline, dataset, context_length=16, ablation_channel=None, eval_steps=720):
     all_cols = dataset["all_cols"]
     target_cols = dataset["target_cols"]
@@ -467,9 +444,7 @@ def evaluate_dynamics_fidelity(pipeline, dataset, context_length=16, ablation_ch
                         "dhw_storage_soc", "storage_soc"
                     ]):
                         mask = True
-                elif ab_lower == "past_actions" and col.startswith("action_"):
-                    mask = True
-                elif ab_lower == col_lower or ab_lower == col_lower.replace("target_", "").replace("action_", ""):
+                elif ab_lower == "past_actions" and col.startswith("action_") or ab_lower == col_lower or ab_lower == col_lower.replace("target_", "").replace("action_", ""):
                     mask = True
 
                 if mask and col in context_df.columns:
@@ -537,9 +512,6 @@ def evaluate_dynamics_fidelity(pipeline, dataset, context_length=16, ablation_ch
     return summary_metrics
 
 
-# =============================================================================
-# 4A. Subsystem-Isolated Action Sweep Engine
-# =============================================================================
 def evaluate_isolated_device_action_sweep(
     pipeline,
     dataset,
@@ -569,7 +541,7 @@ def evaluate_isolated_device_action_sweep(
     }
 
     print("\n" + "=" * 60)
-    print(" PHASE 2A: ISOLATED DEVICE-BY-DEVICE ACTION SWEEPS ")
+    print("ISOLATED DEVICE-BY-DEVICE ACTION SWEEPS ")
     print("=" * 60)
     for dev_name, cols in device_groups.items():
         print(f" -> Device Group [{dev_name}]: {len(cols)} active channels mapped -> {cols}")
@@ -633,9 +605,6 @@ def evaluate_isolated_device_action_sweep(
     return device_sweep_results, test_action_values
 
 
-# =============================================================================
-# 4B. Cross-Building Spatial Attention Leakage Probe
-# =============================================================================
 def evaluate_cross_building_spatial_leakage(
     pipeline,
     dataset,
@@ -665,7 +634,7 @@ def evaluate_cross_building_spatial_leakage(
     ]
 
     print("\n" + "=" * 60)
-    print(f" PHASE 2B: CROSS-BUILDING SPATIAL LEAKAGE PROBE (Target: Bldg {target_building_idx}) ")
+    print(f"CROSS-BUILDING SPATIAL LEAKAGE PROBE (Target: Bldg {target_building_idx}) ")
     print("=" * 60)
     print(f" -> Perturbing Building {target_building_idx} Actions ({len(own_action_cols)} channels): {own_action_cols}")
     print(f" -> Monitoring Own Target States ({len(own_target_indices)}) vs Other Building States ({len(other_target_indices)})")
@@ -728,19 +697,9 @@ def evaluate_cross_building_spatial_leakage(
 
     return leakage_df, mean_resp_matrix, own_target_indices, other_target_indices
 
-
-# =============================================================================
-# [REMOVED 3.3] 5. Integrated Gradients & Temporal Attribution Engine Removed
-# [REMOVED 3.3] 6. Domain Physics Prior Cross-Checking Removed
-# =============================================================================
-
-
-# =============================================================================
-# 5. Downstream PPO Training & Annual Ground-Truth Evaluation
-# =============================================================================
 def run_downstream_ppo_ablation(args, pipeline, marginal_means, ablation_channels, seed=42):
     print("\n============================================================")
-    print("      PHASE 3: DOWNSTREAM PPO RETRAINING ON ABLATED TSFM    ")
+    print("        DOWNSTREAM PPO RETRAINING ON ABLATED TSFM           ")
     print("============================================================")
 
     ablation_rl_results = []
@@ -770,7 +729,7 @@ def run_downstream_ppo_ablation(args, pipeline, marginal_means, ablation_channel
 
         ppo_model.learn(total_timesteps=args.timesteps)
 
-        print(f"  [Sim-to-Real Deployment] Evaluating Policy in Ground-Truth Env...")
+        print("  [Sim-to-Real Deployment] Evaluating Policy in Ground-Truth Env...")
         eval_env = CityLearnEnv(args.eval_schema, central_agent=True)
         eval_env = StableBaselines3Wrapper(eval_env)
 
@@ -809,9 +768,6 @@ def run_downstream_ppo_ablation(args, pipeline, marginal_means, ablation_channel
     return pd.DataFrame(ablation_rl_results)
 
 
-# =============================================================================
-# 6. Exploitation vs. Signal Diagnostic Cross-Analyzer
-# =============================================================================
 def analyze_exploitation_vs_signal(dynamics_df: pd.DataFrame, rl_df: pd.DataFrame):
     merged = pd.merge(dynamics_df, rl_df, on="Ablation Channel")
 
@@ -842,9 +798,6 @@ def analyze_exploitation_vs_signal(dynamics_df: pd.DataFrame, rl_df: pd.DataFram
     return merged
 
 
-# =============================================================================
-# 7. Comprehensive Diagnostic Visualization Suite [Added 3.3 & Removed 3.3]
-# =============================================================================
 def generate_all_experiment_visualizations(
     target_cols: list,
     feature_cols: list,
@@ -856,22 +809,12 @@ def generate_all_experiment_visualizations(
     test_action_vals: list,
     output_dir: str = "./visualizations",
 ):
-    """
-    [Added 3.3] Streamlined visualization suite:
-      - Plot A1: Subsystem-Isolated Actuator Sweeps with Passive Idle Reference & Active Shading
-      - Plot A2: Cross-Building Spatial Isolation Audit with Reference Leakage Band
-      - Plot D: LOCO Dynamics Error Degradation Bar Chart
-      - Plot E: Signal vs. Exploitation Diagnostic Quadrant Frontier
-    [Removed 3.3] Removed Integrated Gradients Heatmap (Plot B) & Decay Curves (Plot C).
-    """
     os.makedirs(output_dir, exist_ok=True)
     generated_figures = {}
 
     plt.style.use("seaborn-v0_8-whitegrid" if "seaborn-v0_8-whitegrid" in plt.style.available else "default")
 
-    # -------------------------------------------------------------------------
     # Plot A1: Subsystem-Isolated Actuator Sweeps with Reference Baselines
-    # -------------------------------------------------------------------------
     if device_sweep_results:
         fig_a1, axes_a1 = plt.subplots(1, 3, figsize=(17, 5.2), dpi=300)
         configs = [
@@ -920,9 +863,7 @@ def generate_all_experiment_visualizations(
         fig_a1.savefig(path_a1, dpi=300, bbox_inches="tight")
         generated_figures["plot_A1_isolated_device_sweeps"] = fig_a1
 
-    # -------------------------------------------------------------------------
     # Plot A2: Cross-Building Spatial Isolation & Attention Leakage
-    # -------------------------------------------------------------------------
     if spatial_leakage_bundle is not None:
         leakage_df, spatial_resp_matrix, own_indices, other_indices, target_bldg = spatial_leakage_bundle
         fig_a2, (ax_sp1, ax_sp2) = plt.subplots(1, 2, figsize=(15, 5.2), dpi=300)
@@ -956,9 +897,7 @@ def generate_all_experiment_visualizations(
         fig_a2.savefig(path_a2, dpi=300, bbox_inches="tight")
         generated_figures["plot_A2_spatial_leakage"] = fig_a2
 
-    # -------------------------------------------------------------------------
     # Plot D: LOCO Dynamics Error Degradation Bar Chart
-    # -------------------------------------------------------------------------
     if dynamics_df is not None and not dynamics_df.empty:
         fig_d, ax_d = plt.subplots(figsize=(10, 4.5), dpi=300)
         nmae_col = "Overall nMAE (Scale-Normalized)" if "Overall nMAE (Scale-Normalized)" in dynamics_df.columns else "Overall MAE"
@@ -979,9 +918,7 @@ def generate_all_experiment_visualizations(
         fig_d.savefig(path_d, dpi=300, bbox_inches="tight")
         generated_figures["plot_D_loco_dynamics_error"] = fig_d
 
-    # -------------------------------------------------------------------------
     # Plot E: Signal vs. Exploitation Diagnostic Quadrant Frontier
-    # -------------------------------------------------------------------------
     if diagnostic_df is not None and not diagnostic_df.empty:
         fig_e, ax_e = plt.subplots(figsize=(8.5, 6), dpi=300)
         df_plot = diagnostic_df[diagnostic_df["Ablation Channel"] != "None (Baseline)"].copy()
@@ -1022,10 +959,6 @@ def generate_all_experiment_visualizations(
     print(f"[Visualization Engine] All {len(generated_figures)} diagnostic figures generated and saved to {output_dir}")
     return generated_figures
 
-
-# =============================================================================
-# 8. Argument Parsing & Main Orchestrator
-# =============================================================================
 def parse_args():
     parser = argparse.ArgumentParser(description="TSFM Input Channel Attribution, LOCO Ablation & Action Sweep Suite")
     parser.add_argument("--timesteps", type=int, default=50000, help="Timesteps per PPO ablation training")
@@ -1086,16 +1019,13 @@ def main():
         config=vars(args),
     )
 
-    # 1. Preload Chronos Pipeline
     print(f"\n[Chronos Setup] Pre-loading TSFM Pipeline ({args.model_name}) on {device}...")
     pipeline = Chronos2Pipeline.from_pretrained(args.model_name, device_map=device)
 
-    # 2. Collect Reference Dataset & Marginal Statistics
     dataset = collect_offline_data_and_statistics(schema=args.train_schema, num_steps=2000, seed=args.seed)
 
-    # 3. Leave-One-Channel-Out Dynamics Fidelity Benchmark
     print("\n============================================================")
-    print("      PHASE 1: LEAVE-ONE-CHANNEL-OUT DYNAMICS BENCHMARK     ")
+    print("       LEAVE-ONE-CHANNEL-OUT DYNAMICS BENCHMARK             ")
     print("============================================================")
     dynamics_records = []
     for ab_chan in args.ablation_channels:
@@ -1110,12 +1040,12 @@ def main():
         )
         dynamics_records.append(metrics)
 
+    # [Removed] CRPS disabled entirely (faulty)
     dynamics_df = pd.DataFrame(dynamics_records)
-    print("\n--- Dynamics Error Metrics (nMAE / MAE / RMSE / CRPS) ---")
-    print(dynamics_df[["Ablation Channel", "Overall nMAE (Scale-Normalized)", "Overall MAE", "Overall RMSE", "Overall CRPS"]].to_string(index=False))
+    print("\n--- Dynamics Error Metrics (nMAE / MAE / RMSE ) ---")
+    print(dynamics_df[["Ablation Channel", "Overall nMAE (Scale-Normalized)", "Overall MAE", "Overall RMSE"]].to_string(index=False))
     wandb.log({"loco/dynamics_fidelity_table": wandb.Table(dataframe=dynamics_df)})
 
-    # 4. Subsystem-Isolated Action Sweeps
     device_sweep_results, test_act_vals = evaluate_isolated_device_action_sweep(
         pipeline=pipeline,
         dataset=dataset,
@@ -1128,7 +1058,6 @@ def main():
         print(res["summary_df"].head(100).to_string())
         wandb.log({f"action_sweep/isolated_{dev_name.lower()}_table": wandb.Table(dataframe=res["summary_df"].reset_index())})
 
-    # 5. Cross-Building Spatial Attention Leakage Probe
     leakage_df, spatial_resp_matrix, own_indices, other_indices = evaluate_cross_building_spatial_leakage(
         pipeline=pipeline,
         dataset=dataset,
@@ -1140,9 +1069,6 @@ def main():
     wandb.log({"spatial_leakage/isolation_report": wandb.Table(dataframe=leakage_df)})
     spatial_leakage_bundle = (leakage_df, spatial_resp_matrix, own_indices, other_indices, args.target_building_leakage_idx)
 
-    # [REMOVED 3.3] Integrated Gradients attribution and domain physics prior cross-checks removed
-
-    # 6. Downstream PPO Policy Retraining & Sim-to-Real Evaluation
     rl_df = None
     diagnostic_df = None
     if not args.skip_rl_retraining:
@@ -1163,9 +1089,8 @@ def main():
         print(diagnostic_df[["Ablation Channel", "Delta_nMAE (%)", "Delta_Cost (%)", "Diagnostic Classification"]].to_string(index=False))
         wandb.log({"diagnostic/exploitation_summary": wandb.Table(dataframe=diagnostic_df)})
 
-    # 7. Generate Diagnostic Visualizations & Upload to W&B [Added 3.3]
     print("\n============================================================")
-    print("      PHASE 4: RENDERING DIAGNOSTIC VISUALIZATION SUITE     ")
+    print("         RENDERING DIAGNOSTIC VISUALIZATION SUITE           ")
     print("============================================================")
     generated_figures = generate_all_experiment_visualizations(
         target_cols=dataset["target_cols"],
