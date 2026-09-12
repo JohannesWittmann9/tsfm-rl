@@ -66,7 +66,10 @@ def cells(ns):
 
 def train(ns, env_id, model_name, n, seed):
     log_dir = ns["run_dir"](env_id, model_name, n, seed)
-    if (log_dir / "best_model.zip").exists():
+    # The marker, not best_model.zip: the callback writes that on the first
+    # improvement, so a run killed midway would otherwise look finished and be
+    # skipped with a half-trained policy.
+    if (log_dir / "done").exists():
         print(f"skip (already trained): {log_dir.name}", flush=True)
         return
     print(f"=== {env_id} | {model_name} | N={n} | seed={seed}", flush=True)
@@ -84,6 +87,7 @@ def train(ns, env_id, model_name, n, seed):
         ),
     )
     env.close()
+    (log_dir / "done").touch()
 
 
 def main():
