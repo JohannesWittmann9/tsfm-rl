@@ -25,18 +25,20 @@ STYLE = {
     "Chronos-2 S (diff, r=6)": ("Chronos-2 S", "Chronos-2 S, $r=6$", "o"),
     "Chronos-2 S (diff, r=1)": ("Chronos-2 S", "Chronos-2 S, $r=1$", "s"),
 }
-ENVS = ["CartPole-v1", "MountainCar-v0"]
-TITLES = {"CartPole-v1": "CartPole", "MountainCar-v0": "MountainCar"}
+ENVS = ["CartPole-v1", "MountainCar-v0", "Pendulum-v1"]
+TITLES = {"CartPole-v1": "CartPole", "MountainCar-v0": "MountainCar",
+          "Pendulum-v1": "Pendulum"}
 # random-policy and solved thresholds, for scale
 REFS = {
     "CartPole-v1": [(22.0, "random"), (475.0, "solved")],
     "MountainCar-v0": [(-200.0, "random"), (-110.0, "solved")],
+    "Pendulum-v1": [(-1179.0, "random"), (-150.0, "solved")],
 }
 
 results = pd.read_csv(HERE / "ppo_results.csv")
 agg = results.groupby(["environment", "model", "N"]).mean(numeric_only=True).reset_index()
 
-fig, axes = plt.subplots(1, len(ENVS), figsize=(7.4, 3.1))
+fig, axes = plt.subplots(1, len(ENVS), figsize=(3.7 * len(ENVS), 3.1))
 for ax, env_id in zip(axes, ENVS):
     sub = agg[agg.environment == env_id]
     # random-policy and solved levels, named in the caption rather than inline
