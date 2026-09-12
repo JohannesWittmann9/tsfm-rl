@@ -36,7 +36,14 @@ REFS = {
 }
 
 results = pd.read_csv(HERE / "ppo_results.csv")
-agg = results.groupby(["environment", "model", "N"]).mean(numeric_only=True).reset_index()
+by = ["environment", "model", "N"]
+agg = results.groupby(by).mean(numeric_only=True).reset_index()
+if results.seed.nunique() > 1:
+    # several policy seeds: the error bar is the spread across seeds, which
+    # is the uncertainty that matters, not evaluation noise within one seed.
+    sd = results.groupby(by)[["real_reward", "model_reward"]].std().reset_index()
+    agg["real_reward_std"] = sd.real_reward.values
+    agg["model_reward_std"] = sd.model_reward.values
 
 fig, axes = plt.subplots(1, len(ENVS), figsize=(3.7 * len(ENVS), 3.1))
 for ax, env_id in zip(axes, ENVS):
