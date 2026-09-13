@@ -47,6 +47,8 @@ Run the standard dynamics-model experiments on Pendulum, MountainCar, Acrobot, a
 ```bash
 uv run python experiments/dyna_standard/run_all.py
 ```
+Use the notebooks in _experiments/dyna_standard_ for plotting results on individual environments.
+See _experiments/dyna_standard_ppo/dyna_standard_ppo.ipynb_ for running PPO.
 
 ### CityLearn forecasting component
 
