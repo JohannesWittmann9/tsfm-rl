@@ -10,6 +10,7 @@ step. Used by scripts/slurm/dyna_ppo.slurm, one array task per cell.
 
 import argparse
 import json
+import os
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -102,9 +103,21 @@ def main():
         help="print the grid as env|model|N|seed, one cell per line",
     )
     p.add_argument("--timesteps", type=int, help="override TOTAL_TIMESTEPS")
+    p.add_argument(
+        "--horizon",
+        type=int,
+        default=int(os.environ["DYNA_PPO_HORIZON"])
+        if os.environ.get("DYNA_PPO_HORIZON")
+        else None,
+        help="cap model steps per episode (MODEL_HORIZON); also DYNA_PPO_HORIZON",
+    )
     args = p.parse_args()
 
     ns = setup()
+    # Before anything reads it: run_name puts the horizon in the directory name,
+    # so the capped runs do not collide with the full-episode ones.
+    if args.horizon:
+        ns["MODEL_HORIZON"] = args.horizon
     if args.list:
         for env_id, model_name, n, seed in cells(ns):
             print(f"{env_id}|{model_name}|{n}|{seed}")
