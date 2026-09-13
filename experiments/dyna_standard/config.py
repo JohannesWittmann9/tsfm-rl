@@ -151,7 +151,7 @@ ROLLOUT_YLIM = (5e-4, 5)
 SCALE_PLOT_BUDGETS = None
 """Which of the computed SCALE_BUDGETS §6 draws. None draws all of them."""
 
-ROLL_PLOT_H = 30
+ROLL_PLOT_H = 50
 """How far along the horizon §7 and §8 draw. None draws the whole computed
 ROLL_H, so raising ROLL_H can stay a compute decision and this stays the
 presentation one."""

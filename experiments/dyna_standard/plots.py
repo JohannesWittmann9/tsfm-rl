@@ -989,7 +989,7 @@ def fig_stretch(grid, env_ids, outdir, budget=None):
         fig,
         "fig5_stretch",
         outdir,
-        f"One-step error against the stretch factor at $N$={budget}. Filled "
+        f"One-step error against the stretch factor at $K$={budget}. Filled "
         f"markers are the differenced presentation, the open dashed curve is the "
         f"same model on levels. Stretching is a change of resolution, not of "
         f"information: N real samples become $(N-1)r+1$ tokens.",
@@ -1051,7 +1051,7 @@ def fig_scaling(grid, env_ids, outdir, plot_models=None):
             ],
         )
         if i == len(env_ids) // 2:
-            ax.set_xlabel("$N$: context steps / transitions", fontsize=8)
+            ax.set_xlabel("$K$: context steps / transitions", fontsize=8)
         ax.set_title(config.SHORT[env_id], fontsize=8, pad=3)
         ax.tick_params(labelsize=7)
         axgrid(ax)
@@ -1070,7 +1070,7 @@ def fig_scaling(grid, env_ids, outdir, plot_models=None):
         "changed by editing config.PLOT_VARIANTS rather than by re-measuring "
         "anything. A curve ends where its stretched context stops fitting. "
         "For the "
-        "foundation models $N$ is the whole context; for the others it is "
+        "foundation models $K$ is the whole context; for the others it is "
         "the number of transitions fitted on, drawn from episodes of the "
         "same length under the same policy.",
     )
@@ -1100,7 +1100,7 @@ def fig_scaling_configs(grid, env_ids, outdir, model_names=None):
         chosen,
         draw,
         ylabel="one-step NMSE",
-        xlabel="$N$: context steps / transitions",
+        xlabel="$K$: context steps / transitions",
     )
     for row in fig.axes:
         row.set_xscale("log")
@@ -1181,7 +1181,7 @@ def fig_rollout(rollout, env_ids, outdir, plot_models=None, budgets=None):
             if r_i == len(budgets) - 1 and c_i == len(env_ids) // 2:
                 ax.set_xlabel("horizon $h$", fontsize=8)
             if c_i == 0:
-                ax.set_ylabel(f"$N={n}$\nNMSE$(h)$", fontsize=8)
+                ax.set_ylabel(f"$K={n}$\nNMSE$(h)$", fontsize=8)
             if d_all.empty:
                 ax.text(
                     0.5,
@@ -1206,8 +1206,8 @@ def fig_rollout(rollout, env_ids, outdir, plot_models=None, budgets=None):
         f"Open-loop rollout to $h={H}$ with the true actions known, "
         f"repeated at {len(budgets)} data budgets. Every model is drawn in one "
         f"configuration, named in the legend; the full sweep behind it is §7a. "
-        f"A row is one budget: the trained models were fitted on $N$ "
-        f"transitions, the foundation models given $N$ steps of context, "
+        f"A row is one budget: the trained models were fitted on $K$ "
+        f"transitions, the foundation models given $K$ steps of context, "
         f"stretched by the $r$ its legend entry names.",
     )
 
@@ -1246,7 +1246,7 @@ def fig_rollout_configs(rollout, env_ids, outdir, budget=None, model_names=None)
         fig,
         "fig7a_rollout_configs",
         outdir,
-        f"Every configuration of every model over the horizon, at $N$={budget}, "
+        f"Every configuration of every model over the horizon, at $K$={budget}, "
         f"one panel per model. "
         f"Lightness is the sweep value -- the stretch factor $r$ for the foundation models, the history length for the trained ones -- and the dash is the presentation; the heavy marked curve is the one the combined figure draws. "
         f"Persistence sits at 1 at every $h$, so a curve crossing that line has "
@@ -1383,7 +1383,7 @@ def fig_trajectories(traj, env_id, outdir, budget=None, plot_models=None):
         f"fig8_trajectories_{config.ENV_DIRS[env_id]}",
         outdir,
         f"Open-loop rollout on {config.SHORT[env_id]} as states rather than as an "
-        f"error, at $N$={budget} with the true actions known throughout. Black is "
+        f"error, at $K$={budget} with the true actions known throughout. Black is "
         f"the environment, dashed is each model. Rows are observation channels, "
         f"columns are windows from the same evaluation set section 7 scores.",
     )
