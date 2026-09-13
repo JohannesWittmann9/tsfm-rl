@@ -59,13 +59,10 @@ def legend(fig, extra=(), ncol=3, y=-0.02):
 # --------------------------------------------------------------- policy figure
 results = pd.read_csv(HERE / "ppo_results.csv")
 by = ["environment", "model", "N"]
-agg = results.groupby(by).mean(numeric_only=True).reset_index()
-if results.seed.nunique() > 1:
-    # several policy seeds: the error bar is the spread across seeds, which is
-    # the uncertainty that matters, not evaluation noise within one seed.
-    sd = results.groupby(by)[["real_reward", "model_reward"]].std().reset_index()
-    agg["real_reward_std"] = sd.real_reward.values
-    agg["model_reward_std"] = sd.model_reward.values
+# Mean across policy seeds with a min-max band, drawn the same way as the
+# learning-curve figure. With three seeds the band is the honest summary, and
+# unlike error bars five models on three budgets stay readable where they meet.
+agg = results.groupby(by).real_reward.agg(["mean", "min", "max"]).reset_index()
 
 fig, axes = plt.subplots(1, len(ENVS), figsize=(3.7 * len(ENVS), 3.1))
 for ax, env_id in zip(axes, ENVS):
@@ -78,16 +75,16 @@ for ax, env_id in zip(axes, ENVS):
             continue
         colour, marker, _ = style(label)
         # Real-environment return only. The in-model return is a diagnostic and
-        # is not reported: on MountainCar the observation clip can turn an
-        # out-of-range prediction into a goal-reached terminal state, so that
-        # column is not trustworthy there.
-        ax.errorbar(c["N"], c.real_reward, yerr=c.real_reward_std, color=colour,
-                    marker=marker, ms=5, lw=1.6, capsize=2, zorder=3)
+        # is not reported: it is measured inside the model being judged.
+        ax.fill_between(c["N"], c["min"], c["max"], color=colour, alpha=0.13,
+                        lw=0, zorder=2)
+        ax.plot(c["N"], c["mean"], color=colour, marker=marker, ms=4.5, lw=1.6,
+                zorder=3)
     ax.set_xscale("log", base=2)
     ax.set_xticks(N_VALUES, labels=[str(v) for v in N_VALUES])
     ax.minorticks_off()
     ax.set_title(TITLES[env_id], fontsize=10)
-    ax.set_xlabel("$N$: context steps / transitions", fontsize=8)
+    ax.set_xlabel("$K$: context steps / transitions", fontsize=8)
     ax.grid(alpha=0.25, lw=0.5)
     ax.tick_params(labelsize=8)
 axes[0].set_ylabel("return, real environment", fontsize=8)
@@ -131,7 +128,7 @@ seeds = sorted(results.seed.unique())
 grid = np.linspace(TOTAL_TIMESTEPS / 40, TOTAL_TIMESTEPS, 60)
 fig, axes = plt.subplots(len(LEARN_ENVS), len(N_VALUES),
                          figsize=(3.3 * len(N_VALUES), 2.7 * len(LEARN_ENVS)),
-                         squeeze=False, sharex=True, sharey=True)
+                         squeeze=False, sharex=True, sharey="row")
 for row, env_id in enumerate(LEARN_ENVS):
     for col, n in enumerate(N_VALUES):
         ax = axes[row][col]
@@ -150,12 +147,11 @@ for row, env_id in enumerate(LEARN_ENVS):
         ax.grid(alpha=0.25, lw=0.5)
         ax.tick_params(labelsize=8)
         if row == 0:
-            ax.set_title(f"$N={n}$", fontsize=9)
+            ax.set_title(f"$K={n}$", fontsize=9)
         if row == len(LEARN_ENVS) - 1:
             ax.set_xlabel("PPO timesteps", fontsize=8)
         if col == 0:
-            ax.set_ylabel(f"{TITLES[env_id]}
-return inside the model",
+            ax.set_ylabel(TITLES[env_id] + "\nreturn inside the model",
                           fontsize=8)
 legend(fig, ncol=5, y=-0.04)
 fig.tight_layout(rect=(0, 0.08, 1, 1))
